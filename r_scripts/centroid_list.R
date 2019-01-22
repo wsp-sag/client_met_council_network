@@ -15,18 +15,53 @@ library(sf)
 options(stringsAsFactors = FALSE)
 
 # IO Paths
-link_shp_path <- "input/base_network_link.shp"
-node_shp_path <- "input/base_network_node.shp"
-taz_
+link_df_path <- "input/base_network_link.shp"
+node_df_path <- "input/base_network_node.shp"
+taz_df_path <- "input/Zones_2015.dbf"
 
 centroid_links_out_path <- "output/centroid_links.csv"
 centroid_nodes_out_path <- "output/input_centroid_nodes.csv"
 
 # Read in files
-link_shp <- st_read(link_shp_path) %>% 
+link_df <- st_read(link_df_path) %>% 
   rename_all(tolower)
-node_shp <- st_read(node_shp_path) %>%
-  rename_all(tolower)
+st_geometry(link_df) <- NULL
 
-link_shp <- link_shp %>% 
-  mutate()
+node_df <- st_read(node_df_path) %>%
+  rename_all(tolower)
+st_geometry(node_df) <- NULL
+
+
+rm(link_df_path, node_df_path)
+
+# Find centroids
+centroid_node_df <- link_df %>% 
+  filter(centroid == 1) %>% 
+  select(node = a) %>%
+  group_by(node) %>%
+  summarise(num = n())
+
+non_centroid_node_df <- link_df %>%
+  filter(centroid == 0) %>%
+  select(node = a) %>% 
+  group_by(node) %>%
+  summarise(num = n())
+
+external_node_df <- link_df %>%
+  filter(county == 10) %>%
+  select(node = a) %>% 
+  group_by(node) %>% 
+  summarise(num = n())
+
+node_df <- node_df %>%
+  mutate(centroid_node = ifelse(n %in% centroid_node_df$node & !(n %in% non_centroid_node_df$node), 1, 0),
+         centroid_connector_node = ifelse(n %in% centroid_node_df, 1, 0),
+         external = ifelse(n %in% external_node_df$node, 1, 0))
+
+centroid_link_df <- link_df %>%
+  filter(centroid == 1) %>%
+  select(a, b)
+
+#Write results
+write.csv(centroid_link_df, centroid_links_out_path)
+write.csv(node_df, centroid_nodes_out_path)
