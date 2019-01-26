@@ -35,6 +35,23 @@ st_geometry(node_df) <- NULL
 rm(link_df_path, node_df_path)
 
 # Find centroids
+external_node_list <- link_df %>%
+  filter(a < 3200) %>% 
+  filter(county == 10) %>%
+  .$a
+
+node_df <- node_df %>%
+  mutate(centroid = ifelse(n < 3200, 1, 0),
+         external = ifelse(n %in% external_node_list, 1, 0))
+
+
+centroid_link_df <- link_df %>%
+  filter(a < 3200 | b < 3200) %>%
+  filter(county == 10) 
+
+
+
+
 centroid_node_df <- link_df %>% 
   filter(centroid == 1) %>% 
   select(node = a) %>%
@@ -55,8 +72,8 @@ external_node_df <- link_df %>%
 
 node_df <- node_df %>%
   mutate(centroid_node = ifelse(n %in% centroid_node_df$node & !(n %in% non_centroid_node_df$node), 1, 0),
-         centroid_connector_node = ifelse(n %in% centroid_node_df, 1, 0),
-         external = ifelse(n %in% external_node_df$node, 1, 0))
+         centroid_connector_node = ifelse(n %in% centroid_node_df & n %in% non_centroid_node_df$node, 1, 0),
+         external_node = ifelse(n %in% external_node_df$node, 1, 0))
 
 centroid_link_df <- link_df %>%
   filter(centroid == 1) %>%
