@@ -1,77 +1,46 @@
-; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
+; Network.net provided by Rachel Wiken at MetCouncil via "WSPHandoff_Jan2019" data
+; transmitted here: ftp://ftp.metc.state.mn.us/MTS/NetworkRebuild/WSP_010319/
 
-; The network is taken from the "Network.net" file in the WSPHandoff_Jan2019 data
-; transmission (ftp://ftp.metc.state.mn.us/MTS/NetworkRebuild/WSP_010319/) 
-; provided by Rachel Wiken at MetCouncil
-
-/*RUN PGM = NETWORK 
-
-FILEI NETI= "Network.net"
-
-IF (A < 3200 || B < 3200) 
-PRINT FILE = "centroid_links.csv" CSV = T LIST = A, B
-ENDIF
-
-CENTROID = 0
-IF (A < 3200)
-CENTROID = 1
-ENDIF
-
-EXTERNAL = 0
-IF (COUNTY == 10 && A < 3200)
-EXTERNAL = 1
-ENDIF
-
-PRINT FILE = "input_centroid_node.csv",
-  CSV = T,
-  LIST = A, CENTROID, EXTERNAL
-
-;PRINTO = 1
-ENDRUN
-*/
 
 RUN PGM=NETWORK 
 
-NETI = "Network.net"
+   NETI = "Network.net"
 
-; Find centroid links
-PHASE = LINKMERGE
-_MAXZONES = 3200
+   PHASE = LINKMERGE
+     
+     _MAXZONES = 3200
 
-IF (_taskOne = 0)
-  LIST = "    A,", 
-         "    B",
-  FILE = "centroid_links.csv"
-  _taskOne = 1
-ENDIF
+        IF (_link_header = 0)
+           
+           LIST = "    A,    B", FILE = "centroid_links.csv"
 
-IF (A < _MAXZONES || B < _MAXZONES)
-  LIST = A, ",", B,
-  FILE = "centroid_links.csv"
-ENDIF
+           _link_header = 1
+        
+        ENDIF
+ 
+        IF (A < _MAXZONES || B < _MAXZONES)
+           
+           LIST = A, ",", B, FILE = "centroid_links.csv"
+        
+        ENDIF
 
-ENDPHASE
+    ENDPHASE
 
-; Find centroid nodes
-PHASE = NODEMERGE
-_MAXZONES = 3200
+    PHASE = NODEMERGE
+       
+       _MAXZONES = 3200
 
-IF (_taskTwo = 0)
-  LIST = "      N,",
-         "      X,",
-         "      Y,",
-  FILE = "input_centroid_node.csv"
-  _taskTwo = 1
-ENDIF
+       IF (_node_header = 0)
 
-IF (N  < _MAXZONES)
-  LIST = N,",", 
-         X,",", 
-         Y,         
-  FILE = "input_centroid_node.csv"
-ENDIF
+           LIST = "      N,      X,      Y,", FILE = "node_coordinates.csv"
 
-ENDPHASE
+           _node_header = 1
+
+        ENDIF
+
+         LIST = N, ",", X, ",", Y, FILE = "node_coordinates.csv"
+
+    ENDPHASE
 
 ENDRUN
 
