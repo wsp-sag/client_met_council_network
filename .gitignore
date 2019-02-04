@@ -18,4 +18,5 @@
 .ipynb_checkpoints/
 
 # Cache
+!model_files/WSPHandoff_Jan2019/ABM 2017/Cube
 model_files/*
