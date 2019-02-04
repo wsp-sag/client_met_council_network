@@ -1,0 +1,18 @@
+&PROJFIL
+11
+0
+0
+Empty Group
+EG
+00
+
+
+Thu Jan 03 14:44:55 2019
+
+N:\MTS\Working\Modeling\ABM\WSPHandoff_Jan2019\ABM 2017\CUBE\FINALASSIGN00.APP
+N:\MTS\Working\Modeling\ABM\WSPHandoff_Jan2019\ABM 2017\CUBE\EMPTYG01.APP
+VOYAGER
+
+
+&End_TextAnnotation
+English

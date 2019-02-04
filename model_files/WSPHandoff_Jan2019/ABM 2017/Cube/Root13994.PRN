@@ -1,0 +1,403 @@
+Page 1  (VOYAGER PILOT) Testpostproc0320
+Metropolitan Council
+-----------------------------------------
+PILOT (v.09/23/2016 [6.4.2 x64]) Mon Mar 20 08:55:40 2017
+
+Args: C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\CUBE\CANET00A.002 -SC:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\CUBE -PRoot -PH:58 -PW:80 -ITestpostproc0320
+Input:   C:...hrlicjn\Desktop\MetCouncilABMPreRelease0.1\CUBE\CANET00A.002
+
+RUN PGM=NETWORK,114 MSG='Combine Convergence Assignment Networks'
+
+PILOT Stack Size = 94 bytes.
+................................................................................
+Page 2  (VOYAGER NETWORK) Testpostproc0320
+Metropolitan Council
+-------------------------------------------
+NETWORK (v.09/23/2016 [6.4.2 x64])  Mon Mar 20 08:55:41 2017
+
+FILEI LINKI[4] = "Root10\HWY_LDNET_@ITER@_NT.NET"
+F(614): Can't find file or file conversion error: Root10\HWY_LDNET_@ITER@_NT.NET
+F(614): OS reports: The system cannot find the path specified.
+FILEI LINKI[3] = "Root10\HWY_LDNET_@ITER@_PM.NET"
+F(614): Can't find file or file conversion error: Root10\HWY_LDNET_@ITER@_PM.NET
+F(614): OS reports: The system cannot find the path specified.
+FILEI LINKI[2] = "Root10\HWY_LDNET_@ITER@_MD.NET"
+F(614): Can't find file or file conversion error: Root10\HWY_LDNET_@ITER@_MD.NET
+F(614): OS reports: The system cannot find the path specified.
+FILEI LINKI[1] = "Root10\HWY_LDNET_@ITER@_AM.NET"
+F(614): Can't find file or file conversion error: Root10\HWY_LDNET_@ITER@_AM.NET
+F(614): OS reports: The system cannot find the path specified.
+
+FILEO NETO = "Root10\HWY_LDNET_@ITER@_DAILY.NET",
+ INCLUDE = A, B, NC_NAME, LINKCLASS, AREA, COUNTY, RCI, DISTANCE, LANES, LANEMILES,
+ SCREENLINE, COUNT,
+ VOL_TRK_AM, VOL_AUTO_AM, VOL_TOT_AM,
+ VOL_TRK_MD, VOL_AUTO_MD, VOL_TOT_MD,
+ VOL_TRK_PM, VOL_AUTO_PM, VOL_TOT_PM,
+ VOL_TRK_NT, VOL_AUTO_NT, VOL_TOT_NT,
+ VOL_TRK_DAILY, VOL_AUTO_DAILY, VOL_TOT_DAILY,
+ FF_TIME, FF_SPD,
+ CSPD_AM,
+ CSPD_MD,
+ CSPD_PM,
+ CSPD_NT,
+ CSPD_DAILY,
+ CAP_AM, CAP_MD, CAP_PM, CAP_NT,
+ AM_CNT, MD_CNT, PM_CNT, NT_CNT,
+ TIME_AM, TIME_MD, TIME_PM, TIME_NT,
+ VMT, VHT, AVMT, AVHT, TVMT, TVHT, RATIO,
+ VMT_DIFF, VMT_DIFFSQ, VOL_DIFFSQ, HOV
+
+F(102): Error opening Root10\HWY_LDNET_@ITER@_DAILY.NET :
+F(102): OS reports: The system cannot find the path specified.
+
+ FF_SPD  = LI.1.SPEED
+ ******    **********
+F(161): LI.1.SPEED is unrecognized variable name
+F(048): FF_SPD missing valid expression.
+
+ FF_TIME = LI.1.TIME_1
+ *******   ***********
+F(161): LI.1.TIME_1 is unrecognized variable name
+F(048): FF_TIME missing valid expression.
+
+ LANEMILES = LI.1.LANES * LI.1.DISTANCE
+ *********   **********   *************
+F(161): LI.1.LANES is unrecognized variable name
+F(161): LI.1.DISTANCE is unrecognized variable name
+F(048): LANEMILES missing valid expression.
+Page 3  (VOYAGER NETWORK) Testpostproc0320
+Metropolitan Council
+-------------------------------------------
+ SCREENLINE = 0 ; TODO - hook this up
+ COUNT = LI.1.DY_CNT + LI.1.AADT
+ *****   ***********   *********
+F(161): LI.1.DY_CNT is unrecognized variable name
+F(161): LI.1.AADT is unrecognized variable name
+F(048): COUNT missing valid expression.
+
+ ;COUNT = LI.1.AADT
+
+ ; AM Period
+ CSPD_AM      = LI.1.CSPD_1
+ *******        ***********
+F(161): LI.1.CSPD_1 is unrecognized variable name
+F(048): CSPD_AM missing valid expression.
+
+ VOL_AUTO_AM  = LI.1.V_1 - (LI.1.V13_1  * 1)
+ ***********    ********    **********
+F(161): LI.1.V_1 is unrecognized variable name
+F(161): LI.1.V13_1 is unrecognized variable name
+F(048): VOL_AUTO_AM missing valid expression.
+
+ VOL_TRK_AM   = LI.1.V13_1
+ **********     **********
+F(161): LI.1.V13_1 is unrecognized variable name
+F(048): VOL_TRK_AM missing valid expression.
+
+ VOL_TOT_AM   = VOL_AUTO_AM + VOL_TRK_AM
+ **********     ***********   **********
+F(161): VOL_AUTO_AM is unrecognized variable name
+F(161): VOL_TRK_AM is unrecognized variable name
+F(048): VOL_TOT_AM missing valid expression.
+
+ CAP_AM       = LI.1.CAPACITY
+ ******         *************
+F(161): LI.1.CAPACITY is unrecognized variable name
+F(048): CAP_AM missing valid expression.
+
+ TIME_AM      = LI.1.TIME_1
+ *******        ***********
+F(161): LI.1.TIME_1 is unrecognized variable name
+F(048): TIME_AM missing valid expression.
+
+
+ ; MD Period
+ CSPD_MD      = LI.2.CSPD_1
+ *******        ***********
+F(161): LI.2.CSPD_1 is unrecognized variable name
+F(048): CSPD_MD missing valid expression.
+
+ VOL_AUTO_MD  = LI.2.V_1 - (LI.2.V13_1  * 1)
+ ***********    ********    **********
+F(161): LI.2.V_1 is unrecognized variable name
+F(161): LI.2.V13_1 is unrecognized variable name
+F(048): VOL_AUTO_MD missing valid expression.Page 4  (VOYAGER NETWORK) Testpostproc0320
+Metropolitan Council
+-------------------------------------------
+
+ VOL_TRK_MD   = LI.2.V13_1
+ **********     **********
+F(161): LI.2.V13_1 is unrecognized variable name
+F(048): VOL_TRK_MD missing valid expression.
+
+ VOL_TOT_MD   = VOL_AUTO_MD + VOL_TRK_MD
+ **********     ***********   **********
+F(161): VOL_AUTO_MD is unrecognized variable name
+F(161): VOL_TRK_MD is unrecognized variable name
+F(048): VOL_TOT_MD missing valid expression.
+
+ CAP_MD       = LI.2.CAPACITY
+ ******         *************
+F(161): LI.2.CAPACITY is unrecognized variable name
+F(048): CAP_MD missing valid expression.
+
+ TIME_MD      = LI.2.TIME_1
+ *******        ***********
+F(161): LI.2.TIME_1 is unrecognized variable name
+F(048): TIME_MD missing valid expression.
+
+
+ ; PM Period
+ CSPD_PM      = LI.3.CSPD_1
+ *******        ***********
+F(161): LI.3.CSPD_1 is unrecognized variable name
+F(048): CSPD_PM missing valid expression.
+
+ VOL_AUTO_PM  = LI.3.V_1 - (LI.3.V13_1  * 1)
+ ***********    ********    **********
+F(161): LI.3.V_1 is unrecognized variable name
+F(161): LI.3.V13_1 is unrecognized variable name
+F(048): VOL_AUTO_PM missing valid expression.
+
+ VOL_TRK_PM   = LI.3.V13_1
+ **********     **********
+F(161): LI.3.V13_1 is unrecognized variable name
+F(048): VOL_TRK_PM missing valid expression.
+
+ VOL_TOT_PM   = VOL_AUTO_PM + VOL_TRK_PM
+ **********     ***********   **********
+F(161): VOL_AUTO_PM is unrecognized variable name
+F(161): VOL_TRK_PM is unrecognized variable name
+F(048): VOL_TOT_PM missing valid expression.
+
+ CAP_PM       = LI.3.CAPACITY
+ ******         *************
+F(161): LI.3.CAPACITY is unrecognized variable name
+F(048): CAP_PM missing valid expression.
+
+ TIME_PM      = LI.3.TIME_1
+ *******        ***********
+F(161): LI.3.TIME_1 is unrecognized variable namePage 5  (VOYAGER NETWORK) Testpostproc0320
+Metropolitan Council
+-------------------------------------------
+F(048): TIME_PM missing valid expression.
+
+
+ ; NT Period
+ CSPD_NT      = LI.4.CSPD_1
+ *******        ***********
+F(161): LI.4.CSPD_1 is unrecognized variable name
+F(048): CSPD_NT missing valid expression.
+
+ VOL_AUTO_NT  = LI.4.V_1 - (LI.4.V13_1  * 1)
+ ***********    ********    **********
+F(161): LI.4.V_1 is unrecognized variable name
+F(161): LI.4.V13_1 is unrecognized variable name
+F(048): VOL_AUTO_NT missing valid expression.
+
+ VOL_TRK_NT   = LI.4.V13_1
+ **********     **********
+F(161): LI.4.V13_1 is unrecognized variable name
+F(048): VOL_TRK_NT missing valid expression.
+
+ VOL_TOT_NT   = VOL_AUTO_NT + VOL_TRK_NT
+ **********     ***********   **********
+F(161): VOL_AUTO_NT is unrecognized variable name
+F(161): VOL_TRK_NT is unrecognized variable name
+F(048): VOL_TOT_NT missing valid expression.
+
+ CAP_NT       = LI.4.CAPACITY
+ ******         *************
+F(161): LI.4.CAPACITY is unrecognized variable name
+F(048): CAP_NT missing valid expression.
+
+ TIME_NT      = LI.4.TIME_1
+ *******        ***********
+F(161): LI.4.TIME_1 is unrecognized variable name
+F(048): TIME_NT missing valid expression.
+
+
+ ; Daily
+ VOL_TRK_DAILY = VOL_TRK_AM + VOL_TRK_MD + VOL_TRK_PM + VOL_TRK_NT
+ *************   **********   **********   **********   **********
+F(161): VOL_TRK_AM is unrecognized variable name
+F(161): VOL_TRK_MD is unrecognized variable name
+F(161): VOL_TRK_PM is unrecognized variable name
+F(161): VOL_TRK_NT is unrecognized variable name
+F(048): VOL_TRK_DAILY missing valid expression.
+
+ VOL_AUTO_DAILY = VOL_AUTO_AM + VOL_AUTO_MD + VOL_AUTO_PM + VOL_AUTO_NT
+ **************   ***********   ***********   ***********   ***********
+F(161): VOL_AUTO_AM is unrecognized variable name
+F(161): VOL_AUTO_MD is unrecognized variable name
+F(161): VOL_AUTO_PM is unrecognized variable name
+F(161): VOL_AUTO_NT is unrecognized variable name
+F(048): VOL_AUTO_DAILY missing valid expression.
+Page 6  (VOYAGER NETWORK) Testpostproc0320
+Metropolitan Council
+-------------------------------------------
+ VOL_TOT_DAILY = VOL_TOT_AM + VOL_TOT_MD + VOL_TOT_PM + VOL_TOT_NT
+ *************   **********   **********   **********   **********
+F(161): VOL_TOT_AM is unrecognized variable name
+F(161): VOL_TOT_MD is unrecognized variable name
+F(161): VOL_TOT_PM is unrecognized variable name
+F(161): VOL_TOT_NT is unrecognized variable name
+F(048): VOL_TOT_DAILY missing valid expression.
+
+
+ IF (VOL_TOT_DAILY > 0)
+     *************
+F(161): VOL_TOT_DAILY is unrecognized variable name
+
+  CSPD_DAILY = (VOL_TOT_AM * CSPD_AM + VOL_TOT_MD * CSPD_MD + VOL_TOT_PM * CSPD_PM + VOL_TOT_NT * CSPD_NT)/VOL_TOT_DAILY
+  **********    **********   *******   **********   *******   **********   *******   **********   *******  *************
+F(161): VOL_TOT_AM is unrecognized variable name
+F(161): CSPD_AM is unrecognized variable name
+F(161): VOL_TOT_MD is unrecognized variable name
+F(161): CSPD_MD is unrecognized variable name
+F(161): VOL_TOT_PM is unrecognized variable name
+F(161): CSPD_PM is unrecognized variable name
+F(161): VOL_TOT_NT is unrecognized variable name
+F(161): CSPD_NT is unrecognized variable name
+F(161): VOL_TOT_DAILY is unrecognized variable name
+F(048): CSPD_DAILY missing valid expression.
+
+ ELSE
+ ****
+F(078): Misplaced IF logic
+
+  CSPD_DAILY = CSPD_MD
+  **********   *******
+F(161): CSPD_MD is unrecognized variable name
+F(048): CSPD_DAILY missing valid expression.
+
+ ENDIF
+ *****
+F(078): Misplaced IF logic
+
+
+ IF (COUNT <> 0 & LINKCLASS <>99 & LINKCLASS<>0)
+     *****        *********        *********
+F(161): COUNT is unrecognized variable name
+F(161): LINKCLASS is unrecognized variable name
+F(161): LINKCLASS is unrecognized variable name
+
+   GEH=sqrt((((VOL_TOT_DAILY - COUNT)^2)/((VOL_TOT_DAILY + COUNT)/2)))
+   ***         *************   *****       *************   *****
+F(161): VOL_TOT_DAILY is unrecognized variable name
+F(161): COUNT is unrecognized variable name
+F(161): VOL_TOT_DAILY is unrecognized variable name
+F(161): COUNT is unrecognized variable name
+F(158): A function has incorrect number of arguments
+F(048): GEH missing valid expression.Page 7  (VOYAGER NETWORK) Testpostproc0320
+Metropolitan Council
+-------------------------------------------
+
+   VOL_DIFF = COUNT - VOL_TOT_DAILY
+   ********   *****   *************
+F(161): COUNT is unrecognized variable name
+F(161): VOL_TOT_DAILY is unrecognized variable name
+F(048): VOL_DIFF missing valid expression.
+
+   VOL_DIFFSQ = VOL_DIFF ^ 2
+   **********   ********
+F(161): VOL_DIFF is unrecognized variable name
+F(048): VOL_DIFFSQ missing valid expression.
+
+   VOL_PER_DIFF = VOL_DIFF / COUNT
+   ************   ********   *****
+F(161): VOL_DIFF is unrecognized variable name
+F(161): COUNT is unrecognized variable name
+F(048): VOL_PER_DIFF missing valid expression.
+
+ ENDIF
+ *****
+F(078): Misplaced IF logic
+
+
+ ; develop some stats for easier reports
+ VMT  = (VOL_TOT_DAILY)*distance
+ ***     *************  ********
+F(161): VOL_TOT_DAILY is unrecognized variable name
+F(161): distance is unrecognized variable name
+F(048): VMT missing valid expression.
+
+ VHT  = (VOL_TOT_DAILY)*(distance/CSPD_DAILY)
+ ***     *************   ******** **********
+F(161): VOL_TOT_DAILY is unrecognized variable name
+F(161): distance is unrecognized variable name
+F(161): CSPD_DAILY is unrecognized variable name
+F(048): VHT missing valid expression.
+
+ AVMT = (VOL_AUTO_DAILY)*distance
+ ****    **************  ********
+F(161): VOL_AUTO_DAILY is unrecognized variable name
+F(161): distance is unrecognized variable name
+F(048): AVMT missing valid expression.
+
+ AVHT = (VOL_AUTO_DAILY)*(distance/CSPD_DAILY)
+ ****    **************   ******** **********
+F(161): VOL_AUTO_DAILY is unrecognized variable name
+F(161): distance is unrecognized variable name
+F(161): CSPD_DAILY is unrecognized variable name
+F(048): AVHT missing valid expression.
+
+ TVMT = (VOL_TRK_DAILY)*distance
+ ****    *************  ********
+F(161): VOL_TRK_DAILY is unrecognized variable name
+F(161): distance is unrecognized variable namePage 8  (VOYAGER NETWORK) Testpostproc0320
+Metropolitan Council
+-------------------------------------------
+F(048): TVMT missing valid expression.
+
+ TVHT = (VOL_TRK_DAILY)*(distance/CSPD_DAILY)
+ ****    *************   ******** **********
+F(161): VOL_TRK_DAILY is unrecognized variable name
+F(161): distance is unrecognized variable name
+F(161): CSPD_DAILY is unrecognized variable name
+F(048): TVHT missing valid expression.
+
+
+ VMT_DIFF = (VOL_TOT_DAILY)*distance - COUNT*distance
+ ********    *************  ********   ***** ********
+F(161): VOL_TOT_DAILY is unrecognized variable name
+F(161): distance is unrecognized variable name
+F(161): COUNT is unrecognized variable name
+F(161): distance is unrecognized variable name
+F(048): VMT_DIFF missing valid expression.
+
+ VMT_DIFFSQ = VMT_DIFF ^ 2
+ **********   ********
+F(161): VMT_DIFF is unrecognized variable name
+F(048): VMT_DIFFSQ missing valid expression.
+
+
+ RATIO = 0
+
+ IF (COUNT > 0) RATIO = VOL_TOT_DAILY / COUNT
+     *****      *****   *************   *****
+F(161): COUNT is unrecognized variable name
+F(161): VOL_TOT_DAILY is unrecognized variable name
+F(161): COUNT is unrecognized variable name
+F(048): RATIO missing valid expression.
+
+
+
+NETWORK Stack Size = 408 bytes.
+................................................................................
+
+
+Root10\HWY_LDNET_@ITER@_AM.NET:
+
+Root10\HWY_LDNET_@ITER@_MD.NET:
+
+Root10\HWY_LDNET_@ITER@_PM.NET:
+
+Root10\HWY_LDNET_@ITER@_NT.NET:
+
+NETWORK  ReturnCode = 2  Elapsed Time = 00:01:51
+################################################################################
+
+
+VOYAGER  ReturnCode = 2  Elapsed Time = 00:01:52

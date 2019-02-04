@@ -1,0 +1,742 @@
+Page 1  (VOYAGER PILOT) 
+Metropolitan Council
+------------------------
+PILOT (v.09/23/2016 [6.4.2 x64]) Fri Apr 07 10:24:00 2017
+
+Args: C:\USERS\EHRLICJN\DESKTOP\METCOUNCILABMPRERELEASE0.1\CUBE\transit1.script -SC:\USERS\EHRLICJN\DESKTOP\METCOUNCILABMPRERELEASE0.1\CUBE -Proot -PH:58 -PW:80 -I
+Input:   C:...ICJN\DESKTOP\METCOUNCILABMPRERELEASE0.1\CUBE\transit1.script
+
+DISTRIBUTE MULTISTEP=t
+RUN PGM=NETWORK,270 MSG='Calculate Transit Speeds for @TPER@'
+RUN PGM='PUBLIC TRANSPORT',5003 MSG='Build @TPER@ Walk Access Connectors'
+RUN PGM='PUBLIC TRANSPORT',7027 MSG='Build @TPER@ Transfer Access Connectors'
+RUN PGM='PUBLIC TRANSPORT',9205 MSG='Build @TPER@ Drive Access Connectors'
+SYS=(copy "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\XIT_WKACC_NTL_@ITER@_@TPER@.tmp"+"C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\input\transit\WalkOverrides.txt" "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\XIT_WKACC_NTL_@ITER@_@TPER@.ntl")
+SYS=(copy "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\XIT_XFER_NTL_@ITER@_@TPER@.tmp"+"C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\input\transit\TransferOverrides.txt" "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\XIT_XFER_NTL_@ITER@_@TPER@.ntl")
+SYS=(copy "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\XIT_DRACC_NTL_@ITER@_@TPER@.tmp"+"C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\input\transit\DriveOverrides.txt" "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\XIT_DRACC_NTL_@ITER@_@TPER@.ntl")
+RUN PGM='PUBLIC TRANSPORT',12080 PRNFILE="C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\XIT_WK_PRN_@ITER@_@TPER@.prn" MSG='@TPER@ Walk Transit Skim - Step 1'
+RUN PGM='PUBLIC TRANSPORT',15355 PRNFILE="C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\XIT_DR_PRN_@ITER@_@TPER@.prn" MSG='@TPER@ Drive Transit Skim - Step 1'
+RUN PGM=MATRIX,18703 MSG='@TPER@ Walk Skim - Step 2'
+RUN PGM=MATRIX,20603 MSG='@TPER@ Drive Skim - Step 2'
+
+PILOT Stack Size = 1936 bytes.
+................................................................................
+Page 2  (VOYAGER NETWORK) 
+Metropolitan Council
+--------------------------
+NETWORK (v.09/23/2016 [6.4.2 x64])  Fri Apr 07 10:24:00 2017
+
+FILEI NODEI[1] = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\node.dbf"
+FILEI LINKI[2] = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\ALL_NET.net"
+FILEO NETO = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\XIT_NET_1_PK.NET"
+FILEI LOOKUPI[2] = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\INPUT\TRANSIT\PKEXPRESSDELAYS.TXT"
+FILEI LOOKUPI[1] = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\INPUT\TRANSIT\PKLOCALDELAYS.TXT"
+FILEI LINKI[1] = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\HWY_LDNET_1_AM.net"
+    ;  transit time = congested time +  distance * link delay
+    ;   Delays are calibrated by AREA and facility type and time period.
+    LOOKUP NAME=locdelay, LOOKUP[1]=1, RESULT=2,
+                            LOOKUP[2]=1, RESULT=3,
+                            LOOKUP[3]=1, RESULT=4,
+                            LOOKUP[4]=1, RESULT=5,
+                            LOOKUP[5]=1, RESULT=6,
+                            LOOKUP[6]=1, RESULT=7,
+                            LOOKUP[7]=1, RESULT=7,
+                            LOOKUP[8]=1, RESULT=7,
+                            LOOKUP[9]=1, RESULT=7,
+                            LOOKUP[10]=1, RESULT=7,
+                            FAIL=0,0,0, INTERPOLATE=N,
+                            LOOKUPI=1, LIST=Y
+    LOOKUP NAME=expdelay, LOOKUP[1]=1, RESULT=2,
+                            LOOKUP[2]=1, RESULT=3,
+                            LOOKUP[3]=1, RESULT=4,
+                            LOOKUP[4]=1, RESULT=5,
+                            LOOKUP[5]=1, RESULT=6,
+                            LOOKUP[6]=1, RESULT=7,
+                            LOOKUP[7]=1, RESULT=7,
+                            LOOKUP[8]=1, RESULT=7,
+                            LOOKUP[9]=1, RESULT=7,
+                            LOOKUP[10]=1, RESULT=2,         ; 1 and 10 are rural area types
+                            FAIL=0,0,0, INTERPOLATE=N,
+                            LOOKUPI=2, LIST=Y
+    ; TODO: Move this into the GeoDB
+    PHASE=NODEMERGE FILEI=NI.1
+W(603): FILEI has no meaning with PHASE=INPUT
+      IF (N=17502)
+        FAREZONE=1
+      ENDIF
+      IF (N=19759)
+        FAREZONE=2
+      ENDIF
+      IF (N=19761)
+        FAREZONE=3
+      ENDIF
+      IF (N=19762)
+        FAREZONE=4
+      ENDIF
+      IF (N=19763)
+        FAREZONE=5
+      ENDIF
+      IF (N=19764)
+        FAREZONE=6Page 3  (VOYAGER NETWORK) 
+Metropolitan Council
+--------------------------
+      ENDIF
+    ENDPROCESS
+;;--------------------------------------------------------------------------
+    ; Set transit speeds - same for PK/OP
+    IF (LI.1.CSPD_1=0)
+      SPEED=0.1
+    ELSE
+      SPEED = LI.1.CSPD_1
+    ENDIF
+;;--------------------------------------------------------------------------
+    ; Code free flow speed for all links
+    LOCTIME = (DISTANCE * 60 / SPEED)
+    EXPTIME = (DISTANCE * 60 / SPEED)
+;;--------------------------------------------------------------------------
+    ; Override manually coded speed for transit only links
+    IF (LI.2.T_MANTIME>0)
+        LOCTIME = T_MANTIME
+        EXPTIME = T_MANTIME
+        LRTTIME = T_MANTIME
+    ENDIF
+;;--------------------------------------------------------------------------
+    ;Calculate Local Bus Transit Travel Time
+    IF (LOCTIME=0)
+         _DELAY = locdelay(LI.1.AREA,LI.1.RCI)
+         IF (T_Priority=2)
+            IF ((SPEED+15)<50)
+                _tspeed = MIN(SPEED+15,35)
+            ELSE
+                _tspeed=MAX(SPEED,35)
+            ENDIF
+            LOCTIME = (DISTANCE * 60 / _tspeed) + (DISTANCE * _DELAY)
+         ELSE
+            LOCTIME = (DISTANCE * 60 / SPEED) + (DISTANCE * _DELAY)
+         ENDIF
+        IF (LOCTIME=0)
+            PRINT LIST='LOCAL BUS TIME IS ZERO FOR - ', A(6), B(6)
+        ENDIF
+    ENDIF
+;;--------------------------------------------------------------------------
+    ;Calculate Express Bus Transit Travel Time
+    IF (EXPTIME=0)
+        _DELAY = expdelay(LI.1.AREA,LI.1.RCI)
+         IF (T_Priority=2)
+            IF ((SPEED+15)<50)
+                _tspeed = MIN(SPEED+15,35)
+            ELSE
+                _tspeed=MAX(SPEED,35)
+            ENDIF
+            EXPTIME = (DISTANCE * 60 / _tspeed) + (DISTANCE * _DELAY)
+         ELSE
+            EXPTIME = (DISTANCE * 60 / SPEED) + (DISTANCE * _DELAY)
+         ENDIF
+        IF (EXPTIME=0)
+            PRINT LIST='EXPRESS BUS TIME IS ZERO FOR - ', A(6), B(6)Page 4  (VOYAGER NETWORK) 
+Metropolitan Council
+--------------------------
+        ENDIF
+    ENDIF
+
+NETWORK Stack Size = 6010 bytes.
+................................................................................
+
+
+C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\node.dbf (DBF):
+N              X              Y              GEOMETRYSOU    
+
+
+
+C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\ALL_NET.net   (VOYAGER):
+
+NET PGM=NETWORK (v.09/23/2016 [6.4.2 x64]) DATE=Thu Apr 06 16:37:55 2017
+ID= 
+PAR Zones=3061 Nodes=55406 Links=56789 NodeRecs=24068 LeftDrive=0
+NVR 4    N    X    Y    GEOMETRYSOURCE
+LVR 50    A    B    SHAPE_LENGTH    COUNTY    T_PRIORITY    T_MANTIME
+    DISTANCE    TLGID    NC_SPD    NC_NAME=035    TOM    TOM_FRC_ID    BIKE
+    AREA    HOV    AADT    CURR_YEAR    CID    AM_CNT    MD_CNT    PM_CNT
+    NT_CNT    DY_CNT    ASGNGRP10    ASGNGRP15    ASGNGRP40    LANES10
+    LANES15    LANES40    CENTROID    RC_NUM    FUN_CLASS    GEOMETRYSOURCE
+    RCI    LINKCLASS    LANES    ASGNGRP    SPEED    CAPACITY    TIME    AMCAP
+    PMCAP    OFFCAP    NEWVOLAM    CONGAM    NEWVOLMD    CONGMD    HOVY
+    ALPHA    BETA
+
+
+
+
+C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\HWY_LDNET_1_AM.net   (VOYAGER):
+
+NET PGM=HIGHWAY (v.09/23/2016 [6.4.2 x64]) DATE=Fri Apr 07 05:55:01 2017
+ID= 
+PAR Zones=3061 Nodes=55406 Links=55929 NodeRecs=24068 LeftDrive=0
+NVR 4    N    X    Y    GEOMETRYSOURCE
+LVR 83    A    B    SHAPE_LENGTH    COUNTY    T_PRIORITY    T_MANTIME
+    DISTANCE    TLGID    NC_SPD    NC_NAME=35    TOM    TOM_FRC_ID    BIKE
+    AREA    HOV    AADT    CURR_YEAR    CID    AM_CNT    MD_CNT    PM_CNT
+    NT_CNT    DY_CNT    ASGNGRP10    ASGNGRP15    ASGNGRP40    LANES10
+    LANES15    LANES40    CENTROID    RC_NUM    FUN_CLASS    GEOMETRYSOURCE
+    RCI    LINKCLASS    LANES    ASGNGRP    SPEED    CAPACITY    TIME    AMCAP
+    PMCAP    OFFCAP    NEWVOLAM    CONGAM    NEWVOLMD    CONGMD    HOVY
+    ALPHA    BETA    V_1    TIME_1    VC_1    CSPD_1    VDT_1    VHT_1    V1_1
+    V2_1    V3_1    V4_1    V5_1    V6_1    V7_1    V8_1    V9_1    V10_1
+    V11_1    V12_1    V13_1    VT_1    V1T_1    V2T_1    V3T_1    V4T_1
+    V5T_1    V6T_1    V7T_1    V8T_1    V9T_1    V10T_1    V11T_1    V12T_1
+    V13T_1
+
+
+LOOKUP   locdelay:  FAIL=  --  --  --
+         locdelay(1,1)    = 0
+         locdelay(1,2)    = 0
+         locdelay(1,3)    = 4.8Page 5  (VOYAGER NETWORK) 
+Metropolitan Council
+--------------------------
+         locdelay(1,4)    = 0.1
+         locdelay(1,5)    = 0
+         locdelay(1,6)    = 0
+         locdelay(1,7)    = 0.3
+         locdelay(1,8)    = 0
+         locdelay(1,9)    = 0
+         locdelay(1,10)   = 2
+         locdelay(1,11)   = 0
+         locdelay(1,12)   = 2
+         locdelay(1,13)   = 2
+         locdelay(1,14)   = 0
+         locdelay(1,15)   = 0
+         locdelay(2,1)    = 0
+         locdelay(2,2)    = 0
+         locdelay(2,3)    = 0
+         locdelay(2,4)    = 0.8
+         locdelay(2,5)    = 0
+         locdelay(2,6)    = 0
+         locdelay(2,7)    = 0
+         locdelay(2,8)    = 0
+         locdelay(2,9)    = 0
+         locdelay(2,10)   = 0
+         locdelay(2,11)   = 5
+         locdelay(2,12)   = 0
+         locdelay(2,13)   = 0
+         locdelay(2,14)   = 1.4
+         locdelay(2,15)   = 0
+         locdelay(3,1)    = 0
+         locdelay(3,2)    = 0
+         locdelay(3,3)    = 0
+         locdelay(3,4)    = 0
+         locdelay(3,5)    = 2
+         locdelay(3,6)    = 0.2
+         locdelay(3,7)    = 0
+         locdelay(3,8)    = 1.4
+         locdelay(3,9)    = 0
+         locdelay(3,10)   = 0
+         locdelay(3,11)   = 0
+         locdelay(3,12)   = 0
+         locdelay(3,13)   = 0
+         locdelay(3,14)   = 0
+         locdelay(3,15)   = 0
+         locdelay(4,1)    = 0
+         locdelay(4,2)    = 3.4
+         locdelay(4,3)    = 1.3
+         locdelay(4,4)    = 0
+         locdelay(4,5)    = 0
+         locdelay(4,6)    = 0.7
+         locdelay(4,7)    = 0.5
+         locdelay(4,8)    = 0
+         locdelay(4,9)    = 1
+         locdelay(4,10)   = 0.3
+         locdelay(4,11)   = 5
+         locdelay(4,12)   = 0.9Page 6  (VOYAGER NETWORK) 
+Metropolitan Council
+--------------------------
+         locdelay(4,13)   = 0
+         locdelay(4,14)   = 0
+         locdelay(4,15)   = 0
+         locdelay(5,1)    = 0
+         locdelay(5,2)    = 0
+         locdelay(5,3)    = 0
+         locdelay(5,4)    = 0
+         locdelay(5,5)    = 0
+         locdelay(5,6)    = 0
+         locdelay(5,7)    = 0
+         locdelay(5,8)    = 2.6
+         locdelay(5,9)    = 0
+         locdelay(5,10)   = 1.5
+         locdelay(5,11)   = 0
+         locdelay(5,12)   = 0
+         locdelay(5,13)   = 1.1
+         locdelay(5,14)   = 0
+         locdelay(5,15)   = 0
+         locdelay(6,1)    = 0
+         locdelay(6,2)    = 0
+         locdelay(6,3)    = 0
+         locdelay(6,4)    = 0
+         locdelay(6,5)    = 2
+         locdelay(6,6)    = 0
+         locdelay(6,7)    = 0
+         locdelay(6,8)    = 0
+         locdelay(6,9)    = 0
+         locdelay(6,10)   = 0
+         locdelay(6,11)   = 0
+         locdelay(6,12)   = 0
+         locdelay(6,13)   = 0
+         locdelay(6,14)   = 0
+         locdelay(6,15)   = 0
+         locdelay(7,1)    = 0
+         locdelay(7,2)    = 0
+         locdelay(7,3)    = 0
+         locdelay(7,4)    = 0
+         locdelay(7,5)    = 2
+         locdelay(7,6)    = 0
+         locdelay(7,7)    = 0
+         locdelay(7,8)    = 0
+         locdelay(7,9)    = 0
+         locdelay(7,10)   = 0
+         locdelay(7,11)   = 0
+         locdelay(7,12)   = 0
+         locdelay(7,13)   = 0
+         locdelay(7,14)   = 0
+         locdelay(7,15)   = 0
+         locdelay(8,1)    = 0
+         locdelay(8,2)    = 0
+         locdelay(8,3)    = 0
+         locdelay(8,4)    = 0
+         locdelay(8,5)    = 2
+         locdelay(8,6)    = 0Page 7  (VOYAGER NETWORK) 
+Metropolitan Council
+--------------------------
+         locdelay(8,7)    = 0
+         locdelay(8,8)    = 0
+         locdelay(8,9)    = 0
+         locdelay(8,10)   = 0
+         locdelay(8,11)   = 0
+         locdelay(8,12)   = 0
+         locdelay(8,13)   = 0
+         locdelay(8,14)   = 0
+         locdelay(8,15)   = 0
+         locdelay(9,1)    = 0
+         locdelay(9,2)    = 0
+         locdelay(9,3)    = 0
+         locdelay(9,4)    = 0
+         locdelay(9,5)    = 2
+         locdelay(9,6)    = 0
+         locdelay(9,7)    = 0
+         locdelay(9,8)    = 0
+         locdelay(9,9)    = 0
+         locdelay(9,10)   = 0
+         locdelay(9,11)   = 0
+         locdelay(9,12)   = 0
+         locdelay(9,13)   = 0
+         locdelay(9,14)   = 0
+         locdelay(9,15)   = 0
+         locdelay(10,1)   = 0
+         locdelay(10,2)   = 0
+         locdelay(10,3)   = 0
+         locdelay(10,4)   = 0
+         locdelay(10,5)   = 2
+         locdelay(10,6)   = 0
+         locdelay(10,7)   = 0
+         locdelay(10,8)   = 0
+         locdelay(10,9)   = 0
+         locdelay(10,10)  = 0
+         locdelay(10,11)  = 0
+         locdelay(10,12)  = 0
+         locdelay(10,13)  = 0
+         locdelay(10,14)  = 0
+         locdelay(10,15)  = 0
+
+
+LOOKUP   expdelay:  FAIL=  --  --  --
+         expdelay(1,1)    = 0
+         expdelay(1,2)    = 0
+         expdelay(1,3)    = 0.2
+         expdelay(1,4)    = 0.1
+         expdelay(1,5)    = 0
+         expdelay(1,6)    = 0
+         expdelay(1,7)    = 0
+         expdelay(1,8)    = 0
+         expdelay(1,9)    = 0
+         expdelay(1,10)   = 2
+         expdelay(1,11)   = 0
+         expdelay(1,12)   = 2Page 8  (VOYAGER NETWORK) 
+Metropolitan Council
+--------------------------
+         expdelay(1,13)   = 2
+         expdelay(1,14)   = 0
+         expdelay(1,15)   = 0
+         expdelay(2,1)    = 0
+         expdelay(2,2)    = 0
+         expdelay(2,3)    = 0
+         expdelay(2,4)    = 0.8
+         expdelay(2,5)    = 0
+         expdelay(2,6)    = 0
+         expdelay(2,7)    = 0
+         expdelay(2,8)    = 0
+         expdelay(2,9)    = 0
+         expdelay(2,10)   = 0
+         expdelay(2,11)   = 0
+         expdelay(2,12)   = 0
+         expdelay(2,13)   = 0
+         expdelay(2,14)   = 1.4
+         expdelay(2,15)   = 0
+         expdelay(3,1)    = 0
+         expdelay(3,2)    = 0
+         expdelay(3,3)    = 0
+         expdelay(3,4)    = 0
+         expdelay(3,5)    = 2
+         expdelay(3,6)    = 0.2
+         expdelay(3,7)    = 0
+         expdelay(3,8)    = 0
+         expdelay(3,9)    = 0
+         expdelay(3,10)   = 0
+         expdelay(3,11)   = 0
+         expdelay(3,12)   = 0
+         expdelay(3,13)   = 0
+         expdelay(3,14)   = 0
+         expdelay(3,15)   = 0
+         expdelay(4,1)    = 0
+         expdelay(4,2)    = 0
+         expdelay(4,3)    = 0
+         expdelay(4,4)    = 0
+         expdelay(4,5)    = 0
+         expdelay(4,6)    = 0
+         expdelay(4,7)    = 0
+         expdelay(4,8)    = 0
+         expdelay(4,9)    = 1
+         expdelay(4,10)   = 0
+         expdelay(4,11)   = 0
+         expdelay(4,12)   = 0
+         expdelay(4,13)   = 0
+         expdelay(4,14)   = 0
+         expdelay(4,15)   = 0
+         expdelay(5,1)    = 0
+         expdelay(5,2)    = 0
+         expdelay(5,3)    = 0
+         expdelay(5,4)    = 0
+         expdelay(5,5)    = 0
+         expdelay(5,6)    = 0Page 9  (VOYAGER NETWORK) 
+Metropolitan Council
+--------------------------
+         expdelay(5,7)    = 0
+         expdelay(5,8)    = 0
+         expdelay(5,9)    = 0
+         expdelay(5,10)   = 0
+         expdelay(5,11)   = 0
+         expdelay(5,12)   = 0
+         expdelay(5,13)   = 0
+         expdelay(5,14)   = 0
+         expdelay(5,15)   = 0
+         expdelay(6,1)    = 0
+         expdelay(6,2)    = 0
+         expdelay(6,3)    = 0
+         expdelay(6,4)    = 0
+         expdelay(6,5)    = 2
+         expdelay(6,6)    = 0
+         expdelay(6,7)    = 0
+         expdelay(6,8)    = 0
+         expdelay(6,9)    = 0
+         expdelay(6,10)   = 0
+         expdelay(6,11)   = 0
+         expdelay(6,12)   = 0
+         expdelay(6,13)   = 0
+         expdelay(6,14)   = 0
+         expdelay(6,15)   = 0
+         expdelay(7,1)    = 0
+         expdelay(7,2)    = 0
+         expdelay(7,3)    = 0
+         expdelay(7,4)    = 0
+         expdelay(7,5)    = 2
+         expdelay(7,6)    = 0
+         expdelay(7,7)    = 0
+         expdelay(7,8)    = 0
+         expdelay(7,9)    = 0
+         expdelay(7,10)   = 0
+         expdelay(7,11)   = 0
+         expdelay(7,12)   = 0
+         expdelay(7,13)   = 0
+         expdelay(7,14)   = 0
+         expdelay(7,15)   = 0
+         expdelay(8,1)    = 0
+         expdelay(8,2)    = 0
+         expdelay(8,3)    = 0
+         expdelay(8,4)    = 0
+         expdelay(8,5)    = 2
+         expdelay(8,6)    = 0
+         expdelay(8,7)    = 0
+         expdelay(8,8)    = 0
+         expdelay(8,9)    = 0
+         expdelay(8,10)   = 0
+         expdelay(8,11)   = 0
+         expdelay(8,12)   = 0
+         expdelay(8,13)   = 0
+         expdelay(8,14)   = 0
+         expdelay(8,15)   = 0Page 10  (VOYAGER NETWORK) 
+Metropolitan Council
+---------------------------
+         expdelay(9,1)    = 0
+         expdelay(9,2)    = 0
+         expdelay(9,3)    = 0
+         expdelay(9,4)    = 0
+         expdelay(9,5)    = 2
+         expdelay(9,6)    = 0
+         expdelay(9,7)    = 0
+         expdelay(9,8)    = 0
+         expdelay(9,9)    = 0
+         expdelay(9,10)   = 0
+         expdelay(9,11)   = 0
+         expdelay(9,12)   = 0
+         expdelay(9,13)   = 0
+         expdelay(9,14)   = 0
+         expdelay(9,15)   = 0
+         expdelay(10,1)   = 0
+         expdelay(10,2)   = 0
+         expdelay(10,3)   = 0.2
+         expdelay(10,4)   = 0.1
+         expdelay(10,5)   = 0
+         expdelay(10,6)   = 0
+         expdelay(10,7)   = 0
+         expdelay(10,8)   = 0
+         expdelay(10,9)   = 0
+         expdelay(10,10)  = 2
+         expdelay(10,11)  = 0
+         expdelay(10,12)  = 2
+         expdelay(10,13)  = 2
+         expdelay(10,14)  = 0
+         expdelay(10,15)  = 0
+
+
+
+Begin PROCESS PHASE INPUT
+    24068 records read from NODEI[1]: C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\node.dbf
+End   PROCESS PHASE INPUT
+
+
+Begin PROCESS PHASE NODEMERGE
+      24,068 records merged from NODEI[1]: N1.103359
+      24,068 records merged from NODEI[2]: C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\ALL_NET.net
+      24,068 data base records.
+
+Variable         Obs<>0               Total           Ave           Min           Max           RMS  
+--------         ------               -----           ---           ---           ---           ---  
+N                24,068                  --            --          1        55,406               --
+X                24,068   11,539,914,047.44    479,471.25    367,070.73    570,365.39    480,116.07
+Y                24,068  119,854,976,822.83  4,979,847.8   4,891,274.44  5,065,819.04  4,979,911.74
+GEOMETRYSOU      24,068           24,068             1             1             1             1   
+GEOMETRYSOURCE   24,068           24,068             1             1             1             1   
+FAREZONE              6               21             3.5           1             6             3.89
+Page 11  (VOYAGER NETWORK) 
+Metropolitan Council
+---------------------------
+_Variables with values:
+
+_ZONES            3,061      
+
+End   PROCESS PHASE NODEMERGE
+
+
+Begin PROCESS PHASE LINKMERGE
+      55,929 records merged from NETI[1]: C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\HWY_LDNET_1_AM.net
+      56,789 data base records.Page 12  (VOYAGER NETWORK) 
+Metropolitan Council
+---------------------------
+
+Variable         Obs<>0               Total           Ave       Min                Max             RMS  
+--------         ------               -----           ---       ---                ---             ---  
+A                56,789                  --            --      1             55,406                 --
+B                56,789                  --            --      1             55,406                 --
+SHAPE_LENGTH     56,789       37,977,306.12        668.74      0.01          16,502.36        1,184.95
+COUNTY           56,789          337,031             5.93      1                 22               7.84
+T_PRIORITY        3,182            4,829             1.52      1                  4               1.72
+T_MANTIME           182              440.92          2.42      0.2               18               3.98
+DISTANCE         56,789           23,600.13          0.42      0                 10.25            0.74
+TLGID            43,811    6,607,217,217       150,811.83      1            460,191         195,823.92
+NC_SPD           36,782        1,445,455            39.3       5                 70              40.23
+NC_NAME          36,995                                    (0       )  (ZURICH S)
+TOM              32,055    1,999,894,639        62,389.48      1            255,531          83,088.8 
+TOM_FRC_ID       32,057  155,695,595,249     4,856,836.11      1          7,046,739       4,927,702.33
+BIKE             53,614          152,698             2.85      1                  3               2.88
+AREA             56,789          200,705             3.53      1                 10               4.58
+HOV                 414           31,407            75.86      1                116              89.63
+AADT              4,885       38,372,492         7,855.17    102             93,000          12,435.33
+CURR_YEAR         4,970        9,999,780         2,012.03  2,008              2,013           2,012.03
+CID               2,751      109,675,226        39,867.4     868             69,415          43,385.89
+AM_CNT            1,179        8,579,354         7,276.81     63             25,709           9,451.53
+MD_CNT            1,179        8,827,410         7,487.2      13             22,611           9,405.85
+PM_CNT            1,178        9,822,071         8,337.92    143             27,926          10,567.48
+NT_CNT            1,179        6,560,736         5,564.66      4             18,022           7,038.09
+DY_CNT            1,179       33,789,601        28,659.54    129             76,638          35,895.51
+ASGNGRP10        56,789          481,515             8.48      1                150              14.72
+ASGNGRP15        56,710          480,519             8.47      1                150              14.73
+ASGNGRP40        56,667          480,157             8.47      1                150              14.74
+LANES10          56,053           67,886             1.21      1                  6               1.31
+LANES15          55,979           67,967             1.21      1                  6               1.32
+LANES40          55,937           68,043             1.22      1                  6               1.32
+CENTROID          8,664            8,664             1         1                  1               1   
+RC_NUM           56,561        2,701,460            47.76     10                101              53.79
+FUN_CLASS        31,181        7,654,063           245.47    100                320             256.01
+GEOMETRYSOURCE   56,788           56,788             1         1                  1               1   
+RCI              56,782        1,364,727            24.03      1                101              41.47
+LINKCLASS        56,782        1,364,727            24.03      1                101              41.47
+LANES            56,053           67,886             1.21      1                  6               1.31
+ASGNGRP          56,789          481,420             8.48      1                150              14.71
+SPEED            56,789        1,656,665.18         29.17      0                 72              33.27
+CAPACITY         56,025      770,627,487.5      13,755.06      5.75          99,999          36,098.09
+TIME             56,789           38,955.7           0.69      0                 21.21            1.16
+AMCAP            55,748      912,485,636        16,368.04    400             99,999          39,442.01
+PMCAP            55,737      912,460,286        16,370.82    400             99,999          39,445.9 
+OFFCAP           55,672      912,479,786        16,390.28    400             99,999          39,469.24
+HOVY                414           31,407            75.86      1                116              89.63
+ALPHA            56,789           44,642.6           0.79      0.15               0.9             0.81
+BETA             56,789          190,933             3.36      2                  4               3.41
+V_1              51,894       65,027,927.52      1,253.09      0.02          35,969.21        2,988.34
+TIME_1           55,929    7,958,847,770.78    142,302.7       0        853,521,736.25    6,625,862.17
+VC_1             51,894          311,107.98          6         0                828.17           22.92
+CSPD_1           55,929        1,656,579.18         29.62      0                 72              33.52
+VDT_1            51,894       27,218,460.9         524.5       0             52,125.05        1,701.02Page 13  (VOYAGER NETWORK) 
+Metropolitan Council
+---------------------------
+VHT_1            51,894  445,106,468,743.73  8,577,224.13      0     73,742,713,222.17  537,885,393.76
+V1_1             51,617       44,359,088.09        859.39      0.01          25,911.92        2,093.94
+V2_1             51,129        4,114,737.81         80.48      0              2,335.42          166.08
+V3_1             51,257        3,763,095.79         73.42      0              1,853.24          139.85
+V4_1             20,162           85,153.03          4.22      0                440.11           19.99
+V5_1             31,746          471,072.82         14.84      0              2,129.96           80.49
+V6_1             32,890          372,628.37         11.33      0              1,756.02           62.18
+V7_1             48,184        1,509,902.19         31.34      0.01           1,182.37           75.27
+V8_1             45,815          289,696.88          6.32      0                234.14           13.94
+V9_1             46,130          289,755.24          6.28      0                221.42           14.19
+V10_1             1,432              311.83          0.22      0                  2.88            0.46
+V11_1            17,431           39,368.77          2.26      0                194.91            9.13
+V12_1            18,587           30,651.96          1.65      0                155.4             6.95
+V13_1            51,401        4,851,232.39         94.38      0              3,055.58          254.2 
+VT_1             52,390      100,270,064.85      1,913.92      0.02          35,969.21        3,566.86
+V1T_1            52,198       68,336,705.44      1,309.18      0.01          25,911.92        2,484.43
+V2T_1            51,870        6,718,415.48        129.52      0.01           2,335.42          214.54
+V3T_1            51,886        6,294,397.19        121.31      0              1,909.96          191.02
+V4T_1            27,610          114,070.01          4.13      0                440.11           18.15
+V5T_1            37,866          638,509.73         16.86      0              2,129.96           79.1 
+V6T_1            38,703          504,404.32         13.03      0              1,756.02           61.52
+V7T_1            50,200        2,320,126.27         46.22      0.01           1,182.37           88.33
+V8T_1            48,596          461,225.3           9.49      0                234.14           17.17
+V9T_1            48,864          454,198.08          9.3       0                223.35           17.14
+V10T_1            2,186              426.17          0.19      0                  2.88            0.44
+V11T_1           24,240           52,451.45          2.16      0                194.91            8.29
+V12T_1           25,439           41,054.1           1.61      0                155.4             6.36
+V13T_1           51,916        7,167,040.68        138.05      0              3,055.58          292.81
+LOCTIME          56,789    7,959,125,388.29    140,152.59      0        853,521,736.25    6,575,500.48
+EXPTIME          56,789    7,959,125,388.29    140,152.59      0        853,521,736.25    6,575,500.48
+LRTTIME             182              440.92          2.42      0.2               18               3.98
+
+      Obs = 0:  NEWVOLAM  CONGAM  NEWVOLMD  CONGMD
+
+_Variables with values:
+
+_ZONES            3,061      
+
+End   PROCESS PHASE LINKMERGE
+
+FILEO NETO=C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\XIT_NET_1_PK.NET
+
+NET PGM=NETWORK (v.09/23/2016 [6.4.2 x64]) DATE=Fri Apr 07 10:24:00 2017
+ID= 
+PAR Zones=3061 Nodes=55406 Links=56789 NodeRecs=24068 LeftDrive=0
+NVR 6    N    X    Y    GEOMETRYSOU    GEOMETRYSOURCE    FAREZONE
+LVR 86    A    B    SHAPE_LENGTH    COUNTY    T_PRIORITY    T_MANTIME
+    DISTANCE    TLGID    NC_SPD    NC_NAME=035    TOM    TOM_FRC_ID    BIKE
+    AREA    HOV    AADT    CURR_YEAR    CID    AM_CNT    MD_CNT    PM_CNT
+    NT_CNT    DY_CNT    ASGNGRP10    ASGNGRP15    ASGNGRP40    LANES10
+    LANES15    LANES40    CENTROID    RC_NUM    FUN_CLASS    GEOMETRYSOURCE
+    RCI    LINKCLASS    LANES    ASGNGRP    SPEED    CAPACITY    TIME    AMCAP
+    PMCAP    OFFCAP    NEWVOLAM    CONGAM    NEWVOLMD    CONGMD    HOVY
+    ALPHA    BETA    V_1    TIME_1    VC_1    CSPD_1    VDT_1    VHT_1    V1_1Page 14  (VOYAGER NETWORK) 
+Metropolitan Council
+---------------------------
+    V2_1    V3_1    V4_1    V5_1    V6_1    V7_1    V8_1    V9_1    V10_1
+    V11_1    V12_1    V13_1    VT_1    V1T_1    V2T_1    V3T_1    V4T_1
+    V5T_1    V6T_1    V7T_1    V8T_1    V9T_1    V10T_1    V11T_1    V12T_1
+    V13T_1    LOCTIME    EXPTIME    LRTTIME
+
+
+NETWORK  ReturnCode = 1  Elapsed Time = 00:00:01
+################################################################################
+Page 15  (VOYAGER PUBLIC TRANSPORT) 
+Metropolitan Council
+------------------------------------
+PUBLIC TRANSPORT (v.09/23/2016 [6.4.2 x64])  Fri Apr 07 10:24:01 2017
+
+FILEO NTLEGO = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\XIT_WKACC_NTL_1_PK.TMP"
+FILEO REPORTO = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\XIT_WKACC_RPT_1_PK.RPT"
+FILEO NETO = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\XIT_WKACC_NET_1_PK.NET"
+FILEI SYSTEMI = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Input\transit\PT_SYSTEM_2010.PTS"
+FILEI FACTORI[1] = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\INPUT\TRANSIT\PK_WK_2010.FAC"
+FILEI LINEI[1] = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Input\transit\PT_2010.lin"
+FILEI NETI = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\XIT_NET_1_PK.NET"
+    REPORT Lines=T
+    REREPORT Accesslegs=T, Egresslegs=T, Xferlegs=T, Lines=T, STOPNODES=T
+    HDWAYPERIOD=1
+    PHASE=LINKREAD
+        _wlkspd = 2.5   ;mph
+    ENDPHASE
+    PHASE=DATAPREP
+        Print List='Build Peak Walk Access Connectors', printo=0
+        ;set transit travel time
+        TRANTIME[5]=li.loctime       ; local
+        TRANTIME[6]=li.loctime       ; local
+        TRANTIME[7]=li.exptime       ; express
+        TRANTIME[8]=li.lrttime       ; lrt
+        TRANTIME[9]=li.exptime       ; commuter bus
+        generate,
+        fromnode=1-3061,
+        tonode=3100-99999,
+        direction=3,
+        oneway=F,
+        cost=li.Distance,
+        extractcost=(Li.Distance*60/_wlkspd),
+        excludelink=(li.RCI=1-5,13,14),   ;no walking on freeway, tollway,ramps and managed links
+        maxcost=4*0,5*2,                 ;set maximum walking distance to 2 Miles
+        maxntlegs=4*1,5*99,
+        ntlegmode=1
+    ENDPHASE
+
+PUBLIC TRANSPORT Stack Size = 1672 bytes.
+................................................................................
+
+
+C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\XIT_NET_1_PK.NET
+NET:PGM=NETWORK (v.09/23/2016 [6.4.2 x64]) DATE=Fri Apr 07 10:24:00 2017  
+PAR:Zones=3061 Nodes=55406 Links=56789 NodeRecs=24068 LeftDrive=0             
+NVR:6 N X Y GEOMETRYSOU GEOMETRYSOURCE FAREZONE 
+LVR:86 A B SHAPE_LENGTH COUNTY T_PRIORITY T_MANTIME DISTANCE TLGID NC_SPD
+NC_NAME=035 TOM TOM_FRC_ID BIKE AREA HOV AADT CURR_YEAR CID AM_CNT MD_CNT
+PM_CNT NT_CNT DY_CNT ASGNGRP10 ASGNGRP15 ASGNGRP40 LANES10 LANES15 LANES40
+CENTROID RC_NUM FUN_CLASS GEOMETRYSOURCE RCI LINKCLASS LANES ASGNGRP SPEED
+CAPACITY TIME AMCAP PMCAP OFFCAP NEWVOLAM CONGAM NEWVOLMD CONGMD HOVY ALPHA
+BETA V_1 TIME_1 VC_1 CSPD_1 VDT_1 VHT_1 V1_1 V2_1 V3_1 V4_1 V5_1 V6_1 V7_1
+V8_1 V9_1 V10_1 V11_1 V12_1 V13_1 VT_1 V1T_1 V2T_1 V3T_1 V4T_1 V5T_1 V6T_1
+V7T_1 V8T_1 V9T_1 V10T_1 V11T_1 V12T_1 V13T_1 LOCTIME EXPTIME LRTTIME Page 16  (VOYAGER PUBLIC TRANSPORT) 
+Metropolitan Council
+------------------------------------
+
+
+File C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Input\transit\PT_SYSTEM_2010.PTS opened
+
+
+File C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Input\transit\PT_2010.lin opened
+
+     8856, 18865, 18863, 18864, -19773, 8859, 8864, 8868, 8789, 8727, 8641, 18405
+
+F(017):  is invalid control type
+
+W(657): 1 LINEs have CIRCULAR=F, but the same terminal node.
+Variables (Alternate Name) present in 1068 Transit Lines:
+
+NAME  LONGNAME  HEADWAY  HEADWAY[2]  MODE  ONEWAY  OPERATOR  
+USERA5 (SHORTNAME)  
+
+
+F(620): Terminating due to fatal F(...) messages.
+
+PUBLIC TRANSPORT ReturnCode = 2  Elapsed Time = 00:00:01
+################################################################################
+
+
+VOYAGER  ReturnCode = 2  Elapsed Time = 00:00:02
