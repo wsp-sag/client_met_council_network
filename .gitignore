@@ -18,4 +18,10 @@
 .ipynb_checkpoints/
 
 # Cache
-model_files/*
+model_files/vpn*
+model_files/*.zip
+model_files/Network*
+model_files/WSPHandoff_Jan2019/ABM 2017/Base2010
+model_files/WSPHandoff_Jan2019/ABM 2017/Input
+model_files/WSPHandoff_Jan2019/ABM 2017/TourCast/script/logs
+*.bak
