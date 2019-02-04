@@ -7,10 +7,10 @@ EV
 00
 Updates zonal.dbf file by recalculating Exogenous Variables based on new skims
 
-Thu Jan 03 14:44:58 2019
+Mon Feb 04 13:39:12 2019
 
-N:\MTS\Working\Modeling\ABM\WSPHandoff_Jan2019\ABM 2017\CUBE\Root00.APP
-N:\MTS\Working\Modeling\ABM\WSPHandoff_Jan2019\ABM 2017\CUBE\CREATEEXOGENOUSVARIABLES00.APP
+C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\Root00.APP
+C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\CREATEEXOGENOUSVARIABLES00.APP
 VOYAGER
 
 
@@ -98,7 +98,7 @@ Script File
 0
 0
 S
-N:\MTS\Working\Modeling\ABM\WSPHandoff_Jan2019\ABM 2017\CUBE\EVMAT00A.S
+C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\EVMAT00A.S
 1
 MAT
 ISCR1 
@@ -1971,7 +1971,7 @@ Script File
 0
 0
 S
-N:\MTS\Working\Modeling\ABM\WSPHandoff_Jan2019\ABM 2017\CUBE\EVMAT00B.S
+C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\EVMAT00B.S
 1
 MAT
 ISCR1 
@@ -3844,7 +3844,7 @@ Script File
 0
 0
 S
-N:\MTS\Working\Modeling\ABM\WSPHandoff_Jan2019\ABM 2017\CUBE\EVMAT00C.S
+C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\EVMAT00C.S
 1
 MAT
 ISCR1 
@@ -5717,7 +5717,7 @@ Script File
 0
 0
 S
-N:\MTS\Working\Modeling\ABM\WSPHandoff_Jan2019\ABM 2017\CUBE\EVMAT00D.S
+C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\EVMAT00D.S
 1
 MAT
 ISCR1 
@@ -7590,7 +7590,7 @@ Script File
 0
 0
 S
-N:\MTS\Working\Modeling\ABM\WSPHandoff_Jan2019\ABM 2017\CUBE\EVMAT00E.S
+C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\EVMAT00E.S
 1
 MAT
 ISCR1 
@@ -9463,7 +9463,7 @@ Script File
 0
 0
 S
-N:\MTS\Working\Modeling\ABM\WSPHandoff_Jan2019\ABM 2017\CUBE\EVMAT00F.S
+C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\EVMAT00F.S
 1
 MAT
 ISCR1 

@@ -1,8 +1,8 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=NETWORK MSG='TEMP: set rail zone node field'
-FILEI LINKI[4] = "N:\MTS\Working\Modeling\ABM\WSPHandoff_Jan2019\ABM 2017\Input\network\T_Priority.dbf"
-FILEI LINKI[3] = "N:\MTS\Working\Modeling\ABM\WSPHandoff_Jan2019\ABM 2017\Input\network\T_MANTIME.dbf"
-FILEI LINKI[2] = "N:\MTS\Working\Modeling\ABM\WSPHandoff_Jan2019\ABM 2017\Input\network\Distances.dbf"
+FILEI LINKI[4] = "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\Input\network\T_Priority.dbf"
+FILEI LINKI[3] = "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\Input\network\T_MANTIME.dbf"
+FILEI LINKI[2] = "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\Input\network\Distances.dbf"
 FILEO NETO = "{SCENARIO_DIR}\TransitBase.NET"
 FILEI NODEI[1] = "{SCENARIO_DIR}\node.dbf"
 FILEI LINKI[1] = "{SCENARIO_DIR}\link.dbf"
