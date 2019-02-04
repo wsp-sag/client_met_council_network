@@ -1,19 +1,23 @@
 ; Network.net provided by Rachel Wiken at MetCouncil via "WSPHandoff_Jan2019" data
 ; transmitted here: ftp://ftp.metc.state.mn.us/MTS/NetworkRebuild/WSP_010319/
 
-run pgm = network 
+RUN PGM = NETWORK
 
-   filei neti = "network.net"
-   fileo linko = "centroid_links.csv", format = CS1, include = A, B 
-   fileo nodeo = "node_coordinates.csv", format = CS1, include = N, X, Y
+   FILEI NETI = "network.net"
+   FILEO LINKO = "centroid_links.csv", FORMAT = CS1, INCLUDE = A, B 
+   FILEO NODEO = "node_coordinates.csv", FORMAT = CS1, INCLUDE = N, X, Y
 
-   phase = linkmerge 
+   PHASE = LINKMERGE 
 
-     if (a > _ZONES && b > _ZONES) delete
+     IF(A > _ZONES && B > _ZONES) 
+      
+      DELETE
 
-   endphase
+     ENDIF
 
-endrun 
+   ENDPHASE
+
+ENDRUN
 
 
 
