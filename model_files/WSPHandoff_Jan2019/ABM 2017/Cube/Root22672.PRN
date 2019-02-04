@@ -1,0 +1,34 @@
+Page 1  (VOYAGER PILOT) 
+Parsons Brinckerhoff
+------------------------
+PILOT (v.10/06/2017 [6.4.3 x64]) Wed Jan 23 11:05:59 2019
+
+Args: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\BNNET00B.003 -SC:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE -PRoot -PH:58 -PW:80 -I
+Input:   C:...il\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\BNNET00B.003
+
+RUN PGM=NETWORK,114 MSG='Export Raw Network From GeoDatabase'
+
+PILOT Stack Size = 90 bytes.
+................................................................................
+Page 2  (VOYAGER NETWORK) 
+Parsons Brinckerhoff
+--------------------------
+NETWORK (v.10/06/2017 [6.4.3 x64])  Wed Jan 23 11:05:59 2019
+
+FILEO NETO = "\ALL_NET.tmp"
+
+F(102): Error opening C:\ALL_NET.tmp :
+F(102): OS reports: Access is denied.
+FILEI LINKI[1] = ""
+
+
+
+NETWORK Stack Size = 8 bytes.
+................................................................................
+
+
+NETWORK  ReturnCode = 2  Elapsed Time = 00:00:20
+################################################################################
+
+
+VOYAGER  ReturnCode = 2  Elapsed Time = 00:00:20

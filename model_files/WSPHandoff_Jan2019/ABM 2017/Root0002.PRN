@@ -1,0 +1,33 @@
+Page 1  (VOYAGER PILOT) Model Run
+Parsons Brinckerhoff
+----------------------------------
+PILOT (v.10/06/2017 [6.4.3 x64]) Wed Jan 23 11:14:25 2019
+
+Args: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\doodle.001 -SC:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017 -PRoot -PH:58 -PW:80 -IModel Run
+Input:   C:...t_council\model_files\WSPHandoff_Jan2019\ABM 2017\doodle.001
+
+RUN PGM=NETWORK,0 MSG='This is a doodle'
+
+PILOT Stack Size = 70 bytes.
+................................................................................
+Page 2  (VOYAGER NETWORK) Model Run
+Parsons Brinckerhoff
+------------------------------------
+NETWORK (v.10/06/2017 [6.4.3 x64])  Wed Jan 23 11:14:25 2019
+
+FILEI LINKI = "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\Input\network\Nework.net"
+F(614): Can't find file or file conversion error: Input\network\Nework.net
+F(614): OS reports: The system cannot find the file specified.
+
+
+NETWORK Stack Size = 154 bytes.
+................................................................................
+
+
+Input\network\Nework.net:
+
+NETWORK  ReturnCode = 2  Elapsed Time = 00:00:21
+################################################################################
+
+
+VOYAGER  ReturnCode = 2  Elapsed Time = 00:00:21
