@@ -1,34 +1,0 @@
-Page 1  (VOYAGER PILOT) Model Run
-Parsons Brinckerhoff
-----------------------------------
-PILOT (v.10/06/2017 [6.4.3 x64]) Fri Jan 25 09:48:03 2019
-
-Args: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\doodle.005 -SC:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017 -PRoot -PH:58 -PW:80 -IModel Run
-Input:   C:...t_council\model_files\WSPHandoff_Jan2019\ABM 2017\doodle.005
-
-RUN PGM=MATRIX,114 MSG='Set Inputs and Intermediate File Names - Part 2'
-
-PILOT Stack Size = 102 bytes.
-................................................................................
-Page 2  (VOYAGER MATRIX) Model Run
-Parsons Brinckerhoff
------------------------------------
-MATRIX (v.10/06/2017 [6.4.3 x64])  Fri Jan 25 09:48:03 2019
-
-
-FILEO PRINTO[1] = "doodle.txt"
-
-Print printo=1 List='No idea what is going on'
-
-
-MATRIX Stack Size = 122 bytes.
-................................................................................
-
-
-F(701): Number of Zones is not specified.
-
-MATRIX   ReturnCode = 2  Elapsed Time = 00:00:00
-################################################################################
-
-
-VOYAGER  ReturnCode = 2  Elapsed Time = 00:00:00

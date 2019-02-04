@@ -1,15 +1,0 @@
-Page 1  (VOYAGER PILOT) 
-Parsons Brinckerhoff
-------------------------
-PILOT (v.10/06/2017 [6.4.3 x64]) Tue Jan 22 14:19:07 2019
-
-Args: C:\USERS\HELSELJW\ONEDRIVE - WSP O365\MET_COUNCIL\MODEL_FILES\WSPHANDOFF_JAN2019\ABM 2017\CUBE\ROOT00.S -SC:\USERS\HELSELJW\ONEDRIVE - WSP O365\MET_COUNCIL\MODEL_FILES\WSPHANDOFF_JAN2019\ABM 2017\CUBE\ -RC:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\Cube\Root_0000.PRN -PH:58 -PW:80 -I -P"Root"
-Input:   C:...OUNCIL\MODEL_FILES\WSPHANDOFF_JAN2019\ABM 2017\CUBE\ROOT00.S
-
-
-PILOT Stack Size = 0 bytes.
-................................................................................
-
-
-F(639): No Operations specified.
-VOYAGER  ReturnCode = 2  Elapsed Time = 00:00:01

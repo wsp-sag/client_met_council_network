@@ -1,31 +1,0 @@
-Page 1  (VOYAGER PILOT) Model Run
-Parsons Brinckerhoff
-----------------------------------
-PILOT (v.10/06/2017 [6.4.3 x64]) Wed Jan 23 11:12:04 2019
-
-Args: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\doodle.000 -SC:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017 -PRoot -PH:58 -PW:80 -IModel Run
-Input:   C:...t_council\model_files\WSPHandoff_Jan2019\ABM 2017\doodle.000
-
-RUN PGM=NETWORK,0 MSG='Export Bike Network from Geodatabase'
-
-PILOT Stack Size = 90 bytes.
-................................................................................
-Page 2  (VOYAGER NETWORK) Model Run
-Parsons Brinckerhoff
-------------------------------------
-NETWORK (v.10/06/2017 [6.4.3 x64])  Wed Jan 23 11:12:04 2019
-
-
-
-
-NETWORK Stack Size = 0 bytes.
-................................................................................
-
-
-F(659): There are no file variables or Links
-
-NETWORK  ReturnCode = 2  Elapsed Time = 00:00:00
-################################################################################
-
-
-VOYAGER  ReturnCode = 2  Elapsed Time = 00:00:00
