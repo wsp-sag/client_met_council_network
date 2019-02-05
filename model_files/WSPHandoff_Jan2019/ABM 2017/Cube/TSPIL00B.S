@@ -3,7 +3,8 @@
 ENDDISTRIBUTEMULTISTEP
 ENDLOOP
 
-Wait4Files FILES='transit1.script.end, transit2.script.end' CheckReturnCode=T, DelDistribFiles=T
+Wait4Files FILES = 'transit1.script.end, transit2.script.end',
+  CheckReturnCode = T, DelDistribFiles = T
 
 *cluster transit 1-2 CLOSE EXIT
 

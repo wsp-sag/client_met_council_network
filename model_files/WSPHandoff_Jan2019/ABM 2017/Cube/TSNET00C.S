@@ -1,13 +1,9 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM = NETWORK MSG='Calculate Transit Speeds for @TPER@'
-
-  FILEO NETO = "{SCENARIO_DIR}\XIT_NET_0_@TPER@.net"
-
-  FILEI LOOKUPI[2] = "{CATALOG_DIR}\input\transit\@TPER@ExpressDelays.txt"
-
-  FILEI LOOKUPI[1] = "{CATALOG_DIR}\input\transit\@TPER@LocalDelays.txt"
-
-  FILEI LINKI[1] = "{SCENARIO_DIR}\TransitBase.NET"
+FILEO NETO = "{SCENARIO_DIR}\XIT_NET_0_@TPER@.net"
+FILEI LOOKUPI[2] = "{CATALOG_DIR}\input\transit\@TPER@ExpressDelays.txt"
+FILEI LOOKUPI[1] = "{CATALOG_DIR}\input\transit\@TPER@LocalDelays.txt"
+FILEI LINKI[1] = "{SCENARIO_DIR}\TransitBase.NET"
 
     ;  transit time = congested time +  distance * link delay
     ;   Delays are calibrated by AREA and facility type and time period.
@@ -67,51 +63,39 @@ RUN PGM = NETWORK MSG='Calculate Transit Speeds for @TPER@'
 
   ;Calculate Local Bus Transit Travel Time
   IF (LOCTIME = 0)
-
        _DELAY = locdelay(LI.1.AREA, LI.1.RCI)
-
        IF (T_PRIORITY = 2)
-       
         IF ((SPEED + 15) < 50)
               _tspeed = MIN(SPEED + 15, 35)
           ELSE
               _tspeed = MAX(SPEED, 35)
           ENDIF
-        
           LOCTIME = (DISTANCE * 60 / _tspeed) + (DISTANCE * _DELAY)
        ELSE
           LOCTIME = (DISTANCE * 60 / SPEED) + (DISTANCE * _DELAY)
        ENDIF
-
       IF (LOCTIME = 0) 
           PRINT LIST = 'LOCAL BUS TIME IS ZERO FOR - ', A(6), B(6)
       ENDIF        
-      
   ENDIF
   ;;--------------------------------------------------------------------------
       
   ;Calculate Express Bus Transit Travel Time
   IF (EXPTIME = 0)
-      
     _DELAY = expdelay(LI.1.AREA, LI.1.RCI)
-    
       IF (T_Priority = 2)
-      
         IF ((SPEED + 15) < 50)
               _tspeed = MIN(SPEED + 15, 35)
           ELSE
               _tspeed = MAX(SPEED, 35)
           ENDIF
-          
           EXPTIME = (DISTANCE * 60 / _tspeed) + (DISTANCE * _DELAY)
        ELSE
           EXPTIME = (DISTANCE * 60 / SPEED) + (DISTANCE * _DELAY)
        ENDIF
-
       IF (EXPTIME=0) 
           PRINT LIST='EXPRESS BUS TIME IS ZERO FOR - ', A(6), B(6)
       ENDIF
-      
   ENDIF       
 
 ENDRUN

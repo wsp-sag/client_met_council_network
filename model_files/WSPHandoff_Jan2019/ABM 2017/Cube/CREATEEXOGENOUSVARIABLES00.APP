@@ -7,9 +7,9 @@ EV
 00
 Updates zonal.dbf file by recalculating Exogenous Variables based on new skims
 
-Mon Feb 04 13:39:12 2019
+Tue Feb 05 13:14:50 2019
 
-C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\Root00.APP
+C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\Cube\JWH_custom.app
 C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\CREATEEXOGENOUSVARIABLES00.APP
 VOYAGER
 
