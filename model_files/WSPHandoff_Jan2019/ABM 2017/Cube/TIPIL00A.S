@@ -1,8 +1,7 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 
-
-if ({ffSkims} = 1)
+IF ({ffSkims} = 1)
   TransitSkim = 2
-else
+ELSE
   TransitSkim = 1
-endif
+ENDIF
