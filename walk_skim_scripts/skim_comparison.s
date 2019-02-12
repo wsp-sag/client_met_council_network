@@ -2,7 +2,11 @@
 RUN PGM = MATRIX MSG = "Cross your fingers"
 FILEI MATI[1] = "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\Base2010\Run2015\HWY_SKIM_0_AM.skm"
 <<<<<<< HEAD
+<<<<<<< HEAD
 FILEI MATI[2] = "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\Base2010\Run2015\HWY_SKIM_0_AM.skm" ; XIT_WK_SKIM_3_OP.skm"
+=======
+FILEI MATI[2] = "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\Base2010\Run2015\HWY_SKIM_1_AM.skm" ; XIT_WK_SKIM_3_OP.skm"
+>>>>>>> bad417e24e2135ea3f4d387e566eef12b6b9ceae
 =======
 FILEI MATI[2] = "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\Base2010\Run2015\HWY_SKIM_1_AM.skm" ; XIT_WK_SKIM_3_OP.skm"
 >>>>>>> bad417e24e2135ea3f4d387e566eef12b6b9ceae
