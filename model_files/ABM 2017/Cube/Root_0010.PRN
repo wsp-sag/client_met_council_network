@@ -1,0 +1,1098 @@
+Page 1  (VOYAGER PILOT) 
+Metropolitan Council
+------------------------
+PILOT (v.09/23/2016 [6.4.2 x64]) Mon Mar 06 10:36:48 2017
+
+Args: C:\Users\ehrlicjn\AppData\Local\Temp\Cit4F2A.tmp -SC:\USERS\EHRLICJN\DESKTOP\METCOUNCILABMPRERELEASE0.1\CUBE\ -RC:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Cube\Root_0010.PRN -PH:58 -PW:80 -I -P"Root"
+Input:   C:\Users\ehrlicjn\AppData\Local\Temp\Cit4F2A.tmp
+
+M(658): Input expanded to C:\Users\ehrlicjn\AppData\Local\Temp\Voy7452_74900.$$$ before starting run
+
+HighwaySkimBranch=-1
+TransitSkim=-1
+ConvergeCheck=-1
+FinalAssign=-1
+RUN PGM=NETWORK,289 MSG='Export Raw Network From Scenario Highway Network'
+RUN PGM=NETWORK,788 MSG='Export Bike Network from MultiModal Network'
+RUN PGM=HIGHWAY,1702 MSG='Skim Bike Path Times'
+RUN PGM=HIGHWAY,2902 MSG='Skim Walk Path Distance'
+RUN PGM=MATRIX,3766 MSG='Calculate Bike and Walk Distances'
+RUN PGM=NETWORK,4584 MSG='Set highway link speeds, capacities, and AB'
+LOOP TOD=1,6,1 ; There are six unique network configurations
+ IF (TOD=1) NETNAME='Overnight 7:00 PM to 5:00 AM'
+ IF (TOD=2) NETNAME='Reverse Lane Change Over 5:00 AM to 6:00 AM  and 1:00 PM to 2:00 PM'
+ IF (TOD=3) NETNAME='AM Peak Period 6:00 AM to 10:00 AM'
+ IF (TOD=4) NETNAME='Mid Day Period 10:00 AM to 1:00 PM'
+ IF (TOD=5) NETNAME='Pre PM Peak Period 2:00 PM to 3:00 PM'
+ IF (TOD=6) NETNAME='PM Peak Period 3:00 PM to 7:00 PM'
+RUN PGM=NETWORK,7446 MSG='Set Managed Lanes for: @NETNAME@'
+ENDLOOP
+if (0 = 1)
+  HighwaySkimBranch = 2
+else
+  HighwaySkimBranch = 1
+endif
+If (HighwaySkimBranch=1)
+  goto HighwaySkimBranch_1
+Elseif (HighwaySkimBranch=2)
+  goto HighwaySkimBranch_2
+Else
+  PRINT LIST='Application Error: No Branch Selected from Branch Control "HighwaySkimBranch"'
+  ABORT
+Endif
+:HighwaySkimBranch_1
+SYS=(copy "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Input\skims\HWY_SKIM_4_AM.skm" "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\HWY_SKIM_0_AM.skm")
+SYS=(copy "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Input\skims\HWY_SKIM_4_MD.skm" "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\HWY_SKIM_0_MD.skm")
+SYS=(copy "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Input\skims\HWY_SKIM_4_PM.skm" "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\HWY_SKIM_0_PM.skm")
+SYS=(copy "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Input\skims\HWY_SKIM_4_NT.skm" "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\HWY_SKIM_0_NT.skm")
+  IF (ReturnCode == 1)
+    PRINT LIST='Missing Highway Initial Skim file - check scenario key settings in the Scenario Manager'
+    abort
+  ENDIF
+goto HighwaySkimBranch_END
+:HighwaySkimBranch_2
+RUN PGM=HIGHWAY,11085 MSG='Skim Free Flow Network'
+SYS=(copy "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\HWY_SKIM.skm" "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\HWY_SKIM_0_AM.skm")
+SYS=(copy "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\HWY_SKIM.skm" "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\HWY_SKIM_0_MD.skm")
+SYS=(copy "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\HWY_SKIM.skm" "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\HWY_SKIM_0_PM.skm")Page 2  (VOYAGER PILOT) 
+Metropolitan Council
+------------------------
+SYS=(copy "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\HWY_SKIM.skm" "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\HWY_SKIM_0_NT.skm")
+goto HighwaySkimBranch_END
+:HighwaySkimBranch_END
+if (0 = 1)
+  TransitSkim = 2
+else
+  TransitSkim = 1
+endif
+If (TransitSkim=1)
+  goto TransitSkim_1
+Elseif (TransitSkim=2)
+  goto TransitSkim_2
+Else
+  PRINT LIST='Application Error: No Branch Selected from Branch Control "TransitSkim"'
+  ABORT
+Endif
+:TransitSkim_1
+SYS=(copy "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Input\skims\PK_XIT_WK.skm" "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\XIT_WK_SKIM_0_PK.skm")
+SYS=(copy "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Input\skims\OP_XIT_WK.skm" "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\XIT_WK_SKIM_0_OP.skm")
+SYS=(copy "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Input\skims\PK_XIT_DR.skm" "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\XIT_DR_SKIM_0_PK.skm")
+SYS=(copy "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Input\skims\OP_XIT_DR.skm" "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\XIT_DR_SKIM_0_OP.skm")
+  IF (ReturnCode == 1)
+    PRINT LIST='Missing Highway Initial Skim file - check scenario key settings in the Scenario Manager'
+    abort
+  ENDIF
+RUN PGM=NETWORK,14613 MSG='TEMP: extract link and node dbfs'
+goto TransitSkim_END
+:TransitSkim_2
+RUN PGM=NETWORK,15211 MSG='TEMP: extract link and node dbfs'
+RUN PGM=NETWORK,15773 MSG='TEMP: set rail zone node field'
+SYS=(cluster transit 1-2 START EXIT)
+LOOP TOD=1,2,1 ; Loop through peak and off-peak
+  IF (TOD=1) TPER='PK'
+  IF (TOD=2) TPER='OP'
+ DISTRIBUTEMULTISTEP PROCESSID='transit' PROCESSNUM=@TOD@
+RUN PGM=NETWORK,17370 MSG='Calculate Transit Speeds for @TPER@'
+RUN PGM='PUBLIC TRANSPORT',21432 MSG='Build @TPER@ Walk Access Connectors'
+RUN PGM='PUBLIC TRANSPORT',23428 MSG='Build @TPER@ Transfer Access Connectors'
+RUN PGM='PUBLIC TRANSPORT',25575 MSG='Build @TPER@ Drive Access Connectors'
+SYS=(copy "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\XIT_WKACC_NTL_0_@TPER@.tmp"+"C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\input\transit\WalkOverrides.txt" "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\XIT_WKACC_NTL_0_@TPER@.ntl")
+SYS=(copy "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\XIT_XFER_NTL_0_@TPER@.tmp"+"C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\input\transit\TransferOverrides.txt" "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\XIT_XFER_NTL_0_@TPER@.ntl")
+SYS=(copy "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\XIT_DRACC_NTL_0_@TPER@.tmp"+"C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\input\transit\DriveOverrides.txt" "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\XIT_DRACC_NTL_0_@TPER@.ntl")
+RUN PGM='PUBLIC TRANSPORT',28317 PRNFILE="C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\XIT_WK_PRN_0_@TPER@.prn" MSG='@TPER@ Walk Transit Skim - Step 1'
+RUN PGM='PUBLIC TRANSPORT',31530 PRNFILE="C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\XIT_DR_PRN_0_@TPER@.prn" MSG='@TPER@ Drive Transit Skim - Step 1'
+RUN PGM=MATRIX,34812 MSG='@TPER@ Walk Skim - Step 2'
+RUN PGM=MATRIX,36679 MSG='@TPER@ Drive Skim - Step 2'
+ENDDISTRIBUTEMULTISTEP
+ENDLOOP
+Wait4Files FILES='transit1.script.end, transit2.script.end' CheckReturnCode=T, DelDistribFiles=T
+SYS=(cluster transit 1-2 CLOSE EXIT)
+goto TransitSkim_END
+:TransitSkim_END
+RUN PGM=GENERATION,38873 MSG='Quick Response Freight Manual routine'
+RUN PGM=MATRIX,40856 MSG='External Auto Allocation and Mode Choice'Page 3  (VOYAGER PILOT) 
+Metropolitan Council
+------------------------
+RUN PGM=MATRIX,42774 MSG='Build distribution matrix for Auto EE IPF'
+RUN PGM=FRATAR,43364 MSG='Fratar station targets using distribution from survey'
+RUN PGM=MATRIX,44168 MSG='Generate Airport Trips'
+RUN PGM=MATRIX,44822 MSG='Create Special Generator Matrix'
+RUN PGM=FRATAR,46258 MSG='Fratar EE truck from FAF'
+RUN PGM=MATRIX,47063 MSG='Split into two types'
+LOOP ITER = 1, 20, 1
+PREV_ITER = ITER - 1
+IF (ITER==1)
+SYS=(copy "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Input\zones.dbf" "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\zones_0.dbf")
+ENDIF
+RUN PGM=MATRIX,48158 MSG='Highway Accessibility'
+RUN PGM=MATRIX,53448 MSG='Transit Accessibility'
+RUN PGM=MATRIX,57923 MSG='Distance to External'
+RUN PGM=MATRIX,59629 MSG='School TAZs'
+RUN PGM=MATRIX,69447 MSG='University Enrollment'
+RUN PGM=MATRIX,71218 MSG='Update Zonal Database'
+RUN PGM=MATRIX,75761 MSG='Set Inputs and Intermediate File Names - Part 1'
+RUN PGM=MATRIX,91182 MSG='Set Inputs and Intermediate File Names - Part 2'
+FILEO PRINTO[1] = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\TourCastStatus.prn"
+SYS=( echo @echo on > TourCastRun.bat)
+SYS=( echo @cd ..\TourCast\bin >> TourCastRun.bat)
+SYS=( echo @echo TourCast Aborted ^> ..\..\Cube\TC_error.txt >> TourCastRun.bat)
+IF (1 == 1)
+SYS=( echo ModelEngine.exe VehicleAvailabilityModel.py >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+SYS=( echo ModelEngine.exe VehicleAvailabilityModelPostProcessor.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+ENDIF
+IF (1 == 1)
+SYS=( echo ModelEngine.exe SchoolLocationConstrChoice.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+ENDIF
+IF (1 == 1)
+SYS=( echo ModelEngine.exe WorkplaceLocationChoiceModelPreProcessor.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+SYS=( echo ModelEngine.exe UsualWorkplaceLocationChoiceModel.py UsualWorkplaceLocationTourModeChoiceLogsumModel.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+ENDIF
+IF (1 == 1)
+SYS=( echo ModelEngine.exe PassModels.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+ENDIF
+IF (1 == 1)
+SYS=( echo ModelEngine.exe DailyActivityPatternModelPreProcessor.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+SYS=( echo ModelEngine.exe DailyActivityPatternModel.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+ENDIF
+IF (1 == 1)
+SYS=( echo ModelEngine.exe TourDestinationChoiceUniversity.py  TourModeChoiceLogsum_SchoolLocation.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+SYS=( echo ModelEngine.exe TourDestinationChoiceWork.py TourModeChoiceLogsum_Work.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)Page 4  (VOYAGER PILOT) 
+Metropolitan Council
+------------------------
+ENDIF
+IF (1 == 1)
+SYS=( echo ModelEngine.exe MandatoryTourTimeOfDayChoiceModelPreProcessor.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+SYS=( echo ModelEngine.exe TourTimeOfDayDAPFirstTours.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+SYS=( echo ModelEngine.exe TourTimeOfDayDAPSecondTours.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+ENDIF
+IF (1 == 1)
+SYS=( echo ModelEngine.exe SchoolEscortModel.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+ENDIF
+IF (1 == 1)
+SYS=( echo ModelEngine.exe FullyJointTourPreProcessor.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+SYS=( echo ModelEngine.exe FullyJointTour.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+SYS=( echo ModelEngine.exe FullyJointTourDestinationChoice.py TourModeChoiceLogsum_FullyJoint.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+SYS=( echo ModelEngine.exe FullyJointTourTimeOfDay.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+ENDIF
+IF (1 == 1)
+SYS=( echo ModelEngine.exe IndividualNonMandatoryPreProcessor.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+SYS=( echo ModelEngine.exe IndividualNonMandatory.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+SYS=( echo ModelEngine.exe IndividualNonMandatoryEscortTourDestinationChoice.py TourModeChoiceLogsum_IndividualNonMandatory_Escort.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+SYS=( echo ModelEngine.exe IndividualNonMandatoryTourDestinationChoice.py TourModeChoiceLogsum_IndividualNonMandatory.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+SYS=( echo ModelEngine.exe TourTimeOfDayIndNonMandNonEscort.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+SYS=( echo ModelEngine.exe TourTimeOfDayIndNonMandEscort.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+ENDIF
+IF (1 == 1)
+SYS=( echo ModelEngine.exe StopGeneration.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+ENDIF
+IF (1 == 1)
+SYS=( echo ModelEngine.exe TourModeChoiceHomeBased.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+ENDIF
+IF (1 == 1)
+SYS=( echo ModelEngine.exe WorkBasedSubTourPreProcessor.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+SYS=( echo ModelEngine.exe WorkBasedSubTour.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+SYS=( echo ModelEngine.exe WorkBasedTourDestinationChoice.py TourModeChoiceLogsum_WorkBased.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+SYS=( echo ModelEngine.exe WorkBasedTourTimeOfDay.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)Page 5  (VOYAGER PILOT) 
+Metropolitan Council
+------------------------
+SYS=( echo ModelEngine.exe WorkBasedStopGeneration.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+SYS=( echo ModelEngine.exe WorkBasedTourModeChoice.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+ENDIF
+IF (1 == 1)
+SYS=( echo ModelEngine.exe StopDestination.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+SYS=( echo ModelEngine.exe StopTimeOfDay.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+ENDIF
+IF (1 == 1)
+SYS=( echo ModelEngine.exe TripModeChoice.py  >>  TourCastRun.bat)
+SYS=( echo @IF ERRORLEVEL 2 GOTO TCERROR >> TourCastRun.bat)
+ENDIF
+SYS=( echo @del ..\..\Cube\TC_error.txt >> TourCastRun.bat)
+SYS=( echo exit >> TourCastRun.bat)
+SYS=( echo :TCERROR >> TourCastRun.bat)
+SYS=( echo @echo TourCast Component Failed)
+SYS=( echo @echo TourCast Error ^> ..\..\Cube\TC_error.txt >> TourCastRun.bat)
+SYS=( echo @pause >> TourCastRun.bat)
+SYS=( echo exit >> TourCastRun.bat)
+SYS=( start /wait TourCastRun.bat)
+SYS=( dir TC_error.txt)
+  IF (ReturnCode == 0)
+    PRINT LIST='TourCast Model Error - see log files for more information'
+SYS=( type TC_error.txt)
+    abort
+  ENDIF
+RUN PGM=MATRIX,102445 MSG='Create weighted skim times'
+RUN PGM=TRIPDIST,104144 MSG='Truck gravity model'
+RUN PGM=MATRIX,105714 MSG='Time period splits'
+RUN PGM=MATRIX,110498 MSG='Auto EI / IE Destination Choice'
+RUN PGM=MATRIX,113146 MSG='Combine EI / IE trips with transpose and EE'
+LOOP TOD=1,11,1
+ IF (TOD=1) PER='AM1'
+ IF (TOD=2) PER='AM2'
+ IF (TOD=3) PER='AM3'
+ IF (TOD=4) PER='AM4'
+ IF (TOD=5) PER='MD'
+ IF (TOD=6) PER='PM1'
+ IF (TOD=7) PER='PM2'
+ IF (TOD=8) PER='PM3'
+ IF (TOD=9) PER='PM4'
+ IF (TOD=10) PER='EV'
+ IF (TOD=11) PER='ON'
+RUN PGM=MATRIX,114477 MSG='Sum trips from each time period'
+ENDLOOP
+RUN PGM=MATRIX,116259 MSG='Split trips by TOD'
+;*READ FILE = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Input\AirportModeChoiceParams.TXT"
+;**********************************************
+;**********************************************
+ TTIME_AUTO=10.0
+ TTIME_SR=7.5Page 6  (VOYAGER PILOT) 
+Metropolitan Council
+------------------------
+ AUTOCOST  = 0.20            ; auto operating cost 20 cents per mile
+ C_DA = 0.0
+ DA_COST=-0.134
+ C_SR2 = -1.35
+ SR2_COST=-0.134
+ C_SR3 = -2.72
+ SR3_COST=-0.134
+ HWTCOEFF=-0.0263
+ TCOEFF_WA=-0.0263
+ FARE_WA=-0.134
+ TCOEFF_DA=-0.0263
+ FARECOST=-0.134
+ C_TR=-0.677
+LOOP TOD=1,11,1
+ IF (TOD=1) PER='AM1' HPER='AM' TPER = 'PK'
+ IF (TOD=2) PER='AM2' HPER='AM' TPER = 'PK'
+ IF (TOD=3) PER='AM3' HPER='AM' TPER = 'PK'
+ IF (TOD=4) PER='AM4' HPER='AM' TPER = 'PK'
+ IF (TOD=5) PER='MD'  HPER='MD' TPER = 'OP'
+ IF (TOD=6) PER='PM1' HPER='PM' TPER = 'PK'
+ IF (TOD=7) PER='PM2' HPER='PM' TPER = 'PK'
+ IF (TOD=8) PER='PM3' HPER='PM' TPER = 'PK'
+ IF (TOD=9) PER='PM4' HPER='PM' TPER = 'PK'
+ IF (TOD=10) PER='EV' HPER='NT' TPER = 'OP'
+ IF (TOD=11) PER='ON' HPER='NT' TPER = 'OP'
+RUN PGM=MATRIX,122304 MSG='Airport Mode Choice'
+RUN PGM=MATRIX,125891 MSG='Add return trips'
+ENDLOOP
+DISTRIBUTE INTRASTEP=T
+SYS=(Cluster Intrastep 1-16 START EXIT)
+RUN PGM=MATRIX,127090 MSG='Aggregate Trip Tables for Interm Assignment'
+RUN PGM=MATRIX,134102 MSG='Aggregate Truck Trip Tables for Interm Assignment'
+RUN PGM=MATRIX,136512 MSG='Aggregate IE/EI Trip Tables for Interm Assignment'
+RUN PGM=MATRIX,138950 MSG='Aggregate SPC Trip Tables for Interm Assignment'
+LOOP TOD=1,4,1
+ IF (TOD=1) PER='AM' ASSIGNNAME='AM Peak Period'    HWY_NET ='HWY_NET_3.net'    NETNAME='AM Peak Period 6:00 AM to 10:00 AM'  CAPFAC = 3.75
+ IF (TOD=2) PER='MD' ASSIGNNAME='Mid Day Period'    HWY_NET ='HWY_NET_4.net'    NETNAME='Mid Day Period 10:00 AM to 3:00 PM'  CAPFAC = 4.48
+ IF (TOD=3) PER='PM' ASSIGNNAME='PM Peak Period'    HWY_NET ='HWY_NET_6.net'    NETNAME='PM Peak Period 3:00 PM to 7:00 PM'   CAPFAC = 3.9
+ IF (TOD=4) PER='NT' ASSIGNNAME='Night'             HWY_NET ='HWY_NET_1.net'    NETNAME='Overnight 7:00 PM to 6:00 AM'        CAPFAC = 4.65
+RUN PGM=MATRIX,142127 MSG='Record stats and Convert to Vehicle Trip Tables @ASSIGNNAME@'
+RUN PGM=HIGHWAY,145544 MSG='Assignment Period: @ASSIGNNAME@'
+RUN PGM=MATRIX,164535 MSG='Create Highway Skims: @ASSIGNNAME@'
+ENDLOOP ; end of TOD assignment loop
+SYS=(Cluster Intrastep 1-16 CLOSE EXIT)
+RUN PGM=NETWORK,166563 MSG='Combine Convergence Assignment Networks'
+RUN PGM=NETWORK,170020 MSG='Export link dbf'
+RUN PGM=MATRIX,170506 MSG='Export to csv'
+SYS=(cluster transit 1-2 START EXIT)
+LOOP TOD=1,2,1
+ IF (TOD=1) TPER='PK' ASSIGNNAME='Peak Period'  PER ='AM'
+ IF (TOD=2) TPER='OP' ASSIGNNAME='OffPeak Period'  PER ='MD'
+ DISTRIBUTEMULTISTEP PROCESSID='transit' PROCESSNUM=@TOD@
+RUN PGM=NETWORK,172338 MSG='Calculate Transit Speeds for @TPER@'
+RUN PGM='PUBLIC TRANSPORT',176994 MSG='Build @TPER@ Walk Access Connectors'Page 7  (VOYAGER PILOT) 
+Metropolitan Council
+------------------------
+RUN PGM='PUBLIC TRANSPORT',179010 MSG='Build @TPER@ Transfer Access Connectors'
+RUN PGM='PUBLIC TRANSPORT',181177 MSG='Build @TPER@ Drive Access Connectors'
+SYS=(copy "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\XIT_WKACC_NTL_@ITER@_@TPER@.tmp"+"C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\input\transit\WalkOverrides.txt" "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\XIT_WKACC_NTL_@ITER@_@TPER@.ntl")
+SYS=(copy "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\XIT_XFER_NTL_@ITER@_@TPER@.tmp"+"C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\input\transit\TransferOverrides.txt" "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\XIT_XFER_NTL_@ITER@_@TPER@.ntl")
+SYS=(copy "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\XIT_DRACC_NTL_@ITER@_@TPER@.tmp"+"C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\input\transit\DriveOverrides.txt" "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\XIT_DRACC_NTL_@ITER@_@TPER@.ntl")
+RUN PGM='PUBLIC TRANSPORT',184074 PRNFILE="C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\XIT_WK_PRN_@ITER@_@TPER@.prn" MSG='@TPER@ Walk Transit Skim - Step 1'
+RUN PGM='PUBLIC TRANSPORT',187356 PRNFILE="C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\XIT_DR_PRN_@ITER@_@TPER@.prn" MSG='@TPER@ Drive Transit Skim - Step 1'
+RUN PGM=MATRIX,190709 MSG='@TPER@ Walk Skim - Step 2'
+RUN PGM=MATRIX,192586 MSG='@TPER@ Drive Skim - Step 2'
+ENDDISTRIBUTEMULTISTEP
+ENDLOOP
+Wait4Files FILES='transit1.script.end, transit2.script.end' CheckReturnCode=T, DelDistribFiles=T
+SYS=(cluster transit 1-2 CLOSE EXIT)
+if (ITER == 1)
+  ConvergeCheck = 1
+else
+  ConvergeCheck = 2
+endif
+  If (ConvergeCheck=2)
+    goto ConvergeCheck_2
+  Elseif (ConvergeCheck=1)
+    goto ConvergeCheck_1
+  Else
+    PRINT LIST='Application Error: No Branch Selected from Branch Control "ConvergeCheck"'
+    ABORT
+  Endif
+:ConvergeCheck_2
+PREV_ITER = ITER - 1
+SYS=(echo.  >> "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\converge.txt")
+SYS=(echo.  >> "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\converge.txt")
+SYS=(echo 'Checking convergence for iteration @ITER@'  >> "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\converge.txt")
+SYS=(echo %date% %time%  >> "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\converge.txt")
+LOOP TOD=1,4,1
+ IF (TOD=1) PER='NT'
+ IF (TOD=2) PER='AM'
+ IF (TOD=3) PER='MD'
+ IF (TOD=4) PER='PM'
+RUN PGM=NETWORK,195942 MSG='Unbuild network'
+RUN PGM=MATRIX,197427 MSG='Calculate convergence stats'
+SYS=(echo.  >> "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\converge.txt")
+SYS=(type "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\converge_@ITER@_@PER@.txt" >> "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\converge.txt")
+SYS=(echo.  >> "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\converge.txt")
+endloop
+if ((OP._ERRLINKS > 1) |
+    (MD._ERRLINKS > 1) |
+    (AM._ERRLINKS > 1) |
+    (PM._ERRLINKS > 1))
+SYS=(echo Iteration @ITER@ Not Converged >> "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\converge.txt")
+else
+SYS=(echo Iteration @ITER@ Converged! >> "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\converge.txt")
+   CONV = 1
+   LOG VAR=CONV
+endif
+if (ITER == 4)Page 8  (VOYAGER PILOT) 
+Metropolitan Council
+------------------------
+SYS=(echo.  >> "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\converge.txt")
+SYS=(echo Maximum Iterations Hit >> "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\converge.txt")
+SYS=(echo.  >> "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\converge.txt")
+    CONV = 1
+   LOG VAR=CONV
+endif
+  goto ConvergeCheck_END
+:ConvergeCheck_1
+LOOP TOD=1,4,1
+ IF (TOD=1) PER='NT'
+ IF (TOD=2) PER='AM'
+ IF (TOD=3) PER='MD'
+ IF (TOD=4) PER='PM'
+RUN PGM=NETWORK,200820 MSG='Unbuild network'
+ENDLOOP
+  goto ConvergeCheck_END
+:ConvergeCheck_END
+if (CONV ==1)
+  FinalAssign = 2
+else
+  FinalAssign = 1
+endif
+  If (FinalAssign=2)
+    goto FinalAssign_2
+  Elseif (FinalAssign=1)
+    goto FinalAssign_1
+  Else
+    PRINT LIST='Application Error: No Branch Selected from Branch Control "FinalAssign"'
+    ABORT
+  Endif
+:FinalAssign_2
+SYS=(Cluster Intrastep 1-16 START EXIT)
+LOOP TOD=1,11,1
+ IF (TOD=1) PER='AM1' ASSIGNNAME='AM1 Peak Period'    HWY_NET ='HWY_NET_3.net'    NETNAME='AM Peak Period 6:00 AM to 7:00 AM'  CAPFAC = 1
+ IF (TOD=2) PER='AM2' ASSIGNNAME='AM2 Peak Period'    HWY_NET ='HWY_NET_3.net'    NETNAME='AM Peak Period 7:00 AM to 8:00 AM'  CAPFAC = 1
+ IF (TOD=3) PER='AM3' ASSIGNNAME='AM3 Peak Period'    HWY_NET ='HWY_NET_3.net'    NETNAME='AM Peak Period 8:00 AM to 9:00 AM'  CAPFAC = 1
+ IF (TOD=4) PER='AM4' ASSIGNNAME='AM4 Peak Period'    HWY_NET ='HWY_NET_3.net'    NETNAME='AM Peak Period 9:00 AM to 10:00 AM'  CAPFAC = 1
+ IF (TOD=5) PER='MD' ASSIGNNAME='Mid Day Period'    HWY_NET ='HWY_NET_4.net'    NETNAME='Mid Day Period 10:00 AM to 3:00 PM'  CAPFAC = 4.48
+ IF (TOD=6) PER='PM1' ASSIGNNAME='PM1 Peak Period'    HWY_NET ='HWY_NET_6.net'    NETNAME='PM Peak Period 3:00 PM to 4:00 PM'  CAPFAC = 1
+ IF (TOD=7) PER='PM2' ASSIGNNAME='PM2 Peak Period'    HWY_NET ='HWY_NET_6.net'    NETNAME='PM Peak Period 4:00 PM to 5:00 PM'  CAPFAC = 1
+ IF (TOD=8) PER='PM3' ASSIGNNAME='PM3 Peak Period'    HWY_NET ='HWY_NET_6.net'    NETNAME='PM Peak Period 5:00 PM to 6:00 PM'  CAPFAC = 1
+ IF (TOD=9) PER='PM4' ASSIGNNAME='PM4 Peak Period'    HWY_NET ='HWY_NET_6.net'    NETNAME='PM Peak Period 6:00 PM to 7:00 PM'  CAPFAC = 1
+ IF (TOD=10) PER='EV' ASSIGNNAME='Evening Period'  HWY_NET ='HWY_NET_1.net'    NETNAME='Evening 7:00 PM to 12:00 AM'  CAPFAC = 3.32
+ IF (TOD=11) PER='ON' ASSIGNNAME='Overnight Period'  HWY_NET ='HWY_NET_1.net'    NETNAME='Overnight 12:00 AM to 6:00 AM'  CAPFAC = 2.59
+RUN PGM=MATRIX,203663 MSG='Convert to Vehicle Trip Tables @ASSIGNNAME@'
+RUN PGM=HIGHWAY,207064 MSG='Assignment Period: @ASSIGNNAME@'
+ENDLOOP
+SYS=(Cluster Intrastep 1-16 CLOSE EXIT)
+RUN PGM=MATRIX,226161 MSG='Combine Special Generator Trips into Peak/Off-Peak'
+SYS=(cluster transit 1-2 START EXIT)
+LOOP TOD=1,2,1
+ IF (TOD=1) TPER='PK' ASSIGNNAME='Peak Period'  PER ='AM'
+ IF (TOD=2) TPER='OP' ASSIGNNAME='OffPeak Period'  PER ='MD'
+ DISTRIBUTEMULTISTEP PROCESSID='transit' PROCESSNUM=@TOD@Page 9  (VOYAGER PILOT) 
+Metropolitan Council
+------------------------
+RUN PGM=MATRIX,228610 MSG='Expand trip table to full zones'
+RUN PGM='PUBLIC TRANSPORT',230999 PRNFILE="C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\XIT_WK_LD_PRN_@ITER@_@TPER@.prn" MSG='@TPER@ Walk Transit Assignment'
+RUN PGM='PUBLIC TRANSPORT',233569 PRNFILE="C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\XIT_DR_LD_PRN_@ITER@_@TPER@.prn" MSG='@TPER@ Drive Transit Assignment'
+LOOP T=1,2,1
+  IF (T==1) ACC='WK'
+  IF (T==2) ACC='DR'
+RUN PGM=MATRIX,236345 MSG='Combine Transit Boarding Data'
+ENDLOOP ; Transit access summaries
+ENDDISTRIBUTEMULTISTEP
+ENDLOOP
+Wait4Files FILES='transit1.script.end, transit2.script.end' CheckReturnCode=T, DelDistribFiles=T
+SYS=(cluster transit 1-2 CLOSE EXIT)
+LOOP TOD=1,2,1
+  IF (TOD==1) PER='AM'
+  IF (TOD==2) PER='PM'
+RUN PGM=NETWORK,238000 MSG='Combine 11 and 4 time period networks'
+RUN PGM=NETWORK,240020
+RUN PGM=MATRIX,240494 MSG='Export to CSV'
+ENDLOOP
+  goto FinalAssign_END
+:FinalAssign_1
+  goto FinalAssign_END
+:FinalAssign_END
+IF (CONV==1)
+  break
+ENDIF
+ENDLOOP
+
+PILOT Stack Size = 41828 bytes.
+................................................................................
+Page 10  (VOYAGER NETWORK) 
+Metropolitan Council
+---------------------------
+NETWORK (v.09/23/2016 [6.4.2 x64])  Mon Mar 06 10:36:48 2017
+
+FILEO NETO = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\ALL_NET.tmp"
+FILEI LINKI[1] = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Input\network\HighwayNetwork40.net"
+
+NETWORK Stack Size = 126 bytes.
+................................................................................
+
+
+
+
+C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Input\network\HighwayNetwork40.net   (VOYAGER):
+
+NET PGM=NETWORK (v.01/04/2017 [6.4.3 x64]) DATE=Fri Mar 03 15:08:45 2017
+ID=Model Run
+PAR Zones=3061 Nodes=55406 Links=57040 NodeRecs=24068 LeftDrive=0
+NVR 4    N    X    Y    GEOMETRYSOURCE
+LVR 48    A    B    SHAPE_LENGTH    COUNTY    T_PRIORITY    T_MANTIME
+    DISTANCE    SPEED    TLGID    NC_SPD    NC_NAME=035    TOM    TOM_FRC_ID
+    BIKE    AREA    HOV    AADT    CURR_YEAR    CID    AM_CNT    MD_CNT
+    PM_CNT    NT_CNT    DY_CNT    ASGNGRP10    ASGNGRP15    ASGNGRP40
+    LANES10    LANES15    LANES40    CENTROID    RC_NUM    FUN_CLASS
+    GEOMETRYSOURCE    RCI    LINKCLASS    LANES    ASGNGRP    CAPACITY    TIME
+    AMCAP    PMCAP    OFFCAP    NEWVOLAM    CONGAM    NEWVOLMD    CONGMD
+    HOVY
+
+
+
+Begin PROCESS PHASE NODEMERGE
+      24,068 records merged from NODEI[1]: C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Input\network\HighwayNetwork40.net
+      24,068 data base records.
+
+Variable         Obs<>0               Total           Ave           Min           Max           RMS  
+--------         ------               -----           ---           ---           ---           ---  
+N                24,068                  --            --          1        55,406               --
+X                24,068   11,539,914,047.44    479,471.25    367,070.73    570,365.39    480,116.07
+Y                24,068  119,854,976,822.83  4,979,847.8   4,891,274.44  5,065,819.04  4,979,911.74
+GEOMETRYSOURCE   24,068           24,068             1             1             1             1   
+
+_Variables with values:
+
+_ZONES            3,061      
+
+End   PROCESS PHASE NODEMERGE
+
+
+Begin PROCESS PHASE LINKMERGE
+      57,040 records merged from NETI[1]: C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Input\network\HighwayNetwork40.net
+      57,040 data base records.Page 11  (VOYAGER NETWORK) 
+Metropolitan Council
+---------------------------
+
+Variable         Obs<>0               Total           Ave       Min           Max           RMS  
+--------         ------               -----           ---       ---           ---           ---  
+A                57,040                  --            --      1        55,406               --
+B                57,040                  --            --      1        55,406               --
+SHAPE_LENGTH     57,040       38,132,086.89        668.51      0.01     16,502.36      1,183.73
+COUNTY           57,040          338,689             5.94      1            22             7.85
+T_PRIORITY        3,227            4,875             1.51      1             4             1.71
+T_MANTIME           264              569.28          2.16      0.2          18             3.45
+DISTANCE         57,040           23,694.37          0.42      0            10.25          0.74
+SPEED            57,040        2,125,453            37.26     19            72            38.9 
+TLGID            43,886    6,619,072,741       150,824.24      1       460,191       195,835.22
+NC_SPD           36,874        1,449,030            39.3       5            70            40.23
+NC_NAME          37,113                                    (0       )  (ZURICH S)
+TOM              32,122    2,003,924,535        62,384.8       1       255,531        83,040.32
+TOM_FRC_ID       32,124  155,988,839,263     4,855,834.87      1     7,046,739     4,926,706.35
+BIKE             53,805          153,269             2.85      1             3             2.88
+AREA             57,040          201,732             3.54      1            10             4.58
+HOV                 447           31,873            71.3       1           116            86.35
+AADT              4,883       38,397,742         7,863.56    102        93,000        12,441.51
+CURR_YEAR         4,967        9,993,749         2,012.03  2,008         2,013         2,012.03
+CID               2,756      109,876,831        39,868.23    868        69,415        43,380.52
+AM_CNT            1,187        8,588,632         7,235.58     63        25,709         9,419.61
+MD_CNT            1,187        8,841,449         7,448.57     13        22,611         9,374.54
+PM_CNT            1,186        9,836,737         8,294.04    143        27,926        10,532.65
+NT_CNT            1,187        6,569,472         5,534.52      4        18,022         7,014.52
+DY_CNT            1,187       33,836,324        28,505.75    129        76,638        35,775.71
+ASGNGRP10        56,674          480,286             8.47      1           150            14.71
+ASGNGRP15        56,864          486,590             8.56      1           150            15.04
+ASGNGRP40        57,040          490,537             8.6       1           150            15.18
+LANES10          47,338           59,140             1.25      1             6             1.36
+LANES15          47,463           59,468             1.25      1             6             1.37
+LANES40          47,629           59,799             1.26      1             6             1.37
+CENTROID          8,674            8,674             1         1             1             1   
+RC_NUM           56,817        2,715,579            47.8      10           101            53.84
+FUN_CLASS        31,231        7,660,882           245.3     100           320           255.87
+GEOMETRYSOURCE   57,040           57,040             1         1             1             1   
+RCI              57,040        1,372,869            24.07      1           101            41.53
+LINKCLASS        57,040        1,372,869            24.07      1           101            41.53
+LANES            47,629           59,799             1.26      1             6             1.37
+ASGNGRP          57,040          490,537             8.6       1           150            15.18
+CAPACITY         47,445       48,216,421         1,016.26    400       199,998         1,926.39
+TIME             57,040           38,190.62          0.67      0            11.43          1.12
+AMCAP            47,417       48,050,671         1,013.36    400       199,998         1,921.22
+PMCAP            47,406       48,025,321         1,013.06    400       199,998         1,921.47
+OFFCAP           47,278       47,921,971         1,013.62    400       199,998         1,930.43
+HOVY                447           31,873            71.3       1           116            86.35
+
+      Obs = 0:  NEWVOLAM  CONGAM  NEWVOLMD  CONGMD
+Page 12  (VOYAGER NETWORK) 
+Metropolitan Council
+---------------------------
+_Variables with values:
+
+_ZONES            3,061      
+
+End   PROCESS PHASE LINKMERGE
+
+M(664): Unconnected Zones:  1486<-
+
+FILEO NETO=C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\ALL_NET.tmp
+
+NET PGM=NETWORK (v.09/23/2016 [6.4.2 x64]) DATE=Mon Mar 06 10:36:48 2017
+ID= 
+PAR Zones=3061 Nodes=55406 Links=57040 NodeRecs=24068 LeftDrive=0
+NVR 4    N    X    Y    GEOMETRYSOURCE
+LVR 48    A    B    SHAPE_LENGTH    COUNTY    T_PRIORITY    T_MANTIME
+    DISTANCE    SPEED    TLGID    NC_SPD    NC_NAME=035    TOM    TOM_FRC_ID
+    BIKE    AREA    HOV    AADT    CURR_YEAR    CID    AM_CNT    MD_CNT
+    PM_CNT    NT_CNT    DY_CNT    ASGNGRP10    ASGNGRP15    ASGNGRP40
+    LANES10    LANES15    LANES40    CENTROID    RC_NUM    FUN_CLASS
+    GEOMETRYSOURCE    RCI    LINKCLASS    LANES    ASGNGRP    CAPACITY    TIME
+    AMCAP    PMCAP    OFFCAP    NEWVOLAM    CONGAM    NEWVOLMD    CONGMD
+    HOVY
+
+
+NETWORK  ReturnCode = 0  Elapsed Time = 00:00:01
+################################################################################
+Page 13  (VOYAGER NETWORK) 
+Metropolitan Council
+---------------------------
+NETWORK (v.09/23/2016 [6.4.2 x64])  Mon Mar 06 10:36:49 2017
+
+FILEO NETO = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\NM_NET.net"
+FILEI LINKI[1] = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\ALL_NET.tmp"
+;Length corrections
+;DISTANCE = SHAPE_Length/1609.344 ; Adds distance to any new link that was not coded with a distance
+BIKESPEED=0
+IF (BIKE=0) DELETE
+IF (BIKE=1) BIKESPEED=13
+IF (BIKE=2) BIKESPEED=13
+IF (BIKE=3) BIKESPEED=10
+BIKETIME=60*(DISTANCE/BIKESPEED)
+PTIME=BIKETIME
+B1DIST=0
+B2DIST=0
+B3DIST=0
+IF (BIKE=3)
+  B3DIST=DISTANCE
+ENDIF
+IF (BIKE=2)
+  B2DIST=DISTANCE
+ENDIF
+IF (BIKE=1)
+  B1DIST=DISTANCE
+  PTIME=BIKETIME*0.8
+ENDIF
+
+NETWORK Stack Size = 1932 bytes.
+................................................................................
+
+
+
+
+C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\ALL_NET.tmp   (VOYAGER):
+
+NET PGM=NETWORK (v.09/23/2016 [6.4.2 x64]) DATE=Mon Mar 06 10:36:48 2017
+ID= 
+PAR Zones=3061 Nodes=55406 Links=57040 NodeRecs=24068 LeftDrive=0
+NVR 4    N    X    Y    GEOMETRYSOURCE
+LVR 48    A    B    SHAPE_LENGTH    COUNTY    T_PRIORITY    T_MANTIME
+    DISTANCE    SPEED    TLGID    NC_SPD    NC_NAME=035    TOM    TOM_FRC_ID
+    BIKE    AREA    HOV    AADT    CURR_YEAR    CID    AM_CNT    MD_CNT
+    PM_CNT    NT_CNT    DY_CNT    ASGNGRP10    ASGNGRP15    ASGNGRP40
+    LANES10    LANES15    LANES40    CENTROID    RC_NUM    FUN_CLASS
+    GEOMETRYSOURCE    RCI    LINKCLASS    LANES    ASGNGRP    CAPACITY    TIME
+    AMCAP    PMCAP    OFFCAP    NEWVOLAM    CONGAM    NEWVOLMD    CONGMD
+    HOVY
+
+
+
+Begin PROCESS PHASE NODEMERGE
+      24,068 records merged from NODEI[1]: C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\ALL_NET.tmp
+      24,068 data base records.Page 14  (VOYAGER NETWORK) 
+Metropolitan Council
+---------------------------
+
+Variable         Obs<>0               Total           Ave           Min           Max           RMS  
+--------         ------               -----           ---           ---           ---           ---  
+N                24,068                  --            --          1        55,406               --
+X                24,068   11,539,914,047.44    479,471.25    367,070.73    570,365.39    480,116.07
+Y                24,068  119,854,976,822.83  4,979,847.8   4,891,274.44  5,065,819.04  4,979,911.74
+GEOMETRYSOURCE   24,068           24,068             1             1             1             1   
+
+_Variables with values:
+
+_ZONES            3,061      
+
+End   PROCESS PHASE NODEMERGE
+
+
+Begin PROCESS PHASE LINKMERGE
+      57,040 records merged from NETI[1]: C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\ALL_NET.tmp
+      53,805 data base records.Page 15  (VOYAGER NETWORK) 
+Metropolitan Council
+---------------------------
+
+Variable         Obs<>0               Total           Ave       Min           Max           RMS  
+--------         ------               -----           ---       ---           ---           ---  
+A                53,805                  --            --      1        55,406               --
+B                53,805                  --            --      1        55,406               --
+SHAPE_LENGTH     53,805       35,404,003.29        658.01      0.01     13,768.72      1,159.58
+COUNTY           53,805          323,683             6.02      1            22             7.96
+T_PRIORITY        2,201            2,831             1.29      1             4             1.51
+T_MANTIME             2                0.4           0.2       0.2           0.2           0.2 
+DISTANCE         53,805           21,999.22          0.41      0             8.56          0.72
+SPEED            53,805        1,921,431            35.71     19            72            36.88
+TLGID            41,401    6,282,425,796       151,745.75    102       460,191       197,015.9 
+NC_SPD           34,367        1,309,725            38.11      5            65            38.78
+NC_NAME          34,609                                    (0       )  (ZURICH S)
+TOM              29,552    1,864,323,286        63,086.2       1       255,531        84,516.28
+TOM_FRC_ID       29,554  145,494,381,336     4,923,001.33     40     7,046,739     4,990,406.24
+BIKE             53,805          153,269             2.85      1             3             2.88
+AREA             53,805          192,005             3.57      1            10             4.64
+AADT              4,153       22,111,575         5,324.24  1,000        35,500         6,963.35
+CURR_YEAR         4,163        8,375,963         2,012     2,008         2,013         2,012   
+CID               2,724      109,599,813        40,234.88    868        69,415        43,623.3 
+AM_CNT              480          688,304         1,433.97     63        13,401         1,854.52
+MD_CNT              480          832,162         1,733.67     13         9,054         2,072.42
+PM_CNT              479          858,933         1,793.18    143        15,919         2,217.24
+NT_CNT              480          578,602         1,205.42      4         8,062         1,474.48
+DY_CNT              480        2,958,005         6,162.51    129        38,021         7,426.82
+ASGNGRP10        53,567          449,154             8.38      2           150            14.06
+ASGNGRP15        53,691          450,010             8.38      1           150            14.07
+ASGNGRP40        53,805          451,071             8.38      1           150            14.07
+LANES10          44,174           51,908             1.18      1             4             1.25
+LANES15          44,289           52,179             1.18      1             4             1.26
+LANES40          44,395           52,417             1.18      1             4             1.26
+CENTROID          8,674            8,674             1         1             1             1   
+RC_NUM           53,582        2,654,909            49.55     10           101            55.01
+FUN_CLASS        28,949        7,406,897           255.86    100           320           263.72
+GEOMETRYSOURCE   53,805           53,805             1         1             1             1   
+RCI              53,805        1,348,489            25.06      1           101            42.36
+LINKCLASS        53,805        1,348,489            25.06      1           101            42.36
+LANES            44,395           52,417             1.18      1             4             1.26
+ASGNGRP          53,805          451,071             8.38      1           150            14.07
+CAPACITY         44,392       36,118,096           813.62    400       199,998         1,626.48
+TIME             53,805           36,601.38          0.68      0            11.43          1.13
+AMCAP            44,392       36,118,096           813.62    400       199,998         1,626.48
+PMCAP            44,392       36,118,096           813.62    400       199,998         1,626.48
+OFFCAP           44,392       36,118,096           813.62    400       199,998         1,626.48
+BIKESPEED        53,805          560,280            10.41     10            13            10.46
+BIKETIME         53,805          128,390.93          2.39      0            51.33          4.24
+PTIME            53,805          127,962.87          2.38      0            51.33          4.23
+B1DIST              736              463.73          0.63      0.02          3.84          0.92
+B2DIST            6,674            2,139.44          0.32      0             6.04          0.54
+B3DIST           46,395           19,396.05          0.42      0             8.56          0.74
+
+      Obs = 0:  HOV  NEWVOLAM  CONGAM  NEWVOLMD  CONGMD  HOVY
+Page 16  (VOYAGER NETWORK) 
+Metropolitan Council
+---------------------------
+_Variables with values:
+
+_ZONES            3,061      
+
+End   PROCESS PHASE LINKMERGE
+
+M(664): Unconnected Zones:  1486<-
+
+FILEO NETO=C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\NM_NET.net
+
+NET PGM=NETWORK (v.09/23/2016 [6.4.2 x64]) DATE=Mon Mar 06 10:36:49 2017
+ID= 
+PAR Zones=3061 Nodes=55406 Links=53805 NodeRecs=24068 LeftDrive=0
+NVR 4    N    X    Y    GEOMETRYSOURCE
+LVR 54    A    B    SHAPE_LENGTH    COUNTY    T_PRIORITY    T_MANTIME
+    DISTANCE    SPEED    TLGID    NC_SPD    NC_NAME=035    TOM    TOM_FRC_ID
+    BIKE    AREA    HOV    AADT    CURR_YEAR    CID    AM_CNT    MD_CNT
+    PM_CNT    NT_CNT    DY_CNT    ASGNGRP10    ASGNGRP15    ASGNGRP40
+    LANES10    LANES15    LANES40    CENTROID    RC_NUM    FUN_CLASS
+    GEOMETRYSOURCE    RCI    LINKCLASS    LANES    ASGNGRP    CAPACITY    TIME
+    AMCAP    PMCAP    OFFCAP    NEWVOLAM    CONGAM    NEWVOLMD    CONGMD
+    HOVY    BIKESPEED    BIKETIME    PTIME    B1DIST    B2DIST    B3DIST
+
+
+NETWORK  ReturnCode = 0  Elapsed Time = 00:00:00
+################################################################################
+Page 17  (VOYAGER HIGHWAY) 
+Metropolitan Council
+---------------------------
+HIGHWAY (v.09/23/2016 [6.4.2 x64])  Mon Mar 06 10:36:49 2017
+
+FILEO MATO[1] = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\NM_SKIM_BIKE.skm",
+ MO=1-6, NAME=PERCTIME, BIKETIME, DISTANCE, B3DIST, B2DIST, B1DIST
+FILEI NETI = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\NM_NET.net"
+PROCESS PHASE=ILOOP
+  PATHLOAD PATH=LI.PTIME, MW[1]=pathtrace(LI.PTIME), MW[2]=pathtrace(LI.BIKETIME),
+                          MW[3]=pathtrace(LI.DISTANCE), MW[4]=pathtrace(LI.B3DIST),
+                          MW[5]=pathtrace(LI.B2DIST), MW[6]=pathtrace(LI.B1DIST)
+      MW[1][I] = ROWMIN(1) * 0.5  ; Intrazonal time
+      MW[2][I] = ROWMIN(2) * 0.5
+      MW[3][I] = ROWMIN(3) * 0.5
+      MW[4][I] = ROWMIN(3) ; use total distance intrazonal, not just dist on this facility type - NOTE: do not need to divide by 2 b/c done on line 14
+      MW[5][I] = 0 ; assume no bike paths on the intrazonal
+      MW[6][I] = 0 ; assume no bike paths on the intrazonal
+ENDPROCESS
+
+HIGHWAY Stack Size = 1078 bytes.
+................................................................................
+
+
+NETI C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\NM_NET.net Opened
+NET PGM=NETWORK (v.09/23/2016 [6.4.2 x64]) DATE=Mon Mar 06 10:36:49 2017
+ID= 
+PAR Zones=3061 Nodes=55406 Links=53805 NodeRecs=24068 LeftDrive=0
+NVR:   N  X  Y  GEOMETRYSOURCE
+LVR:   A  B  SHAPE_LENGTH  COUNTY  T_PRIORITY  T_MANTIME  DISTANCE  SPEED
+  TLGID  NC_SPD  NC_NAME=035  TOM  TOM_FRC_ID  BIKE  AREA  HOV  AADT
+  CURR_YEAR  CID  AM_CNT  MD_CNT  PM_CNT  NT_CNT  DY_CNT  ASGNGRP10
+  ASGNGRP15  ASGNGRP40  LANES10  LANES15  LANES40  CENTROID  RC_NUM
+  FUN_CLASS  GEOMETRYSOURCE  RCI  LINKCLASS  LANES  ASGNGRP  CAPACITY  TIME
+  AMCAP  PMCAP  OFFCAP  NEWVOLAM  CONGAM  NEWVOLMD  CONGMD  HOVY  BIKESPEED
+  BIKETIME  PTIME  B1DIST  B2DIST  B3DIST
+
+M(727):  53805 links for which default value for T1 was provided.
+
+C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\NM_SKIM_BIKE.skm Opened
+
+--------------------------------- Iteration 1 ----------------------------------
+Page 18  (VOYAGER HIGHWAY) 
+Metropolitan Council
+---------------------------
+
+Totals after Iteration 1 I loop:
+
+	MW[1]  : 41,520,549,994.19487   @J=I:      3,014,892.71363
+	MW[2]  : 41,591,134,618.31303   @J=I:      3,014,901.9151 
+	MW[3]  : 40,092,049,858.20799   @J=I:      3,002,514.24658
+	MW[4]  : 39,928,708,941.65408   @J=I:      3,002,514.24658
+	MW[5]  : 39,830,874,248.10692   @J=I:                   --
+	MW[6]  : 39,820,466,668.44689   @J=I:                   --
+	MO.1.1 : 41,520,550,829.12008
+	MO.1.2 : 41,591,135,467.44003
+	MO.1.3 : 40,092,050,689.40997
+	MO.1.4 : 39,928,709,779.38002
+	MO.1.5 : 39,830,874,850.59992
+	MO.1.6 : 39,820,467,627.27999
+
+Variable Values at end of Iteration 1 I loop:
+
+	STORAGE:            379.2203 
+
+Phase                    Seconds       Count
+---------            -------- 
+LinkInput                     --           1
+PathBlding                 11.00       3,061
+Tracing(untimed)              --  56,218,326
+Estm Processing               --           1
+
+HIGHWAY  ReturnCode = 0  Elapsed Time = 00:01:39
+################################################################################
+Page 19  (VOYAGER HIGHWAY) 
+Metropolitan Council
+---------------------------
+HIGHWAY (v.09/23/2016 [6.4.2 x64])  Mon Mar 06 10:38:28 2017
+
+FILEO MATO[1] = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\NM_SKIM_WALK.skm",
+ MO=1-4, NAME=DISTANCE, B3DIST, B2DIST, B1DIST
+FILEI NETI = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\NM_NET.net"
+PROCESS PHASE=ILOOP
+  PATHLOAD PATH=LI.DISTANCE, MW[1]=pathtrace(LI.DISTANCE), MW[2]=pathtrace(LI.B3DIST),
+                          MW[3]=pathtrace(LI.B2DIST), MW[4]=pathtrace(LI.B1DIST)
+      MW[1][I] = ROWMIN(1) * 0.5  ; Intrazonal time
+      MW[2][I] = ROWMIN(2) * 0.5
+      MW[3][I] = ROWMIN(3) * 0.5
+      MW[4][I] = ROWMIN(4) * 0.5
+ENDPROCESS
+
+HIGHWAY Stack Size = 870 bytes.
+................................................................................
+
+
+NETI C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\NM_NET.net Opened
+NET PGM=NETWORK (v.09/23/2016 [6.4.2 x64]) DATE=Mon Mar 06 10:36:49 2017
+ID= 
+PAR Zones=3061 Nodes=55406 Links=53805 NodeRecs=24068 LeftDrive=0
+NVR:   N  X  Y  GEOMETRYSOURCE
+LVR:   A  B  SHAPE_LENGTH  COUNTY  T_PRIORITY  T_MANTIME  DISTANCE  SPEED
+  TLGID  NC_SPD  NC_NAME=035  TOM  TOM_FRC_ID  BIKE  AREA  HOV  AADT
+  CURR_YEAR  CID  AM_CNT  MD_CNT  PM_CNT  NT_CNT  DY_CNT  ASGNGRP10
+  ASGNGRP15  ASGNGRP40  LANES10  LANES15  LANES40  CENTROID  RC_NUM
+  FUN_CLASS  GEOMETRYSOURCE  RCI  LINKCLASS  LANES  ASGNGRP  CAPACITY  TIME
+  AMCAP  PMCAP  OFFCAP  NEWVOLAM  CONGAM  NEWVOLMD  CONGMD  HOVY  BIKESPEED
+  BIKETIME  PTIME  B1DIST  B2DIST  B3DIST
+
+M(727):  53805 links for which default value for T1 was provided.
+
+C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\NM_SKIM_WALK.skm Opened
+
+--------------------------------- Iteration 1 ----------------------------------
+Page 20  (VOYAGER HIGHWAY) 
+Metropolitan Council
+---------------------------
+
+Totals after Iteration 1 I loop:
+
+	MW[1]  : 40,080,649,326.78607   @J=I:      3,002,513.83717
+	MW[2]  : 39,993,657,772.56605   @J=I:      3,002,221.66451
+	MW[3]  : 39,805,357,060.23176   @J=I:      3,000,053.02847
+	MW[4]  : 39,775,634,254.8442    @J=I:      3,000,000      
+	MO.1.1 : 40,080,650,181.68001
+	MO.1.2 : 39,993,658,602.89002
+	MO.1.3 : 39,805,357,587.29   
+	MO.1.4 : 39,775,634,333.20998
+
+Variable Values at end of Iteration 1 I loop:
+
+	STORAGE:            379.2203 
+
+Phase                    Seconds       Count
+---------            -------- 
+LinkInput                     --           1
+PathBlding                 10.00       3,061
+Tracing(untimed)              --  37,478,884
+Estm Processing               --           1
+
+HIGHWAY  ReturnCode = 0  Elapsed Time = 00:01:07
+################################################################################
+Page 21  (VOYAGER MATRIX) 
+Metropolitan Council
+--------------------------
+MATRIX (v.09/23/2016 [6.4.2 x64])  Mon Mar 06 10:39:35 2017
+
+FILEI MATI[2] = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\NM_SKIM_WALK.skm"
+FILEI MATI[1] = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\NM_SKIM_BIKE.skm"
+FILEO MATO[1] = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\NM_SKIM.SKM",
+ MO=1-3, NAME=BIKEDIST, WALKDIST, RATIO  ; add ratio to check calcs
+  MW[1] = MI.1.4 + (10/13) * MI.1.5 + (10/13) * 0.8 * MI.1.6
+  MW[2] = MI.2.1
+  MW[2][I] = MW[1][I]  ; intrazonal distances should be the same.
+  MW[3] = MW[1] / MW[2]
+
+MATRIX Stack Size = 714 bytes.
+................................................................................
+
+
+MATI[2] TPP C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\NM_SKIM_WALK.skm Opened
+MAT PGM=HIGHWAY (v.09/23/2016 [6.4.2 x64]) DATE=Mon Mar 06 10:38:28 2017 
+ID=
+PAR Zones=3061 M=4
+  DISTANCE  B3DIST  B2DIST  B1DIST
+
+MATI[1] TPP C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\NM_SKIM_BIKE.skm Opened
+MAT PGM=HIGHWAY (v.09/23/2016 [6.4.2 x64]) DATE=Mon Mar 06 10:36:49 2017 
+ID=
+PAR Zones=3061 M=6
+  PERCTIME  BIKETIME  DISTANCE  B3DIST  B2DIST  B1DIST
+
+Totals after Iteration 1 I loop:
+
+	MI.02.001: 40,080,650,182   @J=I:      3,002,514
+	MI.01.004: 39,928,709,779   @J=I:      3,002,514
+	MI.01.005: 39,830,874,851
+	MI.01.006: 39,820,467,627
+	MW[1]    : 95,072,747,435   @J=I:      3,002,514
+	MW[2]    : 40,080,650,182   @J=I:      3,002,514
+	MW[3]    :      8,334,747   @J=I:          3,061
+	MO.01.001: 95,072,746,883
+	MO.01.002: 40,080,650,182
+	MO.01.003:      8,335,512
+
+MATRIX   ReturnCode = 0  Elapsed Time = 00:00:20
+################################################################################
+Page 22  (VOYAGER NETWORK) 
+Metropolitan Council
+---------------------------
+NETWORK (v.09/23/2016 [6.4.2 x64])  Mon Mar 06 10:39:55 2017
+
+FILEI LOOKUPI[3] = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Input\AlphaBetaLookup.txt"
+FILEI LOOKUPI[2] = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Input\CapacityLookup.txt"
+FILEI LOOKUPI[1] = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Input\SpeedLookup85.txt"
+FILEI LINKI[1] = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\ALL_NET.tmp"
+FILEO NETO = "C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\ALL_NET.net"
+;Length corrections
+  ;DISTANCE = SHAPE_Length/1609.344 ; Adds distance to any new link that was not coded with a distance
+  LOOKUP LOOKUPI=1, NAME=Spd,
+    LOOKUP[1]=1, RESULT=2,
+    LOOKUP[2]=1, RESULT=3,
+    LOOKUP[3]=1, RESULT=4,
+    LOOKUP[4]=1, RESULT=5,
+  LOOKUP[5]=1, RESULT=6,
+  LOOKUP[6]=1, RESULT=7,
+  LOOKUP[7]=1, RESULT=8,
+  LOOKUP[8]=1, RESULT=9,
+  LOOKUP[9]=1, RESULT=10,
+  LOOKUP[10]=1, RESULT=11,
+  LOOKUP[11]=1, RESULT=12,
+  LOOKUP[12]=1, RESULT=13,
+  LOOKUP[13]=1, RESULT=14,
+  LOOKUP[14]=1, RESULT=15
+    Speed = Spd(AREA,RCI)
+  time=60*(distance/speed)
+  LOOKUP LOOKUPI=2, NAME=Cap,
+    LOOKUP[1]=1, RESULT=2,
+    LOOKUP[2]=1, RESULT=3,
+    LOOKUP[3]=1, RESULT=4,
+    LOOKUP[4]=1, RESULT=5,
+  LOOKUP[5]=1, RESULT=6,
+  LOOKUP[6]=1, RESULT=7,
+  LOOKUP[7]=1, RESULT=8,
+  LOOKUP[8]=1, RESULT=9,
+  LOOKUP[9]=1, RESULT=10,
+  LOOKUP[10]=1, RESULT=11,
+  LOOKUP[11]=1, RESULT=12,
+  LOOKUP[12]=1, RESULT=13,
+  LOOKUP[13]=1, RESULT=14,
+  LOOKUP[14]=1, RESULT=15,
+   LOOKUP[15]=1, RESULT=16
+    Capacity = Cap(AREA,RCI) * lanes
+  LOOKUP LOOKUPI=3, NAME=AB,
+    LOOKUP[1]=1, RESULT=2,
+    LOOKUP[2]=1, RESULT=3,
+    LOOKUP[3]=1, RESULT=4,
+    LOOKUP[4]=1, RESULT=5,
+  LOOKUP[5]=1, RESULT=6,
+  LOOKUP[6]=1, RESULT=7,
+  LOOKUP[7]=1, RESULT=8,
+  LOOKUP[8]=1, RESULT=9,
+  LOOKUP[9]=1, RESULT=10,
+  LOOKUP[10]=1, RESULT=11,Page 23  (VOYAGER NETWORK) 
+Metropolitan Council
+---------------------------
+  LOOKUP[11]=1, RESULT=12,
+  LOOKUP[12]=1, RESULT=13,
+  LOOKUP[13]=1, RESULT=14,
+  LOOKUP[14]=1, RESULT=15,
+   LOOKUP[15]=1, RESULT=16
+    ALPHA = AB(1,RCI)
+    BETA = AB(2,RCI)
+
+NETWORK Stack Size = 2072 bytes.
+................................................................................
+
+
+
+
+C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\ALL_NET.tmp   (VOYAGER):
+
+NET PGM=NETWORK (v.09/23/2016 [6.4.2 x64]) DATE=Mon Mar 06 10:36:48 2017
+ID= 
+PAR Zones=3061 Nodes=55406 Links=57040 NodeRecs=24068 LeftDrive=0
+NVR 4    N    X    Y    GEOMETRYSOURCE
+LVR 48    A    B    SHAPE_LENGTH    COUNTY    T_PRIORITY    T_MANTIME
+    DISTANCE    SPEED    TLGID    NC_SPD    NC_NAME=035    TOM    TOM_FRC_ID
+    BIKE    AREA    HOV    AADT    CURR_YEAR    CID    AM_CNT    MD_CNT
+    PM_CNT    NT_CNT    DY_CNT    ASGNGRP10    ASGNGRP15    ASGNGRP40
+    LANES10    LANES15    LANES40    CENTROID    RC_NUM    FUN_CLASS
+    GEOMETRYSOURCE    RCI    LINKCLASS    LANES    ASGNGRP    CAPACITY    TIME
+    AMCAP    PMCAP    OFFCAP    NEWVOLAM    CONGAM    NEWVOLMD    CONGMD
+    HOVY
+
+
+
+Begin PROCESS PHASE NODEMERGE
+      24,068 records merged from NODEI[1]: C:\Users\ehrlicjn\Desktop\MetCouncilABMPreRelease0.1\Root10\F2040\ALL_NET.tmp
+      24,068 data base records.
+
+Variable         Obs<>0               Total           Ave           Min           Max           RMS  
+--------         ------               -----           ---           ---           ---           ---  
+N                24,068                  --            --          1        55,406               --
+X                24,068   11,539,914,047.44    479,471.25    367,070.73    570,365.39    480,116.07
+Y                24,068  119,854,976,822.83  4,979,847.8   4,891,274.44  5,065,819.04  4,979,911.74
+GEOMETRYSOURCE   24,068           24,068             1             1             1             1   
+
+_Variables with values:
+
+_ZONES            3,061      
+
+End   PROCESS PHASE NODEMERGE
+
+
+Begin PROCESS PHASE LINKMERGE
+W(691): COMP Err at record = 2486 -34356: (133): divide by 0:=60*(distance/speed) 
+W(691): COMP Err at record = 2487 -35723: (133): divide by 0:=60*(distance/speed) 
+W(691): COMP Err at record = 2488 -35457: (133): divide by 0:=60*(distance/speed) 
+W(691): COMP Err at record = 2489 -35499: (133): divide by 0:=60*(distance/speed) Page 24  (VOYAGER NETWORK) 
+Metropolitan Council
+---------------------------
+W(691): COMP Err at record = 2490 -35447: (133): divide by 0:=60*(distance/speed) 
+W(691): COMP Err at record = 2491 -35484: (133): divide by 0:=60*(distance/speed) 
+W(691): COMP Err at record = 2492 -35486: (133): divide by 0:=60*(distance/speed) 
+W(691): COMP Err at record = 2492 -35522: (133): divide by 0:=60*(distance/speed) 
+W(691): COMP Err at record = 2493 -35244: (133): divide by 0:=60*(distance/speed) 
+W(691): COMP Err at record = 2493 -35696: (133): divide by 0:=60*(distance/speed) 
+W(691): COMP Err at record = 2494 -34320: (133): divide by 0:=60*(distance/speed) 
+W(691): COMP Err at record = 2495 -35247: (133): divide by 0:=60*(distance/speed) 
+W(691): COMP Err at record = 2495 -35623: (133): divide by 0:=60*(distance/speed) 
+W(691): COMP Err at record = 2496 -35836: (133): divide by 0:=60*(distance/speed) 
+W(691): COMP Err at record = 2497 -35640: (133): divide by 0:=60*(distance/speed) 
+W(691): COMP Err at record = 2498 -35671: (133): divide by 0:=60*(distance/speed) 
+W(691): COMP Err at record = 2499 -35876: (133): divide by 0:=60*(distance/speed) 
+W(691): COMP Err at record = 2500 -35678: (133): divide by 0:=60*(distance/speed) 
+W(691): COMP Err at record = 2500 -36120: (133): divide by 0:=60*(distance/speed) 
+W(691): COMP Err at record = 2501 -40342: (133): divide by 0:=60*(distance/speed) 
+F(691): COMP Err at record = 2502 -40342: (133): divide by 0:=60*(distance/speed) 
+End   PROCESS PHASE LINKMERGE
+
+NETWORK  ReturnCode = 2  Elapsed Time = 00:00:00
+################################################################################
+
+
+VOYAGER  ReturnCode = 2  Elapsed Time = 00:03:07

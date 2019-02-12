@@ -1,22 +1,0 @@
-Page 1  (VOYAGER PILOT) 
-Minnesota Department of Transportation
---------------------------------------
-PILOT (v.01/04/2017 [6.4.3 x64]) Tue Apr 11 12:58:16 2017
-
-Args: C:\Users\wikenrl\Desktop\RachelRun\MetCouncilABMPreRelease0.1\CUBE\trc{$$0}.s -SC:\USERS\WIKENRL\DESKTOP\RACHELRUN\METCOUNCILABMPRERELEASE0.1\CUBE\ -RC:\Users\wikenrl\Desktop\RachelRun\MetCouncilABMPreRelease0.1\Cube\Root.PRN -PH:58 -PW:80 -I -P"Root"
-Input:   C:...Desktop\RachelRun\MetCouncilABMPreRelease0.1\CUBE\trc{$$0}.s
-
-SYS=(cluster transit 1-2 START EXIT)
-LOOP TOD=1,2,1 ; Loop through peak and off-peak
-  IF (TOD=1) TPER='PK'
-  IF (TOD=2) TPER='OP'
- DISTRIBUTEMULTISTEP PROCESSID='transit' PROCESSNUM=@TOD@
-F(206): There are 1 LOOPs and 0 ENDLOOPs.
-
-F(205): LOOP(#1) has missing ENDLOOP.
-
-PILOT Stack Size = 448 bytes.
-................................................................................
-
-F(601): LOOP's do not balance with ENDLOOP's.
-VOYAGER  ReturnCode = 2  Elapsed Time = 00:00:00

@@ -1,1 +1,0 @@
-PYTHONPATH     C:\Python25;C:\PopGen\popgen;C:\qgis\python
