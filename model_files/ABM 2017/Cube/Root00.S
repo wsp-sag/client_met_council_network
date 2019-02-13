@@ -2,118 +2,115 @@ HighwaySkimBranch=-1
 TransitSkim=-1
 ConvergeCheck=-1
 FinalAssign=-1
-; Script for program NETWORK in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\BNNET00B.S"
+; Script for program NETWORK in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\BNNET00B.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM = NETWORK MSG = 'Export Raw Network From GeoDatabase'
+RUN PGM=NETWORK MSG='Export Raw Network From GeoDatabase'
 FILEO NETO = "{SCENARIO_DIR}\ALL_NET.tmp"
 FILEI LINKI[1] = "{iHwyNet}"
 
+
 ENDRUN
 
 
-; Script for program NETWORK in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\NMNET00A.S"
+; Script for program NETWORK in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\NMNET00A.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM = NETWORK MSG = 'Export Bike Network from Geodatabase'
+RUN PGM=NETWORK MSG='Export Bike Network from Geodatabase'
 FILEO NETO = "{SCENARIO_DIR}\NM_NET.net"
 FILEI LINKI[1] = "{SCENARIO_DIR}\ALL_NET.tmp"
 
-  ;Length corrections
-  ;DISTANCE = SHAPE_Length/1609.344 ; Adds distance to any new link that was not coded with a distance
+;Length corrections
+;DISTANCE = SHAPE_Length/1609.344 ; Adds distance to any new link that was not coded with a distance
 
-  BIKESPEED = 0
-  IF (BIKE = 0) DELETE
-  IF (BIKE = 1) BIKESPEED = {bikeSpeed1}
-  IF (BIKE = 2) BIKESPEED = {bikeSpeed2}
-  IF (BIKE = 3) BIKESPEED = {bikeSpeed3}
-  BIKETIME = 60 * (DISTANCE / BIKESPEED)
-  PTIME = BIKETIME
-  B1DIST = 0
-  B2DIST = 0
-  B3DIST = 0
+BIKESPEED=0
+IF (BIKE=0) DELETE
+IF (BIKE=1) BIKESPEED={bikeSpeed1}
+IF (BIKE=2) BIKESPEED={bikeSpeed2}
+IF (BIKE=3) BIKESPEED={bikeSpeed3}
 
-  IF (BIKE = 3)
-    B3DIST = DISTANCE
-  ENDIF
+BIKETIME=60*(DISTANCE/BIKESPEED)
+PTIME=BIKETIME
+B1DIST=0
+B2DIST=0
+B3DIST=0
 
-  IF (BIKE = 2)
-    B2DIST = DISTANCE
-  ENDIF
-
-  IF (BIKE = 1)
-    B1DIST = DISTANCE
-    PTIME = BIKETIME * {bikeFact1}
-  ENDIF
+IF (BIKE=3)
+  B3DIST=DISTANCE
+ENDIF
+IF (BIKE=2)
+  B2DIST=DISTANCE
+ENDIF
+IF (BIKE=1)
+  B1DIST=DISTANCE
+  PTIME=BIKETIME*{bikeFact1}
+ENDIF
 
 ENDRUN
 
 
-; Script for program HIGHWAY in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\NMHWY00A.S"
+; Script for program HIGHWAY in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\NMHWY00A.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM = HIGHWAY MSG = 'Skim Bike Path Times'
+RUN PGM=HIGHWAY MSG='Skim Bike Path Times'
 FILEO MATO[1] = "{SCENARIO_DIR}\NM_SKIM_BIKE.skm",
-  MO = 1-6, NAME = PERCTIME, BIKETIME, DISTANCE, B3DIST, B2DIST, B1DIST
+ MO=1-6, NAME=PERCTIME, BIKETIME, DISTANCE, B3DIST, B2DIST, B1DIST
 FILEI NETI = "{SCENARIO_DIR}\NM_NET.net"
 
-  PROCESS PHASE = ILOOP
+PROCESS PHASE=ILOOP
 
-    PATHLOAD PATH = LI.PTIME, MW[1] = pathtrace(LI.PTIME),    MW[2] = pathtrace(LI.BIKETIME),
-                              MW[3] = pathtrace(LI.DISTANCE), MW[4] = pathtrace(LI.B3DIST),
-                              MW[5] = pathtrace(LI.B2DIST),   MW[6] = pathtrace(LI.B1DIST)  
-    
-    MW[1][I] = ROWMIN(1) * 0.5  ; Intrazonal time
-    MW[2][I] = ROWMIN(2) * 0.5
-    MW[3][I] = ROWMIN(3) * 0.5
-    MW[4][I] = ROWMIN(3) ; use total distance intrazonal, not just dist on this facility type - NOTE: do not need to divide by 2 b/c done on line 14
-    MW[5][I] = 0 ; assume no bike paths on the intrazonal
-    MW[6][I] = 0 ; assume no bike paths on the intrazonal
-        
-  ENDPROCESS
+  PATHLOAD PATH=LI.PTIME, MW[1]=pathtrace(LI.PTIME), MW[2]=pathtrace(LI.BIKETIME),
+                          MW[3]=pathtrace(LI.DISTANCE), MW[4]=pathtrace(LI.B3DIST),
+                          MW[5]=pathtrace(LI.B2DIST), MW[6]=pathtrace(LI.B1DIST)  
+      MW[1][I] = ROWMIN(1) * 0.5  ; Intrazonal time
+      MW[2][I] = ROWMIN(2) * 0.5
+      MW[3][I] = ROWMIN(3) * 0.5
+      MW[4][I] = ROWMIN(3) ; use total distance intrazonal, not just dist on this facility type - NOTE: do not need to divide by 2 b/c done on line 14
+      MW[5][I] = 0 ; assume no bike paths on the intrazonal
+      MW[6][I] = 0 ; assume no bike paths on the intrazonal
+ENDPROCESS
 
 
 ENDRUN
 
 
-; Script for program HIGHWAY in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\NMHWY00B.S"
+; Script for program HIGHWAY in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\NMHWY00B.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM = HIGHWAY MSG = 'Skim Walk Path Distance'
+RUN PGM=HIGHWAY MSG='Skim Walk Path Distance'
 FILEO MATO[1] = "{SCENARIO_DIR}\NM_SKIM_WALK.skm",
-  MO = 1-4, NAME = DISTANCE, B3DIST, B2DIST, B1DIST
+ MO=1-4, NAME=DISTANCE, B3DIST, B2DIST, B1DIST
 FILEI NETI = "{SCENARIO_DIR}\NM_NET.net"
+PROCESS PHASE=ILOOP
 
-  PROCESS PHASE = ILOOP
-
-    PATHLOAD PATH = LI.DISTANCE, MW[1] = pathtrace(LI.DISTANCE), MW[2] = pathtrace(LI.B3DIST),
-                                 MW[3] = pathtrace(LI.B2DIST),   MW[4] = pathtrace(LI.B1DIST)  
-      
-    MW[1][I] = ROWMIN(1) * 0.5  ; Intrazonal time
-    MW[2][I] = ROWMIN(2) * 0.5
-    MW[3][I] = ROWMIN(3) * 0.5
-    MW[4][I] = ROWMIN(4) * 0.5
-        
-  ENDPROCESS
+  PATHLOAD PATH=LI.DISTANCE, MW[1]=pathtrace(LI.DISTANCE), MW[2]=pathtrace(LI.B3DIST),
+                          MW[3]=pathtrace(LI.B2DIST), MW[4]=pathtrace(LI.B1DIST)  
+      MW[1][I] = ROWMIN(1) * 0.5  ; Intrazonal time
+      MW[2][I] = ROWMIN(2) * 0.5
+      MW[3][I] = ROWMIN(3) * 0.5
+      MW[4][I] = ROWMIN(4) * 0.5
+ENDPROCESS
 
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\NMMAT00A.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\NMMAT00A.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM = MATRIX MSG = 'Calculate Bike and Walk Distances'
+RUN PGM=MATRIX MSG='Calculate Bike and Walk Distances'
 FILEI MATI[2] = "{SCENARIO_DIR}\NM_SKIM_WALK.skm"
 FILEI MATI[1] = "{SCENARIO_DIR}\NM_SKIM_BIKE.skm"
 FILEO MATO[1] = "{SCENARIO_DIR}\NM_SKIM.SKM",
-  MO = 1-3, NAME = BIKEDIST, WALKDIST, RATIO  ; add ratio to check calcs
+ MO=1-3, NAME=BIKEDIST, WALKDIST, RATIO  ; add ratio to check calcs
 
   MW[1] = MI.1.4 + ({bikeSpeed3}/{bikeSpeed2}) * MI.1.5 + ({bikeSpeed3}/{bikeSpeed1}) * {bikeFact1} * MI.1.6
   MW[2] = MI.2.1  
   MW[2][I] = MW[1][I]  ; intrazonal distances should be the same.
   MW[3] = MW[1] / MW[2]
 
+
+
 ENDRUN
 
 
-; Script for program NETWORK in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\HNNET00B.S"
+; Script for program NETWORK in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\HNNET00B.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM = NETWORK MSG = 'Set highway link speeds, capacities, and AB'
+RUN PGM=NETWORK MSG='Set highway link speeds, capacities, and AB'
 FILEI LOOKUPI[3] = "{LU_AlphaBeta}"
 FILEI LOOKUPI[2] = "{LU_capacity}"
 FILEI LOOKUPI[1] = "{LU_speed}"
@@ -159,125 +156,132 @@ FILEO NETO = "{SCENARIO_DIR}\ALL_NET.net"
 	  LOOKUP[15]=1, RESULT=16
     Capacity = Cap(AREA,RCI) * lanes
   */  
-  LOOKUP LOOKUPI = 3,    NAME = AB,
-         LOOKUP[1] = 1,  RESULT = 2,
-         LOOKUP[2] = 1,  RESULT = 3,
-         LOOKUP[3] = 1,  RESULT = 4,
-         LOOKUP[4] = 1,  RESULT = 5,
-         LOOKUP[5] = 1,  RESULT = 6,
-         LOOKUP[6] = 1,  RESULT = 7,
-         LOOKUP[7] = 1,  RESULT = 8,
-         LOOKUP[8] = 1,  RESULT = 9,
-         LOOKUP[9] = 1,  RESULT=10,
-         LOOKUP[10] = 1, RESULT = 11,
-         LOOKUP[11] = 1, RESULT = 12,
-         LOOKUP[12] = 1, RESULT = 13,
-         LOOKUP[13] = 1, RESULT = 14,
-         LOOKUP[14] = 1, RESULT = 15,
-         LOOKUP[15] = 1, RESULT = 16
-         ALPHA = AB(1, RCI)
-         BETA = AB(2, RCI)
+  LOOKUP LOOKUPI=3, NAME=AB,
+    LOOKUP[1]=1, RESULT=2,
+    LOOKUP[2]=1, RESULT=3,
+    LOOKUP[3]=1, RESULT=4,
+    LOOKUP[4]=1, RESULT=5,
+		LOOKUP[5]=1, RESULT=6,
+		LOOKUP[6]=1, RESULT=7,
+		LOOKUP[7]=1, RESULT=8,
+		LOOKUP[8]=1, RESULT=9,
+		LOOKUP[9]=1, RESULT=10,
+		LOOKUP[10]=1, RESULT=11,
+		LOOKUP[11]=1, RESULT=12,
+		LOOKUP[12]=1, RESULT=13,
+		LOOKUP[13]=1, RESULT=14,
+		LOOKUP[14]=1, RESULT=15,
+	  LOOKUP[15]=1, RESULT=16
+    ALPHA = AB(1,RCI)
+    BETA = AB(2,RCI)
+
 
 ENDRUN
 
 
 ; PILOT Script
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-LOOP TOD = 1, 6, 1 ; There are six unique network configurations
 
-  IF(TOD = 1) NETNAME = 'Overnight 7:00 PM to 5:00 AM'
-  IF(TOD = 2) NETNAME = 'Reverse Lane Change Over 5:00 AM to 6:00 AM  and 1:00 PM to 2:00 PM'
-  IF(TOD = 3) NETNAME = 'AM Peak Period 6:00 AM to 10:00 AM'
-  IF(TOD = 4) NETNAME = 'Mid Day Period 10:00 AM to 1:00 PM'
-  IF(TOD = 5) NETNAME = 'Pre PM Peak Period 2:00 PM to 3:00 PM'
-  IF(TOD = 6) NETNAME = 'PM Peak Period 3:00 PM to 7:00 PM'
+
+LOOP TOD=1,6,1 ; There are six unique network configurations
+ IF(TOD=1) NETNAME='Overnight 7:00 PM to 5:00 AM'
+ IF(TOD=2) NETNAME='Reverse Lane Change Over 5:00 AM to 6:00 AM  and 1:00 PM to 2:00 PM'
+ IF(TOD=3) NETNAME='AM Peak Period 6:00 AM to 10:00 AM'
+ IF(TOD=4) NETNAME='Mid Day Period 10:00 AM to 1:00 PM'
+ IF(TOD=5) NETNAME='Pre PM Peak Period 2:00 PM to 3:00 PM'
+ IF(TOD=6) NETNAME='PM Peak Period 3:00 PM to 7:00 PM'
 ; End of PILOT Script
 
-; Script for program NETWORK in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\HNNET00C.S"
+; Script for program NETWORK in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\HNNET00C.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM = NETWORK MSG = 'Set Managed Lanes for: @NETNAME@'
+RUN PGM=NETWORK MSG='Set Managed Lanes for: @NETNAME@'
+
 FILEI LINKI[1] = "{SCENARIO_DIR}\ALL_NET.net"
 FILEO NETO = "{SCENARIO_DIR}\HWY_NET_@TOD@.net"
 
-  IF (RCI = 100) DELETE; Remove Rail
-  IF (Bike = 1) DELETE; Remove Bike paths
-  IF (RCI = 98 | RCI = 101) DELETE
+
+  IF (RCI=100) DELETE ; Remove Rail
+  IF (Bike=1) DELETE ;Remove Bike paths
+  
+  IF (RCI=98 | RCI=101) DELETE
+
   ;ENDIF
 
 ; Rachel editing below to reflect HOV/mnpass of increased revenue scenario. will also work for the current revenue scenario and the existing 2040 model. 
   IF (HOV > 0)
   ;HOV Lane Configurations
   ;MnPass On is the default condition
-   _ON = 1
+   _ON=1
   ;For Mainline Lane ADD and MINUS the default condition is Zero - depending how the lane is coded, some require adding lanes when MNPASS off and some require reducing mainline lanes when mnpass is on. see Rewriting_HOVScripts_HNNETOOC.xlxs and FullMakeNetworkXX.s for HOV groupings 
-   _ADD = 0
+   _ADD=0
 
-    IF (@TOD@ = 1) ; Overnight 7:00 PM to 5:00 AM , all off 
-      IF (HOV = 1 - 45, 61) ;MnPass Off
-        _ON = 0
-      ENDIF
-      IF (HOV = 111 - 114, 118, 119, 122, 123, 126, 127, 130 - 137, 139, 141 - 145) ;Mainline Lane increase when off 
-        _ADD = 1
-      ENDIF
+  IF (@TOD@=1) ; Overnight 7:00 PM to 5:00 AM , all off 
+    IF (HOV=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,61) ;MnPass Off
+      _ON=0
     ENDIF
-    
-    IF (@TOD@ = 2)  ; Reverse Lane Change over 5:00 AM to 6:00 AM  and 1:00 PM to 2:00 PM ; all off same as above 
-      IF (HOV = 1 - 45, 61) ;MnPass Off
-        _ON = 0
-      ENDIF
-      IF (HOV=111 - 114, 118, 119, 122, 123, 126, 127, 130 - 137, 139, 141 - 145) ;Mainline Lane increase when off 
-        _ADD=1
-      ENDIF
-    ENDIF  
-    
-    IF (@TOD@ = 3)  ; AM Peak Period 6:00 AM to 10:00 AM
-      IF (HOV = 2, 3, 4, 6, 8, 10, 11, 13, 17, 19, 20, 22, 25, 27, 29, 31, 33, 35, 40, 41, 42, 45) ;MnPass Off
-        _ON = 0
-      ENDIF
-      IF (HOV = 101, 105, 107, 109, 121, 124, 128, 138) ;Mainline Lane Decrease
-        _ADD = -1
-      ENDIF
-      IF (HOV = 111, 113, 119, 122, 127, 131, 133, 135, 141, 142, 145) ;Mainline Lane increase when off 
-        _ADD = 1
-      ENDIF
-    ENDIF  
-    
-    IF (@TOD@ = 4)  ; Mid Day Period 10:00 AM to 1:00 PM same as overnight, first TOD period
-     IF (HOV = 1 - 45, 61) ;MnPass Off
-        _ON = 0
-      ENDIF
-      IF (HOV = 111 - 114, 118, 119, 122, 123, 126, 127, 130 - 137, 139, 141 - 145) ;Mainline Lane increase when off 
-        _ADD = 1
-      ENDIF
+    IF (HOV=111,112,113,114,118,119,122,123,126,127,130,131,132,133,134,135,136,137,139,141,142,143,144,145) ;Mainline Lane increase when off 
+      _ADD=1
     ENDIF
-    
-    IF (@TOD@ = 5)  ; Pre PM Peak Period 2:00 PM to 3:00 PM same as overnight, first period 
-      IF (HOV = 1 - 45, 61) ;MnPass Off
-        _ON = 0
-      ENDIF
-      IF (HOV = 111 - 114, 118, 119, 122, 123, 126, 127, 130 - 137, 139, 141 - 145) ;Mainline Lane increase when off 
-        _ADD = 1
-      ENDIF
+  ENDIF
+  
+  IF (@TOD@=2)  ; Reverse Lane Change over 5:00 AM to 6:00 AM  and 1:00 PM to 2:00 PM ; all off same as above 
+    IF (HOV=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,61) ;MnPass Off
+      _ON=0
     ENDIF
-    
-    IF (@TOD@ = 6)  ; PM Peak Period 3:00 PM to 7:00 PM
-      IF (HOV = 1, 3, 5, 7, 9, 10, 12, 14, 18, 21, 23, 24, 26, 28, 30, 32, 34, 38, 39, 43, 44, 61) ;MnPass Off
-        _ON = 0
-      ENDIF
-      IF (HOV = 102, 104, 108, 117, 120, 125, 129, 140) ;Mainline Lane Decrease
-        _ADD = -1
-      ENDIF
-      IF (HOV = 112, 114, 118, 123, 126, 130, 132, 134, 139, 143, 144) ;Mainline Lane Increase
-        _ADD = 1
-      ENDIF
+    IF (HOV=111,112,113,114,118,119,122,123,126,127,130,131,132,133,134,135,136,137,139,141,142,143,144,145) ;Mainline Lane increase when off 
+      _ADD=1
     ENDIF
-    
-    ; Update capacity
-    IF (_ON = 1) 
-      CAPACITY = CAPACITY * ((LANES + _ADD) / LANES)
-    ELSE 
-      CAPACITY = 0
+  ENDIF  
+  
+  IF (@TOD@=3)  ; AM Peak Period 6:00 AM to 10:00 AM
+    IF (HOV=2,3,4,6,8,10,11,13,17,19,20,22,25,27,29,31,33,35,40,41,42,45) ;MnPass Off
+      _ON=0
     ENDIF
+    IF (HOV=101,105,107,109,121,124,128,138) ;Mainline Lane Decrease
+      _ADD=-1
+    ENDIF
+    IF (HOV=111,113,119,122,127,131,133,135,141,142,145) ;Mainline Lane increase when off 
+      _ADD=1
+    ENDIF
+  ENDIF  
+  
+  IF (@TOD@=4)  ; Mid Day Period 10:00 AM to 1:00 PM same as overnight, first TOD period
+    IF (HOV=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,61) ;MnPass Off
+      _ON=0
+    ENDIF
+    IF (HOV=111,112,113,114,118,119,122,123,126,127,130,131,132,133,134,135,136,137,139,141,142,143,144,145) ;Mainline Lane increase when off 
+      _ADD=1
+    ENDIF
+  ENDIF
+  
+  IF (@TOD@=5)  ; Pre PM Peak Period 2:00 PM to 3:00 PM same as overnight, first period 
+    IF (HOV=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,61) ;MnPass Off
+      _ON=0
+    ENDIF
+    IF (HOV=111,112,113,114,118,119,122,123,126,127,130,131,132,133,134,135,136,137,139,141,142,143,144,145) ;Mainline Lane increase when off 
+      _ADD=1
+    ENDIF
+  ENDIF
+  
+  IF (@TOD@=6)  ; PM Peak Period 3:00 PM to 7:00 PM
+    IF (HOV=1,3,5,7,9,10,12,14,18,21,23,24,26,28,30,32,34,38,39,43,44,61) ;MnPass Off
+      _ON=0
+    ENDIF
+    IF (HOV=102,104,108,117,120,125,129,140) ;Mainline Lane Decrease
+      _ADD=-1
+    ENDIF
+    IF (HOV=112,114,118,123,126,130,132,134,139,143,144) ;Mainline Lane Increase
+      _ADD=1
+    ENDIF
+  ENDIF
+  
+  ; Update capacity
+  IF (_ON=1) 
+    Capacity=Capacity * ((lanes+_ADD) / lanes)
+  ELSE 
+    Capacity = 0
+  ENDIF
+  
   ENDIF  ; HOV links
   
 ENDRUN
@@ -286,17 +290,18 @@ ENDRUN
 ; PILOT Script
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 
+
 ENDLOOP
 ; End of PILOT Script
 
 ; PILOT Script
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 
-IF({ffSkims} = 1)
+if ({ffSkims} = 1)
   HighwaySkimBranch = 2
-ELSE
+else
   HighwaySkimBranch = 1
-ENDIF
+endif
 ; End of PILOT Script
 
 If (HighwaySkimBranch=1)
@@ -313,61 +318,62 @@ Endif
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 
 
-*COPY "{hwy_AMskims}" "{SCENARIO_DIR}\HWY_SKIM_0_AM.skm"
-*COPY "{hwy_MDskims}" "{SCENARIO_DIR}\HWY_SKIM_0_MD.skm"
-*COPY "{hwy_PMskims}" "{SCENARIO_DIR}\HWY_SKIM_0_PM.skm"
-*COPY "{hwy_NTskims}" "{SCENARIO_DIR}\HWY_SKIM_0_NT.skm"
+*copy "{hwy_AMskims}" "{SCENARIO_DIR}\HWY_SKIM_0_AM.skm"
+*copy "{hwy_MDskims}" "{SCENARIO_DIR}\HWY_SKIM_0_MD.skm"
+*copy "{hwy_PMskims}" "{SCENARIO_DIR}\HWY_SKIM_0_PM.skm"
+*copy "{hwy_NTskims}" "{SCENARIO_DIR}\HWY_SKIM_0_NT.skm"
 
   IF (ReturnCode == 1) 
     PRINT LIST='Missing Highway Initial Skim file - check scenario key settings in the Scenario Manager'
-    ABORT
+    abort
   ENDIF 
 ; End of PILOT Script
 
 goto HighwaySkimBranch_END
 
 :HighwaySkimBranch_2
-; Script for program HIGHWAY in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\FFHWY00A.S"
+; Script for program HIGHWAY in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\FFHWY00A.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM = HIGHWAY MSG = 'Skim Free Flow Network'
+RUN PGM=HIGHWAY MSG='Skim Free Flow Network'
 FILEI NETI = "{SCENARIO_DIR}\ALL_NET.net"
 FILEO MATO[1] = "{SCENARIO_DIR}\HWY_SKIM.tmp",
-  MO = 1-16, NAME = daptime, daptoll, dantime, dantoll, dapdist, a2ptime, a2ptoll, 
-                    a2ntime, a2ntoll, a2pdist, a3ptime, a3ptoll, a3ntime, a3ntoll, 
-                    a3pdist, lnrtdist
+ MO=1-16, 
+  NAME=daptime, daptoll, dantime, dantoll, dapdist, a2ptime, a2ptoll, a2ntime, a2ntoll, a2pdist, 
+  a3ptime, a3ptoll, a3ntime, a3ntoll, a3pdist, lnrtdist
 
-  PROCESS PHASE = ILOOP
+PROCESS PHASE=ILOOP
+    PATHLOAD PATH = TIME,  
+    mw[1] = PATHTRACE(TIME) NOACCESS=1000,
+    mw[5] = PATHTRACE(li.DISTANCE) NOACCESS=1000 
 
-      PATHLOAD PATH = TIME,  
-      MW[1] = PATHTRACE(TIME) NOACCESS = 1000,
-      MW[5] = PATHTRACE(li.DISTANCE) NOACCESS = 1000 
+    ; Intrazonal time / distance is half that to nearest zone
+    mw[1][I] = LOWEST(1,1,0.1,999,I)/2 
+    mw[5][I] = LOWEST(5,1,0.1,999,I)/2 
 
-      ; Intrazonal time / distance is half that to nearest zone
-      MW[1][I] = LOWEST(1, 1, 0.1, 999, I) / 2 
-      MW[5][I] = LOWEST(5, 1, 0.1, 999, I) / 2 
+    mw[2] = 0
+    mw[3] = mw[1]
+    mw[4] = mw[2]
+    
+    ; SR2
+    mw[6] = mw[1]
+    mw[7] = mw[2]
+    mw[8] = mw[3]
+    mw[9] = mw[4]
+    mw[10] = mw[5]
+    
+    ; SR3
+    mw[11] = mw[1]
+    mw[12] = mw[2]
+    mw[13] = mw[3]
+    mw[14] = mw[4]
+    mw[15] = mw[5]   
+    
+    ; ln(RT Dist + 1)
+    mw[16] = LN(2 * mw[5]+1)
+    
+ENDPROCESS
 
-      MW[2] = 0
-      MW[3] = MW[1]
-      MW[4] = MW[2]
-      
-      ; SR2
-      MW[6] = MW[1]
-      MW[7] = MW[2]
-      MW[8] = MW[3]
-      MW[9] = MW[4]
-      MW[10] = MW[5]
-      
-      ; SR3
-      MW[11] = MW[1]
-      MW[12] = MW[2]
-      MW[13] = MW[3]
-      MW[14] = MW[4]
-      MW[15] = MW[5]   
-      
-      ; ln(RT Dist + 1)
-      MW[16] = LN(2 * MW[5] + 1)
-      
-  ENDPROCESS
+
 
 ENDRUN
 
@@ -376,10 +382,10 @@ ENDRUN
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 
 
-*COPY "{SCENARIO_DIR}\HWY_SKIM.skm" "{SCENARIO_DIR}\HWY_SKIM_0_AM.skm"
-*COPY "{SCENARIO_DIR}\HWY_SKIM.skm" "{SCENARIO_DIR}\HWY_SKIM_0_MD.skm"
-*COPY "{SCENARIO_DIR}\HWY_SKIM.skm" "{SCENARIO_DIR}\HWY_SKIM_0_PM.skm"
-*COPY "{SCENARIO_DIR}\HWY_SKIM.skm" "{SCENARIO_DIR}\HWY_SKIM_0_NT.skm"
+*copy "{SCENARIO_DIR}\HWY_SKIM.skm" "{SCENARIO_DIR}\HWY_SKIM_0_AM.skm"
+*copy "{SCENARIO_DIR}\HWY_SKIM.skm" "{SCENARIO_DIR}\HWY_SKIM_0_MD.skm"
+*copy "{SCENARIO_DIR}\HWY_SKIM.skm" "{SCENARIO_DIR}\HWY_SKIM_0_PM.skm"
+*copy "{SCENARIO_DIR}\HWY_SKIM.skm" "{SCENARIO_DIR}\HWY_SKIM_0_NT.skm"
 ; End of PILOT Script
 
 goto HighwaySkimBranch_END
@@ -388,11 +394,12 @@ goto HighwaySkimBranch_END
 ; PILOT Script
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 
-IF ({ffSkims} = 1)
+
+if ({ffSkims} = 1)
   TransitSkim = 2
-ELSE
+else
   TransitSkim = 1
-ENDIF
+endif
 ; End of PILOT Script
 
 If (TransitSkim=1)
@@ -409,26 +416,24 @@ Endif
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 
 
-*COPY "{xit_WK_PKskims}" "{SCENARIO_DIR}\XIT_WK_SKIM_0_PK.skm"
-*COPY "{xit_WK_OPskim}" "{SCENARIO_DIR}\XIT_WK_SKIM_0_OP.skm"
-*COPY "{xit_DR_PKskim}" "{SCENARIO_DIR}\XIT_DR_SKIM_0_PK.skm"
-*COPY "{xit_DR_OPskim}" "{SCENARIO_DIR}\XIT_DR_SKIM_0_OP.skm"
+*copy "{xit_WK_PKskims}" "{SCENARIO_DIR}\XIT_WK_SKIM_0_PK.skm"
+*copy "{xit_WK_OPskim}" "{SCENARIO_DIR}\XIT_WK_SKIM_0_OP.skm"
+*copy "{xit_DR_PKskim}" "{SCENARIO_DIR}\XIT_DR_SKIM_0_PK.skm"
+*copy "{xit_DR_OPskim}" "{SCENARIO_DIR}\XIT_DR_SKIM_0_OP.skm"
 
-IF (ReturnCode = 1) 
-  PRINT LIST='Missing Highway Initial Skim file - check scenario key settings in the Scenario Manager'
-  ABORT
-ENDIF 
+  IF (ReturnCode == 1) 
+    PRINT LIST='Missing Highway Initial Skim file - check scenario key settings in the Scenario Manager'
+    abort
+  ENDIF 
 ; End of PILOT Script
 
-; Script for program NETWORK in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TCNET00B.S"
+; Script for program NETWORK in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TCNET00B.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM = NETWORK MSG = 'TEMP: extract link and node dbfs'
-
+RUN PGM=NETWORK MSG='TEMP: extract link and node dbfs'
 FILEO NODEO = "{SCENARIO_DIR}\NODE.DBF"
-
 FILEO LINKO = "{SCENARIO_DIR}\LINK.DBF"
-
 FILEI LINKI[1] = "{SCENARIO_DIR}\ALL_NET.NET"
+
 
 ENDRUN
 
@@ -436,56 +441,52 @@ ENDRUN
 goto TransitSkim_END
 
 :TransitSkim_2
-; Script for program NETWORK in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSNET00A.S"
+; Script for program NETWORK in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSNET00A.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM = NETWORK MSG = 'TEMP: extract link and node dbfs'
+RUN PGM=NETWORK MSG='TEMP: extract link and node dbfs'
 FILEO NODEO = "{SCENARIO_DIR}\node.dbf"
 FILEO LINKO = "{SCENARIO_DIR}\link.dbf"
 FILEI LINKI[1] = "{SCENARIO_DIR}\ALL_NET.net"
 
+
 ENDRUN
 
 
-; Script for program NETWORK in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSNET00B.S"
+; Script for program NETWORK in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSNET00B.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM = NETWORK MSG = 'TEMP: set rail zone node field'
-FILEI LINKI[4] = "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\Input\network\T_Priority.dbf"
-FILEI LINKI[3] = "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\Input\network\T_MANTIME.dbf"
-FILEI LINKI[2] = "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\Input\network\Distances.dbf"
+RUN PGM=NETWORK MSG='TEMP: set rail zone node field'
+FILEI LINKI[4] = "C:\Users\BeswicTW\Desktop\ABM_2017\Input\network\T_Priority.dbf"
+FILEI LINKI[3] = "C:\Users\BeswicTW\Desktop\ABM_2017\Input\network\T_MANTIME.dbf"
+FILEI LINKI[2] = "C:\Users\BeswicTW\Desktop\ABM_2017\Input\network\Distances.dbf"
 FILEO NETO = "{SCENARIO_DIR}\TransitBase.NET"
 FILEI NODEI[1] = "{SCENARIO_DIR}\node.dbf"
 FILEI LINKI[1] = "{SCENARIO_DIR}\link.dbf"
 
-  ZONES = {zones}
-  
-  ; TODO: Move this into the GeoDB
-  PHASE = NODEMERGE FILEI = NI.1 
-    IF (N = 17502)
-      FAREZONE = 1
-    ENDIF
+    ZONES={zones}
     
-    IF (N = 19759)
-      FAREZONE = 2
-    ENDIF
-    
-    IF (N = 19761)
-      FAREZONE = 3
-    ENDIF
-    
-    IF (N = 19762)
-      FAREZONE = 4
-    ENDIF
-    
-    IF (N = 19763)
-      FAREZONE = 5
-    ENDIF
-    
-    IF (N = 19764)
-      FAREZONE = 6
-    ENDIF
-    
-  ENDPROCESS
-    
+    ; TODO: Move this into the GeoDB
+    PHASE=NODEMERGE FILEI=NI.1 
+      IF (N=17502)
+        FAREZONE=1
+      ENDIF
+      IF (N=19759)
+        FAREZONE=2
+      ENDIF
+      IF (N=19761)
+        FAREZONE=3
+      ENDIF
+      IF (N=19762)
+        FAREZONE=4
+      ENDIF
+      IF (N=19763)
+        FAREZONE=5
+      ENDIF
+      IF (N=19764)
+        FAREZONE=6
+      ENDIF
+      
+    ENDPROCESS
+      
 ENDRUN
 
 
@@ -494,17 +495,16 @@ ENDRUN
 
 *cluster transit 1-2 START EXIT
 
-LOOP TOD = 1, 2, 1 ; Loop through peak and off-peak
-  IF(TOD = 1) TPER = 'PK'
-  IF(TOD = 2) TPER = 'OP'
+LOOP TOD=1,2,1 ; Loop through peak and off-peak
+  IF(TOD=1) TPER='PK'
+  IF(TOD=2) TPER='OP'
   
- DISTRIBUTEMULTISTEP PROCESSID = 'transit' PROCESSNUM = @TOD@
+ DISTRIBUTEMULTISTEP PROCESSID='transit' PROCESSNUM=@TOD@
+; End of PILOT Script
 
- ; End of PILOT Script
-
-; Script for program NETWORK in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSNET00C.S"
+; Script for program NETWORK in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSNET00C.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM = NETWORK MSG='Calculate Transit Speeds for @TPER@'
+RUN PGM=NETWORK MSG='Calculate Transit Speeds for @TPER@'
 FILEO NETO = "{SCENARIO_DIR}\XIT_NET_0_@TPER@.net"
 FILEI LOOKUPI[2] = "{CATALOG_DIR}\input\transit\@TPER@ExpressDelays.txt"
 FILEI LOOKUPI[1] = "{CATALOG_DIR}\input\transit\@TPER@LocalDelays.txt"
@@ -512,103 +512,104 @@ FILEI LINKI[1] = "{SCENARIO_DIR}\TransitBase.NET"
 
     ;  transit time = congested time +  distance * link delay
     ;   Delays are calibrated by AREA and facility type and time period.
-  LOOKUP NAME = locdelay, LOOKUP[1] = 1,   RESULT = 2,
-                          LOOKUP[2] = 1,   RESULT = 3,
-                          LOOKUP[3] = 1,   RESULT = 4,
-                          LOOKUP[4] = 1,   RESULT = 5,
-                          LOOKUP[5] = 1,   RESULT = 6,
-                          LOOKUP[6] = 1,   RESULT = 7,
-                          LOOKUP[7] = 1,   RESULT = 7,
-                          LOOKUP[8] = 1,   RESULT = 7,
-                          LOOKUP[9] = 1,   RESULT = 7,
-                          LOOKUP[10] = 1,  RESULT = 7,
-                          FAIL = 0, 0, 0,  INTERPOLATE = N,
-                          LOOKUPI = 1,     LIST = Y
+    LOOKUP NAME=locdelay, LOOKUP[1]=1, RESULT=2,
+                            LOOKUP[2]=1, RESULT=3,
+                            LOOKUP[3]=1, RESULT=4,
+                            LOOKUP[4]=1, RESULT=5,
+                            LOOKUP[5]=1, RESULT=6,
+                            LOOKUP[6]=1, RESULT=7,
+                            LOOKUP[7]=1, RESULT=7,
+                            LOOKUP[8]=1, RESULT=7,
+                            LOOKUP[9]=1, RESULT=7,
+                            LOOKUP[10]=1, RESULT=7,
+                            FAIL=0,0,0, INTERPOLATE=N,
+                            LOOKUPI=1, LIST=Y
 
-  LOOKUP NAME = expdelay, LOOKUP[1] = 1,  RESULT = 2,
-                          LOOKUP[2] = 1,  RESULT = 3,
-                          LOOKUP[3] = 1,  RESULT = 4,
-                          LOOKUP[4] = 1,  RESULT = 5,
-                          LOOKUP[5] = 1,  RESULT = 6,
-                          LOOKUP[6] = 1,  RESULT = 7,
-                          LOOKUP[7] = 1,  RESULT = 7,
-                          LOOKUP[8] = 1,  RESULT = 7,
-                          LOOKUP[9] = 1,  RESULT = 7,
-                          LOOKUP[10] = 1, RESULT = 2,; 1 and 10 are rural area types
-                          FAIL = 0, 0, 0, INTERPOLATE = N,
-                          LOOKUPI = 2,    LIST = Y
+    LOOKUP NAME=expdelay, LOOKUP[1]=1, RESULT=2,
+                            LOOKUP[2]=1, RESULT=3,
+                            LOOKUP[3]=1, RESULT=4,
+                            LOOKUP[4]=1, RESULT=5,
+                            LOOKUP[5]=1, RESULT=6,
+                            LOOKUP[6]=1, RESULT=7,
+                            LOOKUP[7]=1, RESULT=7,
+                            LOOKUP[8]=1, RESULT=7,
+                            LOOKUP[9]=1, RESULT=7,
+                            LOOKUP[10]=1, RESULT=2,         ; 1 and 10 are rural area types
+                            FAIL=0,0,0, INTERPOLATE=N,
+                            LOOKUPI=2, LIST=Y
 
 
-  ;;--------------------------------------------------------------------------
+;;--------------------------------------------------------------------------
 
-  ; Set transit speeds - same for PK/OP
-  IF (LI.1.SPEED = 0)
-    SPEED = 0.1
-  ELSE
-    SPEED = LI.1.SPEED
-  ENDIF
+    ; Set transit speeds - same for PK/OP
+    IF(LI.1.SPEED=0)
+      SPEED=0.1
+    ELSE
+      SPEED=LI.1.SPEED
+    ENDIF
+    
+;;--------------------------------------------------------------------------
 
-  ;;--------------------------------------------------------------------------
+    ; Code free flow speed for all links
+    LOCTIME = (DISTANCE * 60 / SPEED)
+    EXPTIME = (DISTANCE * 60 / SPEED)
+    
+;;--------------------------------------------------------------------------    
 
-  ; Code free flow speed for all links
-  LOCTIME = (DISTANCE * 60 / SPEED)
+    ; Override manually coded speed for transit only links
+    IF (LI.1.T_MANTIME>0)
+        LOCTIME = T_MANTIME
+        EXPTIME = T_MANTIME
+        LRTTIME = T_MANTIME
+    ENDIF    
 
-  EXPTIME = (DISTANCE * 60 / SPEED)
-      
-  ;;--------------------------------------------------------------------------    
+;;--------------------------------------------------------------------------
 
-  ; Override manually coded speed for transit only links
-  IF (LI.1.T_MANTIME > 0)
-      LOCTIME = T_MANTIME
-      EXPTIME = T_MANTIME
-      LRTTIME = T_MANTIME
-  ENDIF    
-
-  ;;--------------------------------------------------------------------------
-
-  ;Calculate Local Bus Transit Travel Time
-  IF (LOCTIME = 0)
-       _DELAY = locdelay(LI.1.AREA, LI.1.RCI)
-       IF (T_PRIORITY = 2)
-        IF ((SPEED + 15) < 50)
-              _tspeed = MIN(SPEED + 15, 35)
-          ELSE
-              _tspeed = MAX(SPEED, 35)
-          ENDIF
-          LOCTIME = (DISTANCE * 60 / _tspeed) + (DISTANCE * _DELAY)
-       ELSE
-          LOCTIME = (DISTANCE * 60 / SPEED) + (DISTANCE * _DELAY)
-       ENDIF
-      IF (LOCTIME = 0) 
-          PRINT LIST = 'LOCAL BUS TIME IS ZERO FOR - ', A(6), B(6)
-      ENDIF        
-  ENDIF
-  ;;--------------------------------------------------------------------------
-      
-  ;Calculate Express Bus Transit Travel Time
-  IF (EXPTIME = 0)
-    _DELAY = expdelay(LI.1.AREA, LI.1.RCI)
-      IF (T_Priority = 2)
-        IF ((SPEED + 15) < 50)
-              _tspeed = MIN(SPEED + 15, 35)
-          ELSE
-              _tspeed = MAX(SPEED, 35)
-          ENDIF
-          EXPTIME = (DISTANCE * 60 / _tspeed) + (DISTANCE * _DELAY)
-       ELSE
-          EXPTIME = (DISTANCE * 60 / SPEED) + (DISTANCE * _DELAY)
-       ENDIF
-      IF (EXPTIME=0) 
-          PRINT LIST='EXPRESS BUS TIME IS ZERO FOR - ', A(6), B(6)
-      ENDIF
-  ENDIF       
+    ;Calculate Local Bus Transit Travel Time
+    IF (LOCTIME=0)
+         _DELAY = locdelay(LI.1.AREA,LI.1.RCI)
+         IF (T_Priority=2)
+            IF ((SPEED+15)<50)
+                _tspeed = MIN(SPEED+15,35)
+            ELSE
+                _tspeed=MAX(SPEED,35)
+            ENDIF
+            LOCTIME = (DISTANCE * 60 / _tspeed) + (DISTANCE * _DELAY)
+         ELSE
+            LOCTIME = (DISTANCE * 60 / SPEED) + (DISTANCE * _DELAY)
+         ENDIF
+    
+        IF (LOCTIME=0) 
+            PRINT LIST='LOCAL BUS TIME IS ZERO FOR - ', A(6), B(6)
+        ENDIF        
+    ENDIF
+;;--------------------------------------------------------------------------
+    
+    ;Calculate Express Bus Transit Travel Time
+    IF (EXPTIME=0)
+        _DELAY = expdelay(LI.1.AREA,LI.1.RCI)
+         IF (T_Priority=2)
+            IF ((SPEED+15)<50)
+                _tspeed = MIN(SPEED+15,35)
+            ELSE
+                _tspeed=MAX(SPEED,35)
+            ENDIF
+            EXPTIME = (DISTANCE * 60 / _tspeed) + (DISTANCE * _DELAY)
+         ELSE
+            EXPTIME = (DISTANCE * 60 / SPEED) + (DISTANCE * _DELAY)
+         ENDIF
+    
+        IF (EXPTIME=0) 
+            PRINT LIST='EXPRESS BUS TIME IS ZERO FOR - ', A(6), B(6)
+        ENDIF
+    ENDIF       
 
 ENDRUN
 
 
-; Script for program PUBLIC TRANSPORT in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSPTR00D.S"
+; Script for program PUBLIC TRANSPORT in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSPTR00D.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM = PUBLIC TRANSPORT MSG = 'Build @TPER@ Walk Access Connectors'
+RUN PGM=PUBLIC TRANSPORT MSG='Build @TPER@ Walk Access Connectors'
 FILEO NTLEGO = "{SCENARIO_DIR}\XIT_WKACC_NTL_0_@TPER@.tmp"
 FILEO REPORTO = "{SCENARIO_DIR}\XIT_WKACC_RPT_0_@TPER@.rpt"
 FILEO NETO = "{SCENARIO_DIR}\XIT_WKACC_NET_0_@TPER@.NET"
@@ -617,43 +618,44 @@ FILEI FACTORI[1] = "{CATALOG_DIR}\input\transit\@TPER@_WK_2010.FAC"
 FILEI LINEI[1] = "{xit_lines}"
 FILEI NETI = "{SCENARIO_DIR}\XIT_NET_0_@TPER@.net"
 
-  REPORT Lines = T
-  REREPORT Accesslegs = T, Egresslegs = T, Xferlegs = T, Lines = T, STOPNODES = T
-  HDWAYPERIOD = @TOD@
+    REPORT Lines=T
+    REREPORT Accesslegs=T, Egresslegs=T, Xferlegs=T, Lines=T, STOPNODES=T
+    HDWAYPERIOD=@TOD@
 
-  PHASE = LINKREAD
-    _wlkspd = 2.5   ;mph
-  ENDPHASE
+    PHASE=LINKREAD
+        _wlkspd = 2.5   ;mph
+    ENDPHASE
 
-  PHASE = DATAPREP
-    PRINT LIST = 'Build Peak Walk Access Connectors', PRINTO = 0
+    PHASE=DATAPREP
+        Print List='Build Peak Walk Access Connectors', printo=0
 
-    ;set transit travel time
-    TRANTIME[5] = li.loctime       ; local
-    TRANTIME[6] = li.loctime       ; local
-    TRANTIME[7] = li.exptime       ; express
-    TRANTIME[8] = li.lrttime       ; lrt
-    TRANTIME[9] = li.exptime       ; commuter bus
+        ;set transit travel time
+        TRANTIME[5]=li.loctime       ; local
+        TRANTIME[6]=li.loctime       ; local
+        TRANTIME[7]=li.exptime       ; express
+        TRANTIME[8]=li.lrttime       ; lrt
+        TRANTIME[9]=li.exptime       ; commuter bus
 
-    GENERATE,
-    FROMNODE = 1-3061,
-    TONODE = 3100-99999,
-    DIRECTION = 3,
-    ONEWAY = F,
-    COST = li.Distance,
-    EXTRACTCOST = (Li.Distance*60/_wlkspd),
-    EXCLUDELINK = (li.RCI=1-5,13,14),   ;no walking on freeway, tollway,ramps and managed links
-    MAXCOST = 4 * 0, 5 * 2,                 ;set maximum walking distance to 2 Miles
-    MAXNTLEGS = 4 * 1, 5 * 99,
-    NTLEGMODE = 1
-  ENDPHASE
+        generate,
+        fromnode=1-3061,
+        tonode=3100-99999,
+        direction=3,
+        oneway=F,
+        cost=li.Distance,
+        extractcost=(Li.Distance*60/_wlkspd),
+        excludelink=(li.RCI=1-5,13,14),   ;no walking on freeway, tollway,ramps and managed links
+        maxcost=4*0,5*2,                 ;set maximum walking distance to 2 Miles
+        maxntlegs=4*1,5*99,
+        ntlegmode=1
+    ENDPHASE
+
 
 ENDRUN
 
 
-; Script for program PUBLIC TRANSPORT in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSPTR00F.S"
+; Script for program PUBLIC TRANSPORT in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSPTR00F.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM = PUBLIC TRANSPORT MSG = 'Build @TPER@ Transfer Access Connectors'
+RUN PGM=PUBLIC TRANSPORT MSG='Build @TPER@ Transfer Access Connectors'
 FILEO NTLEGO = "{SCENARIO_DIR}\XIT_XFER_NTL_0_@TPER@.TMP"
 FILEO REPORTO = "{SCENARIO_DIR}\XIT_XFER_RPT_0_@TPER@.RPT"
 FILEO NETO = "{SCENARIO_DIR}\XIT_XFER_NET_0_@TPER@.NET"
@@ -661,48 +663,50 @@ FILEI SYSTEMI = "{XIT_SYSTEM}"
 FILEI FACTORI[1] = "{CATALOG_DIR}\INPUT\TRANSIT\@TPER@_WK_2010.FAC"
 FILEI LINEI[1] = "{XIT_LINES}"
 FILEI NETI = "{SCENARIO_DIR}\XIT_NET_0_@TPER@.net"
-    
-  SKIPBADLINES = Y
-  REPORT Lines = T
-  REREPORT Accesslegs = T, Egresslegs = T, Xferlegs = T, Lines = T, STOPNODES = T
-  HDWAYPERIOD = @TOD@
+ 
+    SKIPBADLINES = Y
+    REPORT Lines=T
+    REREPORT Accesslegs=T, Egresslegs=T, Xferlegs=T, Lines=T, STOPNODES=T
+    HDWAYPERIOD=@TOD@
 
-  PHASE = LINKREAD
-    _wlkspd = 2.5   ;mph
-  ENDPHASE
+ 
+    PHASE=LINKREAD
+        _wlkspd = 2.5   ;mph
+    ENDPHASE
 
-  PHASE=DATAPREP
-    PRINT LIST = 'Build Peak Transfer Connectors', PRINTO = 0
-    ;set transit travel time
-    TRANTIME[5] = li.loctime       ; local
-    TRANTIME[6] = li.loctime       ; local
-    TRANTIME[7] = li.exptime       ; express
-    TRANTIME[8] = li.lrttime       ; lrt
-    TRANTIME[9] = li.exptime       ; commuter bus
+    PHASE=DATAPREP
+     
+        Print List='Build Peak Transfer Connectors', printo=0
+        ;set transit travel time
+        TRANTIME[5]=li.loctime       ; local
+        TRANTIME[6]=li.loctime       ; local
+        TRANTIME[7]=li.exptime       ; express
+        TRANTIME[8]=li.lrttime       ; lrt
+        TRANTIME[9]=li.exptime       ; commuter bus
 
-    ;*************************************
-    ;    TRANSFER CONNECTORS
-    ;*************************************
-    ;generate the transfer legs based on transfer links
-    GENERATE,
-    FROMNODE = 3100 - 99999,
-    TONODE = 3100 - 99999,
-    DIRECTION = 3,
-    ONEWAY = F,
-    EXCLUDELINK = (li.RCI = 1-5, 13, 14),   ;no walking on freeway, tollway, and managed links
-    COST = (Li.Distance * 60 / _wlkspd),
-    MAXCOST = 4 * 1, 5 * 10,                 ;set maximum walking time to 10 minutes
-    MAXNTLEGS = 4 * 1, 5 * 10,
-    NTLEGMODE = 4
-   
-  ENDPHASE
+        ;*************************************
+        ;    TRANSFER CONNECTORS
+        ;*************************************
+        ;generate the transfer legs based on transfer links
+        generate,
+        fromnode=3100-99999,
+        tonode=3100-99999,
+        direction=3,
+        oneway=F,
+        excludelink=(li.RCI=1-5,13,14),   ;no walking on freeway, tollway, and managed links
+        cost=(Li.Distance*60/_wlkspd),
+        maxcost=4*1,5*10,                 ;set maximum walking time to 10 minutes
+        maxntlegs=4*1,5*10,
+        ntlegmode=4
+       
+    ENDPHASE
 
 ENDRUN
 
 
-; Script for program PUBLIC TRANSPORT in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSPTR00H.S"
+; Script for program PUBLIC TRANSPORT in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSPTR00H.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM = PUBLIC TRANSPORT MSG = 'Build @TPER@ Drive Access Connectors'
+RUN PGM=PUBLIC TRANSPORT MSG='Build @TPER@ Drive Access Connectors'
 FILEO NTLEGO = "{SCENARIO_DIR}\XIT_DRACC_NTL_0_@TPER@.NTL"
 FILEO REPORTO = "{SCENARIO_DIR}\XIT_DRACC_RPT_0_@TPER@.RPT"
 FILEO NETO = "{SCENARIO_DIR}\XIT_DRACC_NET_0_@TPER@.NET"
@@ -711,28 +715,27 @@ FILEI FACTORI[1] = "{CATALOG_DIR}\INPUT\TRANSIT\@TPER@_WK_2010.FAC"
 FILEI LINEI[1] = "{XIT_LINES}"
 FILEI NETI = "{SCENARIO_DIR}\XIT_NET_0_@TPER@.net"
 
-  REPORT Lines = T
-  REREPORT Accesslegs = T, Egresslegs = T, Xferlegs = T, Lines = T, STOPNODES = T
-  HDWAYPERIOD = @TOD@
+    REPORT Lines=T
+    REREPORT Accesslegs=T, Egresslegs=T, Xferlegs=T, Lines=T, STOPNODES=T
+    HDWAYPERIOD=@TOD@
 
-  PHASE = LINKREAD
-    _wlkspd = 2.5;mph
-    lw.roadtime = (li.distance/li.SPEED) * 60
-  ENDPHASE
+    PHASE=LINKREAD
+        _wlkspd = 2.5;mph
+        lw.roadtime=(li.distance/li.SPEED) * 60
+    ENDPHASE
 
-  PHASE = DATAPREP
-    PRINT LIST = 'Build Peak Drive Access Connectors', PRINTO = 0
+    PHASE=DATAPREP
+        Print List='Build Peak Drive Access Connectors', printo=0
 
-    ;set transit travel time
-    TRANTIME[5] = li.loctime       ; local
-    TRANTIME[6] = li.loctime       ; local
-    TRANTIME[7] = li.exptime       ; express
-    TRANTIME[8] = li.lrttime       ; lrt
-    TRANTIME[9] = li.exptime       ; commuter bus
+        ;set transit travel time
+        TRANTIME[5]=li.loctime       ; local
+        TRANTIME[6]=li.loctime       ; local
+        TRANTIME[7]=li.exptime       ; express
+        TRANTIME[8]=li.lrttime       ; lrt
+        TRANTIME[9]=li.exptime       ; commuter bus
 
-    READ FILE = "{XIT_PNRNODES}"
-      
-  ENDPHASE
+        Read FILE = "{XIT_PNRNODES}"
+    ENDPHASE
 
 ENDRUN
 
@@ -740,20 +743,19 @@ ENDRUN
 ; PILOT Script
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 
-*COPY "{SCENARIO_DIR}\XIT_WKACC_NTL_0_@TPER@.tmp"+"{CATALOG_DIR}\input\transit\WalkOverrides.txt" "{SCENARIO_DIR}\XIT_WKACC_NTL_0_@TPER@.ntl"
-*COPY "{SCENARIO_DIR}\XIT_XFER_NTL_0_@TPER@.tmp"+"{CATALOG_DIR}\input\transit\TransferOverrides.txt" "{SCENARIO_DIR}\XIT_XFER_NTL_0_@TPER@.ntl"
-*COPY "{SCENARIO_DIR}\XIT_DRACC_NTL_0_@TPER@.tmp"+"{CATALOG_DIR}\input\transit\DriveOverrides.txt" "{SCENARIO_DIR}\XIT_DRACC_NTL_0_@TPER@.ntl"
+*copy "{SCENARIO_DIR}\XIT_WKACC_NTL_0_@TPER@.tmp"+"{CATALOG_DIR}\input\transit\WalkOverrides.txt" "{SCENARIO_DIR}\XIT_WKACC_NTL_0_@TPER@.ntl"
+*copy "{SCENARIO_DIR}\XIT_XFER_NTL_0_@TPER@.tmp"+"{CATALOG_DIR}\input\transit\TransferOverrides.txt" "{SCENARIO_DIR}\XIT_XFER_NTL_0_@TPER@.ntl"
+*copy "{SCENARIO_DIR}\XIT_DRACC_NTL_0_@TPER@.tmp"+"{CATALOG_DIR}\input\transit\DriveOverrides.txt" "{SCENARIO_DIR}\XIT_DRACC_NTL_0_@TPER@.ntl"
 ; End of PILOT Script
 
-; Script for program PUBLIC TRANSPORT in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSPTR00A.S"
+; Script for program PUBLIC TRANSPORT in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSPTR00A.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM = PUBLIC TRANSPORT PRNFILE = "{SCENARIO_DIR}\XIT_WK_PRN_0_@TPER@.prn" MSG = '@TPER@ Walk Transit Skim - Step 1'
+RUN PGM=PUBLIC TRANSPORT PRNFILE="{SCENARIO_DIR}\XIT_WK_PRN_0_@TPER@.prn" MSG='@TPER@ Walk Transit Skim - Step 1'
 FILEI FAREI = "{xit_fare}"
 FILEO REPORTO = "{SCENARIO_DIR}\XIT_WK_RPT_0_@TPER@.RPT"
 FILEO ROUTEO[1] = "{SCENARIO_DIR}\XIT_WK_RTE_0_@TPER@.RTE"
-FILEO MATO[1] = "{SCENARIO_DIR}\XIT_WK_SKIM_0_@TPER@.tmp", 
-  MO = 1 - 12,  NAME = IVT_Bus, IVT_LB, IVT_Exp, IVT_LRT, IVT_CRT, WAIT1, WAIT2, 
-                       XFERS, WALKT, FARE, XBFARE, CRTFare
+FILEO MATO[1] = "{SCENARIO_DIR}\XIT_WK_SKIM_0_@TPER@.tmp",
+ MO=1-12 NAME=IVT_Bus,IVT_LB,IVT_Exp,IVT_LRT,IVT_CRT,WAIT1,WAIT2,XFERS,WALKT,FARE,XBFARE,CRTFare
 FILEO NETO = "{SCENARIO_DIR}\XIT_WK_NET_0_@TPER@.NET"
 FILEI FACTORI[1] = "{CATALOG_DIR}\input\transit\@TPER@_WK_2010.FAC"
 FILEI NTLEGI[3] = "{SCENARIO_DIR}\XIT_XFER_NTL_0_@TPER@.ntl"
@@ -764,49 +766,48 @@ FILEI SYSTEMI = "{xit_system}"
 FILEI NETI = "{SCENARIO_DIR}\XIT_NET_0_@TPER@.net"
 FILEI FAREMATI[1] = "{xit_faremat}"
 
-  PARAMETERS  HDWAYPERIOD = @TOD@
+    PARAMETERS  HDWAYPERIOD=@TOD@
        
     PROCESS PHASE = DATAPREP
-     TRANTIME[5] = li.loctime       ; local
-     TRANTIME[6] = li.loctime       ; local
-     TRANTIME[7] = li.exptime       ; express
-     TRANTIME[8] = li.lrttime       ; lrt
-     TRANTIME[9] = li.exptime       ; commuter bus
-     GENERATE, 
-         READNTLEGI = 1             ; walk  access link (mode = 1)
-     ;GENERATE, 
-      ;   READNTLEGI = 2             ; drive access link (mode = 2)
-     GENERATE, 
-         READNTLEGI = 3             ; transfer link (mode = 4)
+       TRANTIME[5]=li.loctime       ; local
+       TRANTIME[6]=li.loctime       ; local
+       TRANTIME[7]=li.exptime       ; express
+       TRANTIME[8]=li.lrttime       ; lrt
+       TRANTIME[9]=li.exptime       ; commuter bus
+       GENERATE,
+           READNTLEGI=1             ; walk  access link (mode=1)
+       ;GENERATE,
+        ;   READNTLEGI=2             ; drive access link (mode=2)
+       GENERATE,
+           READNTLEGI=3             ; transfer link (mode=4)
     ENDPROCESS
     
-    PROCESS PHASE  =  SKIMIJ
-      MW[1] = TIMEA(0, 5)            ; IVTT for local bus (mode = 5) 
-      MW[2] = TIMEA(0, 6)            ; IVTT local limited stop bus (mode = 6)
-      MW[3] = TIMEA(0, 7)            ; IVTT for Express Bus (mode = 7)
-      MW[4] = TIMEA(0, 8)            ; IVTT for LRT (mode = 8)
-      MW[5] = TIMEA(0, 9)            ; IVTT for CRT (mode = 9)
-      MW[6] = IWAITA(0)             ; initial wait time
-      MW[7] = XWAITA(0)             ; transfer wait time
-      MW[8] = BRDINGS(0, 5, 6, 7, 8, 9)  ; number of boardings
-      MW[9] = TIMEA(0, 1, 4)          ; OVTT for walk access & transfer
-      MW[10] = FAREA(0, 5, 6, 8)       ; local,  limited and LRT Fares
-      MW[11] = FAREA(0, 7)           ; Express Fare        
-      MW[12] = FAREA(0, 9)           ; CRT Fare
+    PROCESS PHASE = SKIMIJ
+        MW[1]=TIMEA(0,5)            ; IVTT for local bus (mode=5) 
+        MW[2]=TIMEA(0,6)            ; IVTT local limited stop bus (mode=6)
+        MW[3]=TIMEA(0,7)            ; IVTT for Express Bus (mode=7)
+        MW[4]=TIMEA(0,8)            ; IVTT for LRT (mode=8)
+        MW[5]=TIMEA(0,9)            ; IVTT for CRT (mode=9)
+        MW[6]=IWAITA(0)             ; initial wait time
+        MW[7]=XWAITA(0)             ; transfer wait time
+        MW[8]=BRDINGS(0,5,6,7,8,9)  ; number of boardings
+        MW[9]=TIMEA(0,1,4)          ; OVTT for walk access & transfer
+        MW[10]=FAREA(0,5,6,8)       ; local, limited and LRT Fares
+        MW[11]=FAREA(0,7)           ; Express Fare        
+        MW[12]=FAREA(0,9)           ; CRT Fare
     ENDPROCESS
 
 ENDRUN
 
 
-; Script for program PUBLIC TRANSPORT in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSPTR00C.S"
+; Script for program PUBLIC TRANSPORT in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSPTR00C.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM = PUBLIC TRANSPORT PRNFILE = "{SCENARIO_DIR}\XIT_DR_PRN_0_@TPER@.prn" MSG='@TPER@ Drive Transit Skim - Step 1'
+RUN PGM=PUBLIC TRANSPORT PRNFILE="{SCENARIO_DIR}\XIT_DR_PRN_0_@TPER@.prn" MSG='@TPER@ Drive Transit Skim - Step 1'
 FILEI FAREI = "{XIT_FARE}"
 FILEO REPORTO = "{SCENARIO_DIR}\XIT_DR_RPT_0_@TPER@.RPT"
 FILEO ROUTEO[1] = "{SCENARIO_DIR}\XIT_DR_RTE_0_@TPER@.RTE"
-FILEO MATO[1] = "{SCENARIO_DIR}\XIT_DR_SKIM_0_@TPER@.TMP", 
-  MO = 1-14 NAME = IVT_Bus, IVT_LB, IVT_Exp, IVT_LRT, IVT_CRT, WAIT1, WAIT2, 
-                   XFERS, WALKT, FARE, XBFARE, CRTFare, DR_ACCR, DR_ACCD
+FILEO MATO[1] = "{SCENARIO_DIR}\XIT_DR_SKIM_0_@TPER@.TMP",
+ MO=1-14 NAME=IVT_Bus,IVT_LB,IVT_Exp,IVT_LRT,IVT_CRT,WAIT1,WAIT2,XFERS,WALKT,FARE,XBFARE,CRTFare,DR_ACCR,DR_ACCD
 FILEO NETO = "{SCENARIO_DIR}\XIT_DR_NET_0_@TPER@.NET"
 FILEI FACTORI[1] = "{CATALOG_DIR}\INPUT\TRANSIT\@TPER@_DR_2010.FAC"
 FILEI NTLEGI[3] = "{SCENARIO_DIR}\XIT_XFER_NTL_0_@TPER@.NTL"
@@ -817,126 +818,117 @@ FILEI SYSTEMI = "{XIT_SYSTEM}"
 FILEI NETI = "{SCENARIO_DIR}\XIT_NET_0_@TPER@.net"
 FILEI FAREMATI[1] = "{XIT_FAREMAT}"
 
-  PARAMETERS  HDWAYPERIOD = @TOD@
- 
-  PROCESS PHASE = DATAPREP
-    TRANTIME[5] = li.loctime       ; local
-    TRANTIME[6] = li.loctime       ; local
-    TRANTIME[7] = li.exptime       ; express
-    TRANTIME[8] = li.lrttime       ; lrt
-    TRANTIME[9] = li.exptime       ; commuter bus
-    GENERATE, 
-        READNTLEGI = 1             ; walk  access link (mode = 1)
-    GENERATE, 
-        READNTLEGI = 2             ; drive access link (mode = 2)
-    GENERATE, 
-        READNTLEGI = 3             ; transfer link (mode = 4)
-  ENDPROCESS
-  
-  PROCESS PHASE = SKIMIJ
-      MW[1] = TIMEA(0, 5)            ; IVTT for local bus (mode = 5) 
-      MW[2] = TIMEA(0, 6)            ; IVTT local limited stop bus (mode = 6)
-      MW[3] = TIMEA(0, 7)            ; IVTT for Express Bus (mode = 7)
-      MW[4] = TIMEA(0, 8)            ; IVTT for LRT (mode = 8)
-      MW[5] = TIMEA(0, 9)            ; IVTT for CRT (mode = 9)
-      MW[6] = IWAITA(0)             ; initial wait time
-      MW[7] = XWAITA(0)             ; transfer wait time
-      MW[8] = BRDINGS(0, 5, 6, 7, 8, 9)  ; number of boardings
-      MW[9] = TIMEA(0, 1, 4)            ; OVTT for walk access & transfer
-      MW[10] = FAREA(0, 5, 6, 8)       ; local,  limited and LRT Fares
-      MW[11] = FAREA(0, 7)           ; Express Fare        
-      MW[12] = FAREA(0, 9)           ; CRT Fare        
-      MW[13] = TIMEA(0, 2)
-      MW[14] = DIST(0, 2)
-  ENDPROCESS
-  
+    PARAMETERS  HDWAYPERIOD=@TOD@
+   
+    PROCESS PHASE = DATAPREP
+        TRANTIME[5]=li.loctime       ; local
+        TRANTIME[6]=li.loctime       ; local
+        TRANTIME[7]=li.exptime       ; express
+        TRANTIME[8]=li.lrttime       ; lrt
+        TRANTIME[9]=li.exptime       ; commuter bus
+        GENERATE,
+            READNTLEGI=1             ; walk  access link (mode=1)
+        GENERATE,
+            READNTLEGI=2             ; drive access link (mode=2)
+        GENERATE,
+            READNTLEGI=3             ; transfer link (mode=4)
+    ENDPROCESS
+    
+    PROCESS PHASE = SKIMIJ
+        MW[1]=TIMEA(0,5)            ; IVTT for local bus (mode=5) 
+        MW[2]=TIMEA(0,6)            ; IVTT local limited stop bus (mode=6)
+        MW[3]=TIMEA(0,7)            ; IVTT for Express Bus (mode=7)
+        MW[4]=TIMEA(0,8)            ; IVTT for LRT (mode=8)
+        MW[5]=TIMEA(0,9)            ; IVTT for CRT (mode=9)
+        MW[6]=IWAITA(0)             ; initial wait time
+        MW[7]=XWAITA(0)             ; transfer wait time
+        MW[8]=BRDINGS(0,5,6,7,8,9)  ; number of boardings
+        MW[9]=TIMEA(0,1,4)            ; OVTT for walk access & transfer
+        MW[10]=FAREA(0,5,6,8)       ; local, limited and LRT Fares
+        MW[11]=FAREA(0,7)           ; Express Fare        
+        MW[12]=FAREA(0,9)           ; CRT Fare        
+        MW[13]=TIMEA(0,2)
+        MW[14]=DIST(0,2)
+    ENDPROCESS
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSMAT00A.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSMAT00A.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM = MATRIX MSG = '@TPER@ Walk Skim - Step 2'
+RUN PGM=MATRIX MSG='@TPER@ Walk Skim - Step 2'
 FILEO MATO[1] = "{SCENARIO_DIR}\XIT_WK_SKIM_0_@TPER@.SKM",
-  MO = 1-11, NAME = TRNTIME, WLKACC, WLKXFER, WLKEGR, IWAIT, XWAIT, XFERS, FARE, 
-                    FAREP, FARER, FARES
+ MO=1-11, NAME=TRNTIME,WLKACC,WLKXFER,WLKEGR,IWAIT,XWAIT,XFERS,FARE,FAREP,FARER,FARES
 FILEI MATI[1] = "{SCENARIO_DIR}\XIT_WK_SKIM_0_@TPER@.tmp"
 
-  MW[1]  = MI.1.1 + MI.1.2 + MI.1.3 + MI.1.4 + MI.1.5 ; Bus, LB, Exp, LRT, CRT - IVT
-  MW[2]  = MI.1.9      ;Walk access, Egress and Transfer Time
-  MW[3]  = 0           ; Zeroed out - do not have walk Xfer time seperate
-  MW[4]  = 0           ; Zeroed out - do not have walk Egress time seperate
-  MW[5]  = MI.1.6      ; Inital Wait
-  MW[6]  = MI.1.7      ; Transfer Wait
-  MW[7]  = 0
-  MW[8]  = (MI.1.10 + MI.1.11 + MI.1.12) * 100 ; Full Fare
-  MW[9]  = (MI.1.10 + MI.1.11 + MI.1.12) * 100 * 0.90; Reduced Fare (Pass Fare)
-  MW[10] = (MI.1.10 + MI.1.11 + MI.1.12) * 100 * 0.90; Senior Fare (Seniors pay full fare in Peak)
-  MW[11] = (MI.1.10 + MI.1.11 + MI.1.12) * 100 * 0.90 * 0.90; Student Fare
-  
-  JLOOP
-    IF (MI.1.8 > 0)
-      MW[7] = MI.1.8 - 1    ; Transfers equals boards minus one  
-    ENDIF
-    
-    IF ((I > 1312 & I < 1342) & (J > 1312 & J < 1342)) ; Downtown Minneapolis Zone
-      MW[8]  = 50 * MI.1.8 ;Full Fare is $0.50 * boards
-      MW[9]  = 50 * MI.1.8 ;Pass Fare is $0.50 * boards
-      MW[10] = 50 * MI.1.8;Senior Fare is $0.50 * boards
-      MW[11] = 50 * MI.1.8;Student Fare is $0.50 * boards
-    ENDIF
-    
-    IF ((I > 1999 & I < 2022) & (J > 1999 & J < 2022)) ; Downtown St. Paul Zone
-      MW[8]  = 50 * MI.1.8 ;Full Fare is $0.50 * boards
-      MW[9]  = 50 * MI.1.8 ;Pass Fare is $0.50 * boards
-      MW[10] = 50 * MI.1.8;Senior Fare is $0.50 * boards
-      MW[11] = 50 * MI.1.8;Student Fare is $0.50 * boards
-    ENDIF
-    
-  ENDJLOOP
+
+MW[1]=MI.1.1 + MI.1.2 + MI.1.3 + MI.1.4 + MI.1.5 ; Bus, LB, Exp, LRT, CRT - IVT
+MW[2]=MI.1.9      ;Walk access, Egress and Transfer Time
+MW[3]=0           ; Zeroed out - do not have walk Xfer time seperate
+MW[4]=0           ; Zeroed out - do not have walk Egress time seperate
+MW[5]=MI.1.6      ; Inital Wait
+MW[6]=MI.1.7      ; Transfer Wait
+MW[7]=0
+MW[8]=(MI.1.10+MI.1.11+MI.1.12)*100 ; Full Fare
+MW[9]=(MI.1.10+MI.1.11+MI.1.12)*100*0.90; Reduced Fare (Pass Fare)
+MW[10]=(MI.1.10+MI.1.11+MI.1.12)*100*0.90; Senior Fare (Seniors pay full fare in Peak)
+MW[11]=(MI.1.10+MI.1.11+MI.1.12)*100*0.90*0.90; Student Fare
+JLOOP
+  IF (MI.1.8>0)
+    MW[7]=MI.1.8-1    ; Transfers equals boards minus one  
+  ENDIF
+  IF ((I>1312 & I<1342) & (J>1312 & J<1342)) ; Downtown Minneapolis Zone
+    MW[8]=50 * MI.1.8 ;Full Fare is $0.50 * boards
+    MW[9]=50 * MI.1.8 ;Pass Fare is $0.50 * boards
+    MW[10]=50 * MI.1.8;Senior Fare is $0.50 * boards
+    MW[11]=50 * MI.1.8;Student Fare is $0.50 * boards
+  ENDIF
+  IF ((I>1999 & I<2022) & (J>1999 & J<2022)) ; Downtown St. Paul Zone
+    MW[8]=50 * MI.1.8 ;Full Fare is $0.50 * boards
+    MW[9]=50 * MI.1.8 ;Pass Fare is $0.50 * boards
+    MW[10]=50 * MI.1.8;Senior Fare is $0.50 * boards
+    MW[11]=50 * MI.1.8;Student Fare is $0.50 * boards
+  ENDIF
+ENDJLOOP
+
 
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSMAT00C.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSMAT00C.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM = MATRIX MSG = '@TPER@ Drive Skim - Step 2'
-FILEO MATO[1] = "{SCENARIO_DIR}\XIT_DR_SKIM_0_@TPER@.SKM", 
- MO = 1-11,  NAME = TRNTIME, DRACC, WLKXFER, WLKEGR, IWAIT, XWAIT, XFERS, FARE, 
-                    FAREP, FARER, FARES
+RUN PGM=MATRIX MSG='@TPER@ Drive Skim - Step 2'
+FILEO MATO[1] = "{SCENARIO_DIR}\XIT_DR_SKIM_0_@TPER@.SKM",
+ MO=1-11, NAME=TRNTIME,DRACC,WLKXFER,WLKEGR,IWAIT,XWAIT,XFERS,FARE,FAREP,FARER,FARES
 FILEI MATI[1] = "{SCENARIO_DIR}\XIT_DR_SKIM_0_@TPER@.TMP"
 
-  MW[1] = MI.1.1 + MI.1.2 + MI.1.3 + MI.1.4 + MI.1.5 ; Bus,  LB,  Exp,  LRT,  CRT - IVT
-  MW[2] = MI.1.13      ;Walk access,  Egress and Transfer Time
-  MW[3] = 0           ; Zeroed out - do not have walk Xfer time seperate
-  MW[4] = MI.1.9      ; Walk transfer and egress
-  MW[5] = MI.1.6      ; Inital Wait
-  MW[6] = MI.1.7      ; Transfer Wait
-  MW[7] = 0
-  MW[8] = (MI.1.10 + MI.1.11 + MI.1.12) * 100 ; Full Fare
-  MW[9] = (MI.1.10 + MI.1.11 + MI.1.12) * 100 * 0.90; Reduced Fare (Pass Fare)
-  MW[10] = (MI.1.10 + MI.1.11 + MI.1.12) * 100 * 0.90; Senior Fare (Seniors pay full fare in Peak)
-  MW[11] = (MI.1.10 + MI.1.11 + MI.1.12) * 100 * 0.90 * 0.90; Student Fare
-  
-  JLOOP
-    IF (MI.1.8>0)
-      MW[7] = MI.1.8-1    ; Transfers equals boards minus one  
-    ENDIF
-    
-    IF ((I>1312 & I<1342) & (J>1312 & J<1342)) ; Downtown Minneapolis Zone
-      MW[8] = 50 * MI.1.8 ;Full Fare is $0.50 * boards
-      MW[9] = 50 * MI.1.8 ;Pass Fare is $0.50 * boards
-      MW[10] = 50 * MI.1.8;Senior Fare is $0.50 * boards
-      MW[11] = 50 * MI.1.8;Student Fare is $0.50 * boards
-    ENDIF
-    
-    IF ((I>1999 & I<2022) & (J>1999 & J<2022)) ; Downtown St. Paul Zone
-      MW[8] = 50 * MI.1.8 ;Full Fare is $0.50 * boards
-      MW[9] = 50 * MI.1.8 ;Pass Fare is $0.50 * boards
-      MW[10] = 50 * MI.1.8;Senior Fare is $0.50 * boards
-      MW[11] = 50 * MI.1.8;Student Fare is $0.50 * boards
-    ENDIF
-  
-  ENDJLOOP
+MW[1]=MI.1.1 + MI.1.2 + MI.1.3 + MI.1.4 + MI.1.5 ; Bus, LB, Exp, LRT, CRT - IVT
+MW[2]=MI.1.13      ;Walk access, Egress and Transfer Time
+MW[3]=0           ; Zeroed out - do not have walk Xfer time seperate
+MW[4]=MI.1.9      ; Walk transfer and egress
+MW[5]=MI.1.6      ; Inital Wait
+MW[6]=MI.1.7      ; Transfer Wait
+MW[7]=0
+MW[8]=(MI.1.10+MI.1.11+MI.1.12)*100 ; Full Fare
+MW[9]=(MI.1.10+MI.1.11+MI.1.12)*100*0.90; Reduced Fare (Pass Fare)
+MW[10]=(MI.1.10+MI.1.11+MI.1.12)*100*0.90; Senior Fare (Seniors pay full fare in Peak)
+MW[11]=(MI.1.10+MI.1.11+MI.1.12)*100*0.90*0.90; Student Fare
+JLOOP
+  IF (MI.1.8>0)
+    MW[7]=MI.1.8-1    ; Transfers equals boards minus one  
+  ENDIF
+  IF ((I>1312 & I<1342) & (J>1312 & J<1342)) ; Downtown Minneapolis Zone
+    MW[8]=50 * MI.1.8 ;Full Fare is $0.50 * boards
+    MW[9]=50 * MI.1.8 ;Pass Fare is $0.50 * boards
+    MW[10]=50 * MI.1.8;Senior Fare is $0.50 * boards
+    MW[11]=50 * MI.1.8;Student Fare is $0.50 * boards
+  ENDIF
+  IF ((I>1999 & I<2022) & (J>1999 & J<2022)) ; Downtown St. Paul Zone
+    MW[8]=50 * MI.1.8 ;Full Fare is $0.50 * boards
+    MW[9]=50 * MI.1.8 ;Pass Fare is $0.50 * boards
+    MW[10]=50 * MI.1.8;Senior Fare is $0.50 * boards
+    MW[11]=50 * MI.1.8;Student Fare is $0.50 * boards
+  ENDIF
+ENDJLOOP
 
 ENDRUN
 
@@ -947,8 +939,7 @@ ENDRUN
 ENDDISTRIBUTEMULTISTEP
 ENDLOOP
 
-Wait4Files FILES = 'transit1.script.end, transit2.script.end',
-  CheckReturnCode = T, DelDistribFiles = T
+Wait4Files FILES='transit1.script.end, transit2.script.end' CheckReturnCode=T, DelDistribFiles=T
 
 *cluster transit 1-2 CLOSE EXIT
 
@@ -957,7 +948,7 @@ Wait4Files FILES = 'transit1.script.end, transit2.script.end',
 goto TransitSkim_END
 
 :TransitSkim_END
-; Script for program GENERATION in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSGEN00A.S"
+; Script for program GENERATION in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSGEN00A.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=GENERATION MSG='Quick Response Freight Manual routine'
 FILEO PAO[2] = "{SCENARIO_DIR}\TRK_PA.txt",
@@ -1001,7 +992,7 @@ ENDPROCESS
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSMAT00H.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSMAT00H.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='External Auto Allocation and Mode Choice'
 FILEO PRINTO[2] = "{SCENARIO_DIR}\HWY_EXT_MARGINAL_TARGET.txt"
@@ -1063,7 +1054,7 @@ ENDLOOP
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSMAT00I.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSMAT00I.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Build distribution matrix for Auto EE IPF'
 FILEO MATO[1] = "{SCENARIO_DIR}\HWY_EXT_JOINT_TARGET.TRP",
@@ -1079,7 +1070,7 @@ FILEI MATI[1] = "{ee_auto_dist}",
 ENDRUN
 
 
-; Script for program FRATAR in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSFRA00A.S"
+; Script for program FRATAR in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSFRA00A.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=FRATAR MSG='Fratar station targets using distribution from survey'
 FILEO MATO[1] = "{SCENARIO_DIR}\HWY_EXT_EETRIP.TRP",
@@ -1099,7 +1090,7 @@ FILEI LOOKUPI[1] = "{SCENARIO_DIR}\HWY_EXT_MARGINAL_TARGET.txt"
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSMAT00K.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSMAT00K.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Generate Airport Trips'
 FILEO RECO[1] = "{SCENARIO_DIR}\HWY_SPC_PA.dbf",
@@ -1121,7 +1112,7 @@ ENDLOOP
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSMAT00L.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSMAT00L.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Create Special Generator Matrix'
 FILEI LOOKUPI[1] = "{LU_spc_tod}"
@@ -1162,7 +1153,7 @@ FILEI MATI[1] = "{SCENARIO_DIR}\HWY_SPC_PA.dbf",
 ENDRUN
 
 
-; Script for program FRATAR in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSFRA00B.S"
+; Script for program FRATAR in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSFRA00B.S"
 ;;<<Default Template>><<FRATAR>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=FRATAR MSG='Fratar EE truck from FAF'
@@ -1181,7 +1172,7 @@ LOOKUP LOOKUPI=1,
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSMAT00M.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSMAT00M.S"
 ;;<<Default Template>><<MATRIX>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Split into two types'
@@ -1208,7 +1199,7 @@ IF (ITER==1)
 ENDIF
 ; End of PILOT Script
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\EVMAT00A.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\EVMAT00A.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Highway Accessibility'
 FILEI ZDATI[1] = "{SCENARIO_DIR}\zones_@PREV_ITER@.dbf"
@@ -1338,7 +1329,7 @@ MEhwyacc1[i],MEhwyacc2[i],MEhwyacc5[i],MEhwyacc10[i],MEhwyacc15[i],MEhwyacc20[i]
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\EVMAT00B.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\EVMAT00B.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Transit Accessibility'
 FILEI ZDATI[1] = "{SCENARIO_DIR}\zones_@PREV_ITER@.dbf"
@@ -1451,7 +1442,7 @@ NETRacc1[i],NETRacc2[i],NETRacc5[i],NETRacc10[i],NETRacc15[i],NETRacc20[i]
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\EVMAT00C.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\EVMAT00C.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Distance to External'
 
@@ -1500,7 +1491,7 @@ printo=1,list=i,MINDIST
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\EVMAT00D.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\EVMAT00D.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='School TAZs'
 
@@ -1684,7 +1675,7 @@ printo=1,form=10.0,list=i,SCH1NUM[i][1],SCH1NUM[i][2],SCH1NUM[i][3],SCH1NUM[i][4
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\EVMAT00E.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\EVMAT00E.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='University Enrollment'
 FILEI ZDATI[1] = "{SCENARIO_DIR}\zones_@PREV_ITER@.dbf"
@@ -1735,7 +1726,7 @@ printo=1,list=i,form=10.0,list=ENROLLED1[i],ENROLLED2[i],ENROLLED5[i],ENROLLED10
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\EVMAT00F.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\EVMAT00F.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Update Zonal Database'
 FILEI ZDATI[1] = "{SCENARIO_DIR}\zones_@PREV_ITER@.dbf"
@@ -1844,7 +1835,7 @@ write reco=1
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TCMAT00A.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TCMAT00A.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Set Inputs and Intermediate File Names - Part 1'
 FILEO PRINTO[1] = "{CATALOG_DIR}\\TourCast\Script\CubeKeyValues.py"
@@ -1945,7 +1936,7 @@ Endif
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TCMAT00B.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TCMAT00B.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Set Inputs and Intermediate File Names - Part 2'
 FILEO PRINTO[1] = "{CATALOG_DIR}\TourCast\Script\MatrixKeyValues.py"
@@ -2192,7 +2183,7 @@ ENDIF
   ENDIF 
 ; End of PILOT Script
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\FTMAT00A.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\FTMAT00A.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Create weighted skim times'
 FILEO MATO[1] = "{SCENARIO_DIR}\TRK_SKIM_@ITER@.tmp",
@@ -2234,7 +2225,7 @@ FILEI MATI[1] = "{SCENARIO_DIR}\HWY_SKIM_@PREV_ITER@_AM.SKM"
 ENDRUN
 
 
-; Script for program TRIPDIST in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\FTTRD00A.S"
+; Script for program TRIPDIST in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\FTTRD00A.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=TRIPDIST MSG='Truck gravity model'
 FILEO MATO[1] = "{SCENARIO_DIR}\TRK_TRIP_@ITER@.tmp",
@@ -2273,7 +2264,7 @@ FILEI ZDATI[1] = "{SCENARIO_DIR}\TRK_PA.txt",
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\FTMAT00B.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\FTMAT00B.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Time period splits'
 FILEI MATI[2] = "{SCENARIO_DIR}\EE_FRATAR_TRK.MAT"
@@ -2400,7 +2391,7 @@ FILEI MATI[1] = "{SCENARIO_DIR}\TRK_TRIP_@ITER@.tmp"
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\EEMAT00A.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\EEMAT00A.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Auto EI / IE Destination Choice'
 FILEI DBI[2] = "{SCENARIO_DIR}\HWY_EXT.dbf"
@@ -2486,7 +2477,7 @@ FILEI DBI[1] = "{zone_attribs}"
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\EEMAT00B.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\EEMAT00B.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Combine EI / IE trips with transpose and EE'
 FILEI MATI[3] = "{SCENARIO_DIR}\HWY_EXT_EETRIP.TRP"
@@ -2521,7 +2512,7 @@ LOOP TOD=1,11,1
  IF(TOD=11) PER='ON'  
 ; End of PILOT Script
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\EEMAT00D.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\EEMAT00D.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Sum trips from each time period'
 FILEI MATI[1] = "{SCENARIO_DIR}\HWY_TRIP_@ITER@_@PER@.trp"
@@ -2612,7 +2603,7 @@ ENDRUN
 ENDLOOP
 ; End of PILOT Script
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\EEMAT00E.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\EEMAT00E.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Split trips by TOD'
 FILEO PRINTO[1] = "{SCENARIO_DIR}\HWY_EXT_TRIP_PRN_@ITER@.prn"
@@ -2737,7 +2728,7 @@ LOOP TOD=1,11,1
  IF(TOD=11) PER='ON' HPER='NT' TPER = 'OP' 
 ; End of PILOT Script
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\SGMAT00A.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\SGMAT00A.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Airport Mode Choice'
 FILEO MATO[1] = "{SCENARIO_DIR}\HWY_SPC_TRIP_@ITER@_@PER@.tmp",
@@ -2825,7 +2816,7 @@ MW[137] = MW[174]*MW[197]/100                ;WALK ACCESS TRANSIT TRIPS
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\SGMAT00B.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\SGMAT00B.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Add return trips'
 FILEO MATO[1] = "{SCENARIO_DIR}\HWY_SPC_TRIP_@ITER@_@PER@.trp",
@@ -2855,7 +2846,7 @@ DISTRIBUTE INTRASTEP=T
 *Cluster Intrastep 1-{max_threads} START EXIT
 ; End of PILOT Script
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\HAMAT00E.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\HAMAT00E.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Aggregate Trip Tables for Interm Assignment'
 DISTRIBUTEINTRASTEP ProcessID='Intrastep', ProcessList=1-{max_threads}
@@ -3004,7 +2995,7 @@ FILEI MATI[1] = "{SCENARIO_DIR}\HWY_TRIP_@ITER@_AM1.TRP"
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\HAMAT00G.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\HAMAT00G.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Aggregate Truck Trip Tables for Interm Assignment'
 FILEO MATO[3] = "{SCENARIO_DIR}\TRK_TRIP_@ITER@_NT.TRP",
@@ -3048,7 +3039,7 @@ DISTRIBUTEINTRASTEP ProcessID='Intrastep', ProcessList=1-{max_threads}
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\HAMAT00I.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\HAMAT00I.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Aggregate IE/EI Trip Tables for Interm Assignment'
 FILEO MATO[3] = "{SCENARIO_DIR}\HWY_EXT_TRIP_@ITER@_NT.TRP",
@@ -3092,7 +3083,7 @@ DISTRIBUTEINTRASTEP ProcessID='Intrastep', ProcessList=1-{max_threads}
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\HAMAT00K.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\HAMAT00K.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Aggregate SPC Trip Tables for Interm Assignment'
 FILEO MATO[3] = "{SCENARIO_DIR}\HWY_SPC_TRIP_@ITER@_NT.TRP",
@@ -3149,7 +3140,7 @@ LOOP TOD=1,4,1
 
 ; End of PILOT Script
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\HAMAT00A.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\HAMAT00A.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Record stats and Convert to Vehicle Trip Tables @ASSIGNNAME@'
 FILEO MATO[2] = "{SCENARIO_DIR}\HWY_SPC_AUTO_TRIP_@ITER@_@PER@.trp",
@@ -3241,7 +3232,7 @@ FILEI MATI[1] = "{SCENARIO_DIR}\HWY_TRIP_@ITER@_@PER@.TRP"
 ENDRUN
 
 
-; Script for program HIGHWAY in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\HAHWY00A.S"
+; Script for program HIGHWAY in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\HAHWY00A.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=HIGHWAY MSG='Assignment Period: @ASSIGNNAME@'
 FILEI MATI[4] = "{SCENARIO_DIR}\HWY_SPC_AUTO_TRIP_@ITER@_@PER@.trp"
@@ -3364,18 +3355,10 @@ DISTRIBUTEINTRASTEP ProcessID='Intrastep', ProcessList=1-{max_threads}
         IF (LI.HOV=33)    ADDTOGROUP=22  ; 169 from 394 to 694
         IF (LI.HOV=34)    ADDTOGROUP=23 ; 169 from shakopee to 394
         IF (LI.HOV=35)    ADDTOGROUP=24 ; 169 from 394 to shakopee
-        IF (LI.HOV=36)    ADDTOGROUP=25 ; 494 EB from 212 to Minnesota River, congested both directions 
-        IF (LI.HOV=37)    ADDTOGROUP=26 ; 494 WB from Minnesota River to 212, congested both directions 
-        IF (LI.HOV=38,39)    ADDTOGROUP=27 ; 94/694 from maple grove to 94 south into DT, partial lane converstion
-        IF (LI.HOV=40,41)    ADDTOGROUP=28 ; 94/694 from 94 to maplegrove, partial lane converstion 
-        IF (LI.HOV=42)    ADDTOGROUP=29 ; 694 EB from 94 to 35W
-        IF (LI.HOV=43)    ADDTOGROUP=31 ; 694 WB from 35W to 94 ; SKIPPING GROUP 30 because it is exclusion group above . ugh 
-        IF (LI.HOV=44,45)    ADDTOGROUP=32 ; 77 NB and SB because i cna't have 33 groups WHICH IS STUPID
-      
         
         
         
-        ; rachel adding toll groups 6 - 32
+        ; rachel adding toll groups 6 - 24
         _toll1 = 25
         _toll2 = 25
         _toll3 = 25
@@ -3400,15 +3383,7 @@ DISTRIBUTEINTRASTEP ProcessID='Intrastep', ProcessList=1-{max_threads}
         _toll22 = 25
         _toll23 = 25
         _toll24 = 25
-        _toll25 = 25
-        _toll26 = 25
-        _toll27 = 25
-        _toll28 = 25
-        _toll29 = 25
-        _toll31 = 25
-        _toll32 = 25
-        
-        
+
         
    
     ENDPHASE 
@@ -3461,15 +3436,6 @@ DISTRIBUTEINTRASTEP ProcessID='Intrastep', ProcessList=1-{max_threads}
                 MW[216]=_toll22, selectgroup=22
                 MW[217]=_toll23, selectgroup=23
                 MW[218]=_toll24, selectgroup=24
-                MW[219]=_toll25, selectgroup=25
-                MW[220]=_toll26, selectgroup=26
-                MW[221]=_toll27, selectgroup=27
-                MW[222]=_toll28, selectgroup=28
-                MW[223]=_toll29, selectgroup=29
-                MW[224]=_toll31, selectgroup=31
-                MW[225]=_toll32, selectgroup=32
-                
-
 
 
     ; *** SOV Toll and Revenue Calculations ***
@@ -3483,8 +3449,8 @@ DISTRIBUTEINTRASTEP ProcessID='Intrastep', ProcessList=1-{max_threads}
           _HOV2PAY = 1
           _HOV3PAY = 1          
         ENDIF             
-      ; rachel add new working maxtrix here MW[200 - 226]
-       MW[35] =  MW[81]+MW[82]+MW[83]+MW[84]+MW[85]+MW[200]+MW[201]+MW[202]+MW[203]+MW[204]+MW[205]+MW[206]+MW[207]+MW[208]+MW[209]+MW[210]+MW[211]+MW[212]+MW[213]+MW[214]+MW[215]+MW[216]+MW[217]+MW[218]+MW[219]+MW[220]+MW[221]+MW[222]+MW[223]+MW[224]+MW[225]
+      ; rachel add new working maxtrix here MW[200 - 2018]
+       MW[35] =  MW[81]+MW[82]+MW[83]+MW[84]+MW[85]+MW[200]+MW[201]+MW[202]+MW[203]+MW[204]+MW[205]+MW[206]+MW[207]+MW[208]+MW[209]+MW[210]+MW[211]+MW[212]+MW[213]+MW[214]+MW[215]+MW[216]+MW[217]+MW[218]
  
       ; Non-Pay Time - Pay Time
        MW[34] =  MW[31]-MW[33]
@@ -3611,7 +3577,7 @@ DISTRIBUTEINTRASTEP ProcessID='Intrastep', ProcessList=1-{max_threads}
           MW[92] = MW[82] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80])   ; toll2 revenue
           MW[93] = MW[83] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80])   ; toll3 revenue
           MW[94] = MW[84] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80])   ; toll4 revenue
-          MW[95] = MW[85] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80])   ; toll5 revenue  rachel keep adding here from MW[200] to MW[225]
+          MW[95] = MW[85] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80])   ; toll5 revenue  rachel keep adding here from MW[200] to MW[218]
           MW[300] = MW[200] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80]) ; toll6 revenue 
           MW[301] = MW[201] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80]) ; toll7 revenue 
           MW[302] = MW[202] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80]) ; toll8 revenue 
@@ -3631,14 +3597,6 @@ DISTRIBUTEINTRASTEP ProcessID='Intrastep', ProcessList=1-{max_threads}
           MW[316] = MW[216] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80]) ; toll22 revenue 
           MW[317] = MW[217] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80]) ; toll23 revenue 
           MW[318] = MW[218] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80]) ; toll24 revenue 
-          MW[319] = MW[219] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80]) ; toll25 revenue
-          MW[320] = MW[220] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80]) ; toll26 revenue
-          MW[321] = MW[221] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80]) ; toll27 revenue
-          MW[322] = MW[222] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80]) ; toll28 revenue
-          MW[323] = MW[223] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80]) ; toll29 revenue
-          MW[324] = MW[224] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80]) ; toll31 revenue
-          MW[325] = MW[225] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80]) ; toll32 revenue
-         
 
                    
 
@@ -3718,7 +3676,7 @@ DISTRIBUTEINTRASTEP ProcessID='Intrastep', ProcessList=1-{max_threads}
           _maxVC2 = 0
           _maxVC3 = 0
           _maxVC4 = 0
-          _maxVC5 = 0 ; Rachel keep adding here, maxVCs to group 32
+          _maxVC5 = 0 ; Rachel keep adding here, maxVCs to group 24
           _maxVC6 = 0
           _maxVC7 = 0
           _maxVC8 = 0
@@ -3738,18 +3696,10 @@ DISTRIBUTEINTRASTEP ProcessID='Intrastep', ProcessList=1-{max_threads}
           _maxVC22 = 0
           _maxVC23 = 0
           _maxVC24 = 0
-          _maxVC25 = 0
-          _maxVC26 = 0
-          _maxVC27 = 0
-          _maxVC28 = 0
-          _maxVC29 = 0
-          _maxVC31 = 0
-          _maxVC32 = 0
-          
     
                           
           IF (Iteration =1)
-            PRINT CSV=T LIST='Iteration,ANode,BNode,HOV,Volume,VC,TIME,DISTANCE, VHT, VMT, Toll1, Toll2, Toll3, Toll4, Toll5, Toll6, Toll7, Toll8, Toll9, Toll10, Toll11, Toll12, Toll13, Toll14, Toll15, Toll16, Toll17, Toll18, Toll19, Toll20, Toll21, Toll22, Toll23, Toll24, Toll25, Toll26, Toll27, Toll28, Toll29, Toll31, Toll32' PRINTO=1          ; adding new toll groups here to try to fix intrastep issues 
+            PRINT CSV=T LIST='Iteration,ANode,BNode,HOV,Volume,VC,TIME,DISTANCE, VHT, VMT, Toll1, Toll2, Toll3, Toll4, Toll5' PRINTO=1          
           ENDIF
          ENDIF
 
@@ -3832,35 +3782,6 @@ DISTRIBUTEINTRASTEP ProcessID='Intrastep', ProcessList=1-{max_threads}
         IF (LW.HOV=35 & C>0)
           IF ((V/C) > _maxVC24) _maxVC24 = (V/C)
         ENDIF
-        
-        IF (LW.HOV=36 & C>0)
-            IF ((V/C) > _maxVC25) _maxVC25 = (V/C)
-          ENDIF
-          
-        IF (LW.HOV=37 & C>0)
-          IF ((V/C) > _maxVC26) _maxVC26 = (V/C)
-        ENDIF
-        
-        IF (LW.HOV=38,39 & C>0)
-          IF ((V/C) > _maxVC27) _maxVC27 = (V/C)
-        ENDIF
-        
-        IF (LW.HOV=40,41 & C>0)
-          IF ((V/C) > _maxVC28) _maxVC28 = (V/C)
-        ENDIF
-        
-        IF (LW.HOV=42 & C>0)
-          IF ((V/C) > _maxVC29) _maxVC29 = (V/C)
-        ENDIF
-        
-        IF (LW.HOV=43 & C>0)
-          IF ((V/C) > _maxVC31) _maxVC31 = (V/C)
-        ENDIF
-        
-        IF (LW.HOV=44,45 & C>0)
-          IF ((V/C) > _maxVC32) _maxVC32 = (V/C)
-        ENDIF
-        
       
         
          
@@ -3869,7 +3790,7 @@ DISTRIBUTEINTRASTEP ProcessID='Intrastep', ProcessList=1-{max_threads}
         _toll2 = TOLL(1,_maxVC2)
         _toll3 = TOLL(1,_maxVC3)
         _toll4 = TOLL(1,_maxVC4)
-        _toll5 = TOLL(1,_maxVC5) ; rachel keep adding up to toll32, maxvc32
+        _toll5 = TOLL(1,_maxVC5) ; rachel keep adding up to toll24, maxvc24
         _toll5 = TOLL(1,_maxVC5)
         _toll6 = TOLL(1,_maxVC6)
         _toll7 = TOLL(1,_maxVC7)
@@ -3890,26 +3811,16 @@ DISTRIBUTEINTRASTEP ProcessID='Intrastep', ProcessList=1-{max_threads}
         _toll22 = TOLL(1,_maxVC22)
         _toll23 = TOLL(1,_maxVC23)
         _toll24 = TOLL(1,_maxVC24)
-        _toll25 = TOLL(1,_maxVC25)
-        _toll26 = TOLL(1,_maxVC26)
-        _toll27 = TOLL(1,_maxVC27)
-        _toll28 = TOLL(1,_maxVC28)
-        _toll29 = TOLL(1,_maxVC29)
-        _toll31 = TOLL(1,_maxVC31)
-        _toll32 = TOLL(1,_maxVC32)
-       
-        
-        
 
         IF (LW.HOV>0 & V>0)
-          PRINT CSV=T LIST=iteration(2.0),A(6.0),B(6.0),LW.HOV(4.0),V(8.2),V/C(8.42),TIME(5.2), DISTANCE(5.2), V*TIME(15.2), V*DISTANCE(15.2), _toll1(5.2), _toll2(5.2), _toll3(5.2), _toll4(5.2), _toll5(5.2), _toll6(5.2), _toll7(5.2), _toll8(5.2), _toll9(5.2), _toll10(5.2), _toll11(5.2), _toll12(5.2), _toll13(5.2), _toll14(5.2), _toll15(5.2), _toll16(5.2), _toll17(5.2), _toll18(5.2), _toll19(5.2), _toll20(5.2), _toll21(5.2), _toll22(5.2), _toll23(5.2), _toll24(5.2), _toll25(5.2), _toll26(5.2), _toll27(5.2), _toll28(5.2), _toll29(5.2), _toll31(5.2), _toll32(5.2) PRINTO=1
+          PRINT CSV=T LIST=iteration(2.0),A(6.0),B(6.0),LW.HOV(4.0),V(8.2),V/C(8.42),TIME(5.2), DISTANCE(5.2), V*TIME(15.2), V*DISTANCE(15.2), _toll1(5.2), _toll2(5.2), _toll3(5.2), _toll4(5.2), _toll5(5.2), _toll6(5.2), _toll7(5.2), _toll8(5.2), _toll9(5.2), _toll10(5.2), _toll11(5.2), _toll12(5.2), _toll13(5.2), _toll14(5.2), _toll15(5.2), _toll16(5.2), _toll17(5.2), _toll18(5.2), _toll19(5.2), _toll20(5.2), _toll21(5.2), _toll22(5.2), _toll23(5.2), _toll24(5.2) PRINTO=1
         ENDIF
     ENDPHASE
 
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\HAMAT00C.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\HAMAT00C.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Create Highway Skims: @ASSIGNNAME@'
 FILEI MATI[2] = "{SCENARIO_DIR}\HWY_SKIM_@PREV_ITER@_@PER@.skm"
@@ -3973,7 +3884,7 @@ ENDLOOP ; end of TOD assignment loop
 ;iter = 1
 ; End of PILOT Script
 
-; Script for program NETWORK in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\CANET00A.S"
+; Script for program NETWORK in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\CANET00A.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=NETWORK MSG='Combine Convergence Assignment Networks'
 FILEI LINKI[4] = "{SCENARIO_DIR}\HWY_LDNET_@ITER@_NT.NET"
@@ -4002,7 +3913,7 @@ FILEO NETO = "{SCENARIO_DIR}\HWY_LDNET_@ITER@_DAILY.NET",
  VMT_DIFF, VMT_DIFFSQ, VOL_DIFFSQ, HOV
   
  FF_SPD  = LI.1.SPEED
- FF_TIME = LI.1.TIME ; edit made 3/30/18 from TIME_1 to TIME  , TIME is Freeflow, TIME_1 is congested, per call with cambridge 
+ FF_TIME = LI.1.TIME_1
  LANEMILES = LI.1.LANES * LI.1.DISTANCE
  SCREENLINE = 0 ; TODO - hook this up
  COUNT = LI.1.DY_CNT + LI.1.AADT
@@ -4076,7 +3987,7 @@ FILEO NETO = "{SCENARIO_DIR}\HWY_LDNET_@ITER@_DAILY.NET",
 ENDRUN
 
 
-; Script for program NETWORK in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\CANET00B.S"
+; Script for program NETWORK in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\CANET00B.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=NETWORK MSG='Export link dbf'
 FILEO LINKO = "{SCENARIO_DIR}\HWY_LDNET_@ITER@_DAILY.dbf"
@@ -4086,7 +3997,7 @@ FILEI LINKI[1] = "{SCENARIO_DIR}\HWY_LDNET_@ITER@_DAILY.NET"
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\CAMAT00A.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\CAMAT00A.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Export to csv'
 FILEI DBI[1] = "{SCENARIO_DIR}\HWY_LDNET_@ITER@_DAILY.dbf"
@@ -4127,7 +4038,7 @@ LOOP TOD=1,2,1
  DISTRIBUTEMULTISTEP PROCESSID='transit' PROCESSNUM=@TOD@
 ; End of PILOT Script
 
-; Script for program NETWORK in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSNET00F.S"
+; Script for program NETWORK in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSNET00F.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=NETWORK MSG='Calculate Transit Speeds for @TPER@'
 FILEI NODEI[1] = "{SCENARIO_DIR}\node.dbf"
@@ -4257,7 +4168,7 @@ FILEI LINKI[1] = "{SCENARIO_DIR}\HWY_LDNET_@ITER@_@PER@.net"
 ENDRUN
 
 
-; Script for program PUBLIC TRANSPORT in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSPTR00N.S"
+; Script for program PUBLIC TRANSPORT in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSPTR00N.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=PUBLIC TRANSPORT MSG='Build @TPER@ Walk Access Connectors'
 FILEO NTLEGO = "{SCENARIO_DIR}\XIT_WKACC_NTL_@ITER@_@TPER@.TMP"
@@ -4303,7 +4214,7 @@ FILEI NETI = "{SCENARIO_DIR}\XIT_NET_@ITER@_@TPER@.NET"
 ENDRUN
 
 
-; Script for program PUBLIC TRANSPORT in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSPTR00S.S"
+; Script for program PUBLIC TRANSPORT in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSPTR00S.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=PUBLIC TRANSPORT MSG='Build @TPER@ Transfer Access Connectors'
 FILEO NTLEGO = "{SCENARIO_DIR}\XIT_XFER_NTL_@ITER@_@TPER@.TMP"
@@ -4351,7 +4262,7 @@ FILEI NETI = "{SCENARIO_DIR}\XIT_NET_@ITER@_@TPER@.NET"
 ENDRUN
 
 
-; Script for program PUBLIC TRANSPORT in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSPTR00U.S"
+; Script for program PUBLIC TRANSPORT in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSPTR00U.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=PUBLIC TRANSPORT MSG='Build @TPER@ Drive Access Connectors'
 FILEO NTLEGO = "{SCENARIO_DIR}\XIT_DRACC_NTL_@ITER@_@TPER@.TMP"
@@ -4399,7 +4310,7 @@ ENDRUN
 *copy "{SCENARIO_DIR}\XIT_DRACC_NTL_@ITER@_@TPER@.tmp"+"{CATALOG_DIR}\input\transit\DriveOverrides.txt" "{SCENARIO_DIR}\XIT_DRACC_NTL_@ITER@_@TPER@.ntl"
 ; End of PILOT Script
 
-; Script for program PUBLIC TRANSPORT in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSPTR00J.S"
+; Script for program PUBLIC TRANSPORT in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSPTR00J.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=PUBLIC TRANSPORT PRNFILE="{SCENARIO_DIR}\XIT_WK_PRN_@ITER@_@TPER@.prn" MSG='@TPER@ Walk Transit Skim - Step 1'
 FILEI FAREI = "{XIT_FARE}"
@@ -4452,7 +4363,7 @@ FILEI FAREMATI[1] = "{XIT_FAREMAT}"
 ENDRUN
 
 
-; Script for program PUBLIC TRANSPORT in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSPTR00L.S"
+; Script for program PUBLIC TRANSPORT in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSPTR00L.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=PUBLIC TRANSPORT PRNFILE="{SCENARIO_DIR}\XIT_DR_PRN_@ITER@_@TPER@.prn" MSG='@TPER@ Drive Transit Skim - Step 1'
 FILEI FAREI = "{XIT_FARE}"
@@ -4506,7 +4417,7 @@ FILEI FAREMATI[1] = "{XIT_FAREMAT}"
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSMAT00E.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSMAT00E.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='@TPER@ Walk Skim - Step 2'
 FILEO MATO[1] = "{SCENARIO_DIR}\XIT_WK_SKIM_@ITER@_@TPER@.SKM",
@@ -4547,7 +4458,7 @@ ENDJLOOP
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TSMAT00G.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\TSMAT00G.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='@TPER@ Drive Skim - Step 2'
 FILEO MATO[1] = "{SCENARIO_DIR}\XIT_DR_SKIM_@ITER@_@TPER@.SKM",
@@ -4638,7 +4549,7 @@ LOOP TOD=1,4,1
  
 ; End of PILOT Script
 
-; Script for program NETWORK in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\CCNET00D.S"
+; Script for program NETWORK in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\CCNET00D.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=NETWORK MSG='Unbuild network'
 FILEO NETO = "{SCENARIO_DIR}\HWY_ITERCOMP_@PREV_ITER@_@ITER@_@PER@.NET",
@@ -4693,7 +4604,7 @@ if (VC1>0) PRCVCCHG=VCCHG/VC1
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\CCMAT00A.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\CCMAT00A.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Calculate convergence stats'
 FILEO PRINTO[1] = "{SCENARIO_DIR}\CONVERGE_@ITER@_@PER@.txt"
@@ -4805,7 +4716,7 @@ LOOP TOD=1,4,1
  IF(TOD=4) PER='PM' 
 ; End of PILOT Script
 
-; Script for program NETWORK in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\IINET00C.S"
+; Script for program NETWORK in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\IINET00C.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=NETWORK MSG='Unbuild network'
 FILEO LINKO = "{SCENARIO_DIR}\HWY_LDNET_@ITER@_@PER@.dbf"
@@ -4871,7 +4782,7 @@ LOOP TOD=1,11,1
 
 ; End of PILOT Script
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\HTMAT00B.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\HTMAT00B.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Convert to Vehicle Trip Tables @ASSIGNNAME@'
 FILEO MATO[2] = "{SCENARIO_DIR}\HWY_SPC_AUTO_TRIP_@ITER@_@PER@.trp",
@@ -4977,7 +4888,7 @@ FILEI MATI[1] = "{SCENARIO_DIR}\HWY_TRIP_@ITER@_@PER@.trp"
 ENDRUN
 
 
-; Script for program HIGHWAY in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\HTHWY00B.S"
+; Script for program HIGHWAY in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\HTHWY00B.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=HIGHWAY MSG='Assignment Period: @ASSIGNNAME@'
 FILEI MATI[4] = "{SCENARIO_DIR}\HWY_SPC_AUTO_TRIP_@ITER@_@PER@.trp"
@@ -5100,13 +5011,6 @@ FILEI MATI[1] = "{SCENARIO_DIR}\HWY_AUTO_TRIP_@ITER@_@PER@.trp"
         IF (LI.HOV=33)    ADDTOGROUP=22  ; 169 from 394 to 694
         IF (LI.HOV=34)    ADDTOGROUP=23 ; 169 from shakopee to 394
         IF (LI.HOV=35)    ADDTOGROUP=24 ; 169 from 394 to shakopee
-        IF (LI.HOV=36)    ADDTOGROUP=25 ; 494 EB from 212 to Minnesota River, congested both directions 
-        IF (LI.HOV=37)    ADDTOGROUP=26 ; 494 WB from Minnesota River to 212, congested both directions 
-        IF (LI.HOV=38,39)    ADDTOGROUP=27 ; 94/694 from maple grove to 94 south into DT, partial lane converstion
-        IF (LI.HOV=40,41)    ADDTOGROUP=28 ; 94/694 from 94 to maplegrove, partial lane converstion 
-        IF (LI.HOV=42)    ADDTOGROUP=29 ; 694 EB from 94 to 35W
-        IF (LI.HOV=43)    ADDTOGROUP=31 ; 694 WB from 35W to 94  SKIPPING GROUP 30 because used above 
-        IF (LI.HOV=44,45)    ADDTOGROUP=32 ; 77 NB and SB combinging these groups because i can't have 33 groups
         
         
         
@@ -5135,14 +5039,7 @@ FILEI MATI[1] = "{SCENARIO_DIR}\HWY_AUTO_TRIP_@ITER@_@PER@.trp"
         _toll22 = 25
         _toll23 = 25
         _toll24 = 25
-        _toll25 = 25
-        _toll26 = 25
-        _toll27 = 25
-        _toll28 = 25
-        _toll29 = 25
-        _toll31 = 25 ; SKIPPING GROUP 30 because used above 
-        _toll32 = 25
-        
+   
     ENDPHASE 
 
     PHASE=ILOOP           
@@ -5192,14 +5089,6 @@ FILEI MATI[1] = "{SCENARIO_DIR}\HWY_AUTO_TRIP_@ITER@_@PER@.trp"
                 MW[216]=_toll22, selectgroup=22
                 MW[217]=_toll23, selectgroup=23
                 MW[218]=_toll24, selectgroup=24
-                MW[219]=_toll25, selectgroup=25
-                MW[220]=_toll26, selectgroup=26
-                MW[221]=_toll27, selectgroup=27
-                MW[222]=_toll28, selectgroup=28
-                MW[223]=_toll29, selectgroup=29
-                MW[224]=_toll31, selectgroup=31
-                MW[225]=_toll32, selectgroup=32
-                
 
 
     ; *** SOV Toll and Revenue Calculations ***
@@ -5213,9 +5102,8 @@ FILEI MATI[1] = "{SCENARIO_DIR}\HWY_AUTO_TRIP_@ITER@_@PER@.trp"
           _HOV2PAY = 1
           _HOV3PAY = 1          
         ENDIF             
-      ; rachel add new working maxtrix here MW[200 - 225]
-       MW[35] =  MW[81]+MW[82]+MW[83]+MW[84]+MW[85]+MW[200]+MW[201]+MW[202]+MW[203]+MW[204]+MW[205]+MW[206]+MW[207]+MW[208]+MW[209]+MW[210]+MW[211]+MW[212]+MW[213]+MW[214]+MW[215]+MW[216]+MW[217]+MW[218]+MW[219]+MW[220]+MW[221]+MW[222]+MW[223]+MW[224]+MW[225]
-       
+      ; rachel add new working maxtrix here MW[200 - 2018]
+       MW[35] =  MW[81]+MW[82]+MW[83]+MW[84]+MW[85]+MW[200]+MW[201]+MW[202]+MW[203]+MW[204]+MW[205]+MW[206]+MW[207]+MW[208]+MW[209]+MW[210]+MW[211]+MW[212]+MW[213]+MW[214]+MW[215]+MW[216]+MW[217]+MW[218]
       ; Non-Pay Time - Pay Time
        MW[34] =  MW[31]-MW[33]
       ; Calculate %Diversion and Revenue
@@ -5361,13 +5249,6 @@ FILEI MATI[1] = "{SCENARIO_DIR}\HWY_AUTO_TRIP_@ITER@_@PER@.trp"
           MW[316] = MW[216] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80]) ; toll22 revenue 
           MW[317] = MW[217] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80]) ; toll23 revenue 
           MW[318] = MW[218] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80]) ; toll24 revenue 
-          MW[319] = MW[219] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80]) ; toll25 revenue
-          MW[320] = MW[220] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80]) ; toll26 revenue
-          MW[321] = MW[221] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80]) ; toll27 revenue
-          MW[322] = MW[222] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80]) ; toll28 revenue
-          MW[323] = MW[223] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80]) ; toll29 revenue
-          MW[324] = MW[224] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80]) ; toll31 revenue
-          MW[325] = MW[225] * (MW[71]+MW[72]+MW[73]+MW[74]+MW[75]+MW[76]+MW[77]+MW[78]+MW[79]+MW[80]) ; toll32 revenue
         
        ENDJLOOP
  
@@ -5440,11 +5321,11 @@ FILEI MATI[1] = "{SCENARIO_DIR}\HWY_AUTO_TRIP_@ITER@_@PER@.trp"
     ENDPHASE
     PHASE=ADJUST
          IF (LINKNO=1)
-          _maxVC1 = 0
+                   _maxVC1 = 0
           _maxVC2 = 0
           _maxVC3 = 0
           _maxVC4 = 0
-          _maxVC5 = 0 ; Rachel keep adding here, maxVCs to group 32
+          _maxVC5 = 0 ; Rachel keep adding here, maxVCs to group 24
           _maxVC6 = 0
           _maxVC7 = 0
           _maxVC8 = 0
@@ -5464,20 +5345,9 @@ FILEI MATI[1] = "{SCENARIO_DIR}\HWY_AUTO_TRIP_@ITER@_@PER@.trp"
           _maxVC22 = 0
           _maxVC23 = 0
           _maxVC24 = 0
-          _maxVC25 = 0
-          _maxVC26 = 0
-          _maxVC27 = 0
-          _maxVC28 = 0
-          _maxVC29 = 0
-          _maxVC31 = 0
-          _maxVC32 = 0
-          
-          
-          
-          
          
           IF (Iteration =1)
-            PRINT CSV=T LIST='Iteration,ANode,BNode,HOV,Volume,VC,TIME,DISTANCE, VHT, VMT, Toll1, Toll2, Toll3, Toll4, Toll5, Toll6, Toll7, Toll8, Toll9, Toll10, Toll11, Toll12, Toll13, Toll14, Toll15, Toll16, Toll17, Toll18, Toll19, Toll20, Toll21, Toll22, Toll23, Toll24, Toll25, Toll26, Toll27, Toll28, Toll29, Toll31, Toll32' PRINTO=1          ; adding new toll groups here to try to fix intrastep issues PRINTO=1          
+            PRINT CSV=T LIST='Iteration,ANode,BNode,HOV,Volume,VC,TIME,DISTANCE, VHT, VMT, Toll1, Toll2, Toll3, Toll4, Toll5' PRINTO=1          
           ENDIF
          ENDIF
 
@@ -5559,40 +5429,6 @@ FILEI MATI[1] = "{SCENARIO_DIR}\HWY_AUTO_TRIP_@ITER@_@PER@.trp"
         IF (LW.HOV=35 & C>0)
           IF ((V/C) > _maxVC24) _maxVC24 = (V/C)
         ENDIF
-        
-         IF (LW.HOV=36 & C>0)
-            IF ((V/C) > _maxVC25) _maxVC25 = (V/C)
-          ENDIF
-          
-        IF (LW.HOV=37 & C>0)
-          IF ((V/C) > _maxVC26) _maxVC26 = (V/C)
-        ENDIF
-        
-        IF (LW.HOV=38,39 & C>0)
-          IF ((V/C) > _maxVC27) _maxVC27 = (V/C)
-        ENDIF
-        
-        IF (LW.HOV=40,41 & C>0)
-          IF ((V/C) > _maxVC28) _maxVC28 = (V/C)
-        ENDIF
-        
-        IF (LW.HOV=42 & C>0)
-          IF ((V/C) > _maxVC29) _maxVC29 = (V/C)
-        ENDIF
-        
-        IF (LW.HOV=43 & C>0)
-          IF ((V/C) > _maxVC31) _maxVC31 = (V/C)   ; skipping 30 again because of excluded group, see line 96
-        ENDIF
-        
-        IF (LW.HOV=44,45 & C>0)
-          IF ((V/C) > _maxVC32) _maxVC32 = (V/C)
-        ENDIF
-        
-      
-        
-        
-        
-        
          
         ;Tolls for Next Assignment Iteration
        _toll1 = TOLL(1,_maxVC1)
@@ -5620,20 +5456,10 @@ FILEI MATI[1] = "{SCENARIO_DIR}\HWY_AUTO_TRIP_@ITER@_@PER@.trp"
         _toll22 = TOLL(1,_maxVC22)
         _toll23 = TOLL(1,_maxVC23)
         _toll24 = TOLL(1,_maxVC24)
-        _toll25 = TOLL(1,_maxVC25)
-        _toll26 = TOLL(1,_maxVC26)
-        _toll27 = TOLL(1,_maxVC27)
-        _toll28 = TOLL(1,_maxVC28)
-        _toll29 = TOLL(1,_maxVC29)
-        _toll31 = TOLL(1,_maxVC31)
-        _toll32 = TOLL(1,_maxVC32)
-       
 
-        
-        
         IF (LW.HOV>0 & V>0)
                     
-          PRINT CSV=T LIST=iteration(2.0),A(6.0),B(6.0),LW.HOV(4.0),V(8.2),V/C(8.42),TIME(5.2), DISTANCE(5.2), V*TIME(15.2), V*DISTANCE(15.2), _toll1(5.2), _toll2(5.2), _toll3(5.2), _toll4(5.2), _toll5(5.2), _toll6(5.2), _toll7(5.2), _toll8(5.2), _toll9(5.2), _toll10(5.2), _toll11(5.2), _toll12(5.2), _toll13(5.2), _toll14(5.2), _toll15(5.2), _toll16(5.2), _toll17(5.2), _toll18(5.2), _toll19(5.2), _toll20(5.2), _toll21(5.2), _toll22(5.2), _toll23(5.2), _toll24(5.2), _toll25(5.2), _toll26(5.2), _toll27(5.2), _toll28(5.2), _toll29(5.2), _toll31(5.2), _toll32(5.2) PRINTO=1
+          PRINT CSV=T LIST=iteration(2.0),A(6.0),B(6.0),LW.HOV(4.0),V(8.2),V/C(8.42),TIME(5.2), DISTANCE(5.2), V*TIME(15.2), V*DISTANCE(15.2), _toll1(5.2), _toll2(5.2), _toll3(5.2), _toll4(5.2), _toll5(5.2), _toll6(5.2), _toll7(5.2), _toll8(5.2), _toll9(5.2), _toll10(5.2), _toll11(5.2), _toll12(5.2), _toll13(5.2), _toll14(5.2), _toll15(5.2), _toll16(5.2), _toll17(5.2), _toll18(5.2), _toll19(5.2), _toll20(5.2), _toll21(5.2), _toll22(5.2), _toll23(5.2), _toll24(5.2) PRINTO=1
         ENDIF
     ENDPHASE
 
@@ -5648,7 +5474,7 @@ ENDLOOP
 *Cluster Intrastep 1-{max_threads} CLOSE EXIT
 ; End of PILOT Script
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\PAMAT00C.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\PAMAT00C.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Combine Special Generator Trips into Peak/Off-Peak'
 FILEO MATO[2] = "{SCENARIO_DIR}\XIT_SPC_TRIP_@ITER@_OP.trp",
@@ -5692,7 +5518,7 @@ LOOP TOD=1,2,1
  DISTRIBUTEMULTISTEP PROCESSID='transit' PROCESSNUM=@TOD@
 ; End of PILOT Script
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\PAMAT00A.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\PAMAT00A.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Expand trip table to full zones'
 FILEI MATI[4] = "{SCENARIO_DIR}\XIT_SPC_TRIP_@ITER@_@TPER@.trp"
@@ -5762,7 +5588,7 @@ FILEI MATI[1] = "{SCENARIO_DIR}\XIT_TRIP_@ITER@_@TPER@.trp"
 ENDRUN
 
 
-; Script for program PUBLIC TRANSPORT in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\PAPTR00B.S"
+; Script for program PUBLIC TRANSPORT in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\PAPTR00B.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=PUBLIC TRANSPORT PRNFILE="{SCENARIO_DIR}\XIT_WK_LD_PRN_@ITER@_@TPER@.prn" MSG='@TPER@ Walk Transit Assignment'
 FILEO ROUTEO[1] = "{SCENARIO_DIR}\XIT_WK_LD_RTE_@ITER@_@TPER@.RTE"
@@ -5804,7 +5630,7 @@ FILEI FAREMATI[1] = "{XIT_FAREMAT}"
 ENDRUN
 
 
-; Script for program PUBLIC TRANSPORT in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\PAPTR00D.S"
+; Script for program PUBLIC TRANSPORT in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\PAPTR00D.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=PUBLIC TRANSPORT PRNFILE="{SCENARIO_DIR}\XIT_DR_LD_PRN_@ITER@_@TPER@.prn" MSG='@TPER@ Drive Transit Assignment'
 FILEO ROUTEO[1] = "{SCENARIO_DIR}\XIT_DR_LD_RTE_@ITER@_@TPER@.RTE"
@@ -5855,7 +5681,7 @@ LOOP T=1,2,1
   IF (T==2) ACC='DR'
 ; End of PILOT Script
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\PAMAT00B.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\PAMAT00B.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Combine Transit Boarding Data'
 FILEI DBI[1] = "{SCENARIO_DIR}\XIT_@ACC@_LD_@ITER@_@TPER@.dbf"
@@ -5916,7 +5742,7 @@ LOOP TOD=1,2,1
   IF(TOD==2) PER='PM'
 ; End of PILOT Script
 
-; Script for program NETWORK in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\PPNET00A.S"
+; Script for program NETWORK in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\PPNET00A.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=NETWORK MSG='Combine 11 and 4 time period networks'
 FILEO NETO = "{SCENARIO_DIR}\HWY_LDNET_@ITER@_@PER@_COMP.NET",
@@ -5968,7 +5794,7 @@ FILEI LINKI[1] = "{SCENARIO_DIR}\HWY_LDNET_@ITER@_@PER@1.NET"
 ENDRUN
 
 
-; Script for program NETWORK in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\PPNET00B.S"
+; Script for program NETWORK in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\PPNET00B.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=NETWORK
 FILEO LINKO = "{SCENARIO_DIR}\HWY_LDNET_@ITER@_@PER@_COMP.DBF"
@@ -5978,7 +5804,7 @@ FILEI LINKI[1] = "{SCENARIO_DIR}\HWY_LDNET_@ITER@_@PER@_COMP.NET"
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\PPMAT00A.S"
+; Script for program MATRIX in file "C:\Users\BeswicTW\Desktop\ABM_2017\CUBE\PPMAT00A.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Export to CSV'
 FILEO PRINTO[1] = "{SCENARIO_DIR}\HWY_LDNET_@ITER@_@PER@_COMP.CSV"
