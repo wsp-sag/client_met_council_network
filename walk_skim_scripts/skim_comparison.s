@@ -9,11 +9,13 @@ FILEO MATO[2] = "original_skim.csv",
   MO = 1, PATTERN = IJ:MV, DELIMITER = ","
 FILEO MATO[3] = "new_skim.csv", 
   MO = 1, PATTERN = IJ:MV, DELIMITER = ","
-;FILEO RECO[1] = "C:\Users\helseljw\OneDrive - WSP O365\met_council\walk_skim_scripts\skim_comparison.dbf",
-;  FIELDS = origins, destinations, error
+FILEO MATO[4] = "original_skim.skm",  MO = 1, NAME = "daptime"
+FILEO MATO[5] = "new_skim.skm",       MO = 1, NAME = "daptime"
 
   MW[1] = ABS(MI.1.daptime - MI.2.daptime)
   MW[2] = MI.1.daptime
   MW[3] = MI.2.daptime
+  MW[4] = MI.1.daptime
+  MW[5] = MI.2.daptime
   
 ENDRUN
