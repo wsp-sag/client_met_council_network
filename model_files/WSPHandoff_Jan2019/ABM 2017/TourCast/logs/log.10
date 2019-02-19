@@ -1,0 +1,208 @@
+2019-02-16 00:11:02,315 [1] INFO  ModelEngine.ModelEngineMain [(null)] - Loaded ModelEngineMain
+2019-02-16 00:11:02,366 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: StopGeneration.py, pathToScripts: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+2019-02-16 00:11:02,370 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGeneration"
+2019-02-16 00:11:02,473 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 0:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGeneration"
+2019-02-16 00:11:02,776 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: StopGenerationSubmodel_IndividualNonMandatoryHalfTour1.py, pathToScripts: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+2019-02-16 00:11:02,777 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGenerationSubmodel_IndividualNonMandatoryHalfTour1"
+2019-02-16 00:11:03,283 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_IndividualNonMandatoryHalfTour1.json, pathToScripts: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+2019-02-16 00:11:03,283 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 0:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGenerationSubmodel_IndividualNonMandatoryHalfTour1"
+2019-02-16 00:11:03,283 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_IndividualNonMandatoryHalfTour1"
+2019-02-16 00:11:03,400 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 0:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_IndividualNonMandatoryHalfTour1"
+2019-02-16 00:11:03,473 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: StopGenerationSubmodel_IndividualNonMandatoryHalfTour2.py, pathToScripts: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+2019-02-16 00:11:03,473 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGenerationSubmodel_IndividualNonMandatoryHalfTour2"
+2019-02-16 00:11:03,581 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 0:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGenerationSubmodel_IndividualNonMandatoryHalfTour2"
+2019-02-16 00:11:03,581 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_IndividualNonMandatoryHalfTour2.json, pathToScripts: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+2019-02-16 00:11:03,581 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_IndividualNonMandatoryHalfTour2"
+2019-02-16 00:11:03,685 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 0:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_IndividualNonMandatoryHalfTour2"
+2019-02-16 00:11:03,702 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: StopGenerationSubmodel_Escort.py, pathToScripts: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+2019-02-16 00:11:03,702 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGenerationSubmodel_Escort"
+2019-02-16 00:11:04,289 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 0:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGenerationSubmodel_Escort"
+2019-02-16 00:11:04,289 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_Escort.json, pathToScripts: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+2019-02-16 00:11:04,290 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_Escort"
+2019-02-16 00:11:04,396 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 0:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_Escort"
+2019-02-16 00:11:04,399 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: StopGenerationSubmodel_SchoolHalfTour1.py, pathToScripts: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+2019-02-16 00:11:04,399 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGenerationSubmodel_SchoolHalfTour1"
+2019-02-16 00:11:04,501 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 0:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGenerationSubmodel_SchoolHalfTour1"
+2019-02-16 00:11:04,501 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_SchoolHalfTour1.json, pathToScripts: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+2019-02-16 00:11:04,501 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_SchoolHalfTour1"
+2019-02-16 00:11:04,600 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 0:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_SchoolHalfTour1"
+2019-02-16 00:11:04,602 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: StopGenerationSubmodel_SchoolHalfTour2.py, pathToScripts: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+2019-02-16 00:11:04,602 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGenerationSubmodel_SchoolHalfTour2"
+2019-02-16 00:11:04,702 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 0:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGenerationSubmodel_SchoolHalfTour2"
+2019-02-16 00:11:04,702 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_SchoolHalfTour2.json, pathToScripts: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+2019-02-16 00:11:04,702 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_SchoolHalfTour2"
+2019-02-16 00:11:04,796 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 0:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_SchoolHalfTour2"
+2019-02-16 00:11:04,798 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: StopGenerationSubmodel_WorkHalfTour1.py, pathToScripts: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+2019-02-16 00:11:04,798 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGenerationSubmodel_WorkHalfTour1"
+2019-02-16 00:11:04,891 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 0:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGenerationSubmodel_WorkHalfTour1"
+2019-02-16 00:11:04,891 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_WorkHalfTour1.json, pathToScripts: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+2019-02-16 00:11:04,892 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_WorkHalfTour1"
+2019-02-16 00:11:04,993 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 0:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_WorkHalfTour1"
+2019-02-16 00:11:05,001 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: StopGenerationSubmodel_WorkHalfTour2.py, pathToScripts: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+2019-02-16 00:11:05,001 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGenerationSubmodel_WorkHalfTour2"
+2019-02-16 00:11:05,099 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 0:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGenerationSubmodel_WorkHalfTour2"
+2019-02-16 00:11:05,099 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_WorkHalfTour2.json, pathToScripts: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+2019-02-16 00:11:05,099 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_WorkHalfTour2"
+2019-02-16 00:11:05,202 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 0:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_WorkHalfTour2"
+2019-02-16 00:11:05,210 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: StopGenerationSubmodel_UniversityHalfTour1.py, pathToScripts: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+2019-02-16 00:11:05,211 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGenerationSubmodel_UniversityHalfTour1"
+2019-02-16 00:11:05,305 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 0:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGenerationSubmodel_UniversityHalfTour1"
+2019-02-16 00:11:05,305 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_UniversityHalfTour1.json, pathToScripts: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+2019-02-16 00:11:05,305 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_UniversityHalfTour1"
+2019-02-16 00:11:05,405 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 0:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_UniversityHalfTour1"
+2019-02-16 00:11:05,406 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: StopGenerationSubmodel_FullyJointHalfTour2.py, pathToScripts: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+2019-02-16 00:11:05,407 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGenerationSubmodel_FullyJointHalfTour2"
+2019-02-16 00:11:05,498 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 0:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGenerationSubmodel_FullyJointHalfTour2"
+2019-02-16 00:11:05,498 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_FullyJointHalfTour2.json, pathToScripts: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+2019-02-16 00:11:05,498 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_FullyJointHalfTour2"
+2019-02-16 00:11:05,598 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 0:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_FullyJointHalfTour2"
+2019-02-16 00:11:05,604 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: StopGenerationSubmodel_FullyJointHalfTour1.py, pathToScripts: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+2019-02-16 00:11:05,604 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGenerationSubmodel_FullyJointHalfTour1"
+2019-02-16 00:11:05,707 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 0:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGenerationSubmodel_FullyJointHalfTour1"
+2019-02-16 00:11:05,707 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_FullyJointHalfTour1.json, pathToScripts: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+2019-02-16 00:11:05,708 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_FullyJointHalfTour1"
+2019-02-16 00:11:05,809 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 0:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_FullyJointHalfTour1"
+2019-02-16 00:11:05,813 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: StopGenerationSubmodel_UniversityHalfTour2.py, pathToScripts: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+2019-02-16 00:11:05,813 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGenerationSubmodel_UniversityHalfTour2"
+2019-02-16 00:11:05,907 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 0:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "StopGenerationSubmodel_UniversityHalfTour2"
+2019-02-16 00:11:05,907 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_UniversityHalfTour2.json, pathToScripts: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+2019-02-16 00:11:05,908 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_UniversityHalfTour2"
+2019-02-16 00:11:06,012 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 0:
+  FileName: C:\Python27\ArcGIS10.5\python.exe
+  Working Directory: C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script
+  Arguments: ScriptManager.py "C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\TourCast\script\StopGenerationSubmodel_UniversityHalfTour2"
