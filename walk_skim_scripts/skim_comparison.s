@@ -28,7 +28,7 @@ FILEI MATI[1] = "original_skim.skm"
 FILEI MATI[2] = "new_skim.skm"
 
 FILEO MATO[1] = "skim_comparison.csv",
-  MO = 1, PATTERN = IJ:MV, DELIMITER = ","
+  MO = 1z , PATTERN = IJ:MV, DELIMITER = ","
 FILEO MATO[2] = "original_skim.csv",
   MO = 1, PATTERN = IJ:MV, DELIMITER = ","
 FILEO MATO[3] = "new_skim.csv", 

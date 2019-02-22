@@ -7,7 +7,7 @@ RT
 00
 
 
-Thu Feb 14 14:08:15 2019
+Wed Feb 20 16:30:25 2019
 
 
 C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\Cube\Root00.app
@@ -19,7 +19,7 @@ English
 #PROGRAM0
 1
 1
-6
+0
 
 C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TOURCA00.APP
 TourCast
@@ -32,8 +32,8 @@ TourCast
 999999
 1072
 -846
-1521
--1066
+1522
+-1052
 0
 0
 0
@@ -53,15 +53,15 @@ Networks and Initial Skims
 999999
 254
 -197
-703
--417
+704
+-403
 0
 0
 0
 #PROGRAM2
 3
 1
-8
+7
 
 C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\ASSIGN00.APP
 Assignment and Skimming
@@ -74,8 +74,8 @@ Assignment and Skimming
 999999
 1072
 -1438
-1521
--1658
+1522
+-1644
 0
 0
 0
@@ -102,7 +102,7 @@ Convergence Loop
 1
 1
 0
-10
+9
 0
 0
 ITER
@@ -110,20 +110,20 @@ ITER
 20
 1
 -1
-2016
-11
+2019
+2
 3
-9
-10
-26
-23
-142
+20
+16
+30
+16
+732
 0
 0
 #PROGRAM4
 5
 1
-9
+8
 
 C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\FINALASSIGN00.APP
 Check Convergence and Final Assignment
@@ -136,15 +136,15 @@ Check Convergence and Final Assignment
 999999
 1072
 -1721
-1521
--1941
+1522
+-1927
 0
 0
 0
 #PROGRAM5
 6
 0
-10
+9
 
 
 PILOT
@@ -157,8 +157,8 @@ Clean Up and Loop Continue/Break
 999999
 1185
 -2116
-1374
--2186
+1375
+-2181
 0
 0
 0
@@ -173,10 +173,10 @@ C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019
 PIL
 ISCR1 
 999999
-868
--2118
-1174
--2180
+849
+-2117
+1173
+-2175
 -1
 -1
 0
@@ -361,7 +361,7 @@ PRINTO10
 #PROGRAM6
 7
 1
-7
+6
 
 C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\FREIGH00.APP
 Freight Externals and Special Generator Distribution
@@ -374,8 +374,8 @@ Freight Externals and Special Generator Distribution
 999999
 1072
 -1128
-1521
--1348
+1522
+-1334
 0
 0
 0
@@ -395,8 +395,8 @@ Truck and Special Generators
 999999
 875
 -197
-1324
--417
+1325
+-403
 0
 0
 0
@@ -416,8 +416,8 @@ Initialize Convergence Loop Variables
 999999
 1185
 -676
-1374
--746
+1375
+-741
 0
 0
 0
@@ -432,10 +432,10 @@ C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019
 PIL
 ISCR1 
 999999
-868
--678
-1174
--740
+849
+-677
+1173
+-735
 -1
 -1
 0
@@ -620,7 +620,7 @@ PRINTO10
 #PROGRAM9
 10
 1
-11
+0
 
 C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\POSTPR00.APP
 Post Processor
@@ -633,8 +633,8 @@ Post Processor
 999999
 649
 -2341
-1098
--2561
+1099
+-2547
 0
 0
 0
@@ -654,8 +654,8 @@ Create Exogenous Variables
 999999
 564
 -846
-1013
--1066
+1014
+-1052
 0
 0
 0

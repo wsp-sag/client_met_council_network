@@ -7,7 +7,7 @@ HT
 00
 
 
-Thu Feb 14 14:08:18 2019
+Fri Feb 22 09:12:56 2019
 
 C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\FINALASSIGN00.APP
 C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\FINALHWYXITASSIGN00.APP
@@ -32,8 +32,8 @@ Highway Period Loop
 999999
 536
 -394
-725
--464
+726
+-459
 0
 0
 0
@@ -48,10 +48,10 @@ C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019
 PIL
 ISCR1 
 999999
-219
--396
-525
--458
+200
+-395
+524
+-453
 -1
 -1
 0
@@ -249,8 +249,8 @@ Convert to Vehicle Trip Tables @ASSIGNNAME@
 999999
 677
 -705
-866
--775
+867
+-770
 0
 0
 0
@@ -265,10 +265,10 @@ C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019
 MAT
 ISCR1 
 999999
-360
--575
-666
--637
+341
+-582
+665
+-640
 -1
 -1
 0
@@ -283,10 +283,10 @@ MAT
 MAT
 MATI1 
 999999
-360
--642
-666
--704
+341
+-644
+665
+-702
 -1
 -9
 0
@@ -301,10 +301,10 @@ MAT
 MAT
 MATI2 
 999999
-360
--709
-666
--771
+341
+-706
+665
+-764
 -1
 -1
 0
@@ -319,10 +319,10 @@ MAT
 MAT
 MATI3 
 999999
-360
--776
-666
--838
+341
+-768
+665
+-826
 -1
 -1
 0
@@ -337,10 +337,10 @@ MAT
 MAT
 MATI4 
 999999
-360
--843
-666
--905
+341
+-830
+665
+-888
 -1
 -1
 0
@@ -1397,10 +1397,10 @@ MAT
 MAT
 MATO1 
 999999
-882
--674
-1183
--736
+885
+-675
+1203
+-733
 0
 #OUTFIL2
 Matrix File 2
@@ -1413,10 +1413,10 @@ MAT
 MAT
 MATO2 
 999999
-882
--741
-1183
--803
+885
+-737
+1203
+-795
 0
 #OUTFIL3
 Matrix File 3
@@ -2122,8 +2122,8 @@ Assignment Period: @ASSIGNNAME@
 999999
 1806
 -733
-2016
--803
+2018
+-798
 0
 0
 0
@@ -2138,10 +2138,10 @@ C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019
 HWY
 ISCR1 
 999999
-1489
--537
-1795
--599
+1470
+-548
+1794
+-606
 -1
 -1
 0
@@ -2156,10 +2156,10 @@ MAT
 HWY
 MATI1 
 999999
-1489
--604
-1795
--666
+1470
+-610
+1794
+-668
 1
 1
 0
@@ -2174,10 +2174,10 @@ MAT
 HWY
 MATI2 
 999999
-1489
--671
-1795
--733
+1470
+-672
+1794
+-730
 -1
 -1
 0
@@ -2192,10 +2192,10 @@ MAT
 HWY
 MATI3 
 999999
-1489
--738
-1795
--800
+1470
+-734
+1794
+-792
 -1
 -1
 0
@@ -2210,10 +2210,10 @@ MAT
 HWY
 MATI4 
 999999
-1489
--805
-1795
--867
+1470
+-796
+1794
+-854
 1
 2
 0
@@ -2516,10 +2516,10 @@ NET
 HWY
 NETI  
 999999
-1489
--872
-1795
--934
+1470
+-858
+1794
+-916
 -1
 -9
 0
@@ -2948,10 +2948,10 @@ Lookup File 1
 LOK
 LOOKUPI1
 999999
-1489
--939
-1795
--1001
+1470
+-920
+1794
+-978
 -1
 -9
 0
@@ -3504,10 +3504,10 @@ MAT
 HWY
 MATO1 
 999999
-2032
--669
-2333
--731
+2036
+-672
+2354
+-730
 0
 #OUTFIL2
 Matrix File 2
@@ -3840,10 +3840,10 @@ NET
 HWY
 NETO  
 999999
-2032
--736
-2333
--798
+2036
+-734
+2354
+-792
 0
 #OUTFIL23
 Turn Flows
@@ -4736,10 +4736,10 @@ PRN
 HWY
 PRINTO1
 999999
-2032
--803
-2333
--865
+2036
+-796
+2354
+-854
 0
 #OUTFIL79
 Print Data 2
@@ -4901,8 +4901,8 @@ End Highway Period Loop
 999999
 536
 -1100
-725
--1170
+726
+-1165
 0
 0
 0
@@ -4917,10 +4917,10 @@ C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019
 PIL
 ISCR1 
 999999
-219
--1102
-525
--1164
+200
+-1101
+524
+-1159
 -1
 -1
 0
@@ -5118,15 +5118,15 @@ Post Processing
 999999
 282
 -1664
-743
--1784
+759
+-1776
 0
 0
 0
 #PROGRAM5
 6
 1
-5
+0
 
 C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\CUBE\TRANSITASSIGNMENT00.APP
 PublicTransit Assignment
@@ -5139,8 +5139,8 @@ PublicTransit Assignment
 999999
 282
 -1410
-743
--1530
+759
+-1522
 0
 0
 0

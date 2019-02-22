@@ -1,0 +1,5 @@
+;;<<PT>><<LINE>>;;
+; C:\Users\helseljw\OneDrive - WSP O365\met_council\replacement_networks\test_transit.lin
+LINE NAME="TEST", MODE=5, OPERATOR=3, ONEWAY=T, HEADWAY=60,
+     HEADWAY[2]=60, LONGNAME="6EHE22HE00", USERA5="2", NODES= 77200, 77201,
+     77202
