@@ -1,8 +1,8 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=NETWORK MSG='Set Managed Lanes for: @NETNAME@'
+RUN PGM=NETWORK MSG='Set Managed Lanes for: %NETNAME%'
 
-FILEI LINKI[1] = "{SCENARIO_DIR}\ALL_NET.net"
-FILEO NETO = "{SCENARIO_DIR}\HWY_NET_@TOD@.net"
+FILEI LINKI[1] = "%SCENARIO_DIR%\ALL_NET.net"
+FILEO NETO = "%SCENARIO_DIR%\HWY_NET_%TOD%.net"
 
 
   IF (RCI=100) DELETE ; Remove Rail
@@ -20,7 +20,7 @@ FILEO NETO = "{SCENARIO_DIR}\HWY_NET_@TOD@.net"
   ;For Mainline Lane ADD and MINUS the default condition is Zero - depending how the lane is coded, some require adding lanes when MNPASS off and some require reducing mainline lanes when mnpass is on. see Rewriting_HOVScripts_HNNETOOC.xlxs and FullMakeNetworkXX.s for HOV groupings 
    _ADD=0
 
-  IF (@TOD@=1) ; Overnight 7:00 PM to 5:00 AM , all off 
+  IF (%TOD%=1) ; Overnight 7:00 PM to 5:00 AM , all off 
     IF (HOV=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,61) ;MnPass Off
       _ON=0
     ENDIF
@@ -29,7 +29,7 @@ FILEO NETO = "{SCENARIO_DIR}\HWY_NET_@TOD@.net"
     ENDIF
   ENDIF
   
-  IF (@TOD@=2)  ; Reverse Lane Change over 5:00 AM to 6:00 AM  and 1:00 PM to 2:00 PM ; all off same as above 
+  IF (%TOD%=2)  ; Reverse Lane Change over 5:00 AM to 6:00 AM  and 1:00 PM to 2:00 PM ; all off same as above 
     IF (HOV=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,61) ;MnPass Off
       _ON=0
     ENDIF
@@ -38,7 +38,7 @@ FILEO NETO = "{SCENARIO_DIR}\HWY_NET_@TOD@.net"
     ENDIF
   ENDIF  
   
-  IF (@TOD@=3)  ; AM Peak Period 6:00 AM to 10:00 AM
+  IF (%TOD%=3)  ; AM Peak Period 6:00 AM to 10:00 AM
     IF (HOV=2,3,4,6,8,10,11,13,17,19,20,22,25,27,29,31,33,35,40,41,42,45) ;MnPass Off
       _ON=0
     ENDIF
@@ -50,7 +50,7 @@ FILEO NETO = "{SCENARIO_DIR}\HWY_NET_@TOD@.net"
     ENDIF
   ENDIF  
   
-  IF (@TOD@=4)  ; Mid Day Period 10:00 AM to 1:00 PM same as overnight, first TOD period
+  IF (%TOD%=4)  ; Mid Day Period 10:00 AM to 1:00 PM same as overnight, first TOD period
     IF (HOV=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,61) ;MnPass Off
       _ON=0
     ENDIF
@@ -59,7 +59,7 @@ FILEO NETO = "{SCENARIO_DIR}\HWY_NET_@TOD@.net"
     ENDIF
   ENDIF
   
-  IF (@TOD@=5)  ; Pre PM Peak Period 2:00 PM to 3:00 PM same as overnight, first period 
+  IF (%TOD%=5)  ; Pre PM Peak Period 2:00 PM to 3:00 PM same as overnight, first period 
     IF (HOV=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,61) ;MnPass Off
       _ON=0
     ENDIF
@@ -68,7 +68,7 @@ FILEO NETO = "{SCENARIO_DIR}\HWY_NET_@TOD@.net"
     ENDIF
   ENDIF
   
-  IF (@TOD@=6)  ; PM Peak Period 3:00 PM to 7:00 PM
+  IF (%TOD%=6)  ; PM Peak Period 3:00 PM to 7:00 PM
     IF (HOV=1,3,5,7,9,10,12,14,18,21,23,24,26,28,30,32,34,38,39,43,44,61) ;MnPass Off
       _ON=0
     ENDIF
