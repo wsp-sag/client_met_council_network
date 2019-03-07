@@ -12,6 +12,7 @@
 :: Step 1:  Set the necessary path variables
 ::
 :: ----------------------------------------------------------------------------
+set "beginComment=goto :endComment"
 
 :: The location of the RUNTPP executable from Citilabs - 64bit first
 set TPP_PATH=C:\Program Files\Citilabs\CubeVoyager;C:\Program Files (x86)\Citilabs\CubeVoyager
@@ -23,15 +24,38 @@ set PYTHON_PATH=C:\Python27
 set OLD_PATH=%PATH%
 set PATH=%RUNTIME%;%TPP_PATH%;%PYTHON_PATH%;%OLD_PATH%
 
+:: Set CSV input paths
+set CSV_FOLDER=network_03042019
+set HWY_LINK_PATH=%CSV_FOLDER%/drive_temp.csv
+set HWY_NODE_PATH=%CSV_FOLDER%/osm_drive_nodes_with_centroid.csv
+set BIKE_LINK_PATH=%CSV_FOLDER%/bike_network_for_modeling.csv
+set BIKE_NODE_PATH=%CSV_FOLDER%/osm_bike_nodes_with_centroid.csv
+set WALK_LINK_PATH=%CSV_FOLDER%/walk_network_for_modeling.csv
+set WALK_NODE_PATH=%CSV_FOLDER%/osm_walk_nodes_with_centroid.csv
+
+
 :: Set path to adjusted scripts that have been updated with new tokens.
 set REPLACEMENT_PATH=replacement_scripts
 
 set SCENARIO_DIR=temp
 
-:: Set highway network
-set iHwyNet=osm_roadway_network_builder_022119/testNetwork_2015.net
+runtpp make_network_from_csv.s
 
-runtpp %REPLACEMENT_PATH%\BNNET00B.s
+%beginComment%
+runtpp make_highway_network_from_csv.s
+runtpp make_bike_network_from_csv.s
+
+runtpp make_walk_network_from_csv.s
+
+runtpp FullMakeNetwork15.s
+
+
+::HIGHWAY
+
+:: Set highway network
+set iHwyNet=%SCENARIO_DIR%/testNetwork_2015.net
+
+::runtpp %REPLACEMENT_PATH%\BNNET00B.s
 
 set LU_AlphaBeta=C:/Users/helseljw/OneDrive - WSP O365/met_council/model_files/WSPHandoff_Jan2019/ABM 2017/Input/AlphaBetaLookup.txt
 set LU_capacity=C:/Users/helseljw/OneDrive - WSP O365/met_council/model_files/WSPHandoff_Jan2019/ABM 2017/Input/SpeedLookup85.txt
@@ -59,3 +83,20 @@ runtpp %REPLACEMENT_PATH%\CSPIL00A.s
 runtpp %REPLACEMENT_PATH%\FFHWY00A.s
 
 runtpp %REPLACEMENT_PATH%\FFPIL00A.s
+
+::NON-MOTORIZED
+set bikeSpeed1=13
+set bikeSpeed2=13
+set bikeSpeed3=10
+set bikeFact1=0.8
+set walkSpeed=2.5
+
+::runtpp %REPLACEMENT_PATH%\NMNET00A.s
+
+::runtpp %REPLACEMENT_PATH%\NMHWY00A.s
+
+::runtpp %REPLACEMENT_PATH%\NMHWY00B.s
+
+::runtpp %REPLACEMENT_PATH%\NMMAT00A.s
+
+:endComment

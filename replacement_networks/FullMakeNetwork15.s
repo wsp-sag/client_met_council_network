@@ -1,40 +1,40 @@
 run pgm = NETWORK ; Calculate RCI values for 2040 network 
- neti  =  "osm_roadway_network_builder_022119/link.net"
- neto =  "osm_roadway_network_builder_022119/testNetwork_2015.net" 
+ neti  =  "%CSV_FOLDER%/link.net"
+ neto =  "%CSV_FOLDER%/testNetwork_2015.net" 
  
 rci = 0 ; initilize variable
 ; DISTANCE = SHAPE_length*0.000621371 ; calculates distance in miles from shapelength (meters)
 
 ;below sets up RCI as a function of asgngrp and RC_NUM. 
-if (asgngrp15 = 0) delete
-if (asgngrp15 = 1) RCI = 1
-if (asgngrp15 = 2) RCI = 2
-if (asgngrp15 = 3) RCI = 14
-if (asgngrp15 = 4) RCI = 13
-if (asgngrp15 = 8) RCI = 1 ; all HOV facilities are access controlled 
-if (asgngrp15 = 9) rci = 99 ; all centroid have same RCI and RC_NUM
-if (asgngrp15 = 10) rci = 1 ; hov dummy
-if (asgngrp15 = 11) rci = 9
-if (asgngrp15 = 13) rci = 14 ; ramps
-if (asgngrp15 = 14) rci = 13 ; ramps
-if (asgngrp15 = 15) rci = 3 ; expressways
-if (asgngrp15 = 100) rci = 100 ; rail
-if (asgngrp15 = 101) rci = 101 ; bikes (needs work)
+if (asgngrp = 0) delete
+if (asgngrp = 1) RCI = 1
+if (asgngrp = 2) RCI = 2
+if (asgngrp = 3) RCI = 14
+if (asgngrp = 4) RCI = 13
+if (asgngrp = 8) RCI = 1 ; all HOV facilities are access controlled 
+if (asgngrp = 9) rci = 99 ; all centroid have same RCI and RC_NUM
+if (asgngrp = 10) rci = 1 ; hov dummy
+if (asgngrp = 11) rci = 9
+if (asgngrp = 13) rci = 14 ; ramps
+if (asgngrp = 14) rci = 13 ; ramps
+if (asgngrp = 15) rci = 3 ; expressways
+if (asgngrp = 100) rci = 100 ; rail
+if (asgngrp = 101) rci = 101 ; bikes (needs work)
 
-if (asgngrp15 = 5)
+if (asgngrp = 5)
   if (rc_num = 20) RCI = 4
   if (rc_num = 30) RCI = 6
   if (rc_num = 40) RCI = 8
   if (rc_num = 50)  RCI = 11 
- elseif (asgngrp15 = 6)
+ elseif (asgngrp = 6)
   if (rc_num = 20) RCI = 5
   if (rc_num = 30) RCI = 7
   if (rc_num = 40) RCI = 9
   if (rc_num = 50) RCI = 11
- elseif (asgngrp15 = 7) 
+ elseif (asgngrp = 7) 
   if (rc_num = 0,10,20,30,40,60) RCI = 10
   if (rc_num = 50) RCI = 12
-elseif (asgngrp15 = 98) ; bus only 
+elseif (asgngrp = 98) ; bus only 
   if (rc_num = 30) RCI = 6
   if (rc_num = 40) RCI = 10
   if (rc_num = 50) RCI = 12
@@ -42,12 +42,12 @@ elseif (asgngrp15 = 98) ; bus only
 endif 
 
 Linkclass = RCI
-LANES = LANES15
-asgngrp = asgngrp15
+LANES = LANES
+asgngrp = asgngrp
 
 ;below calculates speed and capacity as a function of RCI and AREA
-asgngrp = asgngrp15
- LANES = lanes15
+asgngrp = asgngrp
+ LANES = lanes
 
  if (RCI = 1)
 	if (AREA = 1,10)	speed = 70,capacity = 1950*LANES

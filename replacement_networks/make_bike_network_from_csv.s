@@ -1,0 +1,38 @@
+RUN PGM = NETWORK MSG = "Read in Network from CSV"
+FILEI LINKI[1] = "%BIKE_LINK_PATH%"",
+  VAR = ID, A, B, DISTANCE, COUNTY, AREA, CENTROID, geometry, isBikeLink
+  REV = 1
+  ; I'm manually specifying the column names because I can't get START to work.
+  ; START = (SUBSTR(RECORD, 1, 2) == 'ID')
+ZONES = 3061
+FILEI NODEI[1] = "%BIKE_NODE_PATH%",
+  VAR = OSMID, ID, GEOMETRY
+FILEO NETO = "%SCENARIO_DIR%/bike.net"
+
+; Setting variable manually while waiting for update from Sijia. -JWH
+BIKE = 3
+
+BIKESPEED=0
+IF (BIKE=0) DELETE
+IF (BIKE=1) BIKESPEED=%bikeSpeed1%
+IF (BIKE=2) BIKESPEED=%bikeSpeed2%
+IF (BIKE=3) BIKESPEED=%bikeSpeed3%
+
+BIKETIME=60*(DISTANCE/BIKESPEED)
+PTIME=BIKETIME
+B1DIST=0
+B2DIST=0
+B3DIST=0
+
+IF (BIKE=3)
+  B3DIST=DISTANCE
+ENDIF
+IF (BIKE=2)
+  B2DIST=DISTANCE
+ENDIF
+IF (BIKE=1)
+  B1DIST=DISTANCE
+  PTIME=BIKETIME*%bikeFact1%
+ENDIF
+
+ENDRUN
