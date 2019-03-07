@@ -26,7 +26,7 @@ set PATH=%RUNTIME%;%TPP_PATH%;%PYTHON_PATH%;%OLD_PATH%
 
 :: Set CSV input paths
 set CSV_FOLDER=network_03042019
-set HWY_LINK_PATH=%CSV_FOLDER%/drive_temp.csv
+set HWY_LINK_PATH=%CSV_FOLDER%/drive_network_for_modeling.csv
 set HWY_NODE_PATH=%CSV_FOLDER%/osm_drive_nodes_with_centroid.csv
 set BIKE_LINK_PATH=%CSV_FOLDER%/bike_network_for_modeling.csv
 set BIKE_NODE_PATH=%CSV_FOLDER%/osm_bike_nodes_with_centroid.csv
@@ -39,30 +39,25 @@ set REPLACEMENT_PATH=replacement_scripts
 
 set SCENARIO_DIR=temp
 
-runtpp make_network_from_csv.s
-
-%beginComment%
 runtpp make_highway_network_from_csv.s
+
 runtpp make_bike_network_from_csv.s
 
 runtpp make_walk_network_from_csv.s
 
 runtpp FullMakeNetwork15.s
 
-
 ::HIGHWAY
 
 :: Set highway network
-set iHwyNet=%SCENARIO_DIR%/testNetwork_2015.net
-
-::runtpp %REPLACEMENT_PATH%\BNNET00B.s
+set iHwyNet=%SCENARIO_DIR%/highway_2015.net
 
 set LU_AlphaBeta=C:/Users/helseljw/OneDrive - WSP O365/met_council/model_files/WSPHandoff_Jan2019/ABM 2017/Input/AlphaBetaLookup.txt
 set LU_capacity=C:/Users/helseljw/OneDrive - WSP O365/met_council/model_files/WSPHandoff_Jan2019/ABM 2017/Input/SpeedLookup85.txt
 set LU_speed=C:/Users/helseljw/OneDrive - WSP O365/met_council/model_files/WSPHandoff_Jan2019/ABM 2017/Input/CapacityLookup.txt
 
-runtpp %REPLACEMENT_PATH%\HNNET00B.s
-
+::runtpp %REPLACEMENT_PATH%\HNNET00B.s
+%beginComment%
 set TOD=1
 set NETNAME=Overnight 7:00 PM to 5:00 AM
 ::runtpp %REPLACEMENT_PATH%\HNPIL00A.s

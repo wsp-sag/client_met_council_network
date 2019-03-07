@@ -1,6 +1,8 @@
-run pgm = NETWORK ; Calculate RCI values for 2040 network 
- neti  =  "%CSV_FOLDER%/link.net"
- neto =  "%CSV_FOLDER%/testNetwork_2015.net" 
+RUN PGM = NETWORK ; Calculate RCI values for 2040 network 
+NETI = "%SCENARIO_DIR%/highway.net"
+NETO = "%SCENARIO_DIR%/highway_2015.net" 
+ 
+MERGE RECORD = FALSE 
  
 rci = 0 ; initilize variable
 ; DISTANCE = SHAPE_length*0.000621371 ; calculates distance in miles from shapelength (meters)
