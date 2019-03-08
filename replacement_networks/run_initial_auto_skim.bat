@@ -56,8 +56,10 @@ set LU_AlphaBeta=C:/Users/helseljw/OneDrive - WSP O365/met_council/model_files/W
 set LU_capacity=C:/Users/helseljw/OneDrive - WSP O365/met_council/model_files/WSPHandoff_Jan2019/ABM 2017/Input/SpeedLookup85.txt
 set LU_speed=C:/Users/helseljw/OneDrive - WSP O365/met_council/model_files/WSPHandoff_Jan2019/ABM 2017/Input/CapacityLookup.txt
 
-::runtpp %REPLACEMENT_PATH%\HNNET00B.s
-%beginComment%
+runtpp %REPLACEMENT_PATH%\BNNET00B.s
+
+runtpp %REPLACEMENT_PATH%\HNNET00B.s
+
 set TOD=1
 set NETNAME=Overnight 7:00 PM to 5:00 AM
 ::runtpp %REPLACEMENT_PATH%\HNPIL00A.s
@@ -68,17 +70,13 @@ runtpp %REPLACEMENT_PATH%\HNNET00C.s
 
 ::runtpp %REPLACEMENT_PATH%\HNPIL00C.s
 
-set hwy_AMskims=C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\Input\skims\HWY_SKIM_4_AM.skm
-set hwy_MDskims=C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\Input\skims\HWY_SKIM_4_MD.skm
-set hwy_PMskims=C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\Input\skims\HWY_SKIM_4_PM.skm
-set hwy_NTskims=C:\Users\helseljw\OneDrive - WSP O365\met_council\model_files\WSPHandoff_Jan2019\ABM 2017\Input\skims\HWY_SKIM_4_NT.skm
-
-runtpp %REPLACEMENT_PATH%\CSPIL00A.s
+:: CSPIL00A.s copies skims from a prior iteration. DO NOT USE HERE
+::runtpp %REPLACEMENT_PATH%\CSPIL00A.s
 
 runtpp %REPLACEMENT_PATH%\FFHWY00A.s
 
 runtpp %REPLACEMENT_PATH%\FFPIL00A.s
-
+%beginComment%
 ::NON-MOTORIZED
 set bikeSpeed1=13
 set bikeSpeed2=13

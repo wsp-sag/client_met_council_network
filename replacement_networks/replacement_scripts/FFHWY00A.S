@@ -1,6 +1,6 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=HIGHWAY MSG='Skim Free Flow Network'
-FILEI NETI = "%SCENARIO_DIR%\ALL_NET.net"
+FILEI NETI = "%SCENARIO_DIR%\HWY_ALL_NET.net"
 FILEO MATO[1] = "%SCENARIO_DIR%\HWY_SKIM.tmp",
  MO=1-16, 
   NAME=daptime, daptoll, dantime, dantoll, dapdist, a2ptime, a2ptoll, a2ntime, a2ntoll, a2pdist, 
