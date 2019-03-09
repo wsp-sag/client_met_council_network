@@ -45,13 +45,13 @@ set REPLACEMENT_PATH=replacement_scripts
 
 set SCENARIO_DIR=temp
 
-::runtpp make_highway_network_from_csv.s
+runtpp %REPLACEMENT_PATH%\make_highway_network_from_csv.s
 
-::runtpp make_bike_network_from_csv.s
+runtpp %REPLACEMENT_PATH%\make_bike_network_from_csv.s
 
-::runtpp make_walk_network_from_csv.s
+runtpp %REPLACEMENT_PATH%\make_walk_network_from_csv.s
 
-::runtpp FullMakeNetwork15.s
+runtpp %REPLACEMENT_PATH%\FullMakeNetwork15.s
 
 ::HIGHWAY
 
