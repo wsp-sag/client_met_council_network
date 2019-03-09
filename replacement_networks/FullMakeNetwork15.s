@@ -1,8 +1,7 @@
 RUN PGM = NETWORK ; Calculate RCI values for 2040 network 
 NETI = "%SCENARIO_DIR%/highway.net"
 NETO = "%SCENARIO_DIR%/highway_2015.net" 
- 
-MERGE RECORD = FALSE 
+LINKO = "%SCENARIO_DIR%/highway_2015.csv", FORMAT = CS1
  
 rci = 0 ; initilize variable
 ; DISTANCE = SHAPE_length*0.000621371 ; calculates distance in miles from shapelength (meters)
@@ -42,7 +41,7 @@ elseif (asgngrp = 98) ; bus only
   if (rc_num = 50) RCI = 12
   if (rc_num = 60) RCI = 13 
 endif 
-
+/*
 Linkclass = RCI
 LANES = LANES
 asgngrp = asgngrp
@@ -200,6 +199,7 @@ asgngrp = asgngrp
  if (HOV = 112) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = capacity
 
 
+
  ;Everything Else
  if (HOV = 0) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = capacity
  
@@ -209,7 +209,7 @@ asgngrp = asgngrp
   newvolMD  = 0 
  congMD    = 0
  HOVy = HOV
- 
+*/ 
  
  endrun
  

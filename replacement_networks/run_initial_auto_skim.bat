@@ -26,26 +26,32 @@ set PATH=%RUNTIME%;%TPP_PATH%;%PYTHON_PATH%;%OLD_PATH%
 
 :: Set CSV input paths
 set CSV_FOLDER=network_03042019
-set HWY_LINK_PATH=%CSV_FOLDER%/drive_network_for_modeling.csv
-set HWY_NODE_PATH=%CSV_FOLDER%/osm_drive_nodes_with_centroid.csv
-set BIKE_LINK_PATH=%CSV_FOLDER%/bike_network_for_modeling.csv
-set BIKE_NODE_PATH=%CSV_FOLDER%/osm_bike_nodes_with_centroid.csv
-set WALK_LINK_PATH=%CSV_FOLDER%/walk_network_for_modeling.csv
-set WALK_NODE_PATH=%CSV_FOLDER%/osm_walk_nodes_with_centroid.csv
+set HWY_LINK_PATH=%CSV_FOLDER%/fixed_drive_network_for_modeling.csv
+set HWY_NODE_PATH=%CSV_FOLDER%/fixed_osm_drive_nodes_with_centroid.csv
+set BIKE_LINK_PATH=%CSV_FOLDER%/fixed_bike_network_for_modeling.csv
+set BIKE_NODE_PATH=%CSV_FOLDER%/fixed_osm_bike_nodes_with_centroid.csv
+set WALK_LINK_PATH=%CSV_FOLDER%/fixed_walk_network_for_modeling.csv
+set WALK_NODE_PATH=%CSV_FOLDER%/fixed_osm_walk_nodes_with_centroid.csv
 
+set HWY_LINK_VAR=A,B,DISTANCE,COUNTY,T_PRIORITY,BIKE,AREA,HOV,AADT,AM_CNT,MD_CNT,PM_CNT,NT_CNT,DY_CNT,ASGNGRP,LANES,CENTROID,RC_NUM,isDriveLink
+set HWY_NODE_VAR=N,X,Y,OSMID
+set BIKE_LINK_VAR=A,B,DISTANCE,COUNTY,AREA,CENTROID,isBikeLink
+set BIKE_NODE_VAR=N,X,Y,OSMID
+set WALK_LINK_VAR=A,B,DISTANCE,COUNTY,AREA,CENTROID,isPedLink
+set WALK_NODE_VAR=N,X,Y,OSMID
 
 :: Set path to adjusted scripts that have been updated with new tokens.
 set REPLACEMENT_PATH=replacement_scripts
 
 set SCENARIO_DIR=temp
 
-runtpp make_highway_network_from_csv.s
+::runtpp make_highway_network_from_csv.s
 
-runtpp make_bike_network_from_csv.s
+::runtpp make_bike_network_from_csv.s
 
-runtpp make_walk_network_from_csv.s
+::runtpp make_walk_network_from_csv.s
 
-runtpp FullMakeNetwork15.s
+::runtpp FullMakeNetwork15.s
 
 ::HIGHWAY
 
@@ -73,10 +79,10 @@ runtpp %REPLACEMENT_PATH%\HNNET00C.s
 :: CSPIL00A.s copies skims from a prior iteration. DO NOT USE HERE
 ::runtpp %REPLACEMENT_PATH%\CSPIL00A.s
 
-runtpp %REPLACEMENT_PATH%\FFHWY00A.s
+::runtpp %REPLACEMENT_PATH%\FFHWY00A.s
 
-runtpp %REPLACEMENT_PATH%\FFPIL00A.s
-%beginComment%
+::runtpp %REPLACEMENT_PATH%\FFPIL00A.s
+
 ::NON-MOTORIZED
 set bikeSpeed1=13
 set bikeSpeed2=13
@@ -92,4 +98,4 @@ set walkSpeed=2.5
 
 ::runtpp %REPLACEMENT_PATH%\NMMAT00A.s
 
-:endComment
+::endComment

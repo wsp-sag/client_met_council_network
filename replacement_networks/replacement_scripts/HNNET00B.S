@@ -9,7 +9,7 @@ FILEO NETO = "%SCENARIO_DIR%/HWY_ALL_NET.net"
  
 ;Length corrections
   ;DISTANCE = SHAPE_Length/1609.344 ; Adds distance to any new link that was not coded with a distance
-/*
+
   LOOKUP LOOKUPI=1, NAME=Spd,
     LOOKUP[1]=1, RESULT=2,
     LOOKUP[2]=1, RESULT=3,
@@ -45,7 +45,7 @@ FILEO NETO = "%SCENARIO_DIR%/HWY_ALL_NET.net"
 		LOOKUP[14]=1, RESULT=15,
 	  LOOKUP[15]=1, RESULT=16
     Capacity = Cap(AREA,RCI) * lanes
-  */  
+
   LOOKUP LOOKUPI=3, NAME=AB,
     LOOKUP[1]=1, RESULT=2,
     LOOKUP[2]=1, RESULT=3,
