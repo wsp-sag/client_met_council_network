@@ -1,8 +1,8 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=HIGHWAY MSG='Skim Bike Path Times'
-FILEO MATO[1] = "%SCENARIO_DIR%\NM_SKIM_BIKE.skm",
+FILEO MATO[1] = "%SCENARIO_DIR%\bike_skim.skm",
  MO=1-6, NAME=PERCTIME, BIKETIME, DISTANCE, B3DIST, B2DIST, B1DIST
-FILEI NETI = "{SCENARIO_DIR}\bike.net"
+FILEI NETI = "%SCENARIO_DIR%\bike_speed.net"
 
 PROCESS PHASE=ILOOP
 
@@ -12,7 +12,7 @@ PROCESS PHASE=ILOOP
       MW[1][I] = ROWMIN(1) * 0.5  ; Intrazonal time
       MW[2][I] = ROWMIN(2) * 0.5
       MW[3][I] = ROWMIN(3) * 0.5
-      MW[4][I] = ROWMIN(3) ; use total distance intrazonal, not just dist on this facility type - NOTE: do not need to divide by 2 b/c done on line 14
+      MW[4][I] = ROWMIN(3) ; use total distance intrazonal, not just dist on this facility type - NOTE: do not need to divide by 2 b/c done in MW[3] calculation.
       MW[5][I] = 0 ; assume no bike paths on the intrazonal
       MW[6][I] = 0 ; assume no bike paths on the intrazonal
 ENDPROCESS

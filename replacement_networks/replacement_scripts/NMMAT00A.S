@@ -1,7 +1,7 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX MSG='Calculate Bike and Walk Distances'
-FILEI MATI[2] = "%SCENARIO_DIR%\NM_SKIM_WALK.skm"
-FILEI MATI[1] = "%SCENARIO_DIR%\NM_SKIM_BIKE.skm"
+FILEI MATI[2] = "%SCENARIO_DIR%\walk_skim.skm"
+FILEI MATI[1] = "%SCENARIO_DIR%\bike_skim.skm"
 FILEO MATO[1] = "%SCENARIO_DIR%\NM_SKIM.SKM",
  MO=1-3, NAME=BIKEDIST, WALKDIST, RATIO  ; add ratio to check calcs
 

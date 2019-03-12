@@ -9,7 +9,7 @@ FILEO MATO[1] = "%SCENARIO_DIR%\HWY_SKIM.tmp",
 PROCESS PHASE=ILOOP
     PATHLOAD PATH = TIME,  
     mw[1] = PATHTRACE(TIME) NOACCESS=1000,
-    mw[5] = PATHTRACE(li.DISTANCE) NOACCESS=1000 
+    mw[5] = PATHTRACE(LI.DISTANCE) NOACCESS=1000 
 
     ; Intrazonal time / distance is half that to nearest zone
     mw[1][I] = LOWEST(1,1,0.1,999,I)/2 

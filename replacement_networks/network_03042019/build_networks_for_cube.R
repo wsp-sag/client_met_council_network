@@ -22,7 +22,8 @@ bike_link <- read.csv("network_03042019/bike_network_for_modeling.csv")
 bike_node <- read.csv("network_03042019/osm_bike_nodes_with_centroid.csv")
 
 bike_link <- bike_link %>%
-  select(-ID, -geometry)
+  mutate(BIKE = 3) %>% 
+  select(A, B, DISTANCE, COUNTY, AREA< CENTROID, BIKE, isBikeLink)
 
 
 bike_node <- bike_node %>%
