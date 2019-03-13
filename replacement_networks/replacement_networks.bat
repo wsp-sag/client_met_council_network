@@ -1,8 +1,8 @@
 ::~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 :: run_initial_auto_skim.bat
 ::
-:: MS-DOS batch file to execute the Auto Skim step of teh Met Council travel 
-:: model.  
+:: MS-DOS batch file to execute the Auto Skim step of teh Met Council travel
+:: model.
 ::
 ::
 ::~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -44,12 +44,11 @@ set WALK_NODE_PATH=%CSV_FOLDER%/walk_node.dbf
 :: Set path to adjusted scripts that have been updated with new tokens.
 set SCRIPT_PATH=replacement_scripts
 set TRIP_DIR=trip_files
+if not exist \outputs mkdir \outputs
 set SCENARIO_DIR=outputs
 
 set max_threads=16
 set ITER=1
-
-
 
 :: Make Networks
 runtpp %SCRIPT_PATH%\make_highway_network_from_csv.s
@@ -68,23 +67,23 @@ set LU_speed=lookup_files/CapacityLookup.txt
 
 runtpp %SCRIPT_PATH%\BNNET00B.s
 runtpp %SCRIPT_PATH%\HNNET00B.s
-%beginComment%
+
 :: This script handles TOD assignment. Batch files require a single character
 :: variable.
 
 for /L %%I IN (1, 1, 6) DO (
 	set TOD=%%I
-	
+
 	IF %%I EQU 1 (set NETNAME=Overnight 7:00 PM to 5:00 AM)
 	IF %%I EQU 2 (set NETNAME=Reverse Lane Change Over 5:00 AM to 6:00 AM  and 1:00 PM to 2:00 PM)
 	IF %%I EQU 3 (set NETNAME=AM Peak Period 6:00 AM to 10:00 AM)
 	IF %%I EQU 4 (set NETNAME=Mid Day Period 10:00 AM to 1:00 PM)
 	IF %%I EQU 5 (set NETNAME=Pre PM Peak Period 2:00 PM to 3:00 PM)
 	IF %%I EQU 6 (set NETNAME=PM Peak Period 3:00 PM to 7:00 PM)
-	
+
 	runtpp %SCRIPT_PATH%\HNNET00C.s
 )
-
+::%beginComment%
 :: CSPIL00A.s copies skims from a prior iteration. DO NOT USE HERE
 
 runtpp %SCRIPT_PATH%\FFHWY00A.s
@@ -120,7 +119,7 @@ for /L %%I IN (1, 1, 4) DO (
 	set hwy_TrkFac=2
 	set hwy_TollSetting=1
 	set TOD=%%I
-	
+
 :: Following if statements replace HAPIL00A.s
 	IF %%I EQU 1 (
 		set PER=AM
@@ -142,20 +141,20 @@ for /L %%I IN (1, 1, 4) DO (
 		set HWY_NET=HWY_NET_6.net
 		set NETNAME=PM Peak Period 3:00 PM to 7:00 PM
 		set CAPFAC=3.9
-		)	
+		)
 	IF %%I EQU 4 (
 		set PER=NT
 		set ASSIGNNAME=Night
 		set HWY_NET=HWY_NET_1.net
 		set NETNAME=AM Peak Period 7:00 PM to 6:00 AM
 		set CAPFAC=4.65
-		)		
-	
-		
+		)
+
+
 	runtpp %SCRIPT_PATH%\HAMAT00A.s
 	runtpp %SCRIPT_PATH%\HAHWY00A.s
-	runtpp %SCRIPT_PATH%\HAMAT00C.s	
-	)		
-	
+	runtpp %SCRIPT_PATH%\HAMAT00C.s
+	)
+
 runtpp %SCRIPT_PATH%\HAPIL00B.s
-:endComment	
+::endComment
