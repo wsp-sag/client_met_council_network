@@ -26,20 +26,20 @@ set OLD_PATH=%PATH%
 set PATH=%RUNTIME%;%TPP_PATH%;%PYTHON_PATH%;%OLD_PATH%
 
 :: Set CSV input paths
-set CSV_FOLDER=network_03042019
-set HWY_LINK_PATH=%CSV_FOLDER%/fixed_drive_network_for_modeling.csv
-set HWY_NODE_PATH=%CSV_FOLDER%/fixed_osm_drive_nodes_with_centroid.csv
-set BIKE_LINK_PATH=%CSV_FOLDER%/fixed_bike_network_for_modeling.csv
-set BIKE_NODE_PATH=%CSV_FOLDER%/fixed_osm_bike_nodes_with_centroid.csv
-set WALK_LINK_PATH=%CSV_FOLDER%/fixed_walk_network_for_modeling.csv
-set WALK_NODE_PATH=%CSV_FOLDER%/fixed_osm_walk_nodes_with_centroid.csv
+set CSV_FOLDER=network_03122019
+set HWY_LINK_PATH=%CSV_FOLDER%/drive_link.dbf
+set HWY_NODE_PATH=%CSV_FOLDER%/drive_node.dbf
+set BIKE_LINK_PATH=%CSV_FOLDER%/bike_link.dbf
+set BIKE_NODE_PATH=%CSV_FOLDER%/bike_node.dbf
+set WALK_LINK_PATH=%CSV_FOLDER%/walk_link.dbf
+set WALK_NODE_PATH=%CSV_FOLDER%/walk_node.dbf
 
-set HWY_LINK_VAR=A,B,DISTANCE,COUNTY,T_PRIORITY,BIKE,AREA,HOV,AADT,AM_CNT,MD_CNT,PM_CNT,NT_CNT,DY_CNT,ASGNGRP,LANES,CENTROID,RC_NUM,isDriveLink
-set HWY_NODE_VAR=N,X,Y,OSMID
-set BIKE_LINK_VAR=A,B,DISTANCE,COUNTY,AREA,CENTROID,BIKE,isBikeLink
-set BIKE_NODE_VAR=N,X,Y,OSMID
-set WALK_LINK_VAR=A,B,DISTANCE,COUNTY,AREA,CENTROID,isPedLink
-set WALK_NODE_VAR=N,X,Y,OSMID
+::set HWY_LINK_VAR=A,B,DISTANCE,COUNTY,T_PRIORITY,BIKE,AREA,HOV,AADT,AM_CNT,MD_CNT,PM_CNT,NT_CNT,DY_CNT,ASGNGRP,LANES,CENTROID,RC_NUM,isDriveLink
+::set HWY_NODE_VAR=N,X,Y,OSMID
+::set BIKE_LINK_VAR=A,B,DISTANCE,COUNTY,AREA,CENTROID,BIKE,isBikeLink
+::set BIKE_NODE_VAR=N,X,Y,OSMID
+::set WALK_LINK_VAR=A,B,DISTANCE,COUNTY,AREA,CENTROID,isPedLink
+::set WALK_NODE_VAR=N,X,Y,OSMID
 
 :: Set path to adjusted scripts that have been updated with new tokens.
 set SCRIPT_PATH=replacement_scripts
@@ -49,16 +49,16 @@ set SCENARIO_DIR=outputs
 set max_threads=16
 set ITER=1
 
-%beginComment%
+
 
 :: Make Networks
 runtpp %SCRIPT_PATH%\make_highway_network_from_csv.s
+
 runtpp %SCRIPT_PATH%\make_bike_network_from_csv.s
 runtpp %SCRIPT_PATH%\make_walk_network_from_csv.s
 runtpp %SCRIPT_PATH%\FullMakeNetwork15.s
 
 ::HIGHWAY
-
 :: Set highway network
 set iHwyNet=%SCENARIO_DIR%/highway_2015.net
 
@@ -68,7 +68,7 @@ set LU_speed=lookup_files/CapacityLookup.txt
 
 runtpp %SCRIPT_PATH%\BNNET00B.s
 runtpp %SCRIPT_PATH%\HNNET00B.s
-
+%beginComment%
 :: This script handles TOD assignment. Batch files require a single character
 :: variable.
 
@@ -103,15 +103,12 @@ runtpp %SCRIPT_PATH%\NMHWY00B.s
 runtpp %SCRIPT_PATH%\NMMAT00A.s
 
 :: Begin highway assignment scripts (step 7)
-:endComment	
+
 runtpp %SCRIPT_PATH%\HAPIL00D.s
 runtpp %SCRIPT_PATH%\HAMAT00E.s
 runtpp %SCRIPT_PATH%\HAMAT00G.s
 runtpp %SCRIPT_PATH%\HAMAT00I.s
 runtpp %SCRIPT_PATH%\HAMAT00K.s
-
-rm *.cmdstart
-rm *.command
 
 set hwy_assignIters=1
 
@@ -161,3 +158,4 @@ for /L %%I IN (1, 1, 4) DO (
 	)		
 	
 runtpp %SCRIPT_PATH%\HAPIL00B.s
+:endComment	
