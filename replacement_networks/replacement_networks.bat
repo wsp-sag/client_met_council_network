@@ -14,7 +14,6 @@
 :: ----------------------------------------------------------------------------
 set "beginComment=goto :endComment"
 
-::%beginComment%
 :: The location of the RUNTPP executable from Citilabs - 64bit first
 set TPP_PATH=C:\Program Files\Citilabs\CubeVoyager;C:\Program Files (x86)\Citilabs\CubeVoyager
 
@@ -49,10 +48,9 @@ set SCENARIO_DIR=outputs
 
 set max_threads=16
 set ITER=1
-
+set PREV_ITER=0
 :: Make Networks
 runtpp %SCRIPT_PATH%\make_highway_network_from_csv.s
-
 runtpp %SCRIPT_PATH%\make_bike_network_from_csv.s
 runtpp %SCRIPT_PATH%\make_walk_network_from_csv.s
 runtpp %SCRIPT_PATH%\FullMakeNetwork15.s
@@ -83,11 +81,12 @@ for /L %%I IN (1, 1, 6) DO (
 
 	runtpp %SCRIPT_PATH%\HNNET00C.s
 )
-::%beginComment%
+
 :: CSPIL00A.s copies skims from a prior iteration. DO NOT USE HERE
 
 runtpp %SCRIPT_PATH%\FFHWY00A.s
 runtpp %SCRIPT_PATH%\FFPIL00A.s
+
 
 ::NON-MOTORIZED Networks
 set bikeSpeed1=13
@@ -111,7 +110,7 @@ runtpp %SCRIPT_PATH%\HAMAT00K.s
 
 set hwy_assignIters=1
 
-for /L %%I IN (1, 1, 4) DO (
+for /L %%I IN (1, 1, 1) DO (
 	set hwy_HOV2OCC=2
 	set hwy_HOV3OCC=3.2
 	set zones=3061
@@ -157,4 +156,3 @@ for /L %%I IN (1, 1, 4) DO (
 	)
 
 runtpp %SCRIPT_PATH%\HAPIL00B.s
-::endComment
