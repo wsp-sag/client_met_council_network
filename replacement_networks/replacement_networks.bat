@@ -110,7 +110,7 @@ runtpp %SCRIPT_PATH%\HAMAT00K.s
 
 set hwy_assignIters=1
 
-for /L %%I IN (1, 1, 1) DO (
+for /L %%I IN (1, 1, 4) DO (
 	set hwy_HOV2OCC=2
 	set hwy_HOV3OCC=3.2
 	set zones=3061
