@@ -49,6 +49,22 @@ set SCENARIO_DIR=outputs
 set max_threads=16
 set ITER=1
 set PREV_ITER=0
+
+set bikeSpeed1=13
+set bikeSpeed2=13
+set bikeSpeed3=10
+set bikeFact1=0.8
+set walkSpeed=2.5
+
+set hwy_assignIters=1
+set hwy_HOV2OCC=2
+set hwy_HOV3OCC=3.2
+set zones=3061
+set LU_will2pay=lookup_files/Will2Pay_oneCurve.txt
+set hwy_TrkFac=2
+set hwy_TollSetting=1
+
+%beginComment%
 :: Make Networks
 runtpp %SCRIPT_PATH%\make_highway_network_from_csv.s
 runtpp %SCRIPT_PATH%\make_bike_network_from_csv.s
@@ -89,12 +105,6 @@ runtpp %SCRIPT_PATH%\FFPIL00A.s
 
 
 ::NON-MOTORIZED Networks
-set bikeSpeed1=13
-set bikeSpeed2=13
-set bikeSpeed3=10
-set bikeFact1=0.8
-set walkSpeed=2.5
-
 runtpp %SCRIPT_PATH%\NMNET00A.s
 runtpp %SCRIPT_PATH%\NMHWY00A.s
 runtpp %SCRIPT_PATH%\NMHWY00B.s
@@ -108,15 +118,10 @@ runtpp %SCRIPT_PATH%\HAMAT00G.s
 runtpp %SCRIPT_PATH%\HAMAT00I.s
 runtpp %SCRIPT_PATH%\HAMAT00K.s
 
-set hwy_assignIters=1
+
 
 for /L %%I IN (1, 1, 4) DO (
-	set hwy_HOV2OCC=2
-	set hwy_HOV3OCC=3.2
-	set zones=3061
-	set LU_will2pay=lookup_files/Will2Pay_oneCurve.txt
-	set hwy_TrkFac=2
-	set hwy_TollSetting=1
+
 	set TOD=%%I
 
 :: Following if statements replace HAPIL00A.s
@@ -155,4 +160,10 @@ for /L %%I IN (1, 1, 4) DO (
 	runtpp %SCRIPT_PATH%\HAMAT00C.s
 	)
 
+:endComment
 runtpp %SCRIPT_PATH%\HAPIL00B.s
+
+:: HWY Assignment Post-Processor
+runtpp %SCRIPT_PATH%\CANET00A.s
+runtpp %SCRIPT_PATH%\CANET00B.s
+runtpp %SCRIPT_PATH%\CAMAT00As.
