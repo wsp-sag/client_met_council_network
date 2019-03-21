@@ -115,3 +115,6 @@ replacement_networks/client_network2015_gdb/Network2015.gdb/a0000000a.gdbtablx
 replacement_networks/client_network2015_gdb/Network2015.gdb/a0000000a.gdbtable
 replacement_networks/client_network2015_gdb/Network2015.gdb/a0000000a.gdbindexes
 replacement_networks/client_network2015_gdb/Network2015.gdb/a00000006.freelist
+*.PRJ
+*.VAR
+*.zip
