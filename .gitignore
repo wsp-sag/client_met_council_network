@@ -118,3 +118,7 @@ replacement_networks/client_network2015_gdb/Network2015.gdb/a00000006.freelist
 *.PRJ
 *.VAR
 *.zip
+replacement_networks/comparisons/walk_comparison.csv
+replacement_networks/comparisons/new_skims/
+replacement_networks/comparisons/original_skims/NM_SKIM_WALK.skm
+*.vpr
