@@ -1,4 +1,4 @@
-RUN PGM = NETWORK MSG = "Read in Network from CSV"
+RUN PGM = NETWORK MSG = "Read in Network from FILE"
 FILEI LINKI[1] = "%BIKE_LINK_PATH%",
 	  REV = 1
 

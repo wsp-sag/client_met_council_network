@@ -1,5 +1,5 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=NETWORK MSG='Export Bike Network from Geodatabase'
+RUN PGM=NETWORK MSG='Export Bike Network from Network'
 FILEO NETO = "%SCENARIO_DIR%/bike_speed.net"
 FILEI LINKI[1] = "%SCENARIO_DIR%/bike.net"
 

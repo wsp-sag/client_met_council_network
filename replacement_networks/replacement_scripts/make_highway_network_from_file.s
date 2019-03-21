@@ -1,4 +1,4 @@
-RUN PGM = NETWORK MSG = "Read in Network from DBF"
+RUN PGM = NETWORK MSG = "Read in Network from FILE"
 FILEI LINKI[1] = "%HWY_LINK_PATH%",
 	REV = 1
 ZONES = 3061
