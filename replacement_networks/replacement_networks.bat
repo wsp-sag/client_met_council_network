@@ -25,21 +25,21 @@ set OLD_PATH=%PATH%
 set PATH=%RUNTIME%;%TPP_PATH%;%PYTHON_PATH%;%OLD_PATH%
 
 :: Set CSV input paths
-set CSV_FOLDER=network_03122019
+set NETWORK_FOLDER=network_03122019
 set SCRIPT_PATH=replacement_scripts
 set TRIP_DIR=trip_files
 if not exist \outputs mkdir \outputs
 set SCENARIO_DIR=outputs
 set COMPARISON_DIR=comparisons
 
-set HWY_LINK_PATH=%CSV_FOLDER%/drive_link.dbf
-set HWY_NODE_PATH=%CSV_FOLDER%/drive_node.dbf
-set BIKE_LINK_PATH=%CSV_FOLDER%/bike_link.dbf
-set BIKE_NODE_PATH=%CSV_FOLDER%/bike_node.dbf
-set WALK_LINK_PATH=%CSV_FOLDER%/walk_link.dbf
-set WALK_NODE_PATH=%CSV_FOLDER%/walk_node.dbf
-::set WALK_LINK_PATH=%CSV_FOLDER%/test_walk_link.dbf
-::set WALK_NODE_PATH=%CSV_FOLDER%/test_walk_node.dbf
+set HWY_LINK_PATH=%NETWORK_FOLDER%/fixed_drive_link.dbf
+set HWY_NODE_PATH=%NETWORK_FOLDER%/drive_node.dbf
+set BIKE_LINK_PATH=%NETWORK_FOLDER%/bike_link.dbf
+set BIKE_NODE_PATH=%NETWORK_FOLDER%/bike_node.dbf
+set WALK_LINK_PATH=%NETWORK_FOLDER%/walk_link.dbf
+set WALK_NODE_PATH=%NETWORK_FOLDER%/walk_node.dbf
+::set WALK_LINK_PATH=%NETWORK_FOLDER%/test_walk_link.dbf
+::set WALK_NODE_PATH=%NETWORK_FOLDER%/test_walk_node.dbf
 
 set max_threads=16
 set ITER=1
@@ -59,13 +59,13 @@ set LU_will2pay=lookup_files/Will2Pay_oneCurve.txt
 set hwy_TrkFac=2
 set hwy_TollSetting=1
 
-:: %beginComment%Make Networks
-::runtpp %SCRIPT_PATH%\make_highway_network_from_file.s
-::runtpp %SCRIPT_PATH%\make_bike_network_from_file.s
-::runtpp %SCRIPT_PATH%\make_walk_network_from_file.s
-::runtpp %SCRIPT_PATH%\FullMakeNetwork15.s
+:: Make Networks
+runtpp %SCRIPT_PATH%\make_highway_network_from_file.s
+runtpp %SCRIPT_PATH%\make_bike_network_from_file.s
+runtpp %SCRIPT_PATH%\make_walk_network_from_file.s
+runtpp %SCRIPT_PATH%\FullMakeNetwork15.s
 
-%beginComment%
+
 ::HIGHWAY
 :: Set highway network
 set iHwyNet=%SCENARIO_DIR%/highway_2015.net
@@ -98,24 +98,19 @@ for /L %%I IN (1, 1, 6) DO (
 runtpp %SCRIPT_PATH%\FFHWY00A.s
 runtpp %SCRIPT_PATH%\FFPIL00A.s
 
-:endComment
-set start_time=%TIME%
 ::NON-MOTORIZED Networks
-::runtpp %SCRIPT_PATH%\NMNET00A.s
-::runtpp %SCRIPT_PATH%\NMHWY00A.s
-::runtpp %SCRIPT_PATH%\NMHWY00B.s
-::runtpp %SCRIPT_PATH%\NMMAT00A.s
-set end_time=%TIME%
+runtpp %SCRIPT_PATH%\NMNET00A.s
+runtpp %SCRIPT_PATH%\NMHWY00A.s
+runtpp %SCRIPT_PATH%\NMHWY00B.s
+runtpp %SCRIPT_PATH%\NMMAT00A.s
 
 :: Begin highway assignment scripts (step 7)
-%beginComment%
 runtpp %SCRIPT_PATH%\HAPIL00D.s
 runtpp %SCRIPT_PATH%\HAMAT00E.s
 runtpp %SCRIPT_PATH%\HAMAT00G.s
 runtpp %SCRIPT_PATH%\HAMAT00I.s
 runtpp %SCRIPT_PATH%\HAMAT00K.s
 
-::%beginComment%
 for /L %%I IN (1, 1, 4) DO (
 
 	set TOD=%%I
@@ -163,9 +158,4 @@ runtpp %SCRIPT_PATH%\CANET00A.s
 runtpp %SCRIPT_PATH%\CANET00B.s
 runtpp %SCRIPT_PATH%\CAMAT00As.
 
-:endComment
 runtpp %SCRIPT_PATH%\summary_outputs.s
-
-:: Calculate skimming duration
-set run_time=%end_time%-%start_time%
-@echo Run Time is %run_time%

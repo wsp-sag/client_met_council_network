@@ -4,27 +4,38 @@ library(foreign)
 walk_net <- read.dbf("network_03122019/walk_link.dbf") 
 walk_node <- read.dbf("network_03122019/walk_node.dbf")
 
-a_count <- walk_net %>% 
-  group_by(A) %>% 
-  summarise(n = n()) 
+get_node_count <- function(net_df, node) {
+  
+  
+  count_df <- net_df %>%
+    group_by(node) %>%
+    summarise(n = n())
+  
+  return(count_df)
+}
 
-b_count <- walk_net %>%
-  group_by(B) %>%
-  summarise(n = n())
-
-# Remove dead end links
-walk_net_write <- walk_net %>%
-  left_join(a_count, by = "A") %>%
-  filter(n > 1 | CENTROID == 1) %>%
-  select(-n) %>% 
-  left_join(b_count, by = "B") %>%
-  filter(n > 1 | CENTROID == 1) %>%
-  select(-n)
-
-walk_node_write <- walk_node %>%
-  left_join(a_count, by = c("N" = "A")) %>% 
-  filter(n > 1) %>% 
-  select(-1)
+delete_dead_ends <- function(net_df) {
+  
+  a_count <- get_node_count(walk_net, A)
+  
+  b_count <- walk_net %>%
+    group_by(B) %>%
+    summarise(n = n())
+  
+  # Remove dead end links
+  walk_net_write <- walk_net %>%
+    left_join(a_count, by = "A") %>%
+    filter(n > 1 | CENTROID == 1) %>%
+    select(-n) %>% 
+    left_join(b_count, by = "B") %>%
+    filter(n > 1 | CENTROID == 1) %>%
+    select(-n)
+  
+  walk_node_write <- walk_node %>%
+    left_join(a_count, by = c("N" = "A")) %>% 
+    filter(n > 1) %>% 
+    select(-1)
+}
 
 # Remove intermediate nodes
 replacement_links <- walk_net %>%
