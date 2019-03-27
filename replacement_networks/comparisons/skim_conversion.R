@@ -26,3 +26,7 @@ skims <- skims_temp %>%
   left_join(skims, by = c("origin", "destination")) %>% 
   mutate(drive_diff = new_drive_1 - new_drive)
 
+skims %>% 
+  arrange(drive_diff) %>% 
+  tail(100) %>% View()
+

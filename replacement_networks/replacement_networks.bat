@@ -31,6 +31,7 @@ set TRIP_DIR=trip_files
 if not exist \outputs mkdir \outputs
 set SCENARIO_DIR=outputs
 set COMPARISON_DIR=comparisons
+set LOOKUP_DIR=lookup_files
 
 set HWY_LINK_PATH=%NETWORK_FOLDER%/drive_and_rail_link.dbf
 set HWY_NODE_PATH=%NETWORK_FOLDER%/drive_node_with_rail.dbf
@@ -38,7 +39,8 @@ set BIKE_LINK_PATH=%NETWORK_FOLDER%/bike_link.dbf
 set BIKE_NODE_PATH=%NETWORK_FOLDER%/bike_node.dbf
 set WALK_LINK_PATH=%NETWORK_FOLDER%/walk_link.dbf
 set WALK_NODE_PATH=%NETWORK_FOLDER%/walk_node.dbf
-set TRANSIT_PATH=%NETWORK_FOLDER%/transit.lin
+set xit_lines=%NETWORK_FOLDER%/transit.lin
+set xit_system=%LOOKUP_DIR%/PT_SYSTEM_2010.PTS
 ::set WALK_LINK_PATH=%NETWORK_FOLDER%/test_walk_link.dbf
 ::set WALK_NODE_PATH=%NETWORK_FOLDER%/test_walk_node.dbf
 
@@ -52,13 +54,17 @@ set bikeSpeed3=10
 set bikeFact1=0.8
 set walkSpeed=2.5
 
-set hwy_assignIters=1
+set hwy_assignIters=5
 set hwy_HOV2OCC=2
 set hwy_HOV3OCC=3.2
 set zones=3061
-set LU_will2pay=lookup_files/Will2Pay_oneCurve.txt
+set LU_will2pay=%LOOKUP_DIR%/Will2Pay_oneCurve.txt
 set hwy_TrkFac=2
 set hwy_TollSetting=1
+
+set T_PRIORITY_PATH=%LOOKUP_DIR%/T_Priority.dbf
+set T_MANTIME_PATH=%LOOKUP_DIR%/T_MANTIME.dbf
+set T_DISTANCE_PATH=%LOOKUP_DIR%/Distances.dbf
 
 %beginComment%
 :: Make Networks
@@ -66,7 +72,6 @@ runtpp %SCRIPT_PATH%\make_highway_network_from_file.s
 runtpp %SCRIPT_PATH%\make_bike_network_from_file.s
 runtpp %SCRIPT_PATH%\make_walk_network_from_file.s
 runtpp %SCRIPT_PATH%\FullMakeNetwork15.s
-
 
 ::HIGHWAY
 :: Set highway network
@@ -160,14 +165,28 @@ runtpp %SCRIPT_PATH%\CANET00A.s
 runtpp %SCRIPT_PATH%\CANET00B.s
 runtpp %SCRIPT_PATH%\CAMAT00As.
 
-:endComment
-
 :: TRANSIT scripts
 runtpp %SCRIPT_PATH%\TSNET00A.s
 runtpp %SCRIPT_PATH%\TSNET00B.s
-runtpp %SCRIPT_PATH%\TSPIL00A.s
+:endComment
+
+for /L %%I IN (1, 1, 1) DO (
+
+	set TOD=%%I
+	
+	IF %%I EQU 1 (
+		set TPER=PK
+	)
+	IF %%I EQU 2 (
+	set TPER=OP
+	)
+
 runtpp %SCRIPT_PATH%\TSNET00C.s
 runtpp %SCRIPT_PATH%\TSPTR00D.s
+)
+
+%beginComment%
+
 runtpp %SCRIPT_PATH%\TSPTR00F.s
 runtpp %SCRIPT_PATH%\TSPTR00H.s
 runtpp %SCRIPT_PATH%\TSPIL00C.s
@@ -178,3 +197,4 @@ runtpp %SCRIPT_PATH%\TSMAT00C.s
 runtpp %SCRIPT_PATH%\TSPIL00B.s
 
 runtpp %SCRIPT_PATH%\summary_outputs.s
+:endComment
