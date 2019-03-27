@@ -26,17 +26,17 @@ FILEI NETI = "%SCENARIO_DIR%\XIT_NET_0_%TPER%.net"
         TRANTIME[8] = li.lrttime       ; lrt
         TRANTIME[9] = li.exptime       ; commuter bus
 
-        generate,
-        fromnode = 1-3061,
-        tonode = 3061-999999,
-        direction = 3,
-        oneway = F,
-        cost = li.Distance,
-        extractcost = (Li.Distance * 60 / _wlkspd),
-        excludelink = (li.RCI = 1-5, 13, 14),   ;no walking on freeway, tollway,ramps and managed links
-        maxcost = 4 * 0, 5 * 2,                 ;set maximum walking distance to 2 Miles
-        maxntlegs = 4 * 1, 5 * 99,
-        ntlegmode = 1
+        GENERATE,
+        FROMNODE = 1-3061,
+        TONODE = 3061-999999,
+        DIRECTION = 3,
+        ONEWAY = F,
+        COST = LI.Distance,
+        EXTRACTCOST = (LI.Distance * 60 / _wlkspd),
+        EXCLUDELINK = (LI.RCI = 1-5, 13, 14),   ;no walking on freeway, tollway,ramps and managed links
+        MAXCOST = 4 * 0, 5 * 2,                 ;set maximum walking distance to 2 Miles
+        MAXNTLEGS = 4 * 1, 5 * 99,
+        NTLEGMODE = 1
     ENDPHASE
 
 

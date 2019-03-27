@@ -183,12 +183,12 @@ for /L %%I IN (1, 1, 1) DO (
 
 runtpp %SCRIPT_PATH%\TSNET00C.s
 runtpp %SCRIPT_PATH%\TSPTR00D.s
+runtpp %SCRIPT_PATH%\TSPTR00F.s
+runtpp %SCRIPT_PATH%\TSPTR00H.s
 )
 
 %beginComment%
 
-runtpp %SCRIPT_PATH%\TSPTR00F.s
-runtpp %SCRIPT_PATH%\TSPTR00H.s
 runtpp %SCRIPT_PATH%\TSPIL00C.s
 runtpp %SCRIPT_PATH%\TSPTR00A.s
 runtpp %SCRIPT_PATH%\TSPTR00C.s
