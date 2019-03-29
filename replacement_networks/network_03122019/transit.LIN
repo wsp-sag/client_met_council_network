@@ -1,6 +1,6 @@
 ;;<<PT>><<LINE>>;;
 
-LINE NAME="0_46-110_46_peak_dir1",
+LINE NAME="0_46-110_46_pk1",
  LONGNAME="50St - 46St - 46St Sta - Highland Village",
  HEADWAY=18,
  MODE=5,
@@ -209,7 +209,7 @@ NODES=
  -160017,
  160019
 
-LINE NAME="0_46-110_46_offpeak_dir1",
+LINE NAME="0_46-110_46_op1",
  LONGNAME="50St - 46St - 46St Sta - Highland Village",
  HEADWAY[2]=30,
  MODE=5,
@@ -418,7 +418,7 @@ NODES=
  -160017,
  160019
 
-LINE NAME="0_46-110_46_peak_dir0",
+LINE NAME="0_46-110_46_pk0",
  LONGNAME="50St - 46St - 46St Sta - Highland Village",
  HEADWAY=22,
  MODE=5,
@@ -617,7 +617,7 @@ NODES=
  85719,
  85720
 
-LINE NAME="0_46-110_46_offpeak_dir0",
+LINE NAME="0_46-110_46_op0",
  LONGNAME="50St - 46St - 46St Sta - Highland Village",
  HEADWAY[2]=30,
  MODE=5,
@@ -816,7 +816,7 @@ NODES=
  85719,
  85720
 
-LINE NAME="0_850-110_850_offpeak_dir0",
+LINE NAME="0_850-110_850_op0",
  LONGNAME="Express - Riverdale P&R - Foley P&R - Mpls",
  HEADWAY[2]=360,
  MODE=7,
@@ -891,7 +891,7 @@ NODES=
  -34383,
  34384
 
-LINE NAME="0_850-110_850_peak_dir1",
+LINE NAME="0_850-110_850_pk1",
  LONGNAME="Express - Riverdale P&R - Foley P&R - Mpls",
  HEADWAY=10,
  MODE=7,
@@ -965,7 +965,7 @@ NODES=
  -10419,
  9299
 
-LINE NAME="0_768-110_768_offpeak_dir0",
+LINE NAME="0_768-110_768_op0",
  LONGNAME="Express - Noble P&R - Mpls",
  HEADWAY[2]=180,
  MODE=7,
@@ -1033,7 +1033,7 @@ NODES=
  -146464,
  6624
 
-LINE NAME="0_768-110_768_peak_dir1",
+LINE NAME="0_768-110_768_pk1",
  LONGNAME="Express - Noble P&R - Mpls",
  HEADWAY=11,
  MODE=7,
@@ -1102,7 +1102,7 @@ NODES=
  -20515,
  4944
 
-LINE NAME="0_768-110_768_offpeak_dir1",
+LINE NAME="0_768-110_768_op1",
  LONGNAME="Express - Noble P&R - Mpls",
  HEADWAY[2]=360,
  MODE=7,
@@ -1171,7 +1171,7 @@ NODES=
  -20515,
  4944
 
-LINE NAME="4_785-110_785_peak_dir1",
+LINE NAME="4_785-110_785_pk1",
  LONGNAME="Maple Grove - Express - Parkway Station",
  HEADWAY=15,
  MODE=7,
@@ -1243,7 +1243,7 @@ NODES=
  -20515,
  4944
 
-LINE NAME="4_780-110_780_peak_dir1",
+LINE NAME="4_780-110_780_pk1",
  LONGNAME="Maple Grove - Express - Shepherd of the Grove P&R",
  HEADWAY=60,
  MODE=7,
@@ -1369,7 +1369,7 @@ NODES=
  -20515,
  4944
 
-LINE NAME="0_21-110_21_offpeak_dir0",
+LINE NAME="0_21-110_21_op0",
  LONGNAME="Uptown - Lake St - Midway - Selby  Av",
  HEADWAY[2]=9,
  MODE=5,
@@ -1583,7 +1583,7 @@ NODES=
  -82690,
  82689
 
-LINE NAME="0_21-110_21_peak_dir0",
+LINE NAME="0_21-110_21_pk0",
  LONGNAME="Uptown - Lake St - Midway - Selby  Av",
  HEADWAY=10,
  MODE=5,
@@ -1797,7 +1797,7 @@ NODES=
  -82690,
  82689
 
-LINE NAME="0_21-110_21_offpeak_dir1",
+LINE NAME="0_21-110_21_op1",
  LONGNAME="Uptown - Lake St - Midway - Selby  Av",
  HEADWAY[2]=8,
  MODE=5,
@@ -2004,7 +2004,7 @@ NODES=
  -28073,
  134352
 
-LINE NAME="0_21-110_21_peak_dir1",
+LINE NAME="0_21-110_21_pk1",
  LONGNAME="Uptown - Lake St - Midway - Selby  Av",
  HEADWAY=12,
  MODE=5,
@@ -2211,7 +2211,7 @@ NODES=
  -28073,
  134352
 
-LINE NAME="0_270-110_270_peak_dir1",
+LINE NAME="0_270-110_270_pk1",
  LONGNAME="Express - Mahtomedi - Maplewood - Minneapolis",
  HEADWAY=12,
  MODE=7,
@@ -2322,7 +2322,7 @@ NODES=
  -10419,
  9299
 
-LINE NAME="0_270-110_270_offpeak_dir0",
+LINE NAME="0_270-110_270_op0",
  LONGNAME="Express - Mahtomedi - Maplewood - Minneapolis",
  HEADWAY[2]=360,
  MODE=7,
@@ -2451,7 +2451,7 @@ NODES=
  -139051,
  166179
 
-LINE NAME="0_263-110_263_peak_dir1",
+LINE NAME="0_263-110_263_pk1",
  LONGNAME="Express - Hwy 36 Rice P&R - Hwy 61 - Co Rd C -Mpls",
  HEADWAY=30,
  MODE=7,
@@ -2552,7 +2552,7 @@ NODES=
  -10419,
  9299
 
-LINE NAME="0_854-110_854_peak_dir1",
+LINE NAME="0_854-110_854_pk1",
  LONGNAME="Express - Paul Pkwy - Northdale - Northtown - Mpls",
  HEADWAY=25,
  MODE=7,
@@ -2624,7 +2624,7 @@ NODES=
  -10419,
  9299
 
-LINE NAME="0_70-110_70_peak_dir0",
+LINE NAME="0_70-110_70_pk0",
  LONGNAME="St Clair Av - W 7th St - Burns Av - Sunray",
  HEADWAY=30,
  MODE=5,
@@ -2820,7 +2820,7 @@ NODES=
  -85148,
  85149
 
-LINE NAME="0_70-110_70_peak_dir1",
+LINE NAME="0_70-110_70_pk1",
  LONGNAME="St Clair Av - W 7th St - Burns Av - Sunray",
  HEADWAY=30,
  MODE=5,
@@ -3026,7 +3026,7 @@ NODES=
  -135459,
  135460
 
-LINE NAME="0_70-110_70_offpeak_dir1",
+LINE NAME="0_70-110_70_op1",
  LONGNAME="St Clair Av - W 7th St - Burns Av - Sunray",
  HEADWAY[2]=30,
  MODE=5,
@@ -3111,7 +3111,7 @@ NODES=
  -81680,
  89332
 
-LINE NAME="0_70-110_70_offpeak_dir0",
+LINE NAME="0_70-110_70_op0",
  LONGNAME="St Clair Av - W 7th St - Burns Av - Sunray",
  HEADWAY[2]=30,
  MODE=5,
@@ -3193,7 +3193,7 @@ NODES=
  -85148,
  85149
 
-LINE NAME="0_67-110_67_peak_dir1",
+LINE NAME="0_67-110_67_pk1",
  LONGNAME="W Minnehaha Av - Raymond Sta - Franklin Av",
  HEADWAY=25,
  MODE=5,
@@ -3397,7 +3397,7 @@ NODES=
  -139321,
  30556
 
-LINE NAME="0_67-110_67_offpeak_dir1",
+LINE NAME="0_67-110_67_op1",
  LONGNAME="W Minnehaha Av - Raymond Sta - Franklin Av",
  HEADWAY[2]=30,
  MODE=5,
@@ -3601,7 +3601,7 @@ NODES=
  -139321,
  30556
 
-LINE NAME="0_67-110_67_peak_dir0",
+LINE NAME="0_67-110_67_pk0",
  LONGNAME="W Minnehaha Av - Raymond Sta - Franklin Av",
  HEADWAY=30,
  MODE=5,
@@ -3768,7 +3768,7 @@ NODES=
  -89330,
  82668
 
-LINE NAME="0_67-110_67_offpeak_dir0",
+LINE NAME="0_67-110_67_op0",
  LONGNAME="W Minnehaha Av - Raymond Sta - Franklin Av",
  HEADWAY[2]=30,
  MODE=5,
@@ -3935,7 +3935,7 @@ NODES=
  -89330,
  82668
 
-LINE NAME="0_766-110_766_peak_dir1",
+LINE NAME="0_766-110_766_pk1",
  LONGNAME="Express - Anoka -  Champlin - W River Rd - Mpls",
  HEADWAY=20,
  MODE=7,
@@ -4128,7 +4128,7 @@ NODES=
  -20515,
  4944
 
-LINE NAME="0_766-110_766_offpeak_dir0",
+LINE NAME="0_766-110_766_op0",
  LONGNAME="Express - Anoka -  Champlin - W River Rd - Mpls",
  HEADWAY[2]=120,
  MODE=7,
@@ -4345,7 +4345,7 @@ NODES=
  -37075,
  42183
 
-LINE NAME="0_766-110_766_offpeak_dir1",
+LINE NAME="0_766-110_766_op1",
  LONGNAME="Express - Anoka -  Champlin - W River Rd - Mpls",
  HEADWAY[2]=120,
  MODE=7,
@@ -4550,7 +4550,7 @@ NODES=
  -20515,
  4944
 
-LINE NAME="2_84-110_84_peak_dir0",
+LINE NAME="2_84-110_84_pk0",
  LONGNAME="Snelling - Highland Village - Sibley Plaza",
  HEADWAY=30,
  MODE=5,
@@ -4703,7 +4703,7 @@ NODES=
  -81468,
  81469
 
-LINE NAME="2_84-110_84_offpeak_dir0",
+LINE NAME="2_84-110_84_op0",
  LONGNAME="Snelling - Highland Village - Sibley Plaza",
  HEADWAY[2]=30,
  MODE=5,
@@ -4856,7 +4856,7 @@ NODES=
  -81468,
  81469
 
-LINE NAME="2_84-110_84_peak_dir1",
+LINE NAME="2_84-110_84_pk1",
  LONGNAME="Snelling - Highland Village - Sibley Plaza",
  HEADWAY=30,
  MODE=5,
@@ -5001,7 +5001,7 @@ NODES=
  82158,
  147209
 
-LINE NAME="2_84-110_84_offpeak_dir1",
+LINE NAME="2_84-110_84_op1",
  LONGNAME="Snelling - Highland Village - Sibley Plaza",
  HEADWAY[2]=30,
  MODE=5,
@@ -5146,7 +5146,7 @@ NODES=
  82158,
  147209
 
-LINE NAME="2_16-110_16_peak_dir0",
+LINE NAME="2_16-110_16_pk0",
  LONGNAME="University Av - Midway",
  HEADWAY=30,
  MODE=5,
@@ -5236,7 +5236,7 @@ NODES=
  -82690,
  82689
 
-LINE NAME="2_16-110_16_peak_dir1",
+LINE NAME="2_16-110_16_pk1",
  LONGNAME="University Av - Midway",
  HEADWAY=30,
  MODE=5,
@@ -5312,7 +5312,7 @@ NODES=
  -90782,
  91321
 
-LINE NAME="2_16-110_16_offpeak_dir0",
+LINE NAME="2_16-110_16_op0",
  LONGNAME="University Av - Midway",
  HEADWAY[2]=30,
  MODE=5,
@@ -5402,7 +5402,7 @@ NODES=
  -82690,
  82689
 
-LINE NAME="2_16-110_16_offpeak_dir1",
+LINE NAME="2_16-110_16_op1",
  LONGNAME="University Av - Midway",
  HEADWAY[2]=30,
  MODE=5,
@@ -5478,7 +5478,7 @@ NODES=
  -90782,
  91321
 
-LINE NAME="0_668-110_668_peak_dir0",
+LINE NAME="0_668-110_668_pk0",
  LONGNAME="Express - Hopkins - St Louis Park - Mpls",
  HEADWAY=60,
  MODE=7,
@@ -5651,7 +5651,7 @@ NODES=
  -25950,
  32205
 
-LINE NAME="0_515-110_515_peak_dir0",
+LINE NAME="0_515-110_515_pk0",
  LONGNAME="Southdale - 66th St - Bloomington Av - VA - MOA",
  HEADWAY=15,
  MODE=6,
@@ -5776,7 +5776,7 @@ NODES=
  -22447,
  144328
 
-LINE NAME="0_515-110_515_offpeak_dir0",
+LINE NAME="0_515-110_515_op0",
  LONGNAME="Southdale - 66th St - Bloomington Av - VA - MOA",
  HEADWAY[2]=15,
  MODE=6,
@@ -5883,7 +5883,7 @@ NODES=
  -22447,
  144328
 
-LINE NAME="0_515-110_515_peak_dir1",
+LINE NAME="0_515-110_515_pk1",
  LONGNAME="Southdale - 66th St - Bloomington Av - VA - MOA",
  HEADWAY=15,
  MODE=6,
@@ -6017,7 +6017,7 @@ NODES=
  -31250,
  153125
 
-LINE NAME="0_515-110_515_offpeak_dir1",
+LINE NAME="0_515-110_515_op1",
  LONGNAME="Southdale - 66th St - Bloomington Av - VA - MOA",
  HEADWAY[2]=15,
  MODE=6,
@@ -6135,7 +6135,7 @@ NODES=
  -31250,
  153125
 
-LINE NAME="0_763-110_763_peak_dir1",
+LINE NAME="0_763-110_763_pk1",
  LONGNAME="Express - 85th Av - Brookdale Dr - Humboldt - Mpls",
  HEADWAY=45,
  MODE=7,
@@ -6278,7 +6278,7 @@ NODES=
  -10419,
  9299
 
-LINE NAME="0_865-110_865_peak_dir1",
+LINE NAME="0_865-110_865_pk1",
  LONGNAME="Express - Paul Pkwy P&R - Blaine - Mpls",
  HEADWAY=25,
  MODE=7,
@@ -6378,7 +6378,7 @@ NODES=
  -20515,
  4944
 
-LINE NAME="0_133-110_133_peak_dir0",
+LINE NAME="0_133-110_133_pk0",
  LONGNAME="Ltd Stop - Bloomington Av - Chicago Av - Mpls",
  HEADWAY=25,
  MODE=5,
@@ -6485,7 +6485,7 @@ NODES=
  -133171,
  133170
 
-LINE NAME="0_761-110_761_peak_dir1",
+LINE NAME="0_761-110_761_pk1",
  LONGNAME="Express - Brooklyn Park - Xerxes - 49th Av - Mpls",
  HEADWAY=45,
  MODE=7,
@@ -6624,7 +6624,7 @@ NODES=
  -20515,
  4944
 
-LINE NAME="0_23-110_23_offpeak_dir0",
+LINE NAME="0_23-110_23_op0",
  LONGNAME="Uptown - 38th St - Highland Village",
  HEADWAY[2]=27,
  MODE=5,
@@ -6742,7 +6742,7 @@ NODES=
  -144320,
  135035
 
-LINE NAME="0_23-110_23_offpeak_dir1",
+LINE NAME="0_23-110_23_op1",
  LONGNAME="Uptown - 38th St - Highland Village",
  HEADWAY[2]=27,
  MODE=5,
@@ -6878,7 +6878,7 @@ NODES=
  -28073,
  134352
 
-LINE NAME="0_23-110_23_peak_dir1",
+LINE NAME="0_23-110_23_pk1",
  LONGNAME="Uptown - 38th St - Highland Village",
  HEADWAY=22,
  MODE=5,
@@ -7014,7 +7014,7 @@ NODES=
  -28073,
  134352
 
-LINE NAME="0_23-110_23_peak_dir0",
+LINE NAME="0_23-110_23_pk0",
  LONGNAME="Uptown - 38th St - Highland Village",
  HEADWAY=20,
  MODE=5,
@@ -7132,7 +7132,7 @@ NODES=
  -144320,
  135035
 
-LINE NAME="0_71-110_71_offpeak_dir0",
+LINE NAME="0_71-110_71_op0",
  LONGNAME="Little Canada - Edgerton - Concord - Inver Hills",
  HEADWAY[2]=15,
  MODE=5,
@@ -7218,7 +7218,7 @@ NODES=
  87550,
  141750
 
-LINE NAME="0_71-110_71_offpeak_dir1",
+LINE NAME="0_71-110_71_op1",
  LONGNAME="Little Canada - Edgerton - Concord - Inver Hills",
  HEADWAY[2]=15,
  MODE=5,
@@ -7311,7 +7311,7 @@ NODES=
  -84504,
  135996
 
-LINE NAME="0_71-110_71_peak_dir0",
+LINE NAME="0_71-110_71_pk0",
  LONGNAME="Little Canada - Edgerton - Concord - Inver Hills",
  HEADWAY=25,
  MODE=5,
@@ -7535,7 +7535,7 @@ NODES=
  87550,
  141750
 
-LINE NAME="0_71-110_71_peak_dir1",
+LINE NAME="0_71-110_71_pk1",
  LONGNAME="Little Canada - Edgerton - Concord - Inver Hills",
  HEADWAY=16,
  MODE=5,
@@ -7655,7 +7655,7 @@ NODES=
  -84504,
  135996
 
-LINE NAME="0_4-110_4_offpeak_dir0",
+LINE NAME="0_4-110_4_op0",
  LONGNAME="New Brighton - Johnson St - Bryant Av - Southtown",
  HEADWAY[2]=14,
  MODE=5,
@@ -7823,7 +7823,7 @@ NODES=
  -7951,
  7928
 
-LINE NAME="0_4-110_4_peak_dir0",
+LINE NAME="0_4-110_4_pk0",
  LONGNAME="New Brighton - Johnson St - Bryant Av - Southtown",
  HEADWAY=9,
  MODE=5,
@@ -7971,7 +7971,7 @@ NODES=
  -7951,
  7928
 
-LINE NAME="0_4-110_4_offpeak_dir1",
+LINE NAME="0_4-110_4_op1",
  LONGNAME="New Brighton - Johnson St - Bryant Av - Southtown",
  HEADWAY[2]=14,
  MODE=5,
@@ -8145,7 +8145,7 @@ NODES=
  -133891,
  152079
 
-LINE NAME="0_4-110_4_peak_dir1",
+LINE NAME="0_4-110_4_pk1",
  LONGNAME="New Brighton - Johnson St - Bryant Av - Southtown",
  HEADWAY=18,
  MODE=5,
@@ -8388,7 +8388,7 @@ NODES=
  -133891,
  152079
 
-LINE NAME="0_61-110_61_peak_dir0",
+LINE NAME="0_61-110_61_pk0",
  LONGNAME="E Hennepin Av - Larpenteur Av - Arcade St",
  HEADWAY=25,
  MODE=5,
@@ -8620,7 +8620,7 @@ NODES=
  142574,
  153779
 
-LINE NAME="0_61-110_61_offpeak_dir0",
+LINE NAME="0_61-110_61_op0",
  LONGNAME="E Hennepin Av - Larpenteur Av - Arcade St",
  HEADWAY[2]=27,
  MODE=5,
@@ -8852,7 +8852,7 @@ NODES=
  142574,
  153779
 
-LINE NAME="0_61-110_61_peak_dir1",
+LINE NAME="0_61-110_61_pk1",
  LONGNAME="E Hennepin Av - Larpenteur Av - Arcade St",
  HEADWAY=20,
  MODE=5,
@@ -9094,7 +9094,7 @@ NODES=
  -33005,
  20785
 
-LINE NAME="0_61-110_61_offpeak_dir1",
+LINE NAME="0_61-110_61_op1",
  LONGNAME="E Hennepin Av - Larpenteur Av - Arcade St",
  HEADWAY[2]=27,
  MODE=5,
@@ -9336,7 +9336,7 @@ NODES=
  -33005,
  20785
 
-LINE NAME="0_652-110_652_peak_dir0",
+LINE NAME="0_652-110_652_pk0",
  LONGNAME="Express - Plymouth Rd - Co Rd 73 P&R - U of M",
  HEADWAY=60,
  MODE=7,
@@ -9462,7 +9462,7 @@ NODES=
  -22354,
  31814
 
-LINE NAME="0_579-110_579_peak_dir0",
+LINE NAME="0_579-110_579_pk0",
  LONGNAME="Express - Southdale - U of M",
  HEADWAY=60,
  MODE=7,
@@ -9551,7 +9551,7 @@ NODES=
  -22354,
  31814
 
-LINE NAME="2_118-110_118_peak_dir1",
+LINE NAME="2_118-110_118_pk1",
  LONGNAME="Ltd Stop - Central Av - Lowry Av - U of M",
  HEADWAY=90,
  MODE=5,
@@ -9661,7 +9661,7 @@ NODES=
  -22354,
  31814
 
-LINE NAME="0_114-110_114_peak_dir0",
+LINE NAME="0_114-110_114_pk0",
  LONGNAME="Ltd Stop - Excelsior Blvd - Uptown - U of M",
  HEADWAY=30,
  MODE=5,
@@ -9741,7 +9741,7 @@ NODES=
  -22354,
  31814
 
-LINE NAME="0_114-110_114_offpeak_dir0",
+LINE NAME="0_114-110_114_op0",
  LONGNAME="Ltd Stop - Excelsior Blvd - Uptown - U of M",
  HEADWAY[2]=72,
  MODE=5,
@@ -9821,7 +9821,7 @@ NODES=
  -22354,
  31814
 
-LINE NAME="0_114-110_114_offpeak_dir1",
+LINE NAME="0_114-110_114_op1",
  LONGNAME="Ltd Stop - Excelsior Blvd - Uptown - U of M",
  HEADWAY[2]=360,
  MODE=5,
@@ -9908,7 +9908,7 @@ NODES=
  8894,
  9074
 
-LINE NAME="0_113-110_113_peak_dir0",
+LINE NAME="0_113-110_113_pk0",
  LONGNAME="Ltd Stop - Grand Av S - Lyndale Av S - U of M",
  HEADWAY=30,
  MODE=5,
@@ -10005,7 +10005,7 @@ NODES=
  -22354,
  31814
 
-LINE NAME="0_113-110_113_offpeak_dir1",
+LINE NAME="0_113-110_113_op1",
  LONGNAME="Ltd Stop - Grand Av S - Lyndale Av S - U of M",
  HEADWAY[2]=360,
  MODE=5,
@@ -10115,7 +10115,7 @@ NODES=
  -20730,
  14543
 
-LINE NAME="0_113-110_113_offpeak_dir0",
+LINE NAME="0_113-110_113_op0",
  LONGNAME="Ltd Stop - Grand Av S - Lyndale Av S - U of M",
  HEADWAY[2]=180,
  MODE=5,
@@ -10212,7 +10212,7 @@ NODES=
  -22354,
  31814
 
-LINE NAME="0_111-110_111_peak_dir0",
+LINE NAME="0_111-110_111_pk0",
  LONGNAME="Ltd Stop - 66th St - Chicago - Cedar - U of M",
  HEADWAY=90,
  MODE=5,
@@ -10346,7 +10346,7 @@ NODES=
  -22354,
  31814
 
-LINE NAME="0_54-110_54_peak_dir1",
+LINE NAME="0_54-110_54_pk1",
  LONGNAME="Ltd Stop - W 7 St - Airport - MOA - Maplewood Mall",
  HEADWAY=10,
  MODE=5,
@@ -10602,7 +10602,7 @@ NODES=
  -144328,
  144329
 
-LINE NAME="0_54-110_54_offpeak_dir0",
+LINE NAME="0_54-110_54_op0",
  LONGNAME="Ltd Stop - W 7 St - Airport - MOA - Maplewood Mall",
  HEADWAY[2]=14,
  MODE=5,
@@ -10860,7 +10860,7 @@ NODES=
  -139051,
  166179
 
-LINE NAME="0_54-110_54_offpeak_dir1",
+LINE NAME="0_54-110_54_op1",
  LONGNAME="Ltd Stop - W 7 St - Airport - MOA - Maplewood Mall",
  HEADWAY[2]=15,
  MODE=5,
@@ -11116,7 +11116,7 @@ NODES=
  -144328,
  144329
 
-LINE NAME="0_54-110_54_peak_dir0",
+LINE NAME="0_54-110_54_pk0",
  LONGNAME="Ltd Stop - W 7 St - Airport - MOA - Maplewood Mall",
  HEADWAY=11,
  MODE=5,
@@ -11374,7 +11374,7 @@ NODES=
  -139051,
  166179
 
-LINE NAME="0_6-110_6_peak_dir0",
+LINE NAME="0_6-110_6_pk0",
  LONGNAME="U of M - Hennepin - Xerxes - France - Southdale",
  HEADWAY=7,
  MODE=5,
@@ -11579,7 +11579,7 @@ NODES=
  -148769,
  22572
 
-LINE NAME="0_6-110_6_offpeak_dir0",
+LINE NAME="0_6-110_6_op0",
  LONGNAME="U of M - Hennepin - Xerxes - France - Southdale",
  HEADWAY[2]=9,
  MODE=5,
@@ -11750,7 +11750,7 @@ NODES=
  -7951,
  7928
 
-LINE NAME="0_6-110_6_offpeak_dir1",
+LINE NAME="0_6-110_6_op1",
  LONGNAME="U of M - Hennepin - Xerxes - France - Southdale",
  HEADWAY[2]=10,
  MODE=5,
@@ -11907,7 +11907,7 @@ NODES=
  -153629,
  153626
 
-LINE NAME="0_6-110_6_peak_dir1",
+LINE NAME="0_6-110_6_pk1",
  LONGNAME="U of M - Hennepin - Xerxes - France - Southdale",
  HEADWAY=7,
  MODE=5,
@@ -11997,7 +11997,7 @@ NODES=
  11031,
  11135
 
-LINE NAME="0_672-110_672_peak_dir0",
+LINE NAME="0_672-110_672_pk0",
  LONGNAME="Express - Wayzata - Minnetonka - Mpls",
  HEADWAY=36,
  MODE=7,
@@ -12153,7 +12153,7 @@ NODES=
  -25950,
  32205
 
-LINE NAME="0_672-110_672_peak_dir1",
+LINE NAME="0_672-110_672_pk1",
  LONGNAME="Express - Wayzata - Minnetonka - Mpls",
  HEADWAY=60,
  MODE=7,
@@ -12368,7 +12368,7 @@ NODES=
  -28246,
  161138
 
-LINE NAME="0_12-110_12_peak_dir0",
+LINE NAME="0_12-110_12_pk0",
  LONGNAME="Uptown - Excelsior Blvd - Hopkins - Opus",
  HEADWAY=25,
  MODE=5,
@@ -12546,7 +12546,7 @@ NODES=
  -25950,
  22030
 
-LINE NAME="0_12-110_12_peak_dir1",
+LINE NAME="0_12-110_12_pk1",
  LONGNAME="Uptown - Excelsior Blvd - Hopkins - Opus",
  HEADWAY=25,
  MODE=5,
@@ -12781,7 +12781,7 @@ NODES=
  -149737,
  149740
 
-LINE NAME="0_12-110_12_offpeak_dir0",
+LINE NAME="0_12-110_12_op0",
  LONGNAME="Uptown - Excelsior Blvd - Hopkins - Opus",
  HEADWAY[2]=180,
  MODE=5,
@@ -12969,7 +12969,7 @@ NODES=
  -25950,
  22030
 
-LINE NAME="0_141-110_141_peak_dir1",
+LINE NAME="0_141-110_141_pk1",
  LONGNAME="Ltd Stop - New Brighton - Johnson St - Mpls",
  HEADWAY=36,
  MODE=5,
@@ -13131,7 +13131,7 @@ NODES=
  9633,
  16143
 
-LINE NAME="2_542-110_542_offpeak_dir0",
+LINE NAME="2_542-110_542_op0",
  LONGNAME="84th St - 76th St - American Blvd - MOA",
  HEADWAY[2]=180,
  MODE=6,
@@ -13324,7 +13324,7 @@ NODES=
  -134000,
  161076
 
-LINE NAME="2_542-110_542_peak_dir0",
+LINE NAME="2_542-110_542_pk0",
  LONGNAME="84th St - 76th St - American Blvd - MOA",
  HEADWAY=30,
  MODE=6,
@@ -13493,7 +13493,7 @@ NODES=
  -22447,
  144328
 
-LINE NAME="2_542-110_542_peak_dir1",
+LINE NAME="2_542-110_542_pk1",
  LONGNAME="84th St - 76th St - American Blvd - MOA",
  HEADWAY=36,
  MODE=6,
@@ -13732,7 +13732,7 @@ NODES=
  -153216,
  30251
 
-LINE NAME="2_542-110_542_offpeak_dir1",
+LINE NAME="2_542-110_542_op1",
  LONGNAME="84th St - 76th St - American Blvd - MOA",
  HEADWAY[2]=180,
  MODE=6,
@@ -13932,7 +13932,7 @@ NODES=
  -153227,
  12260
 
-LINE NAME="2_540-110_540_peak_dir0",
+LINE NAME="2_540-110_540_pk0",
  LONGNAME="Edina - Richfield - 77th St - MOA",
  HEADWAY=25,
  MODE=6,
@@ -14059,7 +14059,7 @@ NODES=
  -22447,
  144328
 
-LINE NAME="2_540-110_540_offpeak_dir0",
+LINE NAME="2_540-110_540_op0",
  LONGNAME="Edina - Richfield - 77th St - MOA",
  HEADWAY[2]=27,
  MODE=6,
@@ -14186,7 +14186,7 @@ NODES=
  -22447,
  144328
 
-LINE NAME="2_540-110_540_peak_dir1",
+LINE NAME="2_540-110_540_pk1",
  LONGNAME="Edina - Richfield - 77th St - MOA",
  HEADWAY=22,
  MODE=6,
@@ -14341,7 +14341,7 @@ NODES=
  -153227,
  12260
 
-LINE NAME="2_540-110_540_offpeak_dir1",
+LINE NAME="2_540-110_540_op1",
  LONGNAME="Edina - Richfield - 77th St - MOA",
  HEADWAY[2]=30,
  MODE=6,
@@ -14496,7 +14496,7 @@ NODES=
  -153227,
  12260
 
-LINE NAME="0_860-110_860_peak_dir1",
+LINE NAME="0_860-110_860_pk1",
  LONGNAME="Express - Coon Rapids - Northtown - St Paul",
  HEADWAY=30,
  MODE=7,
@@ -14672,7 +14672,7 @@ NODES=
  142574,
  153779
 
-LINE NAME="0_760-110_760_peak_dir1",
+LINE NAME="0_760-110_760_pk1",
  LONGNAME="Express - Zane Av - 63rd Av - 65th Av P&R - Mpls",
  HEADWAY=30,
  MODE=7,
@@ -14822,7 +14822,7 @@ NODES=
  -20515,
  4944
 
-LINE NAME="0_361-110_361_peak_dir0",
+LINE NAME="0_361-110_361_pk0",
  LONGNAME="Express - Cottage Grove - St Paul",
  HEADWAY=45,
  MODE=7,
@@ -14886,7 +14886,7 @@ NODES=
  142574,
  153779
 
-LINE NAME="0_361-110_361_peak_dir1",
+LINE NAME="0_361-110_361_pk1",
  LONGNAME="Express - Cottage Grove - St Paul",
  HEADWAY=180,
  MODE=7,
@@ -14965,7 +14965,7 @@ NODES=
  -105017,
  114315
 
-LINE NAME="2_364-110_364_peak_dir0",
+LINE NAME="2_364-110_364_pk0",
  LONGNAME="Express - Newport - Cottage Grove - St Paul",
  HEADWAY=90,
  MODE=7,
@@ -15082,7 +15082,7 @@ NODES=
  81680,
  89332
 
-LINE NAME="0_351-110_351_peak_dir1",
+LINE NAME="0_351-110_351_pk1",
  LONGNAME="Express - Woodbury - St Paul",
  HEADWAY=36,
  MODE=7,
@@ -15151,7 +15151,7 @@ NODES=
  142574,
  153779
 
-LINE NAME="0_351-110_351_peak_dir0",
+LINE NAME="0_351-110_351_pk0",
  LONGNAME="Express - Woodbury - St Paul",
  HEADWAY=90,
  MODE=7,
@@ -15261,7 +15261,7 @@ NODES=
  -119406,
  119614
 
-LINE NAME="2_350-110_350_peak_dir1",
+LINE NAME="2_350-110_350_pk1",
  LONGNAME="Ltd Stop - Sunray - McKnight - St Paul",
  HEADWAY=60,
  MODE=6,
@@ -15378,7 +15378,7 @@ NODES=
  -82568,
  136222
 
-LINE NAME="0_355-110_355_peak_dir1",
+LINE NAME="0_355-110_355_pk1",
  LONGNAME="Express - Woodbury - Mpls",
  HEADWAY=15,
  MODE=7,
@@ -15472,7 +15472,7 @@ NODES=
  4940,
  21315
 
-LINE NAME="0_645-110_645_peak_dir1",
+LINE NAME="0_645-110_645_pk1",
  LONGNAME="Ltd Stop - Mound - Wayzata - Ridgedale - Mpls",
  HEADWAY=25,
  MODE=6,
@@ -15738,7 +15738,7 @@ NODES=
  -141558,
  137463
 
-LINE NAME="0_264-110_264_peak_dir0",
+LINE NAME="0_264-110_264_pk0",
  LONGNAME="Express - Roseville - Co Rd C P & R - Mpls",
  HEADWAY=60,
  MODE=7,
@@ -15831,7 +15831,7 @@ NODES=
  -80242,
  80243
 
-LINE NAME="0_264-110_264_offpeak_dir0",
+LINE NAME="0_264-110_264_op0",
  LONGNAME="Express - Roseville - Co Rd C P & R - Mpls",
  HEADWAY[2]=180,
  MODE=7,
@@ -15924,7 +15924,7 @@ NODES=
  -80242,
  80243
 
-LINE NAME="4_789-110_789_peak_dir1",
+LINE NAME="4_789-110_789_pk1",
  LONGNAME="Maple Grove - Express - Maple Grove Sta - U of M",
  HEADWAY=90,
  MODE=7,
@@ -15994,7 +15994,7 @@ NODES=
  -133157,
  133389
 
-LINE NAME="4_789-110_789_offpeak_dir0",
+LINE NAME="4_789-110_789_op0",
  LONGNAME="Maple Grove - Express - Maple Grove Sta - U of M",
  HEADWAY[2]=360,
  MODE=7,
@@ -16083,7 +16083,7 @@ NODES=
  -135635,
  142594
 
-LINE NAME="4_783-110_783_peak_dir1",
+LINE NAME="4_783-110_783_pk1",
  LONGNAME="Maple Grove - Express - Crosswinds Church P&R",
  HEADWAY=36,
  MODE=7,
@@ -16196,7 +16196,7 @@ NODES=
  -20515,
  4944
 
-LINE NAME="4_782-110_782_peak_dir1",
+LINE NAME="4_782-110_782_pk1",
  LONGNAME="Maple Grove - Express - Zachary and 96th Av P&R",
  HEADWAY=60,
  MODE=7,
@@ -16383,7 +16383,7 @@ NODES=
  -20515,
  4944
 
-LINE NAME="0_94-110_94_peak_dir1",
+LINE NAME="0_94-110_94_pk1",
  LONGNAME="Express - Mpls - St Paul",
  HEADWAY=16,
  MODE=7,
@@ -16471,7 +16471,7 @@ NODES=
  -133418,
  10770
 
-LINE NAME="0_94-110_94_offpeak_dir1",
+LINE NAME="0_94-110_94_op1",
  LONGNAME="Express - Mpls - St Paul",
  HEADWAY[2]=30,
  MODE=7,
@@ -16543,7 +16543,7 @@ NODES=
  -133418,
  10770
 
-LINE NAME="0_94-110_94_peak_dir0",
+LINE NAME="0_94-110_94_pk0",
  LONGNAME="Express - Mpls - St Paul",
  HEADWAY=12,
  MODE=7,
@@ -16616,7 +16616,7 @@ NODES=
  -82690,
  82689
 
-LINE NAME="0_94-110_94_offpeak_dir0",
+LINE NAME="0_94-110_94_op0",
  LONGNAME="Express - Mpls - St Paul",
  HEADWAY[2]=30,
  MODE=7,
@@ -16689,7 +16689,7 @@ NODES=
  -82690,
  82689
 
-LINE NAME="2_30-110_30_peak_dir0",
+LINE NAME="2_30-110_30_pk0",
  LONGNAME="Broadway Crosstown - Westgate Sta",
  HEADWAY=30,
  MODE=5,
@@ -16827,7 +16827,7 @@ NODES=
  90786,
  90787
 
-LINE NAME="2_30-110_30_offpeak_dir0",
+LINE NAME="2_30-110_30_op0",
  LONGNAME="Broadway Crosstown - Westgate Sta",
  HEADWAY[2]=30,
  MODE=5,
@@ -16951,7 +16951,7 @@ NODES=
  90786,
  90787
 
-LINE NAME="2_30-110_30_peak_dir1",
+LINE NAME="2_30-110_30_pk1",
  LONGNAME="Broadway Crosstown - Westgate Sta",
  HEADWAY=30,
  MODE=5,
@@ -17080,7 +17080,7 @@ NODES=
  -31794,
  6905
 
-LINE NAME="2_30-110_30_offpeak_dir1",
+LINE NAME="2_30-110_30_op1",
  LONGNAME="Broadway Crosstown - Westgate Sta",
  HEADWAY[2]=30,
  MODE=5,
@@ -17196,7 +17196,7 @@ NODES=
  -18580,
  13099
 
-LINE NAME="0_17-110_17_peak_dir0",
+LINE NAME="0_17-110_17_pk0",
  LONGNAME="Minnetonka Blvd - Uptown - Washington St NE",
  HEADWAY=11,
  MODE=5,
@@ -17385,7 +17385,7 @@ NODES=
  -3150,
  3152
 
-LINE NAME="0_17-110_17_peak_dir1",
+LINE NAME="0_17-110_17_pk1",
  LONGNAME="Minnetonka Blvd - Uptown - Washington St NE",
  HEADWAY=16,
  MODE=5,
@@ -17585,7 +17585,7 @@ NODES=
  30989,
  158734
 
-LINE NAME="0_17-110_17_offpeak_dir0",
+LINE NAME="0_17-110_17_op0",
  LONGNAME="Minnetonka Blvd - Uptown - Washington St NE",
  HEADWAY[2]=15,
  MODE=5,
@@ -17823,7 +17823,7 @@ NODES=
  -3150,
  3152
 
-LINE NAME="0_17-110_17_offpeak_dir1",
+LINE NAME="0_17-110_17_op1",
  LONGNAME="Minnetonka Blvd - Uptown - Washington St NE",
  HEADWAY[2]=15,
  MODE=5,
@@ -17950,7 +17950,7 @@ NODES=
  -138257,
  147041
 
-LINE NAME="2_671-110_671_peak_dir0",
+LINE NAME="2_671-110_671_pk0",
  LONGNAME="Express - Excelsior - Deephaven - Mpls",
  HEADWAY=60,
  MODE=7,
@@ -18195,7 +18195,7 @@ NODES=
  -133171,
  133170
 
-LINE NAME="2_670-110_670_peak_dir0",
+LINE NAME="2_670-110_670_pk0",
  LONGNAME="Express - Excelsior - Mpls",
  HEADWAY=60,
  MODE=7,
@@ -18399,7 +18399,7 @@ NODES=
  -133171,
  133170
 
-LINE NAME="0_10-110_10_offpeak_dir0",
+LINE NAME="0_10-110_10_op0",
  LONGNAME="Central Av - University Av - Northtown",
  HEADWAY[2]=9,
  MODE=5,
@@ -18580,7 +18580,7 @@ NODES=
  -35579,
  36840
 
-LINE NAME="0_10-110_10_offpeak_dir1",
+LINE NAME="0_10-110_10_op1",
  LONGNAME="Central Av - University Av - Northtown",
  HEADWAY[2]=9,
  MODE=5,
@@ -18779,7 +18779,7 @@ NODES=
  -20547,
  12185
 
-LINE NAME="0_10-110_10_peak_dir1",
+LINE NAME="0_10-110_10_pk1",
  LONGNAME="Central Av - University Av - Northtown",
  HEADWAY=12,
  MODE=5,
@@ -18957,7 +18957,7 @@ NODES=
  -20547,
  12185
 
-LINE NAME="0_10-110_10_peak_dir0",
+LINE NAME="0_10-110_10_pk0",
  LONGNAME="Central Av - University Av - Northtown",
  HEADWAY=11,
  MODE=5,
@@ -19101,7 +19101,7 @@ NODES=
  -35579,
  36840
 
-LINE NAME="0_612-110_612_offpeak_dir1",
+LINE NAME="0_612-110_612_op1",
  LONGNAME="Uptown - Excelsior Blvd-Hopkins - Hopkins - Opus",
  HEADWAY[2]=27,
  MODE=6,
@@ -19237,7 +19237,7 @@ NODES=
  17091,
  18520
 
-LINE NAME="0_612-110_612_peak_dir0",
+LINE NAME="0_612-110_612_pk0",
  LONGNAME="Uptown - Excelsior Blvd-Hopkins - Hopkins - Opus",
  HEADWAY=180,
  MODE=6,
@@ -19371,7 +19371,7 @@ NODES=
  -166155,
  13474
 
-LINE NAME="0_612-110_612_offpeak_dir0",
+LINE NAME="0_612-110_612_op0",
  LONGNAME="Uptown - Excelsior Blvd-Hopkins - Hopkins - Opus",
  HEADWAY[2]=32,
  MODE=6,
@@ -19513,7 +19513,7 @@ NODES=
  -166155,
  13474
 
-LINE NAME="0_59-110_59_peak_dir1",
+LINE NAME="0_59-110_59_pk1",
  LONGNAME="Ltd Stop - Blaine - Hwy 65 - Central Av - Mpls",
  HEADWAY=20,
  MODE=5,
@@ -19629,7 +19629,7 @@ NODES=
  -20547,
  12185
 
-LINE NAME="0_365-110_365_peak_dir0",
+LINE NAME="0_365-110_365_pk0",
  LONGNAME="Express - Cottage Grove - Newport - Mpls",
  HEADWAY=20,
  MODE=7,
@@ -19723,7 +19723,7 @@ NODES=
  4940,
  21315
 
-LINE NAME="2_27-110_27_offpeak_dir1",
+LINE NAME="2_27-110_27_op1",
  LONGNAME="Lake St Sta - 26th St - 28St",
  HEADWAY[2]=27,
  MODE=5,
@@ -19766,7 +19766,7 @@ NODES=
  -135417,
  134350
 
-LINE NAME="2_27-110_27_peak_dir1",
+LINE NAME="2_27-110_27_pk1",
  LONGNAME="Lake St Sta - 26th St - 28St",
  HEADWAY=30,
  MODE=5,
@@ -19809,7 +19809,7 @@ NODES=
  -135417,
  134350
 
-LINE NAME="2_27-110_27_peak_dir0",
+LINE NAME="2_27-110_27_pk0",
  LONGNAME="Lake St Sta - 26th St - 28St",
  HEADWAY=30,
  MODE=5,
@@ -19844,7 +19844,7 @@ NODES=
  -148615,
  162550
 
-LINE NAME="2_27-110_27_offpeak_dir0",
+LINE NAME="2_27-110_27_op0",
  LONGNAME="Lake St Sta - 26th St - 28St",
  HEADWAY[2]=30,
  MODE=5,
@@ -19879,7 +19879,7 @@ NODES=
  -148615,
  162550
 
-LINE NAME="0_677-110_677_peak_dir0",
+LINE NAME="0_677-110_677_pk0",
  LONGNAME="Express- Mound - Orono - Plymouth Rd - Mpls",
  HEADWAY=60,
  MODE=7,
@@ -20037,7 +20037,7 @@ NODES=
  132627,
  7928
 
-LINE NAME="2_705-110_705_peak_dir0",
+LINE NAME="2_705-110_705_pk0",
  LONGNAME="Starlite - Winnetka Av - Louisiana Av Transit Ctr",
  HEADWAY=60,
  MODE=6,
@@ -20221,7 +20221,7 @@ NODES=
  10111,
  29450
 
-LINE NAME="2_705-110_705_offpeak_dir0",
+LINE NAME="2_705-110_705_op0",
  LONGNAME="Starlite - Winnetka Av - Louisiana Av Transit Ctr",
  HEADWAY[2]=60,
  MODE=6,
@@ -20405,7 +20405,7 @@ NODES=
  10111,
  29450
 
-LINE NAME="2_705-110_705_offpeak_dir1",
+LINE NAME="2_705-110_705_op1",
  LONGNAME="Starlite - Winnetka Av - Louisiana Av Transit Ctr",
  HEADWAY[2]=60,
  MODE=6,
@@ -20583,7 +20583,7 @@ NODES=
  -132328,
  138522
 
-LINE NAME="2_705-110_705_peak_dir1",
+LINE NAME="2_705-110_705_pk1",
  LONGNAME="Starlite - Winnetka Av - Louisiana Av Transit Ctr",
  HEADWAY=60,
  MODE=6,
@@ -20742,7 +20742,7 @@ NODES=
  -132328,
  138522
 
-LINE NAME="0_65-110_65_peak_dir0",
+LINE NAME="0_65-110_65_pk0",
  LONGNAME="Dale St - Co Rd B - Rosedale",
  HEADWAY=22,
  MODE=5,
@@ -20861,7 +20861,7 @@ NODES=
  -80242,
  80243
 
-LINE NAME="0_65-110_65_peak_dir1",
+LINE NAME="0_65-110_65_pk1",
  LONGNAME="Dale St - Co Rd B - Rosedale",
  HEADWAY=20,
  MODE=5,
@@ -20981,7 +20981,7 @@ NODES=
  -136181,
  153779
 
-LINE NAME="0_65-110_65_offpeak_dir1",
+LINE NAME="0_65-110_65_op1",
  LONGNAME="Dale St - Co Rd B - Rosedale",
  HEADWAY[2]=30,
  MODE=5,
@@ -21101,7 +21101,7 @@ NODES=
  -136181,
  153779
 
-LINE NAME="0_65-110_65_offpeak_dir0",
+LINE NAME="0_65-110_65_op0",
  LONGNAME="Dale St - Co Rd B - Rosedale",
  HEADWAY[2]=27,
  MODE=5,
@@ -21220,7 +21220,7 @@ NODES=
  -80242,
  80243
 
-LINE NAME="0_265-110_265_peak_dir1",
+LINE NAME="0_265-110_265_pk1",
  LONGNAME="Express - White Bear Lake - Maplewood - St Paul",
  HEADWAY=60,
  MODE=7,
@@ -21382,7 +21382,7 @@ NODES=
  142574,
  153779
 
-LINE NAME="2_604-110_604_peak_dir0",
+LINE NAME="2_604-110_604_pk0",
  LONGNAME="Louisiana Av - Excelsior Blvd",
  HEADWAY=90,
  MODE=6,
@@ -21443,7 +21443,7 @@ NODES=
  -132328,
  138522
 
-LINE NAME="2_604-110_604_peak_dir1",
+LINE NAME="2_604-110_604_pk1",
  LONGNAME="Louisiana Av - Excelsior Blvd",
  HEADWAY=60,
  MODE=6,
@@ -21521,7 +21521,7 @@ NODES=
  -141092,
  141091
 
-LINE NAME="2_604-110_604_offpeak_dir0",
+LINE NAME="2_604-110_604_op0",
  LONGNAME="Louisiana Av - Excelsior Blvd",
  HEADWAY[2]=60,
  MODE=6,
@@ -21582,7 +21582,7 @@ NODES=
  -132328,
  138522
 
-LINE NAME="2_604-110_604_offpeak_dir1",
+LINE NAME="2_604-110_604_op1",
  LONGNAME="Louisiana Av - Excelsior Blvd",
  HEADWAY[2]=60,
  MODE=6,
@@ -21660,7 +21660,7 @@ NODES=
  -141092,
  141091
 
-LINE NAME="0_765-110_765_peak_dir0",
+LINE NAME="0_765-110_765_pk0",
  LONGNAME="Express - Target - Hwy 252 and 73rd Av P&R - Mpls",
  HEADWAY=36,
  MODE=7,
@@ -21741,7 +21741,7 @@ NODES=
  16263,
  149116
 
-LINE NAME="0_767-110_767_peak_dir1",
+LINE NAME="0_767-110_767_pk1",
  LONGNAME="Express - 63rd Av P&R - 65th Av P&R - Mpls",
  HEADWAY=45,
  MODE=7,
@@ -21866,7 +21866,7 @@ NODES=
  -20515,
  4944
 
-LINE NAME="0_643-110_643_peak_dir1",
+LINE NAME="0_643-110_643_pk1",
  LONGNAME="Ltd Stop - Golden Hills Dr - Cedar Lake Rd - Mpls",
  HEADWAY=36,
  MODE=5,
@@ -21967,7 +21967,7 @@ NODES=
  7197,
  28950
 
-LINE NAME="0_852-110_852_peak_dir0",
+LINE NAME="0_852-110_852_pk0",
  LONGNAME="Express - Anoka - Coon Rapids - Northtown - Mpls",
  HEADWAY=60,
  MODE=7,
@@ -22263,7 +22263,7 @@ NODES=
  33716,
  34936
 
-LINE NAME="0_852-110_852_offpeak_dir0",
+LINE NAME="0_852-110_852_op0",
  LONGNAME="Express - Anoka - Coon Rapids - Northtown - Mpls",
  HEADWAY[2]=60,
  MODE=7,
@@ -22547,7 +22547,7 @@ NODES=
  33716,
  34936
 
-LINE NAME="0_852-110_852_peak_dir1",
+LINE NAME="0_852-110_852_pk1",
  LONGNAME="Express - Anoka - Coon Rapids - Northtown - Mpls",
  HEADWAY=45,
  MODE=7,
@@ -22749,7 +22749,7 @@ NODES=
  -10419,
  9299
 
-LINE NAME="0_852-110_852_offpeak_dir1",
+LINE NAME="0_852-110_852_op1",
  LONGNAME="Express - Anoka - Coon Rapids - Northtown - Mpls",
  HEADWAY[2]=60,
  MODE=7,
@@ -23053,7 +23053,7 @@ NODES=
  -10419,
  9299
 
-LINE NAME="0_262-110_262_peak_dir1",
+LINE NAME="0_262-110_262_pk1",
  LONGNAME="Ltd Stop - 95Av P&R - Shoreview  Rice - St Paul",
  HEADWAY=90,
  MODE=6,
@@ -23278,7 +23278,7 @@ NODES=
  -82690,
  82689
 
-LINE NAME="0_721-110_721_peak_dir0",
+LINE NAME="0_721-110_721_pk0",
  LONGNAME="Ltd Stop - Brooklyn Center - Target Campus - Mpls",
  HEADWAY=45,
  MODE=6,
@@ -23398,7 +23398,7 @@ NODES=
  -154698,
  154699
 
-LINE NAME="0_721-110_721_offpeak_dir0",
+LINE NAME="0_721-110_721_op0",
  LONGNAME="Ltd Stop - Brooklyn Center - Target Campus - Mpls",
  HEADWAY[2]=30,
  MODE=6,
@@ -23518,7 +23518,7 @@ NODES=
  -154698,
  154699
 
-LINE NAME="0_721-110_721_peak_dir1",
+LINE NAME="0_721-110_721_pk1",
  LONGNAME="Ltd Stop - Brooklyn Center - Target Campus - Mpls",
  HEADWAY=36,
  MODE=6,
@@ -23626,7 +23626,7 @@ NODES=
  19711,
  22691
 
-LINE NAME="0_721-110_721_offpeak_dir1",
+LINE NAME="0_721-110_721_op1",
  LONGNAME="Ltd Stop - Brooklyn Center - Target Campus - Mpls",
  HEADWAY[2]=30,
  MODE=6,
@@ -23734,7 +23734,7 @@ NODES=
  19711,
  22691
 
-LINE NAME="0_673-110_673_peak_dir0",
+LINE NAME="0_673-110_673_pk0",
  LONGNAME="Express - Co Rd 73 P&R - Mpls",
  HEADWAY=18,
  MODE=7,
@@ -23810,7 +23810,7 @@ NODES=
  -7951,
  32466
 
-LINE NAME="0_663-110_663_peak_dir0",
+LINE NAME="0_663-110_663_pk0",
  LONGNAME="Express - Cedar Lake Rd - Mpls",
  HEADWAY=25,
  MODE=7,
@@ -23915,7 +23915,7 @@ NODES=
  19690,
  20257
 
-LINE NAME="0_663-110_663_offpeak_dir1",
+LINE NAME="0_663-110_663_op1",
  LONGNAME="Express - Cedar Lake Rd - Mpls",
  HEADWAY[2]=360,
  MODE=7,
@@ -24017,7 +24017,7 @@ NODES=
  7197,
  28950
 
-LINE NAME="0_663-110_663_offpeak_dir0",
+LINE NAME="0_663-110_663_op0",
  LONGNAME="Express - Cedar Lake Rd - Mpls",
  HEADWAY[2]=360,
  MODE=7,
@@ -24122,7 +24122,7 @@ NODES=
  19690,
  20257
 
-LINE NAME="0_664-110_664_peak_dir0",
+LINE NAME="0_664-110_664_pk0",
  LONGNAME="Express - Hopkins - Excelsior Blvd - Mpls",
  HEADWAY=45,
  MODE=7,
@@ -24281,7 +24281,7 @@ NODES=
  -132627,
  7928
 
-LINE NAME="0_587-110_587_peak_dir0",
+LINE NAME="0_587-110_587_pk0",
  LONGNAME="Express - Edina - Valley View -Vernon - Mpls",
  HEADWAY=36,
  MODE=7,
@@ -24447,7 +24447,7 @@ NODES=
  -133171,
  133170
 
-LINE NAME="0_667-110_667_peak_dir0",
+LINE NAME="0_667-110_667_pk0",
  LONGNAME="Express - Minnetonka - St Louis Park - Mpls",
  HEADWAY=22,
  MODE=7,
@@ -24568,7 +24568,7 @@ NODES=
  -25950,
  32205
 
-LINE NAME="0_375-110_375_peak_dir1",
+LINE NAME="0_375-110_375_pk1",
  LONGNAME="Express - Oakdale - Mpls",
  HEADWAY=22,
  MODE=7,
@@ -24654,7 +24654,7 @@ NODES=
  4940,
  21315
 
-LINE NAME="0_275-110_275_peak_dir1",
+LINE NAME="0_275-110_275_pk1",
  LONGNAME="Express - Forest Lake - Co Rd 14 P&R - St Paul",
  HEADWAY=36,
  MODE=7,
@@ -24720,7 +24720,7 @@ NODES=
  142574,
  153779
 
-LINE NAME="0_722-110_722_peak_dir0",
+LINE NAME="0_722-110_722_pk0",
  LONGNAME="Brooklyn Ctr - Humboldt - Shingle Creek",
  HEADWAY=30,
  MODE=6,
@@ -24848,7 +24848,7 @@ NODES=
  -158800,
  16263
 
-LINE NAME="0_722-110_722_offpeak_dir0",
+LINE NAME="0_722-110_722_op0",
  LONGNAME="Brooklyn Ctr - Humboldt - Shingle Creek",
  HEADWAY[2]=30,
  MODE=6,
@@ -24976,7 +24976,7 @@ NODES=
  -158800,
  16263
 
-LINE NAME="0_722-110_722_peak_dir1",
+LINE NAME="0_722-110_722_pk1",
  LONGNAME="Brooklyn Ctr - Humboldt - Shingle Creek",
  HEADWAY=30,
  MODE=6,
@@ -25023,7 +25023,7 @@ NODES=
  -141672,
  22691
 
-LINE NAME="0_722-110_722_offpeak_dir1",
+LINE NAME="0_722-110_722_op1",
  LONGNAME="Brooklyn Ctr - Humboldt - Shingle Creek",
  HEADWAY[2]=30,
  MODE=6,
@@ -25070,7 +25070,7 @@ NODES=
  -141672,
  22691
 
-LINE NAME="0_75-110_75_offpeak_dir0",
+LINE NAME="0_75-110_75_op0",
  LONGNAME="Stryker - Robert - Mendota Hts - Lake Cove Apts",
  HEADWAY[2]=45,
  MODE=5,
@@ -25169,7 +25169,7 @@ NODES=
  -88092,
  84148
 
-LINE NAME="0_75-110_75_offpeak_dir1",
+LINE NAME="0_75-110_75_op1",
  LONGNAME="Stryker - Robert - Mendota Hts - Lake Cove Apts",
  HEADWAY[2]=45,
  MODE=5,
@@ -25272,7 +25272,7 @@ NODES=
  56408,
  61577
 
-LINE NAME="0_75-110_75_peak_dir0",
+LINE NAME="0_75-110_75_pk0",
  LONGNAME="Stryker - Robert - Mendota Hts - Lake Cove Apts",
  HEADWAY=25,
  MODE=5,
@@ -25371,7 +25371,7 @@ NODES=
  -88092,
  84148
 
-LINE NAME="0_75-110_75_peak_dir1",
+LINE NAME="0_75-110_75_pk1",
  LONGNAME="Stryker - Robert - Mendota Hts - Lake Cove Apts",
  HEADWAY=30,
  MODE=5,
@@ -25467,7 +25467,7 @@ NODES=
  56408,
  61577
 
-LINE NAME="0_62-110_62_peak_dir0",
+LINE NAME="0_62-110_62_pk0",
  LONGNAME="Shoreview - Little Canada - Rice St Signal Hills",
  HEADWAY=15,
  MODE=5,
@@ -25555,7 +25555,7 @@ NODES=
  91494,
  81500
 
-LINE NAME="0_62-110_62_offpeak_dir0",
+LINE NAME="0_62-110_62_op0",
  LONGNAME="Shoreview - Little Canada - Rice St Signal Hills",
  HEADWAY[2]=15,
  MODE=5,
@@ -25643,7 +25643,7 @@ NODES=
  91494,
  81500
 
-LINE NAME="0_62-110_62_peak_dir1",
+LINE NAME="0_62-110_62_pk1",
  LONGNAME="Shoreview - Little Canada - Rice St Signal Hills",
  HEADWAY=15,
  MODE=5,
@@ -25706,7 +25706,7 @@ NODES=
  -89330,
  82668
 
-LINE NAME="0_62-110_62_offpeak_dir1",
+LINE NAME="0_62-110_62_op1",
  LONGNAME="Shoreview - Little Canada - Rice St Signal Hills",
  HEADWAY[2]=15,
  MODE=5,
@@ -25769,7 +25769,7 @@ NODES=
  -89330,
  82668
 
-LINE NAME="0_825-110_825_peak_dir1",
+LINE NAME="0_825-110_825_pk1",
  LONGNAME="Ltd Stop - Northtown - St. Anthony - Mpls",
  HEADWAY=20,
  MODE=5,
@@ -25991,7 +25991,7 @@ NODES=
  -20515,
  4944
 
-LINE NAME="2_223-110_223_peak_dir1",
+LINE NAME="2_223-110_223_pk1",
  LONGNAME="Rosedale - Little Canada - Maplewood",
  HEADWAY=90,
  MODE=6,
@@ -26124,7 +26124,7 @@ NODES=
  -80242,
  80243
 
-LINE NAME="2_223-110_223_offpeak_dir1",
+LINE NAME="2_223-110_223_op1",
  LONGNAME="Rosedale - Little Canada - Maplewood",
  HEADWAY[2]=90,
  MODE=6,
@@ -26257,7 +26257,7 @@ NODES=
  -80242,
  80243
 
-LINE NAME="0_589-110_589_peak_dir0",
+LINE NAME="0_589-110_589_pk0",
  LONGNAME="Express - West Bloomington - Mpls",
  HEADWAY=60,
  MODE=7,
@@ -26484,7 +26484,7 @@ NODES=
  133168,
  11589
 
-LINE NAME="0_261-110_261_peak_dir1",
+LINE NAME="0_261-110_261_pk1",
  LONGNAME="Express - Shoreview - Roseville - Mpls",
  HEADWAY=30,
  MODE=7,
@@ -26623,7 +26623,7 @@ NODES=
  -10419,
  9299
 
-LINE NAME="0_824-110_824_peak_dir1",
+LINE NAME="0_824-110_824_pk1",
  LONGNAME="Ltd Stop - Northtown - Monroe - University - Mpls",
  HEADWAY=60,
  MODE=5,
@@ -26779,7 +26779,7 @@ NODES=
  -10419,
  9299
 
-LINE NAME="0_756-110_756_peak_dir1",
+LINE NAME="0_756-110_756_pk1",
  LONGNAME="Express- Hwy 55 - Mendelssohn Rd - Boone  - Mpls",
  HEADWAY=60,
  MODE=7,
@@ -26938,7 +26938,7 @@ NODES=
  133168,
  11589
 
-LINE NAME="2_717-110_717_offpeak_dir0",
+LINE NAME="2_717-110_717_op0",
  LONGNAME="Brooklyn Center - Robbinsdale - Plymouth",
  HEADWAY[2]=60,
  MODE=6,
@@ -27039,7 +27039,7 @@ NODES=
  19711,
  22691
 
-LINE NAME="2_717-110_717_peak_dir1",
+LINE NAME="2_717-110_717_pk1",
  LONGNAME="Brooklyn Center - Robbinsdale - Plymouth",
  HEADWAY=60,
  MODE=6,
@@ -27131,7 +27131,7 @@ NODES=
  -4165,
  15442
 
-LINE NAME="2_717-110_717_offpeak_dir1",
+LINE NAME="2_717-110_717_op1",
  LONGNAME="Brooklyn Center - Robbinsdale - Plymouth",
  HEADWAY[2]=60,
  MODE=6,
@@ -27223,7 +27223,7 @@ NODES=
  -4165,
  15442
 
-LINE NAME="2_717-110_717_peak_dir0",
+LINE NAME="2_717-110_717_pk0",
  LONGNAME="Brooklyn Center - Robbinsdale - Plymouth",
  HEADWAY=60,
  MODE=6,
@@ -27324,7 +27324,7 @@ NODES=
  19711,
  22691
 
-LINE NAME="2_762-110_762_peak_dir1",
+LINE NAME="2_762-110_762_pk1",
  LONGNAME="Ltd Stop - Brooklyn Ctr - Humboldt Av - Mpls",
  HEADWAY=90,
  MODE=5,
@@ -27409,7 +27409,7 @@ NODES=
  -20515,
  4944
 
-LINE NAME="0_272-110_272_peak_dir1",
+LINE NAME="0_272-110_272_pk1",
  LONGNAME="Express - Maplewood - Roseville - U of M",
  HEADWAY=90,
  MODE=7,
@@ -27552,7 +27552,7 @@ NODES=
  -7202,
  147676
 
-LINE NAME="2_716-110_716_peak_dir1",
+LINE NAME="2_716-110_716_pk1",
  LONGNAME="Zane Av - 63rd Av - Crystal - Robbinsdale",
  HEADWAY=60,
  MODE=6,
@@ -27671,7 +27671,7 @@ NODES=
  -22089,
  16060
 
-LINE NAME="2_716-110_716_offpeak_dir1",
+LINE NAME="2_716-110_716_op1",
  LONGNAME="Zane Av - 63rd Av - Crystal - Robbinsdale",
  HEADWAY[2]=60,
  MODE=6,
@@ -27790,7 +27790,7 @@ NODES=
  -22089,
  16060
 
-LINE NAME="2_716-110_716_peak_dir0",
+LINE NAME="2_716-110_716_pk0",
  LONGNAME="Zane Av - 63rd Av - Crystal - Robbinsdale",
  HEADWAY=45,
  MODE=6,
@@ -27890,7 +27890,7 @@ NODES=
  -163001,
  163003
 
-LINE NAME="2_716-110_716_offpeak_dir0",
+LINE NAME="2_716-110_716_op0",
  LONGNAME="Zane Av - 63rd Av - Crystal - Robbinsdale",
  HEADWAY[2]=60,
  MODE=6,
@@ -27990,7 +27990,7 @@ NODES=
  -163001,
  163003
 
-LINE NAME="0_764-110_764_peak_dir1",
+LINE NAME="0_764-110_764_pk1",
  LONGNAME="Express - Winnetka Av - 42nd Av - Mpls",
  HEADWAY=60,
  MODE=7,
@@ -28130,7 +28130,7 @@ NODES=
  -146968,
  4662
 
-LINE NAME="0_53-110_53_peak_dir0",
+LINE NAME="0_53-110_53_pk0",
  LONGNAME="Ltd Stop - Uptown - Lake St - Marshall Av",
  HEADWAY=22,
  MODE=5,
@@ -28294,7 +28294,7 @@ NODES=
  -85696,
  88375
 
-LINE NAME="0_53-110_53_offpeak_dir1",
+LINE NAME="0_53-110_53_op1",
  LONGNAME="Ltd Stop - Uptown - Lake St - Marshall Av",
  HEADWAY[2]=360,
  MODE=5,
@@ -28451,7 +28451,7 @@ NODES=
  -28073,
  134352
 
-LINE NAME="0_723-110_723_peak_dir0",
+LINE NAME="0_723-110_723_pk0",
  LONGNAME="Starlite - N Henn Comm College - Brooklyn Ctr",
  HEADWAY=45,
  MODE=6,
@@ -28560,7 +28560,7 @@ NODES=
  -24449,
  169650
 
-LINE NAME="0_723-110_723_offpeak_dir0",
+LINE NAME="0_723-110_723_op0",
  LONGNAME="Starlite - N Henn Comm College - Brooklyn Ctr",
  HEADWAY[2]=30,
  MODE=6,
@@ -28669,7 +28669,7 @@ NODES=
  -24449,
  169650
 
-LINE NAME="0_723-110_723_peak_dir1",
+LINE NAME="0_723-110_723_pk1",
  LONGNAME="Starlite - N Henn Comm College - Brooklyn Ctr",
  HEADWAY=45,
  MODE=6,
@@ -28762,7 +28762,7 @@ NODES=
  19711,
  22691
 
-LINE NAME="0_723-110_723_offpeak_dir1",
+LINE NAME="0_723-110_723_op1",
  LONGNAME="Starlite - N Henn Comm College - Brooklyn Ctr",
  HEADWAY[2]=30,
  MODE=6,
@@ -28855,7 +28855,7 @@ NODES=
  19711,
  22691
 
-LINE NAME="2_831-110_831_peak_dir0",
+LINE NAME="2_831-110_831_pk0",
  LONGNAME="Anoka Traveler - 117th Av - Polk - Northtown",
  HEADWAY=60,
  MODE=6,
@@ -28968,7 +28968,7 @@ NODES=
  -40661,
  41406
 
-LINE NAME="2_831-110_831_peak_dir1",
+LINE NAME="2_831-110_831_pk1",
  LONGNAME="Anoka Traveler - 117th Av - Polk - Northtown",
  HEADWAY=60,
  MODE=6,
@@ -29079,7 +29079,7 @@ NODES=
  -35579,
  36840
 
-LINE NAME="2_831-110_831_offpeak_dir0",
+LINE NAME="2_831-110_831_op0",
  LONGNAME="Anoka Traveler - 117th Av - Polk - Northtown",
  HEADWAY[2]=60,
  MODE=6,
@@ -29192,7 +29192,7 @@ NODES=
  -40661,
  41406
 
-LINE NAME="2_831-110_831_offpeak_dir1",
+LINE NAME="2_831-110_831_op1",
  LONGNAME="Anoka Traveler - 117th Av - Polk - Northtown",
  HEADWAY[2]=60,
  MODE=6,
@@ -29303,7 +29303,7 @@ NODES=
  -35579,
  36840
 
-LINE NAME="0_129-110_129_peak_dir1",
+LINE NAME="0_129-110_129_pk1",
  LONGNAME="U of M - Huron Shuttle",
  HEADWAY=18,
  MODE=5,
@@ -29354,7 +29354,7 @@ NODES=
  -7202,
  147676
 
-LINE NAME="2_615-110_615_peak_dir0",
+LINE NAME="2_615-110_615_pk0",
  LONGNAME="Ridgedale - Co Rd 73 - St Louis Park",
  HEADWAY=60,
  MODE=6,
@@ -29614,7 +29614,7 @@ NODES=
  -141094,
  141091
 
-LINE NAME="2_615-110_615_offpeak_dir0",
+LINE NAME="2_615-110_615_op0",
  LONGNAME="Ridgedale - Co Rd 73 - St Louis Park",
  HEADWAY[2]=60,
  MODE=6,
@@ -29874,7 +29874,7 @@ NODES=
  -141094,
  141091
 
-LINE NAME="2_615-110_615_peak_dir1",
+LINE NAME="2_615-110_615_pk1",
  LONGNAME="Ridgedale - Co Rd 73 - St Louis Park",
  HEADWAY=90,
  MODE=6,
@@ -30095,7 +30095,7 @@ NODES=
  -5464,
  11454
 
-LINE NAME="2_615-110_615_offpeak_dir1",
+LINE NAME="2_615-110_615_op1",
  LONGNAME="Ridgedale - Co Rd 73 - St Louis Park",
  HEADWAY[2]=60,
  MODE=6,
@@ -30316,7 +30316,7 @@ NODES=
  -5464,
  11454
 
-LINE NAME="2_219-110_219_peak_dir1",
+LINE NAME="2_219-110_219_pk1",
  LONGNAME="Maplewood - Century Av - Hadley Av - Sunray",
  HEADWAY=36,
  MODE=6,
@@ -30518,7 +30518,7 @@ NODES=
  85148,
  85149
 
-LINE NAME="2_219-110_219_peak_dir0",
+LINE NAME="2_219-110_219_pk0",
  LONGNAME="Maplewood - Century Av - Hadley Av - Sunray",
  HEADWAY=36,
  MODE=6,
@@ -30742,7 +30742,7 @@ NODES=
  -139050,
  166181
 
-LINE NAME="2_219-110_219_offpeak_dir0",
+LINE NAME="2_219-110_219_op0",
  LONGNAME="Maplewood - Century Av - Hadley Av - Sunray",
  HEADWAY[2]=30,
  MODE=6,
@@ -30966,7 +30966,7 @@ NODES=
  -139050,
  166181
 
-LINE NAME="2_219-110_219_offpeak_dir1",
+LINE NAME="2_219-110_219_op1",
  LONGNAME="Maplewood - Century Av - Hadley Av - Sunray",
  HEADWAY[2]=30,
  MODE=6,
@@ -31168,7 +31168,7 @@ NODES=
  85148,
  85149
 
-LINE NAME="0_415-110_415_peak_dir0",
+LINE NAME="0_415-110_415_pk0",
  LONGNAME="MOA - Mendota Heights - Eagan",
  HEADWAY=90,
  MODE=6,
@@ -31236,7 +31236,7 @@ NODES=
  61600,
  152969
 
-LINE NAME="2_227-110_227_offpeak_dir1",
+LINE NAME="2_227-110_227_op1",
  LONGNAME="Target Shoreview - Victoria - Rosedale",
  HEADWAY[2]=60,
  MODE=6,
@@ -31331,7 +31331,7 @@ NODES=
  -87734,
  80242
 
-LINE NAME="2_227-110_227_peak_dir1",
+LINE NAME="2_227-110_227_pk1",
  LONGNAME="Target Shoreview - Victoria - Rosedale",
  HEADWAY=30,
  MODE=6,
@@ -31421,7 +31421,7 @@ NODES=
  -87734,
  80242
 
-LINE NAME="0_758-110_758_peak_dir1",
+LINE NAME="0_758-110_758_pk1",
  LONGNAME="Express - Douglas - MnDot P&R - Noble - Mpls",
  HEADWAY=25,
  MODE=7,
@@ -31517,7 +31517,7 @@ NODES=
  -146968,
  4662
 
-LINE NAME="2_80-110_80_peak_dir0",
+LINE NAME="2_80-110_80_pk0",
  LONGNAME="Maplewood - White Bear Av - Sunray",
  HEADWAY=36,
  MODE=5,
@@ -31610,7 +31610,7 @@ NODES=
  -139051,
  166179
 
-LINE NAME="2_80-110_80_peak_dir1",
+LINE NAME="2_80-110_80_pk1",
  LONGNAME="Maplewood - White Bear Av - Sunray",
  HEADWAY=45,
  MODE=5,
@@ -31704,7 +31704,7 @@ NODES=
  85148,
  85149
 
-LINE NAME="2_80-110_80_offpeak_dir1",
+LINE NAME="2_80-110_80_op1",
  LONGNAME="Maplewood - White Bear Av - Sunray",
  HEADWAY[2]=51,
  MODE=5,
@@ -31798,7 +31798,7 @@ NODES=
  85148,
  85149
 
-LINE NAME="2_80-110_80_offpeak_dir0",
+LINE NAME="2_80-110_80_op0",
  LONGNAME="Maplewood - White Bear Av - Sunray",
  HEADWAY[2]=51,
  MODE=5,
@@ -31891,7 +31891,7 @@ NODES=
  -139051,
  166179
 
-LINE NAME="2_537-110_537_peak_dir0",
+LINE NAME="2_537-110_537_pk0",
  LONGNAME="Valley West - Normandale Col - France - Southdale",
  HEADWAY=90,
  MODE=6,
@@ -31977,7 +31977,7 @@ NODES=
  -153124,
  153125
 
-LINE NAME="2_537-110_537_offpeak_dir0",
+LINE NAME="2_537-110_537_op0",
  LONGNAME="Valley West - Normandale Col - France - Southdale",
  HEADWAY[2]=72,
  MODE=6,
@@ -32063,7 +32063,7 @@ NODES=
  -153124,
  153125
 
-LINE NAME="2_537-110_537_peak_dir1",
+LINE NAME="2_537-110_537_pk1",
  LONGNAME="Valley West - Normandale Col - France - Southdale",
  HEADWAY=90,
  MODE=6,
@@ -32144,7 +32144,7 @@ NODES=
  -19151,
  11268
 
-LINE NAME="2_537-110_537_offpeak_dir1",
+LINE NAME="2_537-110_537_op1",
  LONGNAME="Valley West - Normandale Col - France - Southdale",
  HEADWAY[2]=60,
  MODE=6,
@@ -32225,7 +32225,7 @@ NODES=
  -19151,
  11268
 
-LINE NAME="2_539-110_539_peak_dir0",
+LINE NAME="2_539-110_539_pk0",
  LONGNAME="Southtown - Normandale -Valley West - 98th - MOA",
  HEADWAY=45,
  MODE=6,
@@ -32508,7 +32508,7 @@ NODES=
  -22447,
  144328
 
-LINE NAME="2_539-110_539_offpeak_dir0",
+LINE NAME="2_539-110_539_op0",
  LONGNAME="Southtown - Normandale -Valley West - 98th - MOA",
  HEADWAY[2]=30,
  MODE=6,
@@ -32791,7 +32791,7 @@ NODES=
  -22447,
  144328
 
-LINE NAME="2_539-110_539_offpeak_dir1",
+LINE NAME="2_539-110_539_op1",
  LONGNAME="Southtown - Normandale -Valley West - 98th - MOA",
  HEADWAY[2]=30,
  MODE=6,
@@ -33030,7 +33030,7 @@ NODES=
  144504,
  152056
 
-LINE NAME="2_539-110_539_peak_dir1",
+LINE NAME="2_539-110_539_pk1",
  LONGNAME="Southtown - Normandale -Valley West - 98th - MOA",
  HEADWAY=36,
  MODE=6,
@@ -33257,7 +33257,7 @@ NODES=
  144504,
  152056
 
-LINE NAME="0_14-110_14_peak_dir0",
+LINE NAME="0_14-110_14_pk0",
  LONGNAME="Robbinsdale - West Broadway - Bloomington Av",
  HEADWAY=12,
  MODE=5,
@@ -33430,7 +33430,7 @@ NODES=
  -16066,
  16060
 
-LINE NAME="0_14-110_14_offpeak_dir0",
+LINE NAME="0_14-110_14_op0",
  LONGNAME="Robbinsdale - West Broadway - Bloomington Av",
  HEADWAY[2]=18,
  MODE=5,
@@ -33656,7 +33656,7 @@ NODES=
  -16066,
  16060
 
-LINE NAME="0_14-110_14_peak_dir1",
+LINE NAME="0_14-110_14_pk1",
  LONGNAME="Robbinsdale - West Broadway - Bloomington Av",
  HEADWAY=12,
  MODE=5,
@@ -33748,7 +33748,7 @@ NODES=
  -133432,
  146860
 
-LINE NAME="0_9-110_9_peak_dir0",
+LINE NAME="0_9-110_9_pk0",
  LONGNAME="Glenwood - Wayzata Blvd - Cedar Lk Rd - 46 St Sta",
  HEADWAY=20,
  MODE=5,
@@ -33980,7 +33980,7 @@ NODES=
  -142560,
  146866
 
-LINE NAME="0_9-110_9_offpeak_dir0",
+LINE NAME="0_9-110_9_op0",
  LONGNAME="Glenwood - Wayzata Blvd - Cedar Lk Rd - 46 St Sta",
  HEADWAY[2]=30,
  MODE=5,
@@ -34229,7 +34229,7 @@ NODES=
  -142560,
  146866
 
-LINE NAME="0_9-110_9_peak_dir1",
+LINE NAME="0_9-110_9_pk1",
  LONGNAME="Glenwood - Wayzata Blvd - Cedar Lk Rd - 46 St Sta",
  HEADWAY=22,
  MODE=5,
@@ -34465,7 +34465,7 @@ NODES=
  -132328,
  138522
 
-LINE NAME="0_9-110_9_offpeak_dir1",
+LINE NAME="0_9-110_9_op1",
  LONGNAME="Glenwood - Wayzata Blvd - Cedar Lk Rd - 46 St Sta",
  HEADWAY[2]=30,
  MODE=5,
@@ -34727,7 +34727,7 @@ NODES=
  7197,
  28950
 
-LINE NAME="0_294-110_294_peak_dir1",
+LINE NAME="0_294-110_294_pk1",
  LONGNAME="Express - Oakdale - Stillwater - St Paul",
  HEADWAY=36,
  MODE=7,
@@ -34899,7 +34899,7 @@ NODES=
  142574,
  153779
 
-LINE NAME="0_294-110_294_peak_dir0",
+LINE NAME="0_294-110_294_pk0",
  LONGNAME="Express - Oakdale - Stillwater - St Paul",
  HEADWAY=90,
  MODE=7,
@@ -35077,7 +35077,7 @@ NODES=
  -106240,
  106239
 
-LINE NAME="0_588-110_588_peak_dir1",
+LINE NAME="0_588-110_588_pk1",
  LONGNAME="Express -  Normandale Lake Offices - Mpls",
  HEADWAY=90,
  MODE=7,
@@ -35166,7 +35166,7 @@ NODES=
  -153220,
  153218
 
-LINE NAME="0_22-110_22_peak_dir0",
+LINE NAME="0_22-110_22_pk0",
  LONGNAME="Brooklyn Ctr - Lyndale Av N - Cedar - 28 Av S - VA",
  HEADWAY=12,
  MODE=5,
@@ -35426,7 +35426,7 @@ NODES=
  -22691,
  19711
 
-LINE NAME="0_22-110_22_offpeak_dir0",
+LINE NAME="0_22-110_22_op0",
  LONGNAME="Brooklyn Ctr - Lyndale Av N - Cedar - 28 Av S - VA",
  HEADWAY[2]=17,
  MODE=5,
@@ -35671,7 +35671,7 @@ NODES=
  -22691,
  19711
 
-LINE NAME="0_22-110_22_peak_dir1",
+LINE NAME="0_22-110_22_pk1",
  LONGNAME="Brooklyn Ctr - Lyndale Av N - Cedar - 28 Av S - VA",
  HEADWAY=13,
  MODE=5,
@@ -35910,7 +35910,7 @@ NODES=
  -138703,
  30769
 
-LINE NAME="0_22-110_22_offpeak_dir1",
+LINE NAME="0_22-110_22_op1",
  LONGNAME="Brooklyn Ctr - Lyndale Av N - Cedar - 28 Av S - VA",
  HEADWAY[2]=20,
  MODE=5,
@@ -36155,7 +36155,7 @@ NODES=
  -138703,
  30769
 
-LINE NAME="2_83-110_83_peak_dir1",
+LINE NAME="2_83-110_83_pk1",
  LONGNAME="HarMar Target - Lexington Av",
  HEADWAY=36,
  MODE=5,
@@ -36283,7 +36283,7 @@ NODES=
  -85287,
  135204
 
-LINE NAME="2_83-110_83_offpeak_dir1",
+LINE NAME="2_83-110_83_op1",
  LONGNAME="HarMar Target - Lexington Av",
  HEADWAY[2]=30,
  MODE=5,
@@ -36411,7 +36411,7 @@ NODES=
  -85287,
  135204
 
-LINE NAME="2_83-110_83_peak_dir0",
+LINE NAME="2_83-110_83_pk0",
  LONGNAME="HarMar Target - Lexington Av",
  HEADWAY=30,
  MODE=5,
@@ -36534,7 +36534,7 @@ NODES=
  -147396,
  81449
 
-LINE NAME="2_83-110_83_offpeak_dir0",
+LINE NAME="2_83-110_83_op0",
  LONGNAME="HarMar Target - Lexington Av",
  HEADWAY[2]=30,
  MODE=5,
@@ -36657,7 +36657,7 @@ NODES=
  -147396,
  81449
 
-LINE NAME="0_39-110_39_peak_dir1",
+LINE NAME="0_39-110_39_pk1",
  LONGNAME="Wells Fargo - Abbott NW and Children's Hospitals",
  HEADWAY=45,
  MODE=5,
@@ -36725,7 +36725,7 @@ NODES=
  31506,
  31753
 
-LINE NAME="0_5-110_5_peak_dir0",
+LINE NAME="0_5-110_5_pk0",
  LONGNAME="Brooklyn Ctr - Fremont - 26th Av - Chicago - MOA",
  HEADWAY=7,
  MODE=5,
@@ -36894,7 +36894,7 @@ NODES=
  19711,
  22691
 
-LINE NAME="0_5-110_5_offpeak_dir0",
+LINE NAME="0_5-110_5_op0",
  LONGNAME="Brooklyn Ctr - Fremont - 26th Av - Chicago - MOA",
  HEADWAY[2]=8,
  MODE=5,
@@ -37063,7 +37063,7 @@ NODES=
  19711,
  22691
 
-LINE NAME="0_5-110_5_offpeak_dir1",
+LINE NAME="0_5-110_5_op1",
  LONGNAME="Brooklyn Ctr - Fremont - 26th Av - Chicago - MOA",
  HEADWAY[2]=9,
  MODE=5,
@@ -37229,7 +37229,7 @@ NODES=
  17960,
  19143
 
-LINE NAME="0_5-110_5_peak_dir1",
+LINE NAME="0_5-110_5_pk1",
  LONGNAME="Brooklyn Ctr - Fremont - 26th Av - Chicago - MOA",
  HEADWAY=7,
  MODE=5,
@@ -37372,7 +37372,7 @@ NODES=
  -133666,
  16185
 
-LINE NAME="2_417-110_417_peak_dir0",
+LINE NAME="2_417-110_417_pk0",
  LONGNAME="Mendota Heights - St Paul",
  HEADWAY=90,
  MODE=6,
@@ -37485,7 +37485,7 @@ NODES=
  -82690,
  82689
 
-LINE NAME="0_7-110_7_peak_dir1",
+LINE NAME="0_7-110_7_pk1",
  LONGNAME="Plymouth - 27 Av - Minnehaha - 46 St Sta - 34 Av S",
  HEADWAY=30,
  MODE=5,
@@ -37643,7 +37643,7 @@ NODES=
  18807,
  153479
 
-LINE NAME="0_7-110_7_offpeak_dir1",
+LINE NAME="0_7-110_7_op1",
  LONGNAME="Plymouth - 27 Av - Minnehaha - 46 St Sta - 34 Av S",
  HEADWAY[2]=30,
  MODE=5,
@@ -37801,7 +37801,7 @@ NODES=
  18807,
  153479
 
-LINE NAME="0_7-110_7_peak_dir0",
+LINE NAME="0_7-110_7_pk0",
  LONGNAME="Plymouth - 27 Av - Minnehaha - 46 St Sta - 34 Av S",
  HEADWAY=25,
  MODE=5,
@@ -37957,7 +37957,7 @@ NODES=
  -9162,
  133775
 
-LINE NAME="0_7-110_7_offpeak_dir0",
+LINE NAME="0_7-110_7_op0",
  LONGNAME="Plymouth - 27 Av - Minnehaha - 46 St Sta - 34 Av S",
  HEADWAY[2]=30,
  MODE=5,
@@ -38113,7 +38113,7 @@ NODES=
  -9162,
  133775
 
-LINE NAME="0_156-110_156_peak_dir0",
+LINE NAME="0_156-110_156_pk0",
  LONGNAME="Express - 58th St - 56th St - Diamond Lake - Mpls",
  HEADWAY=20,
  MODE=7,
@@ -38243,7 +38243,7 @@ NODES=
  -133171,
  133170
 
-LINE NAME="0_558-110_558_peak_dir0",
+LINE NAME="0_558-110_558_pk0",
  LONGNAME="Express - Lyndale Av - Penn Av - 66th St - Mpls",
  HEADWAY=36,
  MODE=7,
@@ -38401,7 +38401,7 @@ NODES=
  -133171,
  133170
 
-LINE NAME="0_146-110_146_peak_dir0",
+LINE NAME="0_146-110_146_pk0",
  LONGNAME="Ltd Stop -  Vernon Av - 50th St - Mpls",
  HEADWAY=25,
  MODE=5,
@@ -38524,7 +38524,7 @@ NODES=
  -133171,
  133170
 
-LINE NAME="0_552-110_552_peak_dir0",
+LINE NAME="0_552-110_552_pk0",
  LONGNAME="Express - 12th Av - Bloomington Av - Mpls",
  HEADWAY=36,
  MODE=7,
@@ -38645,7 +38645,7 @@ NODES=
  -133171,
  133170
 
-LINE NAME="0_553-110_553_peak_dir0",
+LINE NAME="0_553-110_553_pk0",
  LONGNAME="Express - Bloomington - Portland Av - Mpls",
  HEADWAY=36,
  MODE=7,
@@ -38762,7 +38762,7 @@ NODES=
  -133171,
  133170
 
-LINE NAME="0_467-110_467_peak_dir0",
+LINE NAME="0_467-110_467_pk0",
  LONGNAME="Express - Lakeville - Mpls",
  HEADWAY=13,
  MODE=7,
@@ -38861,7 +38861,7 @@ NODES=
  -133169,
  133168
 
-LINE NAME="0_467-110_467_offpeak_dir1",
+LINE NAME="0_467-110_467_op1",
  LONGNAME="Express - Lakeville - Mpls",
  HEADWAY[2]=360,
  MODE=7,
@@ -38952,7 +38952,7 @@ NODES=
  -61824,
  59523
 
-LINE NAME="0_467-110_467_offpeak_dir0",
+LINE NAME="0_467-110_467_op0",
  LONGNAME="Express - Lakeville - Mpls",
  HEADWAY[2]=360,
  MODE=7,
@@ -39051,7 +39051,7 @@ NODES=
  -133169,
  133168
 
-LINE NAME="0_755-110_755_peak_dir0",
+LINE NAME="0_755-110_755_pk0",
  LONGNAME="Ltd Stop - Hwy 55 - Golden Valley Rd - Winnetka Av",
  HEADWAY=36,
  MODE=5,
@@ -39231,7 +39231,7 @@ NODES=
  5562,
  141459
 
-LINE NAME="0_755-110_755_peak_dir1",
+LINE NAME="0_755-110_755_pk1",
  LONGNAME="Ltd Stop - Hwy 55 - Golden Valley Rd - Winnetka Av",
  HEADWAY=36,
  MODE=5,
@@ -39397,7 +39397,7 @@ NODES=
  -11277,
  11589
 
-LINE NAME="0_19-110_19_peak_dir0",
+LINE NAME="0_19-110_19_pk0",
  LONGNAME="Olson Memorial Hwy - Penn Av N - Brooklyn Center",
  HEADWAY=10,
  MODE=5,
@@ -39499,7 +39499,7 @@ NODES=
  19711,
  22691
 
-LINE NAME="0_19-110_19_offpeak_dir0",
+LINE NAME="0_19-110_19_op0",
  LONGNAME="Olson Memorial Hwy - Penn Av N - Brooklyn Center",
  HEADWAY[2]=9,
  MODE=5,
@@ -39601,7 +39601,7 @@ NODES=
  19711,
  22691
 
-LINE NAME="0_19-110_19_peak_dir1",
+LINE NAME="0_19-110_19_pk1",
  LONGNAME="Olson Memorial Hwy - Penn Av N - Brooklyn Center",
  HEADWAY=8,
  MODE=5,
@@ -39707,7 +39707,7 @@ NODES=
  -19690,
  20257
 
-LINE NAME="0_19-110_19_offpeak_dir1",
+LINE NAME="0_19-110_19_op1",
  LONGNAME="Olson Memorial Hwy - Penn Av N - Brooklyn Center",
  HEADWAY[2]=10,
  MODE=5,
@@ -39813,7 +39813,7 @@ NODES=
  -19690,
  20257
 
-LINE NAME="0_11-110_11_peak_dir0",
+LINE NAME="0_11-110_11_pk0",
  LONGNAME="Columbia Heights - 2nd St NE - 4th Av S",
  HEADWAY=15,
  MODE=5,
@@ -39971,7 +39971,7 @@ NODES=
  -38712,
  38737
 
-LINE NAME="0_11-110_11_peak_dir1",
+LINE NAME="0_11-110_11_pk1",
  LONGNAME="Columbia Heights - 2nd St NE - 4th Av S",
  HEADWAY=13,
  MODE=5,
@@ -40149,7 +40149,7 @@ NODES=
  -26325,
  19423
 
-LINE NAME="0_11-110_11_offpeak_dir1",
+LINE NAME="0_11-110_11_op1",
  LONGNAME="Columbia Heights - 2nd St NE - 4th Av S",
  HEADWAY[2]=15,
  MODE=5,
@@ -40327,7 +40327,7 @@ NODES=
  -26325,
  19423
 
-LINE NAME="0_11-110_11_offpeak_dir0",
+LINE NAME="0_11-110_11_op0",
  LONGNAME="Columbia Heights - 2nd St NE - 4th Av S",
  HEADWAY[2]=15,
  MODE=5,
@@ -40456,7 +40456,7 @@ NODES=
  -32475,
  16287
 
-LINE NAME="0_25-110_25_offpeak_dir0",
+LINE NAME="0_25-110_25_op0",
  LONGNAME="Northtown - Silver Lake - Stinson - Lake of Isles",
  HEADWAY[2]=60,
  MODE=5,
@@ -40691,7 +40691,7 @@ NODES=
  -35579,
  36840
 
-LINE NAME="0_25-110_25_peak_dir0",
+LINE NAME="0_25-110_25_pk0",
  LONGNAME="Northtown - Silver Lake - Stinson - Lake of Isles",
  HEADWAY=25,
  MODE=5,
@@ -41010,7 +41010,7 @@ NODES=
  -35579,
  36840
 
-LINE NAME="0_25-110_25_peak_dir1",
+LINE NAME="0_25-110_25_pk1",
  LONGNAME="Northtown - Silver Lake - Stinson - Lake of Isles",
  HEADWAY=30,
  MODE=5,
@@ -41124,7 +41124,7 @@ NODES=
  -9251,
  15150
 
-LINE NAME="0_25-110_25_offpeak_dir1",
+LINE NAME="0_25-110_25_op1",
  LONGNAME="Northtown - Silver Lake - Stinson - Lake of Isles",
  HEADWAY[2]=60,
  MODE=5,
@@ -41365,7 +41365,7 @@ NODES=
  -20547,
  12185
 
-LINE NAME="0_597-110_597_peak_dir0",
+LINE NAME="0_597-110_597_pk0",
  LONGNAME="Express - West Bloomington - Mpls",
  HEADWAY=25,
  MODE=7,
@@ -41522,7 +41522,7 @@ NODES=
  -133171,
  133170
 
-LINE NAME="0_597-110_597_peak_dir1",
+LINE NAME="0_597-110_597_pk1",
  LONGNAME="Express - West Bloomington - Mpls",
  HEADWAY=90,
  MODE=7,
@@ -41613,7 +41613,7 @@ NODES=
  -10273,
  20350
 
-LINE NAME="0_724-110_724_peak_dir0",
+LINE NAME="0_724-110_724_pk0",
  LONGNAME="Ltd Stop - Target Campus - Starlite - Brooklyn Ctr",
  HEADWAY=22,
  MODE=6,
@@ -41796,7 +41796,7 @@ NODES=
  -24449,
  169650
 
-LINE NAME="0_724-110_724_offpeak_dir0",
+LINE NAME="0_724-110_724_op0",
  LONGNAME="Ltd Stop - Target Campus - Starlite - Brooklyn Ctr",
  HEADWAY[2]=30,
  MODE=6,
@@ -41979,7 +41979,7 @@ NODES=
  -24449,
  169650
 
-LINE NAME="0_724-110_724_offpeak_dir1",
+LINE NAME="0_724-110_724_op1",
  LONGNAME="Ltd Stop - Target Campus - Starlite - Brooklyn Ctr",
  HEADWAY[2]=30,
  MODE=6,
@@ -42144,7 +42144,7 @@ NODES=
  19690,
  20257
 
-LINE NAME="0_724-110_724_peak_dir1",
+LINE NAME="0_724-110_724_pk1",
  LONGNAME="Ltd Stop - Target Campus - Starlite - Brooklyn Ctr",
  HEADWAY=30,
  MODE=6,
@@ -42229,7 +42229,7 @@ NODES=
  -22691,
  141672
 
-LINE NAME="0_578-110_578_peak_dir0",
+LINE NAME="0_578-110_578_pk0",
  LONGNAME="Express - Edina - Southdale - Mpls",
  HEADWAY=25,
  MODE=7,
@@ -42339,7 +42339,7 @@ NODES=
  -5093,
  151193
 
-LINE NAME="0_578-110_578_peak_dir1",
+LINE NAME="0_578-110_578_pk1",
  LONGNAME="Express - Edina - Southdale - Mpls",
  HEADWAY=90,
  MODE=7,
@@ -42438,7 +42438,7 @@ NODES=
  135675,
  4929
 
-LINE NAME="0_2-110_2_peak_dir0",
+LINE NAME="0_2-110_2_pk0",
  LONGNAME="Franklin Av - Riverside Av - U of M - 8th St SE",
  HEADWAY=10,
  MODE=5,
@@ -42584,7 +42584,7 @@ NODES=
  -133644,
  133642
 
-LINE NAME="0_2-110_2_offpeak_dir0",
+LINE NAME="0_2-110_2_op0",
  LONGNAME="Franklin Av - Riverside Av - U of M - 8th St SE",
  HEADWAY[2]=9,
  MODE=5,
@@ -42730,7 +42730,7 @@ NODES=
  -133644,
  133642
 
-LINE NAME="0_2-110_2_peak_dir1",
+LINE NAME="0_2-110_2_pk1",
  LONGNAME="Franklin Av - Riverside Av - U of M - 8th St SE",
  HEADWAY=10,
  MODE=5,
@@ -42880,7 +42880,7 @@ NODES=
  -135017,
  135019
 
-LINE NAME="0_2-110_2_offpeak_dir1",
+LINE NAME="0_2-110_2_op1",
  LONGNAME="Franklin Av - Riverside Av - U of M - 8th St SE",
  HEADWAY[2]=9,
  MODE=5,
@@ -43030,7 +43030,7 @@ NODES=
  -135017,
  135019
 
-LINE NAME="0_535-110_535_offpeak_dir0",
+LINE NAME="0_535-110_535_op0",
  LONGNAME="Ltd Stop - South Bloomington - Richfield - Mpls",
  HEADWAY[2]=15,
  MODE=6,
@@ -43228,7 +43228,7 @@ NODES=
  -5094,
  24970
 
-LINE NAME="0_535-110_535_peak_dir0",
+LINE NAME="0_535-110_535_pk0",
  LONGNAME="Ltd Stop - South Bloomington - Richfield - Mpls",
  HEADWAY=12,
  MODE=6,
@@ -43304,7 +43304,7 @@ NODES=
  -5094,
  24970
 
-LINE NAME="0_535-110_535_peak_dir1",
+LINE NAME="0_535-110_535_pk1",
  LONGNAME="Ltd Stop - South Bloomington - Richfield - Mpls",
  HEADWAY=20,
  MODE=6,
@@ -43529,7 +43529,7 @@ NODES=
  -145723,
  9248
 
-LINE NAME="0_535-110_535_offpeak_dir1",
+LINE NAME="0_535-110_535_op1",
  LONGNAME="Ltd Stop - South Bloomington - Richfield - Mpls",
  HEADWAY[2]=14,
  MODE=6,
@@ -43596,7 +43596,7 @@ NODES=
  -152056,
  144504
 
-LINE NAME="0_74-110_74_offpeak_dir0",
+LINE NAME="0_74-110_74_op0",
  LONGNAME="46th St - Randolph - W 7th St - E 7th St - Sunray",
  HEADWAY[2]=18,
  MODE=5,
@@ -43818,7 +43818,7 @@ NODES=
  -85148,
  85149
 
-LINE NAME="0_74-110_74_peak_dir0",
+LINE NAME="0_74-110_74_pk0",
  LONGNAME="46th St - Randolph - W 7th St - E 7th St - Sunray",
  HEADWAY=20,
  MODE=5,
@@ -44040,7 +44040,7 @@ NODES=
  -85148,
  85149
 
-LINE NAME="0_74-110_74_peak_dir1",
+LINE NAME="0_74-110_74_pk1",
  LONGNAME="46th St - Randolph - W 7th St - E 7th St - Sunray",
  HEADWAY=12,
  MODE=5,
@@ -44261,7 +44261,7 @@ NODES=
  -142560,
  146866
 
-LINE NAME="0_74-110_74_offpeak_dir1",
+LINE NAME="0_74-110_74_op1",
  LONGNAME="46th St - Randolph - W 7th St - E 7th St - Sunray",
  HEADWAY[2]=20,
  MODE=5,
@@ -44482,7 +44482,7 @@ NODES=
  -142560,
  146866
 
-LINE NAME="0_64-110_64_offpeak_dir0",
+LINE NAME="0_64-110_64_op0",
  LONGNAME="Payne - Maryland - White Bear Av - Maplewood Mall",
  HEADWAY[2]=13,
  MODE=5,
@@ -44664,7 +44664,7 @@ NODES=
  -139051,
  166179
 
-LINE NAME="0_64-110_64_peak_dir1",
+LINE NAME="0_64-110_64_pk1",
  LONGNAME="Payne - Maryland - White Bear Av - Maplewood Mall",
  HEADWAY=12,
  MODE=5,
@@ -44849,7 +44849,7 @@ NODES=
  142574,
  153779
 
-LINE NAME="0_64-110_64_offpeak_dir1",
+LINE NAME="0_64-110_64_op1",
  LONGNAME="Payne - Maryland - White Bear Av - Maplewood Mall",
  HEADWAY[2]=14,
  MODE=5,
@@ -45034,7 +45034,7 @@ NODES=
  142574,
  153779
 
-LINE NAME="0_64-110_64_peak_dir0",
+LINE NAME="0_64-110_64_pk0",
  LONGNAME="Payne - Maryland - White Bear Av - Maplewood Mall",
  HEADWAY=13,
  MODE=5,
@@ -45216,7 +45216,7 @@ NODES=
  -139051,
  166179
 
-LINE NAME="0_554-110_554_peak_dir0",
+LINE NAME="0_554-110_554_pk0",
  LONGNAME="Express - Bloomington - Nicollet Av - Mpls",
  HEADWAY=30,
  MODE=7,
@@ -45365,7 +45365,7 @@ NODES=
  -133171,
  133170
 
-LINE NAME="4_781-110_781_peak_dir1",
+LINE NAME="4_781-110_781_pk1",
  LONGNAME="Maple Grove - Express - Maple Grove Station",
  HEADWAY=9,
  MODE=7,
@@ -45420,7 +45420,7 @@ NODES=
  -20515,
  4944
 
-LINE NAME="4_781-110_781_offpeak_dir0",
+LINE NAME="4_781-110_781_op0",
  LONGNAME="Maple Grove - Express - Maple Grove Station",
  HEADWAY[2]=120,
  MODE=7,
@@ -45497,7 +45497,7 @@ NODES=
  -135635,
  142594
 
-LINE NAME="4_781-110_781_offpeak_dir1",
+LINE NAME="4_781-110_781_op1",
  LONGNAME="Maple Grove - Express - Maple Grove Station",
  HEADWAY[2]=360,
  MODE=7,
@@ -45552,7 +45552,7 @@ NODES=
  -20515,
  4944
 
-LINE NAME="0_3-110_3_peak_dir0",
+LINE NAME="0_3-110_3_pk0",
  LONGNAME="U of M - Como Av - Energy Park Dr - Maryland Av",
  HEADWAY=13,
  MODE=5,
@@ -45757,7 +45757,7 @@ NODES=
  -82690,
  82689
 
-LINE NAME="0_3-110_3_offpeak_dir0",
+LINE NAME="0_3-110_3_op0",
  LONGNAME="U of M - Como Av - Energy Park Dr - Maryland Av",
  HEADWAY[2]=13,
  MODE=5,
@@ -45962,7 +45962,7 @@ NODES=
  -82690,
  82689
 
-LINE NAME="0_135-110_135_peak_dir0",
+LINE NAME="0_135-110_135_pk0",
  LONGNAME="Ltd Stop - Grand Av S - Mpls",
  HEADWAY=30,
  MODE=5,
@@ -46053,7 +46053,7 @@ NODES=
  -133171,
  133170
 
-LINE NAME="0_250-110_250_peak_dir0",
+LINE NAME="0_250-110_250_pk0",
  LONGNAME="Express - St Josephs P&R - 95th Av P&R - Mpls",
  HEADWAY=45,
  MODE=7,
@@ -46198,7 +46198,7 @@ NODES=
  -147198,
  147196
 
-LINE NAME="0_250-110_250_offpeak_dir0",
+LINE NAME="0_250-110_250_op0",
  LONGNAME="Express - St Josephs P&R - 95th Av P&R - Mpls",
  HEADWAY[2]=180,
  MODE=7,
@@ -46308,7 +46308,7 @@ NODES=
  -147198,
  147196
 
-LINE NAME="0_250-110_250_peak_dir1",
+LINE NAME="0_250-110_250_pk1",
  LONGNAME="Express - St Josephs P&R - 95th Av P&R - Mpls",
  HEADWAY=10,
  MODE=7,
@@ -46392,7 +46392,7 @@ NODES=
  -10419,
  9299
 
-LINE NAME="0_63-110_63_peak_dir0",
+LINE NAME="0_63-110_63_pk0",
  LONGNAME="Raymond Sta - Grand Av - Sunray - McKnight Rd",
  HEADWAY=20,
  MODE=5,
@@ -46604,7 +46604,7 @@ NODES=
  85596,
  90328
 
-LINE NAME="0_63-110_63_offpeak_dir1",
+LINE NAME="0_63-110_63_op1",
  LONGNAME="Raymond Sta - Grand Av - Sunray - McKnight Rd",
  HEADWAY[2]=20,
  MODE=5,
@@ -46824,7 +46824,7 @@ NODES=
  147640,
  90787
 
-LINE NAME="0_63-110_63_offpeak_dir0",
+LINE NAME="0_63-110_63_op0",
  LONGNAME="Raymond Sta - Grand Av - Sunray - McKnight Rd",
  HEADWAY[2]=18,
  MODE=5,
@@ -47036,7 +47036,7 @@ NODES=
  85596,
  90328
 
-LINE NAME="0_63-110_63_peak_dir1",
+LINE NAME="0_63-110_63_pk1",
  LONGNAME="Raymond Sta - Grand Av - Sunray - McKnight Rd",
  HEADWAY=16,
  MODE=5,
@@ -47256,7 +47256,7 @@ NODES=
  147640,
  90787
 
-LINE NAME="0_252-110_252_peak_dir1",
+LINE NAME="0_252-110_252_pk1",
  LONGNAME="Express - 95Av P&R - U of M",
  HEADWAY=60,
  MODE=7,
@@ -47344,7 +47344,7 @@ NODES=
  -22354,
  31814
 
-LINE NAME="0_921-110_A Line_peak_dir0",
+LINE NAME="0_921-110_A Line_pk0",
  LONGNAME="A Line",
  HEADWAY=10,
  MODE=5,
@@ -47485,7 +47485,7 @@ NODES=
  -80242,
  80243
 
-LINE NAME="0_921-110_A Line_offpeak_dir0",
+LINE NAME="0_921-110_A Line_op0",
  LONGNAME="A Line",
  HEADWAY[2]=10,
  MODE=5,
@@ -47626,7 +47626,7 @@ NODES=
  -80242,
  80243
 
-LINE NAME="0_921-110_A Line_peak_dir1",
+LINE NAME="0_921-110_A Line_pk1",
  LONGNAME="A Line",
  HEADWAY=10,
  MODE=5,
@@ -47765,7 +47765,7 @@ NODES=
  -18499,
  132492
 
-LINE NAME="0_921-110_A Line_offpeak_dir1",
+LINE NAME="0_921-110_A Line_op1",
  LONGNAME="A Line",
  HEADWAY[2]=10,
  MODE=5,
@@ -47904,7 +47904,7 @@ NODES=
  -18499,
  132492
 
-LINE NAME="0_134-110_134_peak_dir1",
+LINE NAME="0_134-110_134_pk1",
  LONGNAME="Ltd Stop - Highland - Cleveland - Cretin - Mpls",
  HEADWAY=20,
  MODE=5,
@@ -48042,7 +48042,7 @@ NODES=
  4940,
  21315
 
-LINE NAME="0_134-110_134_peak_dir0",
+LINE NAME="0_134-110_134_pk0",
  LONGNAME="Ltd Stop - Highland - Cleveland - Cretin - Mpls",
  HEADWAY=90,
  MODE=5,
@@ -48130,7 +48130,7 @@ NODES=
  -82505,
  86352
 
-LINE NAME="0_452-110_452_peak_dir1",
+LINE NAME="0_452-110_452_pk1",
  LONGNAME="Express -Mendota Heights - West St Paul - Mpls",
  HEADWAY=60,
  MODE=7,
@@ -48256,7 +48256,7 @@ NODES=
  4940,
  21315
 
-LINE NAME="0_18-110_18_offpeak_dir0",
+LINE NAME="0_18-110_18_op0",
  LONGNAME="Nicollet Av -Grand Av - South Bloomington",
  HEADWAY[2]=7,
  MODE=5,
@@ -48325,7 +48325,7 @@ NODES=
  -133169,
  133168
 
-LINE NAME="0_18-110_18_peak_dir0",
+LINE NAME="0_18-110_18_pk0",
  LONGNAME="Nicollet Av -Grand Av - South Bloomington",
  HEADWAY=7,
  MODE=5,
@@ -48441,7 +48441,7 @@ NODES=
  -133169,
  133168
 
-LINE NAME="0_18-110_18_peak_dir1",
+LINE NAME="0_18-110_18_pk1",
  LONGNAME="Nicollet Av -Grand Av - South Bloomington",
  HEADWAY=8,
  MODE=5,
@@ -48576,7 +48576,7 @@ NODES=
  -9077,
  9212
 
-LINE NAME="0_18-110_18_offpeak_dir1",
+LINE NAME="0_18-110_18_op1",
  LONGNAME="Nicollet Av -Grand Av - South Bloomington",
  HEADWAY[2]=7,
  MODE=5,
@@ -48711,7 +48711,7 @@ NODES=
  -9077,
  9212
 
-LINE NAME="15_887-110_887_peak_dir0",
+LINE NAME="15_887-110_887_pk0",
  LONGNAME="Northstar Link - St Cloud Link",
  HEADWAY=60,
  MODE=7,
@@ -48793,7 +48793,7 @@ NODES=
  -101505,
  101302
 
-LINE NAME="15_887-110_887_offpeak_dir1",
+LINE NAME="15_887-110_887_op1",
  LONGNAME="Northstar Link - St Cloud Link",
  HEADWAY[2]=360,
  MODE=7,
@@ -49075,7 +49075,7 @@ NODES=
  -139114,
  139115
 
-LINE NAME="15_887-110_887_offpeak_dir0",
+LINE NAME="15_887-110_887_op0",
  LONGNAME="Northstar Link - St Cloud Link",
  HEADWAY[2]=360,
  MODE=7,
@@ -49356,7 +49356,7 @@ NODES=
  -101505,
  101302
 
-LINE NAME="15_887-110_887_peak_dir1",
+LINE NAME="15_887-110_887_pk1",
  LONGNAME="Northstar Link - St Cloud Link",
  HEADWAY=180,
  MODE=7,
@@ -49437,7 +49437,7 @@ NODES=
  -102361,
  139172
 
-LINE NAME="0_888-110_888_peak_dir0",
+LINE NAME="0_888-110_888_pk0",
  LONGNAME="Northstar - Big Lake - Elk River - Anoka - Mpls",
  HEADWAY=180,
  MODE=9,
@@ -49452,7 +49452,7 @@ NODES=
  170611,
  170600
 
-LINE NAME="0_888-110_888_peak_dir1",
+LINE NAME="0_888-110_888_pk1",
  LONGNAME="Northstar - Big Lake - Elk River - Anoka - Mpls",
  HEADWAY=60,
  MODE=9,
@@ -49467,7 +49467,7 @@ NODES=
  170605,
  170606
 
-LINE NAME="6_698-110_698_offpeak_dir0",
+LINE NAME="6_698-110_698_op0",
  LONGNAME="SW Transit - Express - Chaska - Chanhassen - Mpls",
  HEADWAY[2]=60,
  MODE=7,
@@ -49584,7 +49584,7 @@ NODES=
  -14573,
  21028
 
-LINE NAME="6_698-110_698_peak_dir0",
+LINE NAME="6_698-110_698_pk0",
  LONGNAME="SW Transit - Express - Chaska - Chanhassen - Mpls",
  HEADWAY=45,
  MODE=7,
@@ -49757,7 +49757,7 @@ NODES=
  -14573,
  21028
 
-LINE NAME="6_698-110_698_offpeak_dir1",
+LINE NAME="6_698-110_698_op1",
  LONGNAME="SW Transit - Express - Chaska - Chanhassen - Mpls",
  HEADWAY[2]=51,
  MODE=7,
@@ -49881,7 +49881,7 @@ NODES=
  -136916,
  166282
 
-LINE NAME="6_695-110_695_peak_dir0",
+LINE NAME="6_695-110_695_pk0",
  LONGNAME="SW Transit - Express - Chaska - Chanhassen - Mpls",
  HEADWAY=25,
  MODE=7,
@@ -49993,7 +49993,7 @@ NODES=
  -14573,
  21028
 
-LINE NAME="6_690-110_690_peak_dir0",
+LINE NAME="6_690-110_690_pk0",
  LONGNAME="SW Transit - Express - Eden Prairie - Mpls",
  HEADWAY=7,
  MODE=7,
@@ -50081,7 +50081,7 @@ NODES=
  -7987,
  30601
 
-LINE NAME="6_602-110_602_peak_dir0",
+LINE NAME="6_602-110_602_pk0",
  LONGNAME="SW Transit - Flex Route",
  HEADWAY=180,
  MODE=6,
@@ -50190,7 +50190,7 @@ NODES=
  -12488,
  9248
 
-LINE NAME="6_600-110_600_peak_dir0",
+LINE NAME="6_600-110_600_pk0",
  LONGNAME="SW Transit - Flex Route",
  HEADWAY=90,
  MODE=6,
@@ -50277,7 +50277,7 @@ NODES=
  -153124,
  153125
 
-LINE NAME="6_600-110_600_offpeak_dir1",
+LINE NAME="6_600-110_600_op1",
  LONGNAME="SW Transit - Flex Route",
  HEADWAY[2]=360,
  MODE=6,
@@ -50366,7 +50366,7 @@ NODES=
  -136916,
  166282
 
-LINE NAME="6_600-110_600_peak_dir1",
+LINE NAME="6_600-110_600_pk1",
  LONGNAME="SW Transit - Flex Route",
  HEADWAY=180,
  MODE=6,
@@ -50521,7 +50521,7 @@ NODES=
  -136916,
  166282
 
-LINE NAME="6_699-110_699_peak_dir0",
+LINE NAME="6_699-110_699_pk0",
  LONGNAME="SW Transit - Express - Chaska - Mpls",
  HEADWAY=22,
  MODE=7,
@@ -50626,7 +50626,7 @@ NODES=
  -7987,
  30601
 
-LINE NAME="6_697-110_697_peak_dir0",
+LINE NAME="6_697-110_697_pk0",
  LONGNAME="SW Transit - Express - Carver - Chaska - Mpls",
  HEADWAY=45,
  MODE=7,
@@ -50737,7 +50737,7 @@ NODES=
  -7987,
  30601
 
-LINE NAME="6_692-110_692_peak_dir0",
+LINE NAME="6_692-110_692_pk0",
  LONGNAME="SW Transit - Express - Chanhassen",
  HEADWAY=60,
  MODE=7,
@@ -50849,7 +50849,7 @@ NODES=
  -7987,
  30601
 
-LINE NAME="4_788-110_788_peak_dir0",
+LINE NAME="4_788-110_788_pk0",
  LONGNAME="Maple Grove - Bass Lake Rd - Crosswinds Church P&R",
  HEADWAY=45,
  MODE=6,
@@ -50906,7 +50906,7 @@ NODES=
  164469,
  164468
 
-LINE NAME="4_787-110_787_offpeak_dir0",
+LINE NAME="4_787-110_787_op0",
  LONGNAME="Maple Grove - Midday Shuttle - Flex Route",
  HEADWAY[2]=180,
  MODE=6,
@@ -50981,7 +50981,7 @@ NODES=
  -14647,
  14660
 
-LINE NAME="5_742-110_742_peak_dir1",
+LINE NAME="5_742-110_742_pk1",
  LONGNAME="Plymouth - Express - Bass Lake Rd",
  HEADWAY=60,
  MODE=7,
@@ -51152,7 +51152,7 @@ NODES=
  -135620,
  6952
 
-LINE NAME="5_795-110_795_offpeak_dir1",
+LINE NAME="5_795-110_795_op1",
  LONGNAME="Plymouth - Express - Midday - Northeast Plymouth",
  HEADWAY[2]=180,
  MODE=7,
@@ -51315,7 +51315,7 @@ NODES=
  141204,
  4165
 
-LINE NAME="5_774-110_774_peak_dir0",
+LINE NAME="5_774-110_774_pk0",
  LONGNAME="Plymouth - Express - Station 73",
  HEADWAY=45,
  MODE=7,
@@ -51453,7 +51453,7 @@ NODES=
  -14573,
  21028
 
-LINE NAME="5_774-110_774_offpeak_dir1",
+LINE NAME="5_774-110_774_op1",
  LONGNAME="Plymouth - Express - Station 73",
  HEADWAY[2]=360,
  MODE=7,
@@ -51587,7 +51587,7 @@ NODES=
  -4540,
  146449
 
-LINE NAME="5_774-110_774_offpeak_dir0",
+LINE NAME="5_774-110_774_op0",
  LONGNAME="Plymouth - Express - Station 73",
  HEADWAY[2]=90,
  MODE=7,
@@ -51725,7 +51725,7 @@ NODES=
  -14573,
  21028
 
-LINE NAME="5_772-110_772_peak_dir0",
+LINE NAME="5_772-110_772_pk0",
  LONGNAME="Plymouth - Express - Station 73",
  HEADWAY=36,
  MODE=7,
@@ -51835,7 +51835,7 @@ NODES=
  -133171,
  133170
 
-LINE NAME="5_771-110_771_peak_dir0",
+LINE NAME="5_771-110_771_pk0",
  LONGNAME="Plymouth - Shuttle - SW Plymouth - Station 73",
  HEADWAY=60,
  MODE=6,
@@ -51939,7 +51939,7 @@ NODES=
  -29604,
  3239
 
-LINE NAME="5_777-110_777_peak_dir0",
+LINE NAME="5_777-110_777_pk0",
  LONGNAME="Plymouth - Express - NW Plymouth - Station 73",
  HEADWAY=45,
  MODE=7,
@@ -52138,7 +52138,7 @@ NODES=
  -133171,
  133170
 
-LINE NAME="5_747-110_747_peak_dir1",
+LINE NAME="5_747-110_747_pk1",
  LONGNAME="Plymouth - Express - Station 73 - Mpls",
  HEADWAY=20,
  MODE=7,
@@ -52225,7 +52225,7 @@ NODES=
  17524,
  16508
 
-LINE NAME="5_741-110_741_peak_dir1",
+LINE NAME="5_741-110_741_pk1",
  LONGNAME="Plymouth - Annapolis - Campus Dr - Station 73",
  HEADWAY=45,
  MODE=6,
@@ -52351,7 +52351,7 @@ NODES=
  -161591,
  138940
 
-LINE NAME="5_740-110_740_peak_dir1",
+LINE NAME="5_740-110_740_pk1",
  LONGNAME="Plymouth - Fernbrook Ln - Xenium Ln",
  HEADWAY=45,
  MODE=6,
@@ -52408,7 +52408,7 @@ NODES=
  -146439,
  146440
 
-LINE NAME="5_793-110_793_peak_dir0",
+LINE NAME="5_793-110_793_pk0",
  LONGNAME="Plymouth - Express - Cub Foods - Four Seasons",
  HEADWAY=90,
  MODE=7,
@@ -52504,7 +52504,7 @@ NODES=
  -133171,
  133170
 
-LINE NAME="5_790-110_790_peak_dir0",
+LINE NAME="5_790-110_790_pk0",
  LONGNAME="Plymouth - Express - Cub Foods - Four Seasons",
  HEADWAY=25,
  MODE=7,
@@ -52659,7 +52659,7 @@ NODES=
  -133171,
  133170
 
-LINE NAME="5_791-110_791_peak_dir0",
+LINE NAME="5_791-110_791_pk0",
  LONGNAME="Plymouth - Shuttle - Larch Ln - Four Seasons",
  HEADWAY=60,
  MODE=6,
@@ -52726,7 +52726,7 @@ NODES=
  -29264,
  165657
 
-LINE NAME="11_120-110_120_offpeak_dir0",
+LINE NAME="11_120-110_120_op0",
  LONGNAME="U of M - Stadium Super Shuttle",
  HEADWAY[2]=20,
  MODE=5,
@@ -52758,7 +52758,7 @@ NODES=
  -31871,
  132375
 
-LINE NAME="11_120-110_120_peak_dir0",
+LINE NAME="11_120-110_120_pk0",
  LONGNAME="U of M - Stadium Super Shuttle",
  HEADWAY=10,
  MODE=5,
@@ -52790,7 +52790,7 @@ NODES=
  -31871,
  132375
 
-LINE NAME="11_124-110_124_peak_dir0",
+LINE NAME="11_124-110_124_pk0",
  LONGNAME="U of M - Saint Paul Circulator",
  HEADWAY=22,
  MODE=5,
@@ -52837,7 +52837,7 @@ NODES=
  -133680,
  86176
 
-LINE NAME="11_124-110_124_offpeak_dir0",
+LINE NAME="11_124-110_124_op0",
  LONGNAME="U of M - Saint Paul Circulator",
  HEADWAY[2]=15,
  MODE=5,
@@ -52884,7 +52884,7 @@ NODES=
  -133680,
  86176
 
-LINE NAME="11_122-110_122_peak_dir0",
+LINE NAME="11_122-110_122_pk0",
  LONGNAME="U of M - University Ave Circulator",
  HEADWAY=15,
  MODE=5,
@@ -52935,7 +52935,7 @@ NODES=
  7199,
  33501
 
-LINE NAME="11_122-110_122_offpeak_dir0",
+LINE NAME="11_122-110_122_op0",
  LONGNAME="U of M - University Ave Circulator",
  HEADWAY[2]=10,
  MODE=5,
@@ -52986,7 +52986,7 @@ NODES=
  7199,
  33501
 
-LINE NAME="11_121-110_121_offpeak_dir0",
+LINE NAME="11_121-110_121_op0",
  LONGNAME="U of M - Campus Connector",
  HEADWAY[2]=4,
  MODE=5,
@@ -53055,7 +53055,7 @@ NODES=
  -86175,
  86176
 
-LINE NAME="11_121-110_121_peak_dir1",
+LINE NAME="11_121-110_121_pk1",
  LONGNAME="U of M - Campus Connector",
  HEADWAY=8,
  MODE=5,
@@ -53120,7 +53120,7 @@ NODES=
  -16988,
  147530
 
-LINE NAME="11_121-110_121_offpeak_dir1",
+LINE NAME="11_121-110_121_op1",
  LONGNAME="U of M - Campus Connector",
  HEADWAY[2]=4,
  MODE=5,
@@ -53185,7 +53185,7 @@ NODES=
  -16988,
  147530
 
-LINE NAME="11_121-110_121_peak_dir0",
+LINE NAME="11_121-110_121_pk0",
  LONGNAME="U of M - Campus Connector",
  HEADWAY=8,
  MODE=5,
@@ -53254,7 +53254,7 @@ NODES=
  -86175,
  86176
 
-LINE NAME="11_123-110_123_peak_dir0",
+LINE NAME="11_123-110_123_pk0",
  LONGNAME="U of M - 4th Street Circulator",
  HEADWAY=15,
  MODE=5,
@@ -53306,7 +53306,7 @@ NODES=
  7199,
  33501
 
-LINE NAME="11_123-110_123_offpeak_dir0",
+LINE NAME="11_123-110_123_op0",
  LONGNAME="U of M - 4th Street Circulator",
  HEADWAY[2]=10,
  MODE=5,
@@ -53358,7 +53358,7 @@ NODES=
  7199,
  33501
 
-LINE NAME="0_902-110_Green_peak_dir1",
+LINE NAME="0_902-110_Green_pk1",
  LONGNAME="METRO Green Line",
  HEADWAY=10,
  MODE=8,
@@ -53385,7 +53385,7 @@ NODES=
  170670,
  170627
 
-LINE NAME="0_902-110_Green_offpeak_dir1",
+LINE NAME="0_902-110_Green_op1",
  LONGNAME="METRO Green Line",
  HEADWAY[2]=10,
  MODE=8,
@@ -53412,7 +53412,7 @@ NODES=
  170670,
  170627
 
-LINE NAME="0_902-110_Green_peak_dir0",
+LINE NAME="0_902-110_Green_pk0",
  LONGNAME="METRO Green Line",
  HEADWAY=10,
  MODE=8,
@@ -53440,7 +53440,7 @@ NODES=
  170688,
  170689
 
-LINE NAME="0_902-110_Green_offpeak_dir0",
+LINE NAME="0_902-110_Green_op0",
  LONGNAME="METRO Green Line",
  HEADWAY[2]=10,
  MODE=8,
@@ -53468,7 +53468,7 @@ NODES=
  170688,
  170689
 
-LINE NAME="0_901-110_Blue_peak_dir0",
+LINE NAME="0_901-110_Blue_pk0",
  LONGNAME="METRO Blue Line",
  HEADWAY=10,
  MODE=8,
@@ -53498,7 +53498,7 @@ NODES=
  170632,
  170633
 
-LINE NAME="0_901-110_Blue_offpeak_dir0",
+LINE NAME="0_901-110_Blue_op0",
  LONGNAME="METRO Blue Line",
  HEADWAY[2]=10,
  MODE=8,
@@ -53528,7 +53528,7 @@ NODES=
  170632,
  170633
 
-LINE NAME="0_901-110_Blue_peak_dir1",
+LINE NAME="0_901-110_Blue_pk1",
  LONGNAME="METRO Blue Line",
  HEADWAY=10,
  MODE=8,
@@ -53557,7 +53557,7 @@ NODES=
  170652,
  170612
 
-LINE NAME="0_901-110_Blue_offpeak_dir1",
+LINE NAME="0_901-110_Blue_op1",
  LONGNAME="METRO Blue Line",
  HEADWAY[2]=10,
  MODE=8,
@@ -53586,7 +53586,7 @@ NODES=
  170652,
  170612
 
-LINE NAME="1_490-70_490_peak_dir1",
+LINE NAME="1_490-70_490_pk1",
  LONGNAME="Prior Lake-Shakopee-Minneapolis",
  HEADWAY=20,
  MODE=7,
@@ -53726,7 +53726,7 @@ NODES=
  -5093,
  151193
 
-LINE NAME="1_491-70_491_offpeak_dir1",
+LINE NAME="1_491-70_491_op1",
  LONGNAME="Scott County-Minneapolis Rev Commute",
  HEADWAY[2]=360,
  MODE=7,
@@ -53902,7 +53902,7 @@ NODES=
  -4662,
  11277
 
-LINE NAME="1_491-70_491_peak_dir0",
+LINE NAME="1_491-70_491_pk0",
  LONGNAME="Scott County-Minneapolis Rev Commute",
  HEADWAY=60,
  MODE=7,
@@ -53970,7 +53970,7 @@ NODES=
  -137341,
  137337
 
-LINE NAME="1_493-70_493_peak_dir1",
+LINE NAME="1_493-70_493_pk1",
  LONGNAME="Shakopee-Minneapolis",
  HEADWAY=45,
  MODE=7,
@@ -54077,7 +54077,7 @@ NODES=
  -5093,
  151193
 
-LINE NAME="1_470-70_470_peak_dir1",
+LINE NAME="1_470-70_470_pk1",
  LONGNAME="Eagan-Minneapolis",
  HEADWAY=22,
  MODE=7,
@@ -54169,7 +54169,7 @@ NODES=
  -5093,
  151193
 
-LINE NAME="1_484-70_484_peak_dir1",
+LINE NAME="1_484-70_484_pk1",
  LONGNAME="Eagan/Rosemount-St Paul",
  HEADWAY=30,
  MODE=7,
@@ -54304,7 +54304,7 @@ NODES=
  -82690,
  82689
 
-LINE NAME="1_477-70_477_peak_dir1",
+LINE NAME="1_477-70_477_pk1",
  LONGNAME="Lakeville/Apple Valley-Mpls",
  HEADWAY=12,
  MODE=7,
@@ -54407,7 +54407,7 @@ NODES=
  -5093,
  151193
 
-LINE NAME="1_476-70_476_peak_dir1",
+LINE NAME="1_476-70_476_pk1",
  LONGNAME="Palomino Hills-Minneapolis",
  HEADWAY=25,
  MODE=7,
@@ -54567,7 +54567,7 @@ NODES=
  -5093,
  151193
 
-LINE NAME="1_464-70_464_peak_dir1",
+LINE NAME="1_464-70_464_pk1",
  LONGNAME="Savage-Burnsville-Minneapolis",
  HEADWAY=18,
  MODE=7,
@@ -54720,7 +54720,7 @@ NODES=
  -5093,
  151193
 
-LINE NAME="1_460-70_460_peak_dir1",
+LINE NAME="1_460-70_460_pk1",
  LONGNAME="Burnsville-Minneapolis",
  HEADWAY=6,
  MODE=7,
@@ -54812,7 +54812,7 @@ NODES=
  -5093,
  151193
 
-LINE NAME="1_460-70_460_offpeak_dir1",
+LINE NAME="1_460-70_460_op1",
  LONGNAME="Burnsville-Minneapolis",
  HEADWAY[2]=360,
  MODE=7,
@@ -54904,7 +54904,7 @@ NODES=
  -5093,
  151193
 
-LINE NAME="1_460-70_460_offpeak_dir0",
+LINE NAME="1_460-70_460_op0",
  LONGNAME="Burnsville-Minneapolis",
  HEADWAY[2]=120,
  MODE=7,
@@ -55003,7 +55003,7 @@ NODES=
  -66476,
  56580
 
-LINE NAME="1_489-70_489_peak_dir0",
+LINE NAME="1_489-70_489_pk0",
  LONGNAME="St Paul-Eagan Rev Comm",
  HEADWAY=60,
  MODE=7,
@@ -55147,7 +55147,7 @@ NODES=
  -64820,
  64821
 
-LINE NAME="1_479-70_479_peak_dir1",
+LINE NAME="1_479-70_479_pk1",
  LONGNAME="157th Street-Minneapolis",
  HEADWAY=90,
  MODE=7,
@@ -55286,7 +55286,7 @@ NODES=
  -5093,
  151193
 
-LINE NAME="1_478-70_478_peak_dir1",
+LINE NAME="1_478-70_478_pk1",
  LONGNAME="Rosemount-Minneapolis",
  HEADWAY=30,
  MODE=7,
@@ -55439,7 +55439,7 @@ NODES=
  -5093,
  151193
 
-LINE NAME="1_477-70_477_offpeak_dir0",
+LINE NAME="1_477-70_477_op0",
  LONGNAME="Lakeville/Apple Valley-Mpls",
  HEADWAY[2]=360,
  MODE=7,
@@ -55565,7 +55565,7 @@ NODES=
  -59442,
  152326
 
-LINE NAME="1_475-70_475_offpeak_dir0",
+LINE NAME="1_475-70_475_op0",
  LONGNAME="Apple Valley-Cedar Grove-Mpls/U of M",
  HEADWAY[2]=120,
  MODE=7,
@@ -55758,7 +55758,7 @@ NODES=
  -59442,
  152326
 
-LINE NAME="1_475-70_475_offpeak_dir1",
+LINE NAME="1_475-70_475_op1",
  LONGNAME="Apple Valley-Cedar Grove-Mpls/U of M",
  HEADWAY[2]=72,
  MODE=7,
@@ -55930,7 +55930,7 @@ NODES=
  -20074,
  24477
 
-LINE NAME="1_475-70_475_peak_dir1",
+LINE NAME="1_475-70_475_pk1",
  LONGNAME="Apple Valley-Cedar Grove-Mpls/U of M",
  HEADWAY=45,
  MODE=7,
@@ -56042,7 +56042,7 @@ NODES=
  -20074,
  24477
 
-LINE NAME="1_465-70_465_offpeak_dir0",
+LINE NAME="1_465-70_465_op0",
  LONGNAME="Burnsville-Minneapolis-U of M",
  HEADWAY[2]=32,
  MODE=7,
@@ -56195,7 +56195,7 @@ NODES=
  -66476,
  56580
 
-LINE NAME="1_465-70_465_peak_dir0",
+LINE NAME="1_465-70_465_pk0",
  LONGNAME="Burnsville-Minneapolis-U of M",
  HEADWAY=45,
  MODE=7,
@@ -56309,7 +56309,7 @@ NODES=
  -66476,
  56580
 
-LINE NAME="1_465-70_465_peak_dir1",
+LINE NAME="1_465-70_465_pk1",
  LONGNAME="Burnsville-Minneapolis-U of M",
  HEADWAY=16,
  MODE=7,
@@ -56399,7 +56399,7 @@ NODES=
  -20074,
  24477
 
-LINE NAME="1_465-70_465_offpeak_dir1",
+LINE NAME="1_465-70_465_op1",
  LONGNAME="Burnsville-Minneapolis-U of M",
  HEADWAY[2]=30,
  MODE=7,
@@ -56537,7 +56537,7 @@ NODES=
  -20074,
  24477
 
-LINE NAME="1_444-70_444_offpeak_dir1",
+LINE NAME="1_444-70_444_op1",
  LONGNAME="Savage-Burnsville-Mall of America",
  HEADWAY[2]=30,
  MODE=6,
@@ -56693,7 +56693,7 @@ NODES=
  -144327,
  148451
 
-LINE NAME="1_421-70_421_offpeak_dir0",
+LINE NAME="1_421-70_421_op0",
  LONGNAME="Burnsville-Savage Flex",
  HEADWAY[2]=90,
  MODE=6,
@@ -56779,7 +56779,7 @@ NODES=
  -66476,
  56580
 
-LINE NAME="1_440-70_440_offpeak_dir0",
+LINE NAME="1_440-70_440_op0",
  LONGNAME="Apple Valley-Cedar Grove-VA Hospital",
  HEADWAY[2]=90,
  MODE=6,
@@ -56919,7 +56919,7 @@ NODES=
  -59442,
  152326
 
-LINE NAME="1_426-70_426_peak_dir1",
+LINE NAME="1_426-70_426_pk1",
  LONGNAME="Burnsville Shuttle",
  HEADWAY=36,
  MODE=6,
@@ -57006,7 +57006,7 @@ NODES=
  -66476,
  56580
 
-LINE NAME="1_442-70_442_peak_dir1",
+LINE NAME="1_442-70_442_pk1",
  LONGNAME="Burnsville Center-Apple Valley",
  HEADWAY=60,
  MODE=6,
@@ -57118,7 +57118,7 @@ NODES=
  -156445,
  152414
 
-LINE NAME="1_445-70_445_offpeak_dir1",
+LINE NAME="1_445-70_445_op1",
  LONGNAME="Eagan-Cedar Grove",
  HEADWAY[2]=60,
  MODE=6,
@@ -57211,7 +57211,7 @@ NODES=
  162268,
  67375
 
-LINE NAME="1_440-70_440_peak_dir0",
+LINE NAME="1_440-70_440_pk0",
  LONGNAME="Apple Valley-Cedar Grove-VA Hospital",
  HEADWAY=90,
  MODE=6,
@@ -57351,7 +57351,7 @@ NODES=
  -59442,
  152326
 
-LINE NAME="1_420-70_420_offpeak_dir1",
+LINE NAME="1_420-70_420_op1",
  LONGNAME="Rosemount-Apple Valley Flex",
  HEADWAY[2]=51,
  MODE=6,
@@ -57406,7 +57406,7 @@ NODES=
  -59442,
  152326
 
-LINE NAME="1_444-70_444_peak_dir1",
+LINE NAME="1_444-70_444_pk1",
  LONGNAME="Savage-Burnsville-Mall of America",
  HEADWAY=30,
  MODE=6,
@@ -57562,7 +57562,7 @@ NODES=
  -144327,
  148451
 
-LINE NAME="1_445-70_445_peak_dir1",
+LINE NAME="1_445-70_445_pk1",
  LONGNAME="Eagan-Cedar Grove",
  HEADWAY=36,
  MODE=6,
@@ -57655,7 +57655,7 @@ NODES=
  162268,
  67375
 
-LINE NAME="1_442-70_442_offpeak_dir1",
+LINE NAME="1_442-70_442_op1",
  LONGNAME="Burnsville Center-Apple Valley",
  HEADWAY[2]=60,
  MODE=6,
@@ -57767,7 +57767,7 @@ NODES=
  -156445,
  152414
 
-LINE NAME="1_444-70_444_offpeak_dir0",
+LINE NAME="1_444-70_444_op0",
  LONGNAME="Savage-Burnsville-Mall of America",
  HEADWAY[2]=30,
  MODE=6,
@@ -57924,7 +57924,7 @@ NODES=
  -156445,
  152414
 
-LINE NAME="1_445-70_445_offpeak_dir0",
+LINE NAME="1_445-70_445_op0",
  LONGNAME="Eagan-Cedar Grove",
  HEADWAY[2]=60,
  MODE=6,
@@ -58008,7 +58008,7 @@ NODES=
  152535,
  143875
 
-LINE NAME="1_446-70_446_peak_dir1",
+LINE NAME="1_446-70_446_pk1",
  LONGNAME="Eagan-46th Street LRT",
  HEADWAY=60,
  MODE=6,
@@ -58156,7 +58156,7 @@ NODES=
  -8782,
  142547
 
-LINE NAME="1_420-70_420_peak_dir0",
+LINE NAME="1_420-70_420_pk0",
  LONGNAME="Rosemount-Apple Valley Flex",
  HEADWAY=36,
  MODE=6,
@@ -58214,7 +58214,7 @@ NODES=
  -58992,
  63040
 
-LINE NAME="1_420-70_420_offpeak_dir0",
+LINE NAME="1_420-70_420_op0",
  LONGNAME="Rosemount-Apple Valley Flex",
  HEADWAY[2]=60,
  MODE=6,
@@ -58272,7 +58272,7 @@ NODES=
  -58992,
  63040
 
-LINE NAME="1_442-70_442_offpeak_dir0",
+LINE NAME="1_442-70_442_op0",
  LONGNAME="Burnsville Center-Apple Valley",
  HEADWAY[2]=60,
  MODE=6,
@@ -58373,7 +58373,7 @@ NODES=
  -59442,
  152326
 
-LINE NAME="1_421-70_421_peak_dir0",
+LINE NAME="1_421-70_421_pk0",
  LONGNAME="Burnsville-Savage Flex",
  HEADWAY=180,
  MODE=6,
@@ -58459,7 +58459,7 @@ NODES=
  -66476,
  56580
 
-LINE NAME="1_446-70_446_offpeak_dir1",
+LINE NAME="1_446-70_446_op1",
  LONGNAME="Eagan-46th Street LRT",
  HEADWAY[2]=60,
  MODE=6,
@@ -58607,7 +58607,7 @@ NODES=
  -8782,
  142547
 
-LINE NAME="1_420-70_420_peak_dir1",
+LINE NAME="1_420-70_420_pk1",
  LONGNAME="Rosemount-Apple Valley Flex",
  HEADWAY=36,
  MODE=6,
@@ -58682,7 +58682,7 @@ NODES=
  -59442,
  152326
 
-LINE NAME="1_445-70_445_peak_dir0",
+LINE NAME="1_445-70_445_pk0",
  LONGNAME="Eagan-Cedar Grove",
  HEADWAY=45,
  MODE=6,
@@ -58766,7 +58766,7 @@ NODES=
  152535,
  143875
 
-LINE NAME="1_436-70_436_peak_dir0",
+LINE NAME="1_436-70_436_pk0",
  LONGNAME="Eagan Hwy 55 Rev Comm",
  HEADWAY=60,
  MODE=6,
@@ -58875,7 +58875,7 @@ NODES=
  -62112,
  152532
 
-LINE NAME="1_446-70_446_offpeak_dir0",
+LINE NAME="1_446-70_446_op0",
  LONGNAME="Eagan-46th Street LRT",
  HEADWAY[2]=60,
  MODE=6,
@@ -59034,7 +59034,7 @@ NODES=
  57337,
  62255
 
-LINE NAME="1_444-70_444_peak_dir0",
+LINE NAME="1_444-70_444_pk0",
  LONGNAME="Savage-Burnsville-Mall of America",
  HEADWAY=30,
  MODE=6,
@@ -59190,7 +59190,7 @@ NODES=
  -96136,
  161895
 
-LINE NAME="1_440-70_440_peak_dir1",
+LINE NAME="1_440-70_440_pk1",
  LONGNAME="Apple Valley-Cedar Grove-VA Hospital",
  HEADWAY=36,
  MODE=6,
@@ -59328,7 +59328,7 @@ NODES=
  -159260,
  67375
 
-LINE NAME="1_440-70_440_offpeak_dir1",
+LINE NAME="1_440-70_440_op1",
  LONGNAME="Apple Valley-Cedar Grove-VA Hospital",
  HEADWAY[2]=90,
  MODE=6,
@@ -59466,7 +59466,7 @@ NODES=
  -159260,
  67375
 
-LINE NAME="1_421-70_421_peak_dir1",
+LINE NAME="1_421-70_421_pk1",
  LONGNAME="Burnsville-Savage Flex",
  HEADWAY=180,
  MODE=6,
@@ -59548,7 +59548,7 @@ NODES=
  -96136,
  161895
 
-LINE NAME="1_421-70_421_offpeak_dir1",
+LINE NAME="1_421-70_421_op1",
  LONGNAME="Burnsville-Savage Flex",
  HEADWAY[2]=90,
  MODE=6,
@@ -59630,7 +59630,7 @@ NODES=
  -96136,
  161895
 
-LINE NAME="1_442-70_442_peak_dir0",
+LINE NAME="1_442-70_442_pk0",
  LONGNAME="Burnsville Center-Apple Valley",
  HEADWAY=60,
  MODE=6,
@@ -59731,7 +59731,7 @@ NODES=
  -59442,
  152326
 
-LINE NAME="1_446-70_446_peak_dir0",
+LINE NAME="1_446-70_446_pk0",
  LONGNAME="Eagan-46th Street LRT",
  HEADWAY=30,
  MODE=6,
@@ -59822,7 +59822,7 @@ NODES=
  -169702,
  56336
 
-LINE NAME="1_475-70_475_peak_dir0",
+LINE NAME="1_475-70_475_pk0",
  LONGNAME="Apple Valley-Cedar Grove-Mpls/U of M",
  HEADWAY=180,
  MODE=7,
@@ -60015,7 +60015,7 @@ NODES=
  -59442,
  152326
 
-LINE NAME="3_411-70_ML_peak_dir0",
+LINE NAME="3_411-70_ML_pk0",
  LONGNAME="Mystic Lake Shuttle",
  HEADWAY=180,
  MODE=5,
@@ -60050,7 +60050,7 @@ NODES=
  -151989,
  151986
 
-LINE NAME="3_411-70_ML_offpeak_dir0",
+LINE NAME="3_411-70_ML_op0",
  LONGNAME="Mystic Lake Shuttle",
  HEADWAY[2]=72,
  MODE=5,
@@ -60085,7 +60085,7 @@ NODES=
  -151989,
  151986
 
-LINE NAME="2_903-70_RED_peak_dir0",
+LINE NAME="2_903-70_RED_pk0",
  LONGNAME="METRO Red Line",
  HEADWAY=20,
  MODE=5,
@@ -60140,7 +60140,7 @@ NODES=
  -59442,
  152326
 
-LINE NAME="2_903-70_RED_offpeak_dir0",
+LINE NAME="2_903-70_RED_op0",
  LONGNAME="METRO Red Line",
  HEADWAY[2]=20,
  MODE=5,
@@ -60195,7 +60195,7 @@ NODES=
  -59442,
  152326
 
-LINE NAME="2_903-70_RED_peak_dir1",
+LINE NAME="2_903-70_RED_pk1",
  LONGNAME="METRO Red Line",
  HEADWAY=20,
  MODE=5,
@@ -60265,7 +60265,7 @@ NODES=
  -144327,
  148451
 
-LINE NAME="2_903-70_RED_offpeak_dir1",
+LINE NAME="2_903-70_RED_op1",
  LONGNAME="METRO Red Line",
  HEADWAY[2]=20,
  MODE=5,
@@ -60335,7 +60335,7 @@ NODES=
  -144327,
  148451
 
-LINE NAME="1_497-70_497_peak_dir1",
+LINE NAME="1_497-70_497_pk1",
  LONGNAME="Downtown Shakopee",
  HEADWAY=60,
  MODE=6,
@@ -60408,7 +60408,7 @@ NODES=
  -97377,
  97482
 
-LINE NAME="1_497-70_497_offpeak_dir1",
+LINE NAME="1_497-70_497_op1",
  LONGNAME="Downtown Shakopee",
  HEADWAY[2]=60,
  MODE=6,
@@ -60481,7 +60481,7 @@ NODES=
  -97377,
  97482
 
-LINE NAME="1_499-70_499_peak_dir0",
+LINE NAME="1_499-70_499_pk0",
  LONGNAME="Shakopee-Southbridge",
  HEADWAY=60,
  MODE=6,
@@ -60548,7 +60548,7 @@ NODES=
  -137215,
  137337
 
-LINE NAME="1_499-70_499_offpeak_dir0",
+LINE NAME="1_499-70_499_op0",
  LONGNAME="Shakopee-Southbridge",
  HEADWAY[2]=60,
  MODE=6,
@@ -60604,7 +60604,7 @@ NODES=
  -151998,
  151999
 
-LINE NAME="1_495-70_495_peak_dir0",
+LINE NAME="1_495-70_495_pk0",
  LONGNAME="Shakopee-Burnsville-Mall of America",
  HEADWAY=60,
  MODE=6,
@@ -60698,7 +60698,7 @@ NODES=
  -144327,
  148451
 
-LINE NAME="1_495-70_495_offpeak_dir0",
+LINE NAME="1_495-70_495_op0",
  LONGNAME="Shakopee-Burnsville-Mall of America",
  HEADWAY[2]=60,
  MODE=6,
