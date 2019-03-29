@@ -27,7 +27,7 @@ FILEI NETI = "%SCENARIO_DIR%/XIT_NET_0_%TPER%.net"
         TRANTIME[8] = LI.lrttime       ; lrt
         TRANTIME[9] = LI.exptime       ; commuter bus
 
-        Read FILE = "%XIT_PNRNODES%"
+        Read FILE = "%xit_pnrnodes%"
     ENDPHASE
 
 ENDRUN
