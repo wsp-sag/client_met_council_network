@@ -33,14 +33,18 @@ set SCENARIO_DIR=outputs
 set COMPARISON_DIR=comparisons
 set LOOKUP_DIR=lookup_files
 
-set HWY_LINK_PATH=%NETWORK_FOLDER%/drive_and_rail_link.dbf
+set HWY_LINK_PATH=%NETWORK_FOLDER%/FIXED_drive_and_rail_link.dbf
 set HWY_NODE_PATH=%NETWORK_FOLDER%/drive_node_with_rail.dbf
 set BIKE_LINK_PATH=%NETWORK_FOLDER%/bike_link.dbf
 set BIKE_NODE_PATH=%NETWORK_FOLDER%/bike_node.dbf
 set WALK_LINK_PATH=%NETWORK_FOLDER%/walk_link.dbf
 set WALK_NODE_PATH=%NETWORK_FOLDER%/walk_node.dbf
+
+:: Set transit
 set xit_lines=%NETWORK_FOLDER%/transit.lin
 set xit_system=%LOOKUP_DIR%/PT_SYSTEM_2010.PTS
+set xit_faremat=%LOOKUP_DIR%/FAREMAT_2010.txt
+set xit_fare=%LOOKUP_DIR%/PT_FARE_2010.FAR
 ::set WALK_LINK_PATH=%NETWORK_FOLDER%/test_walk_link.dbf
 ::set WALK_NODE_PATH=%NETWORK_FOLDER%/test_walk_node.dbf
 
@@ -184,13 +188,17 @@ for /L %%I IN (1, 1, 1) DO (
 runtpp %SCRIPT_PATH%\TSNET00C.s
 runtpp %SCRIPT_PATH%\TSPTR00D.s
 runtpp %SCRIPT_PATH%\TSPTR00F.s
-runtpp %SCRIPT_PATH%\TSPTR00H.s
+runtpp %SCRIPT_PATH%\TSPIL00C.s
+
+runtpp %SCRIPT_PATH%\TSPTR00A.s
 )
 
 %beginComment%
 
-runtpp %SCRIPT_PATH%\TSPIL00C.s
-runtpp %SCRIPT_PATH%\TSPTR00A.s
+:: TSPTR00H.s is the drive access connectors. We need to develop PNR values 
+:: before the script can be used. Currently an Asana task. - JWH 3/29/19
+::runtpp %SCRIPT_PATH%\TSPTR00H.s
+
 runtpp %SCRIPT_PATH%\TSPTR00C.s
 runtpp %SCRIPT_PATH%\TSMAT00A.s
 runtpp %SCRIPT_PATH%\TSMAT00C.s

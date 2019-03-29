@@ -1,12 +1,12 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM = PUBLIC TRANSPORT MSG = 'Build %TPER% Walk Access Connectors'
-FILEO NTLEGO = "%SCENARIO_DIR%\XIT_WKACC_NTL_0_%TPER%.tmp"
-FILEO REPORTO = "%SCENARIO_DIR%\XIT_WKACC_RPT_0_%TPER%.rpt"
-FILEO NETO = "%SCENARIO_DIR%\XIT_WKACC_NET_0_%TPER%.NET"
+FILEO NTLEGO = "%SCENARIO_DIR%/XIT_WKACC_NTL_0_%TPER%.tmp"
+FILEO REPORTO = "%SCENARIO_DIR%/XIT_WKACC_RPT_0_%TPER%.rpt"
+FILEO NETO = "%SCENARIO_DIR%/XIT_WKACC_NET_0_%TPER%.NET"
 FILEI SYSTEMI = "%xit_system%"
-FILEI FACTORI[1] = "%LOOKUP_DIR%\%TPER%_WK_2010.FAC"
+FILEI FACTORI[1] = "%LOOKUP_DIR%/%TPER%_WK_2010.FAC"
 FILEI LINEI[1] = "%xit_lines%"
-FILEI NETI = "%SCENARIO_DIR%\XIT_NET_0_%TPER%.net"
+FILEI NETI = "%SCENARIO_DIR%/XIT_NET_0_%TPER%.net"
 
     REPORT Lines = T
     REREPORT Accesslegs = T, Egresslegs = T, Xferlegs = T, Lines = T, STOPNODES = T
@@ -17,7 +17,7 @@ FILEI NETI = "%SCENARIO_DIR%\XIT_NET_0_%TPER%.net"
     ENDPHASE
 
     PHASE = DATAPREP
-        Print List = 'Build Peak Walk Access Connectors', printo=0
+        Print List = 'Build Peak Walk Access Connectors', printo = 0
 
         ;set transit travel time
         TRANTIME[5] = li.loctime       ; local
@@ -28,7 +28,7 @@ FILEI NETI = "%SCENARIO_DIR%\XIT_NET_0_%TPER%.net"
 
         GENERATE,
         FROMNODE = 1-3061,
-        TONODE = 3061-999999,
+        TONODE = 3062-999999,
         DIRECTION = 3,
         ONEWAY = F,
         COST = LI.Distance,

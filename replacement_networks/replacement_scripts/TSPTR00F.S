@@ -1,12 +1,12 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM = PUBLIC TRANSPORT MSG = 'Build %TPER% Transfer Access Connectors'
-FILEO NTLEGO = "%SCENARIO_DIR%\XIT_XFER_NTL_0_%TPER%.TMP"
-FILEO REPORTO = "%SCENARIO_DIR%\XIT_XFER_RPT_0_%TPER%.RPT"
-FILEO NETO = "%SCENARIO_DIR%\XIT_XFER_NET_0_%TPER%.NET"
-FILEI SYSTEMI = "%XIT_SYSTEM%"
-FILEI FACTORI[1] = "%LOOKUP_DIR%\%TPER%_WK_2010.FAC"
-FILEI LINEI[1] = "%XIT_LINES%"
-FILEI NETI = "%SCENARIO_DIR%\XIT_NET_0_%TPER%.net"
+FILEO NTLEGO = "%SCENARIO_DIR%/XIT_XFER_NTL_0_%TPER%.TMP"
+FILEO REPORTO = "%SCENARIO_DIR%/XIT_XFER_RPT_0_%TPER%.RPT"
+FILEO NETO = "%SCENARIO_DIR%/XIT_XFER_NET_0_%TPER%.NET"
+FILEI SYSTEMI = "%xit_system%"
+FILEI FACTORI[1] = "%LOOKUP_DIR%/%TPER%_WK_2010.FAC"
+FILEI LINEI[1] = "%xit_lines%"
+FILEI NETI = "%SCENARIO_DIR%/XIT_NET_0_%TPER%.net"
  
     SKIPBADLINES = Y
     REPORT Lines = T
@@ -34,14 +34,14 @@ FILEI NETI = "%SCENARIO_DIR%\XIT_NET_0_%TPER%.net"
         ;*************************************
         ;generate the transfer legs based on transfer links
         GENERATE,
-        FROMNODE = 3100-99999,
-        TONODE = 3100-99999,
+        FROMNODE = 3062-999999,
+        TONODE = 3062-999999,
         DIRECTION = 3,
         ONEWAY = F,
-        EXCLUDELINK = (LI.RCI=1-5,13,14),   ;no walking on freeway, tollway, and managed links
-        COST = (LI.Distance*60/_wlkspd),
-        MAXCOST = 4*1,5*10,                 ;set maximum walking time to 10 minutes
-        MAXNTLEGS = 4*1,5*10,
+        EXCLUDELINK = (LI.RCI = 1-5, 13, 14),   ;no walking on freeway, tollway, and managed links
+        COST = (LI.Distance * 60 / _wlkspd),
+        MAXCOST = 4 * 1, 5 * 10,                 ;set maximum walking time to 10 minutes
+        MAXNTLEGS = 4 * 1, 5 * 10,
         NTLEGMODE = 4
        
     ENDPHASE
