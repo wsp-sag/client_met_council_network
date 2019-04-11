@@ -173,7 +173,7 @@ runtpp %SCRIPT_PATH%\CAMAT00As.
 :: TRANSIT scripts
 runtpp %SCRIPT_PATH%\TSNET00A.s
 runtpp %SCRIPT_PATH%\TSNET00B.s
-:endComment
+::endComment
 
 for /L %%I IN (1, 1, 1) DO (
 
@@ -194,7 +194,7 @@ runtpp %SCRIPT_PATH%\TSPTR00H.s
 runtpp %SCRIPT_PATH%\TSPTR00A.s
 )
 
-%beginComment%
+::%beginComment%
 
 
 runtpp %SCRIPT_PATH%\TSPTR00C.s
@@ -204,3 +204,8 @@ runtpp %SCRIPT_PATH%\TSPIL00B.s
 
 runtpp %SCRIPT_PATH%\summary_outputs.s
 :endComment
+
+set COMBINED_LINK_PATH=combined_network_03122019/link.dbf
+set COMBINED_NODE_PATH=combined_network_03122019/node.dbf
+
+runtpp %SCRIPT_PATH%\make_combined_network_from_file.s
