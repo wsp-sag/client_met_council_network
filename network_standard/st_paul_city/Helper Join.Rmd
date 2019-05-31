@@ -1,0 +1,45 @@
+---
+title: "Join Standard Roadway"
+output: html_notebook
+---
+
+# Overhead
+```{r overhead, include = FALSE}
+packages_vector <- c("tidyverse",
+                     "sf",
+                     "jsonlite")
+
+need_to_install <- packages_vector[!(packages_vector %in% installed.packages()[,"Package"])]
+
+if (length(need_to_install)) install.packages(need_to_install)
+
+for (package in packages_vector){
+  library(package, character.only = TRUE)
+}
+
+
+```
+
+# Remote I/O
+```{r remote-io}
+data_dir <- "./"
+
+link_file_name <- paste0(data_dir, "stpaul_link.json")
+shape_file_name <- paste0(data_dir, "stpaul_shape.geojson")
+
+output_file_name <- paste0(data_dir, "stpaul_shape_link.geojson")
+
+```
+
+# Data Reads
+```{r data-reads}
+shape_sf <- st_read(shape_file_name, stringsAsFactors = FALSE)
+link_df <- read_json(link_file_name, simplifyVector = TRUE)$features
+
+```
+
+# Data Joins Writes
+```{r data-writes}
+join_sf <- left_join(shape_sf, rename(link_df, link_id = id), by = c("id" = "geometryId"))
+st_write(join_sf, output_file_name, delete_dsn = TRUE)
+```
