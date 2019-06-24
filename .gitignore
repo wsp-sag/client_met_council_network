@@ -124,3 +124,5 @@ replacement_networks/comparisons/original_skims/NM_SKIM_WALK.skm
 *.vpr
 replacement_networks/comparisons/
 replacement_networks/outputs/HWY_LDNET_1_DAILY.dbf
+replacement_networks/combined_network_03122019/*
+replacement_networks/client_network2015_gdb/
