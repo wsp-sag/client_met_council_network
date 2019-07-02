@@ -1,8 +1,10 @@
 RUN PGM = NETWORK MSG = "Read in Network from FILE"
-FILEI LINKI[1] = "%HWY_LINK_PATH%",
+FILEI LINKI[1] = "%LINK_PATH%",
 	REV = 1
 ZONES = 3061
-FILEI NODEI[1] = "%HWY_NODE_PATH%"
+FILEI NODEI[1] = "%NODE_PATH%"
+
+IF (isDriveLin = 0) DELETE
 
 FILEO NETO = "%SCENARIO_DIR%/highway.net"
   

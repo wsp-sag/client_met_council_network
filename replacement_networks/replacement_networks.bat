@@ -25,7 +25,7 @@ set OLD_PATH=%PATH%
 set PATH=%RUNTIME%;%TPP_PATH%;%PYTHON_PATH%;%OLD_PATH%
 
 :: Set CSV input paths
-set NETWORK_FOLDER=network_03122019
+set NETWORK_FOLDER=network_06242019
 set SCRIPT_PATH=replacement_scripts
 set TRIP_DIR=trip_files
 if not exist \outputs mkdir \outputs
@@ -33,12 +33,8 @@ set SCENARIO_DIR=outputs
 set COMPARISON_DIR=comparisons
 set LOOKUP_DIR=lookup_files
 
-set HWY_LINK_PATH=%NETWORK_FOLDER%/FIXED_drive_and_rail_link.dbf
-set HWY_NODE_PATH=%NETWORK_FOLDER%/drive_node_with_rail.dbf
-set BIKE_LINK_PATH=%NETWORK_FOLDER%/bike_link.dbf
-set BIKE_NODE_PATH=%NETWORK_FOLDER%/bike_node.dbf
-set WALK_LINK_PATH=%NETWORK_FOLDER%/walk_link.dbf
-set WALK_NODE_PATH=%NETWORK_FOLDER%/walk_node.dbf
+set LINK_PATH=%NETWORK_FOLDER%/all_link.dbf
+set NODE_PATH=%NETWORK_FOLDER%/all_node.dbf
 
 :: Set transit
 set xit_lines=%NETWORK_FOLDER%/transit.lin
@@ -46,8 +42,6 @@ set xit_system=%LOOKUP_DIR%/PT_SYSTEM_2010.PTS
 set xit_faremat=%LOOKUP_DIR%/FAREMAT_2010.txt
 set xit_fare=%LOOKUP_DIR%/PT_FARE_2010.FAR
 set xit_pnrnodes=%LOOKUP_DIR%/GENERATE_PNR_ACCESS.s
-::set WALK_LINK_PATH=%NETWORK_FOLDER%/test_walk_link.dbf
-::set WALK_NODE_PATH=%NETWORK_FOLDER%/test_walk_node.dbf
 
 set max_threads=16
 set ITER=1
@@ -71,13 +65,13 @@ set T_PRIORITY_PATH=%LOOKUP_DIR%/T_Priority.dbf
 set T_MANTIME_PATH=%LOOKUP_DIR%/T_MANTIME.dbf
 set T_DISTANCE_PATH=%LOOKUP_DIR%/Distances.dbf
 
-%beginComment%
 :: Make Networks
 runtpp %SCRIPT_PATH%\make_highway_network_from_file.s
 runtpp %SCRIPT_PATH%\make_bike_network_from_file.s
 runtpp %SCRIPT_PATH%\make_walk_network_from_file.s
 runtpp %SCRIPT_PATH%\FullMakeNetwork15.s
 
+::%beginComment%
 ::HIGHWAY
 :: Set highway network
 set iHwyNet=%SCENARIO_DIR%/highway_2015.net
@@ -106,7 +100,7 @@ for /L %%I IN (1, 1, 6) DO (
 )
 
 :: CSPIL00A.s copies skims from a prior iteration. DO NOT USE HERE
-
+%beginComment%
 runtpp %SCRIPT_PATH%\FFHWY00A.s
 runtpp %SCRIPT_PATH%\FFPIL00A.s
 
@@ -115,6 +109,8 @@ runtpp %SCRIPT_PATH%\NMNET00A.s
 runtpp %SCRIPT_PATH%\NMHWY00A.s
 runtpp %SCRIPT_PATH%\NMHWY00B.s
 runtpp %SCRIPT_PATH%\NMMAT00A.s
+
+:endComment
 
 :: Begin highway assignment scripts (step 7)
 runtpp %SCRIPT_PATH%\HAPIL00D.s
@@ -203,9 +199,3 @@ runtpp %SCRIPT_PATH%\TSMAT00C.s
 runtpp %SCRIPT_PATH%\TSPIL00B.s
 
 runtpp %SCRIPT_PATH%\summary_outputs.s
-:endComment
-
-set COMBINED_LINK_PATH=combined_network_03122019/link.dbf
-set COMBINED_NODE_PATH=combined_network_03122019/node.dbf
-
-runtpp %SCRIPT_PATH%\make_combined_network_from_file.s
