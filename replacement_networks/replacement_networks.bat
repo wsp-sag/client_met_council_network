@@ -100,7 +100,7 @@ for /L %%I IN (1, 1, 6) DO (
 )
 
 :: CSPIL00A.s copies skims from a prior iteration. DO NOT USE HERE
-%beginComment%
+::%beginComment%
 runtpp %SCRIPT_PATH%\FFHWY00A.s
 runtpp %SCRIPT_PATH%\FFPIL00A.s
 
@@ -110,7 +110,7 @@ runtpp %SCRIPT_PATH%\NMHWY00A.s
 runtpp %SCRIPT_PATH%\NMHWY00B.s
 runtpp %SCRIPT_PATH%\NMMAT00A.s
 
-:endComment
+::endComment
 
 :: Begin highway assignment scripts (step 7)
 runtpp %SCRIPT_PATH%\HAPIL00D.s
@@ -174,7 +174,7 @@ runtpp %SCRIPT_PATH%\TSNET00B.s
 for /L %%I IN (1, 1, 1) DO (
 
 	set TOD=%%I
-	
+
 	IF %%I EQU 1 (
 		set TPER=PK
 	)
