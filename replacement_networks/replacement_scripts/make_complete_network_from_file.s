@@ -4,8 +4,6 @@ FILEI LINKI[1] = "%LINK_PATH%",
 ZONES = 3061
 FILEI NODEI[1] = "%NODE_PATH%"
 
-IF (isDriveLin = 0 & isTranLink = 0) DELETE
-
-FILEO NETO = "%SCENARIO_DIR%/highway.net"
+FILEO NETO = "%SCENARIO_DIR%/complete_network.net"
 
 ENDRUN

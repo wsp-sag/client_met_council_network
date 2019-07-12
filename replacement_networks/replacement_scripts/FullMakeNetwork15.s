@@ -1,17 +1,17 @@
-RUN PGM = NETWORK ; Calculate RCI values for 2040 network 
+RUN PGM = NETWORK ; Calculate RCI values for 2040 network
 NETI = "%SCENARIO_DIR%/highway.net"
-NETO = "%SCENARIO_DIR%/highway_2015.net" 
- 
+NETO = "%SCENARIO_DIR%/highway_2015.net"
+
 rci = 0 ; initilize variable
 ; DISTANCE = SHAPE_length*0.000621371 ; calculates distance in miles from shapelength (meters)
 
-;below sets up RCI as a function of asgngrp and RC_NUM. 
+;below sets up RCI as a function of asgngrp and RC_NUM.
 if (asgngrp = 0) delete
 if (asgngrp = 1) RCI = 1
 if (asgngrp = 2) RCI = 2
 if (asgngrp = 3) RCI = 14
 if (asgngrp = 4) RCI = 13
-if (asgngrp = 8) RCI = 1 ; all HOV facilities are access controlled 
+if (asgngrp = 8) RCI = 1 ; all HOV facilities are access controlled
 if (asgngrp = 9) rci = 99 ; all centroid have same RCI and RC_NUM
 if (asgngrp = 10) rci = 1 ; hov dummy
 if (asgngrp = 11) rci = 9
@@ -25,21 +25,21 @@ if (asgngrp = 5)
   if (rc_num = 20) RCI = 4
   if (rc_num = 30) RCI = 6
   if (rc_num = 40) RCI = 8
-  if (rc_num = 50)  RCI = 11 
+  if (rc_num = 50)  RCI = 11
  elseif (asgngrp = 6)
   if (rc_num = 20) RCI = 5
   if (rc_num = 30) RCI = 7
   if (rc_num = 40) RCI = 9
   if (rc_num = 50) RCI = 11
- elseif (asgngrp = 7) 
+ elseif (asgngrp = 7)
   if (rc_num = 0,10,20,30,40,60) RCI = 10
   if (rc_num = 50) RCI = 12
-elseif (asgngrp = 98) ; bus only 
+elseif (asgngrp = 98) ; bus only
   if (rc_num = 30) RCI = 6
   if (rc_num = 40) RCI = 10
   if (rc_num = 50) RCI = 12
-  if (rc_num = 60) RCI = 13 
-endif 
+  if (rc_num = 60) RCI = 13
+endif
 /*
 Linkclass = RCI
 LANES = LANES
@@ -118,7 +118,7 @@ asgngrp = asgngrp
 	if (AREA = 3) 	speed = 32,capacity = 500*LANES
 	if (AREA = 4) 	speed = 24,capacity = 450*LANES
 	if (AREA = 5) 	speed = 24,capacity = 400*LANES
-	if (AREA = 6) 	speed = 34,capacity = 400*LANES	
+	if (AREA = 6) 	speed = 34,capacity = 400*LANES
  elseif (RCI = 11)
 	if (AREA = 1,10)	speed = 36,capacity = 900*LANES
 	if (AREA = 2) 	speed = 32,capacity = 850*LANES
@@ -139,33 +139,33 @@ asgngrp = asgngrp
 	if (AREA = 3) 	speed = 40,capacity = 1350*LANES
 	if (AREA = 4) 	speed = 39,capacity = 1250*LANES
 	if (AREA = 5) 	speed = 37,capacity = 1200*LANES
-	if (AREA = 6) 	speed = 37,capacity = 1200*LANES	
+	if (AREA = 6) 	speed = 37,capacity = 1200*LANES
  elseif (RCI = 14)
 	if (AREA = 1,10)	speed = 36,capacity = 750*LANES
 	if (AREA = 2) 	speed = 40,capacity = 725*LANES
 	if (AREA = 3) 	speed = 39,capacity = 675*LANES
 	if (AREA = 4) 	speed = 40,capacity = 625*LANES
 	if (AREA = 5) 	speed = 36,capacity = 600*LANES
-	if (AREA = 6) 	speed = 39,capacity = 600*LANES	
+	if (AREA = 6) 	speed = 39,capacity = 600*LANES
  elseif (RCI = 15)
 	if (AREA = 1,10)	speed = 26,capacity = 600*LANES
 	if (AREA = 2) 	speed = 26,capacity = 550*LANES
 	if (AREA = 3) 	speed = 25,capacity = 500*LANES
 	if (AREA = 4) 	speed = 20,capacity = 450*LANES
 	if (AREA = 5) 	speed = 19,capacity = 400*LANES
-	if (AREA = 6) 	speed = 23,capacity = 400*LANES		
+	if (AREA = 6) 	speed = 23,capacity = 400*LANES
  elseif (RCI = 99)
 	if (AREA = 1,10)	speed = 26,capacity = 99999*LANES
 	if (AREA = 2) 	speed = 26,capacity = 99999*LANES
 	if (AREA = 3) 	speed = 25,capacity = 99999*LANES
 	if (AREA = 4) 	speed = 20,capacity = 99999*LANES
 	if (AREA = 5) 	speed = 19,capacity = 99999*LANES
-	if (AREA = 6) 	speed = 23,capacity = 99999*LANES		
+	if (AREA = 6) 	speed = 23,capacity = 99999*LANES
  endif
- 
+
  if (speed = 0) speed = 60
  time = 60*(distance/speed)
- 
+
  ; HOV
  ;I-394
  if (HOV = 105)			AMCAP = capacity,		PMCAP = capacity+1950,	OFFCAP = capacity+1950
@@ -173,8 +173,8 @@ asgngrp = asgngrp
  if (HOV = 5||HOV = 6)	AMCAP = capacity,		PMCAP = 0,		OFFCAP = 0
  if (HOV = 3||HOV = 4)	AMCAP = 0,		PMCAP = capacity,		OFFCAP = 0
  if (HOV = 103||HOV = 106)	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = capacity
- 
- 
+
+
  ;I-35W
  if (HOV = 1)	AMCAP = capacity,		PMCAP = 0,		OFFCAP = 0
  if (HOV = 2)	AMCAP = 0,		PMCAP = capacity,		OFFCAP = 0
@@ -201,17 +201,13 @@ asgngrp = asgngrp
 
  ;Everything Else
  if (HOV = 0) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = capacity
- 
- 
+
+
  newvolAM = 0
  congAM = 0
-  newvolMD  = 0 
+  newvolMD  = 0
  congMD    = 0
  HOVy = HOV
-*/ 
- 
+*/
+
  endrun
- 
-
-
-

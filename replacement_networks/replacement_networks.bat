@@ -66,6 +66,7 @@ set T_MANTIME_PATH=%LOOKUP_DIR%/T_MANTIME.dbf
 set T_DISTANCE_PATH=%LOOKUP_DIR%/Distances.dbf
 
 :: Make Networks
+runtpp %SCRIPT_PATH%\make_complete_network_from_file.s
 runtpp %SCRIPT_PATH%\make_highway_network_from_file.s
 runtpp %SCRIPT_PATH%\make_bike_network_from_file.s
 runtpp %SCRIPT_PATH%\make_walk_network_from_file.s
