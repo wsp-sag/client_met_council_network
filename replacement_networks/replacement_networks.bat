@@ -41,7 +41,7 @@ set xit_lines=%NETWORK_FOLDER%/transit.lin
 set xit_system=%LOOKUP_DIR%/PT_SYSTEM_2010.PTS
 set xit_faremat=%LOOKUP_DIR%/FAREMAT_2010.txt
 set xit_fare=%LOOKUP_DIR%/PT_FARE_2010.FAR
-set xit_pnrnodes=%LOOKUP_DIR%/GENERATE_PNR_ACCESS.s
+set xit_pnrnodes=%SCRIPT_PATH%/GENERATE_PNR_ACCESS.s
 
 set max_threads=16
 set ITER=1
@@ -65,6 +65,8 @@ set T_PRIORITY_PATH=%LOOKUP_DIR%/T_Priority.dbf
 set T_MANTIME_PATH=%LOOKUP_DIR%/T_MANTIME.dbf
 set T_DISTANCE_PATH=%LOOKUP_DIR%/Distances.dbf
 
+%beginComment%
+
 :: Make Networks
 runtpp %SCRIPT_PATH%\make_complete_network_from_file.s
 runtpp %SCRIPT_PATH%\make_highway_network_from_file.s
@@ -72,7 +74,6 @@ runtpp %SCRIPT_PATH%\make_bike_network_from_file.s
 runtpp %SCRIPT_PATH%\make_walk_network_from_file.s
 runtpp %SCRIPT_PATH%\FullMakeNetwork15.s
 
-::%beginComment%
 ::HIGHWAY
 :: Set highway network
 set iHwyNet=%SCENARIO_DIR%/highway_2015.net
@@ -101,7 +102,7 @@ for /L %%I IN (1, 1, 6) DO (
 )
 
 :: CSPIL00A.s copies skims from a prior iteration. DO NOT USE HERE
-::%beginComment%
+:%beginComment%
 runtpp %SCRIPT_PATH%\FFHWY00A.s
 runtpp %SCRIPT_PATH%\FFPIL00A.s
 
@@ -110,8 +111,6 @@ runtpp %SCRIPT_PATH%\NMNET00A.s
 runtpp %SCRIPT_PATH%\NMHWY00A.s
 runtpp %SCRIPT_PATH%\NMHWY00B.s
 runtpp %SCRIPT_PATH%\NMMAT00A.s
-
-::endComment
 
 :: Begin highway assignment scripts (step 7)
 runtpp %SCRIPT_PATH%\HAPIL00D.s
@@ -167,10 +166,12 @@ runtpp %SCRIPT_PATH%\CANET00A.s
 runtpp %SCRIPT_PATH%\CANET00B.s
 runtpp %SCRIPT_PATH%\CAMAT00As.
 
-:: TRANSIT scripts
-runtpp %SCRIPT_PATH%\TSNET00A.s
-runtpp %SCRIPT_PATH%\TSNET00B.s
 ::endComment
+
+:: TRANSIT scripts
+::runtpp %SCRIPT_PATH%\TSNET00A.s
+::runtpp %SCRIPT_PATH%\TSNET00B.s
+:endComment
 
 for /L %%I IN (1, 1, 1) DO (
 
@@ -183,15 +184,16 @@ for /L %%I IN (1, 1, 1) DO (
 	set TPER=OP
 	)
 
-runtpp %SCRIPT_PATH%\TSNET00C.s
+::runtpp %SCRIPT_PATH%\TSNET00C.s
 runtpp %SCRIPT_PATH%\TSPTR00D.s
-runtpp %SCRIPT_PATH%\TSPTR00F.s
-runtpp %SCRIPT_PATH%\TSPIL00C.s
-runtpp %SCRIPT_PATH%\TSPTR00H.s
-runtpp %SCRIPT_PATH%\TSPTR00A.s
+runtpp %SCRIPT_PATH%\test_walk_access.s
+::runtpp %SCRIPT_PATH%\TSPTR00F.s
+::runtpp %SCRIPT_PATH%\TSPIL00C.s
+::runtpp %SCRIPT_PATH%\TSPTR00H.s
+::runtpp %SCRIPT_PATH%\TSPTR00A.s
 )
 
-::%beginComment%
+%beginComment%
 
 
 runtpp %SCRIPT_PATH%\TSPTR00C.s
@@ -200,3 +202,4 @@ runtpp %SCRIPT_PATH%\TSMAT00C.s
 runtpp %SCRIPT_PATH%\TSPIL00B.s
 
 runtpp %SCRIPT_PATH%\summary_outputs.s
+:endComment
