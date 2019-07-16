@@ -37,3 +37,4 @@ replacement_networks/client_network2015_gdb/*
 # replacement_networks/network_06242019/*
 replacement_networks/trip_files/*
 replacement_networks/outputs/*
+replacement_networks/.DS_Store
