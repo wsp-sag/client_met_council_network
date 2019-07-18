@@ -1,7 +1,7 @@
 ::~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 :: run_initial_auto_skim.bat
 ::
-:: MS-DOS batch file to execute the Auto Skim step of teh Met Council travel
+:: MS-DOS batch file to execute the Auto Skim step of the Met Council travel
 :: model.
 ::
 ::
@@ -41,7 +41,7 @@ set xit_lines=%NETWORK_FOLDER%/transit.lin
 set xit_system=%LOOKUP_DIR%/PT_SYSTEM_2010.PTS
 set xit_faremat=%LOOKUP_DIR%/FAREMAT_2010.txt
 set xit_fare=%LOOKUP_DIR%/PT_FARE_2010.FAR
-set xit_pnrnodes=%SCRIPT_PATH%/GENERATE_PNR_ACCESS.s
+set xit_pnrnodes=%NETWORK_FOLDER%/GENERATE_PNR_ACCESS.s
 
 set max_threads=16
 set ITER=1
@@ -74,6 +74,8 @@ runtpp %SCRIPT_PATH%\make_bike_network_from_file.s
 runtpp %SCRIPT_PATH%\make_walk_network_from_file.s
 runtpp %SCRIPT_PATH%\FullMakeNetwork15.s
 
+:endComment
+
 ::HIGHWAY
 :: Set highway network
 set iHwyNet=%SCENARIO_DIR%/highway_2015.net
@@ -82,9 +84,9 @@ set LU_AlphaBeta=lookup_files/AlphaBetaLookup.txt
 set LU_capacity=lookup_files/SpeedLookup85.txt
 set LU_speed=lookup_files/CapacityLookup.txt
 
+%beginComment%
 runtpp %SCRIPT_PATH%\BNNET00B.s
 runtpp %SCRIPT_PATH%\HNNET00B.s
-
 :: This script handles TOD assignment. Batch files require a single character
 :: variable.
 
@@ -102,7 +104,6 @@ for /L %%I IN (1, 1, 6) DO (
 )
 
 :: CSPIL00A.s copies skims from a prior iteration. DO NOT USE HERE
-:%beginComment%
 runtpp %SCRIPT_PATH%\FFHWY00A.s
 runtpp %SCRIPT_PATH%\FFPIL00A.s
 
@@ -166,11 +167,9 @@ runtpp %SCRIPT_PATH%\CANET00A.s
 runtpp %SCRIPT_PATH%\CANET00B.s
 runtpp %SCRIPT_PATH%\CAMAT00As.
 
-::endComment
-
 :: TRANSIT scripts
-::runtpp %SCRIPT_PATH%\TSNET00A.s
-::runtpp %SCRIPT_PATH%\TSNET00B.s
+runtpp %SCRIPT_PATH%\TSNET00A.s
+runtpp %SCRIPT_PATH%\TSNET00B.s
 :endComment
 
 for /L %%I IN (1, 1, 1) DO (
@@ -184,21 +183,19 @@ for /L %%I IN (1, 1, 1) DO (
 	set TPER=OP
 	)
 
-::runtpp %SCRIPT_PATH%\TSNET00C.s
-runtpp %SCRIPT_PATH%\TSPTR00D.s
-runtpp %SCRIPT_PATH%\test_walk_access.s
-::runtpp %SCRIPT_PATH%\TSPTR00F.s
-::runtpp %SCRIPT_PATH%\TSPIL00C.s
-::runtpp %SCRIPT_PATH%\TSPTR00H.s
-::runtpp %SCRIPT_PATH%\TSPTR00A.s
+	runtpp %SCRIPT_PATH%\TSNET00C.s
+	runtpp %SCRIPT_PATH%\TSPTR00D.s
+	runtpp %SCRIPT_PATH%\TSPTR00F.s
+	runtpp %SCRIPT_PATH%\TSPTR00H.s
+	runtpp %SCRIPT_PATH%\TSPIL00C.s
+	runtpp %SCRIPT_PATH%\TSPTR00A.s
+	runtpp %SCRIPT_PATH%\TSPTR00C.s
 )
 
 %beginComment%
-
-
-runtpp %SCRIPT_PATH%\TSPTR00C.s
 runtpp %SCRIPT_PATH%\TSMAT00A.s
 runtpp %SCRIPT_PATH%\TSMAT00C.s
+
 runtpp %SCRIPT_PATH%\TSPIL00B.s
 
 runtpp %SCRIPT_PATH%\summary_outputs.s

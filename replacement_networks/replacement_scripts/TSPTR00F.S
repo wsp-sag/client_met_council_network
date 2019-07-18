@@ -7,20 +7,20 @@ FILEI SYSTEMI = "%xit_system%"
 FILEI FACTORI[1] = "%LOOKUP_DIR%/%TPER%_WK_2010.FAC"
 FILEI LINEI[1] = "%xit_lines%"
 FILEI NETI = "%SCENARIO_DIR%/XIT_NET_0_%TPER%.net"
- 
+
     SKIPBADLINES = Y
     REPORT Lines = T
-    REREPORT Accesslegs = T, Egresslegs = T, Xferlegs = T, 
+    REREPORT Accesslegs = T, Egresslegs = T, Xferlegs = T,
              Lines = T, STOPNODES = T
     HDWAYPERIOD = %TOD%
 
- 
+
     PHASE = LINKREAD
         _wlkspd = 2.5   ;mph
     ENDPHASE
 
     PHASE = DATAPREP
-     
+
         Print List='Build Peak Transfer Connectors', printo=0
         ;set transit travel time
         TRANTIME[5] = LI.loctime       ; local
@@ -43,7 +43,7 @@ FILEI NETI = "%SCENARIO_DIR%/XIT_NET_0_%TPER%.net"
         MAXCOST = 4 * 1, 5 * 10,                 ;set maximum walking time to 10 minutes
         MAXNTLEGS = 4 * 1, 5 * 10,
         NTLEGMODE = 4
-       
+
     ENDPHASE
 
 ENDRUN
