@@ -767,8 +767,7 @@ NODES=
  -56388,
  -53028,
  -52858,
- 116432,
- CIRCULAR=T
+ 116432
 
 LINE NAME="0_921-111_A Line_op1",
  LONGNAME="A Line",
@@ -907,8 +906,7 @@ NODES=
  -56388,
  -53028,
  -52858,
- 116432,
- CIRCULAR=T
+ 116432
 
 LINE NAME="0_252-111_252_pk1",
  LONGNAME="Express - 95Av P&R - U of M",
@@ -996,8 +994,7 @@ NODES=
  24230,
  20251,
  -14981,
- 5608,
- CIRCULAR=T
+ 5608
 
 LINE NAME="0_63-111_63_pk0",
  LONGNAME="Raymond Sta - Grand Av - Sunray - McKnight Rd",
@@ -1209,8 +1206,7 @@ NODES=
  73361,
  -74327,
  57525,
- 74329,
- CIRCULAR=T
+ 74329
 
 LINE NAME="0_63-111_63_op1",
  LONGNAME="Raymond Sta - Grand Av - Sunray - McKnight Rd",
@@ -1430,8 +1426,7 @@ NODES=
  -76219,
  76221,
  113306,
- -76221,
- CIRCULAR=T
+ -76221
 
 LINE NAME="0_63-111_63_op0",
  LONGNAME="Raymond Sta - Grand Av - Sunray - McKnight Rd",
@@ -1643,8 +1638,7 @@ NODES=
  73361,
  -74327,
  57525,
- 74329,
- CIRCULAR=T
+ 74329
 
 LINE NAME="0_63-111_63_pk1",
  LONGNAME="Raymond Sta - Grand Av - Sunray - McKnight Rd",
@@ -1864,8 +1858,7 @@ NODES=
  -76219,
  76221,
  113306,
- -76221,
- CIRCULAR=T
+ -76221
 
 LINE NAME="0_250-111_250_pk0",
  LONGNAME="Express - St Josephs P&R - 95th Av P&R - Mpls",
@@ -2009,8 +2002,7 @@ NODES=
  -20694,
  -20695,
  -152337,
- 152332,
- CIRCULAR=T
+ 152332
 
 LINE NAME="0_250-111_250_op0",
  LONGNAME="Express - St Josephs P&R - 95th Av P&R - Mpls",
@@ -2294,8 +2286,7 @@ NODES=
  -123478,
  -157942,
  -141041,
- 141035,
- CIRCULAR=T
+ 141035
 
 LINE NAME="0_3-111_3_pk0",
  LONGNAME="U of M - Como Av - Energy Park Dr - Maryland Av",
@@ -2500,8 +2491,7 @@ NODES=
  -39422,
  -45981,
  -45984,
- 45983,
- CIRCULAR=T
+ 45983
 
 LINE NAME="0_3-111_3_pk1",
  LONGNAME="U of M - Como Av - Energy Park Dr - Maryland Av",
@@ -2736,8 +2726,7 @@ NODES=
  -94530,
  -116401,
  -52552,
- 52553,
- CIRCULAR=T
+ 52553
 
 LINE NAME="0_3-111_3_op1",
  LONGNAME="U of M - Como Av - Energy Park Dr - Maryland Av",
@@ -2972,8 +2961,7 @@ NODES=
  -94530,
  -116401,
  -52552,
- 52553,
- CIRCULAR=T
+ 52553
 
 LINE NAME="0_3-111_3_op0",
  LONGNAME="U of M - Como Av - Energy Park Dr - Maryland Av",
@@ -3178,8 +3166,7 @@ NODES=
  -39422,
  -45981,
  -45984,
- 45983,
- CIRCULAR=T
+ 45983
 
 LINE NAME="4_781-111_781_pk1",
  LONGNAME="Maple Grove - Express - Maple Grove Station",
@@ -3661,8 +3648,7 @@ NODES=
  -17335,
  -115475,
  -6565,
- 141990,
- CIRCULAR=T
+ 141990
 
 LINE NAME="0_64-111_64_op0",
  LONGNAME="Payne - Maryland - White Bear Av - Maplewood Mall",
@@ -3844,8 +3830,7 @@ NODES=
  -42441,
  -42438,
  -42425,
- 48925,
- CIRCULAR=T
+ 48925
 
 LINE NAME="0_64-111_64_pk1",
  LONGNAME="Payne - Maryland - White Bear Av - Maplewood Mall",
@@ -4030,8 +4015,7 @@ NODES=
  -45688,
  -37609,
  19077,
- 38696,
- CIRCULAR=T
+ 38696
 
 LINE NAME="0_64-111_64_op1",
  LONGNAME="Payne - Maryland - White Bear Av - Maplewood Mall",
@@ -4216,8 +4200,7 @@ NODES=
  -45688,
  -37609,
  19077,
- 38696,
- CIRCULAR=T
+ 38696
 
 LINE NAME="0_64-111_64_pk0",
  LONGNAME="Payne - Maryland - White Bear Av - Maplewood Mall",
@@ -4399,8 +4382,7 @@ NODES=
  -42441,
  -42438,
  -42425,
- 48925,
- CIRCULAR=T
+ 48925
 
 LINE NAME="0_74-111_74_op0",
  LONGNAME="46th St - Randolph - W 7th St - E 7th St - Sunray",
@@ -4622,8 +4604,7 @@ NODES=
  -70144,
  70143,
  -55702,
- 55703,
- CIRCULAR=T
+ 55703
 
 LINE NAME="0_74-111_74_pk0",
  LONGNAME="46th St - Randolph - W 7th St - E 7th St - Sunray",
@@ -4845,8 +4826,7 @@ NODES=
  -70144,
  70143,
  -55702,
- 55703,
- CIRCULAR=T
+ 55703
 
 LINE NAME="0_74-111_74_pk1",
  LONGNAME="46th St - Randolph - W 7th St - E 7th St - Sunray",
@@ -5067,8 +5047,7 @@ NODES=
  154640,
  154636,
  -154652,
- 23051,
- CIRCULAR=T
+ 23051
 
 LINE NAME="0_74-111_74_op1",
  LONGNAME="46th St - Randolph - W 7th St - E 7th St - Sunray",
@@ -5289,8 +5268,7 @@ NODES=
  154640,
  154636,
  -154652,
- 23051,
- CIRCULAR=T
+ 23051
 
 LINE NAME="0_32-111_32_pk0",
  LONGNAME="Robbinsdale - Lowry Av - Rosedale",
@@ -5432,8 +5410,7 @@ NODES=
  -60831,
  -60834,
  -60844,
- 148789,
- CIRCULAR=T
+ 148789
 
 LINE NAME="0_32-111_32_op0",
  LONGNAME="Robbinsdale - Lowry Av - Rosedale",
@@ -5575,8 +5552,7 @@ NODES=
  -60831,
  -60834,
  -60844,
- 148789,
- CIRCULAR=T
+ 148789
 
 LINE NAME="0_32-111_32_pk1",
  LONGNAME="Robbinsdale - Lowry Av - Rosedale",
@@ -5774,8 +5750,7 @@ NODES=
  -86525,
  86538,
  -6976,
- 3544,
- CIRCULAR=T
+ 3544
 
 LINE NAME="0_2-111_2_op0",
  LONGNAME="Franklin Av - Riverside Av - U of M - 8th St SE",
@@ -5921,8 +5896,7 @@ NODES=
  -86525,
  86538,
  -6976,
- 3544,
- CIRCULAR=T
+ 3544
 
 LINE NAME="0_2-111_2_pk1",
  LONGNAME="Franklin Av - Riverside Av - U of M - 8th St SE",
@@ -6379,8 +6353,7 @@ NODES=
  -123478,
  -157942,
  -141041,
- 141035,
- CIRCULAR=T
+ 141035
 
 LINE NAME="0_597-111_597_pk1",
  LONGNAME="Express - West Bloomington - Mpls",
@@ -6471,8 +6444,7 @@ NODES=
  -127040,
  -120928,
  -120804,
- 78105,
- CIRCULAR=T
+ 78105
 
 LINE NAME="0_755-111_755_pk0",
  LONGNAME="Ltd Stop - Hwy 55 - Golden Valley Rd - Winnetka Av",
@@ -6652,8 +6624,7 @@ NODES=
  9441,
  9439,
  94469,
- -9439,
- CIRCULAR=T
+ -9439
 
 LINE NAME="0_755-111_755_pk1",
  LONGNAME="Ltd Stop - Hwy 55 - Golden Valley Rd - Winnetka Av",
@@ -6819,8 +6790,7 @@ NODES=
  -26086,
  -90502,
  -123683,
- 125500,
- CIRCULAR=T
+ 125500
 
 LINE NAME="0_467-111_467_pk0",
  LONGNAME="Express - Lakeville - Mpls",
@@ -7512,8 +7482,7 @@ NODES=
  -54192,
  69446,
  -109619,
- 75620,
- CIRCULAR=T
+ 75620
 
 LINE NAME="0_68-111_68_op1",
  LONGNAME="Jackson St - Robert St - W St Paul - Inver Hills",
@@ -8026,8 +7995,7 @@ NODES=
  -126674,
  -153162,
  -170917,
- 171151,
- CIRCULAR=T
+ 171151
 
 LINE NAME="0_7-111_7_op1",
  LONGNAME="Plymouth - 27 Av - Minnehaha - 46 St Sta - 34 Av S",
@@ -8184,8 +8152,7 @@ NODES=
  -126674,
  -153162,
  -170917,
- 171151,
- CIRCULAR=T
+ 171151
 
 LINE NAME="0_7-111_7_pk0",
  LONGNAME="Plymouth - 27 Av - Minnehaha - 46 St Sta - 34 Av S",
@@ -8343,8 +8310,7 @@ NODES=
  -158144,
  117261,
  -117271,
- 3374,
- CIRCULAR=T
+ 3374
 
 LINE NAME="0_7-111_7_op0",
  LONGNAME="Plymouth - 27 Av - Minnehaha - 46 St Sta - 34 Av S",
@@ -8502,8 +8468,7 @@ NODES=
  -158144,
  117261,
  -117271,
- 3374,
- CIRCULAR=T
+ 3374
 
 LINE NAME="2_417-111_417_pk0",
  LONGNAME="Mendota Heights - St Paul",
@@ -8785,8 +8750,7 @@ NODES=
  151650,
  -151649,
  61304,
- 16271,
- CIRCULAR=T
+ 16271
 
 LINE NAME="0_5-111_5_op0",
  LONGNAME="Brooklyn Ctr - Fremont - 26th Av - Chicago - MOA",
@@ -8955,8 +8919,7 @@ NODES=
  151650,
  -151649,
  61304,
- 16271,
- CIRCULAR=T
+ 16271
 
 LINE NAME="0_5-111_5_op1",
  LONGNAME="Brooklyn Ctr - Fremont - 26th Av - Chicago - MOA",
@@ -9122,8 +9085,7 @@ NODES=
  126379,
  127080,
  48351,
- 56970,
- CIRCULAR=T
+ 56970
 
 LINE NAME="0_5-111_5_pk1",
  LONGNAME="Brooklyn Ctr - Fremont - 26th Av - Chicago - MOA",
@@ -9266,8 +9228,7 @@ NODES=
  113036,
  113108,
  -140668,
- 170567,
- CIRCULAR=T
+ 170567
 
 LINE NAME="0_39-111_39_pk1",
  LONGNAME="Wells Fargo - Abbott NW and Children's Hospitals",
@@ -9336,8 +9297,7 @@ NODES=
  -114941,
  148213,
  165192,
- 5479,
- CIRCULAR=T
+ 5479
 
 LINE NAME="2_83-111_83_pk1",
  LONGNAME="HarMar Target - Lexington Av",
@@ -9465,8 +9425,7 @@ NODES=
  -170076,
  53497,
  -56147,
- 113072,
- CIRCULAR=T
+ 113072
 
 LINE NAME="2_83-111_83_op1",
  LONGNAME="HarMar Target - Lexington Av",
@@ -9594,8 +9553,7 @@ NODES=
  -170076,
  53497,
  -56147,
- 113072,
- CIRCULAR=T
+ 113072
 
 LINE NAME="2_83-111_83_pk0",
  LONGNAME="HarMar Target - Lexington Av",
@@ -9718,8 +9676,7 @@ NODES=
  -71550,
  -75717,
  -75715,
- 41300,
- CIRCULAR=T
+ 41300
 
 LINE NAME="2_83-111_83_op0",
  LONGNAME="HarMar Target - Lexington Av",
@@ -9842,8 +9799,7 @@ NODES=
  -71550,
  -75717,
  -75715,
- 41300,
- CIRCULAR=T
+ 41300
 
 LINE NAME="0_22-111_22_pk0",
  LONGNAME="Brooklyn Ctr - Lyndale Av N - Cedar - 28 Av S - VA",
@@ -10081,8 +10037,7 @@ NODES=
  -151651,
  -151652,
  -16271,
- 61304,
- CIRCULAR=T
+ 61304
 
 LINE NAME="0_22-111_22_op0",
  LONGNAME="Brooklyn Ctr - Lyndale Av N - Cedar - 28 Av S - VA",
@@ -10320,8 +10275,7 @@ NODES=
  -151651,
  -151652,
  -16271,
- 61304,
- CIRCULAR=T
+ 61304
 
 LINE NAME="0_22-111_22_pk1",
  LONGNAME="Brooklyn Ctr - Lyndale Av N - Cedar - 28 Av S - VA",
@@ -10558,8 +10512,7 @@ NODES=
  -169329,
  -159377,
  -169321,
- 161977,
- CIRCULAR=T
+ 161977
 
 LINE NAME="0_22-111_22_op1",
  LONGNAME="Brooklyn Ctr - Lyndale Av N - Cedar - 28 Av S - VA",
@@ -10802,8 +10755,7 @@ NODES=
  -169329,
  -159377,
  -169321,
- 161977,
- CIRCULAR=T
+ 161977
 
 LINE NAME="0_588-111_588_pk1",
  LONGNAME="Express -  Normandale Lake Offices - Mpls",
@@ -10891,8 +10843,7 @@ NODES=
  -127536,
  -7844,
  -7827,
- 7814,
- CIRCULAR=T
+ 7814
 
 LINE NAME="0_294-111_294_pk1",
  LONGNAME="Express - Oakdale - Stillwater - St Paul",
@@ -11064,8 +11015,7 @@ NODES=
  -45688,
  -37609,
  19077,
- 38696,
- CIRCULAR=T
+ 38696
 
 LINE NAME="0_294-111_294_pk0",
  LONGNAME="Express - Oakdale - Stillwater - St Paul",
@@ -11243,8 +11193,7 @@ NODES=
  -109355,
  -109365,
  -61136,
- 61137,
- CIRCULAR=T
+ 61137
 
 LINE NAME="0_14-111_14_pk0",
  LONGNAME="Robbinsdale - West Broadway - Bloomington Av",
@@ -12127,8 +12076,7 @@ NODES=
  -62584,
  -137756,
  -15243,
- 48115,
- CIRCULAR=T
+ 48115
 
 LINE NAME="2_539-111_539_op0",
  LONGNAME="Southtown - Normandale -Valley West - 98th - MOA",
@@ -12411,8 +12359,7 @@ NODES=
  -62584,
  -137756,
  -15243,
- 48115,
- CIRCULAR=T
+ 48115
 
 LINE NAME="2_539-111_539_op1",
  LONGNAME="Southtown - Normandale -Valley West - 98th - MOA",
@@ -12651,8 +12598,7 @@ NODES=
  5118,
  5113,
  68952,
- -5113,
- CIRCULAR=T
+ -5113
 
 LINE NAME="2_539-111_539_pk1",
  LONGNAME="Southtown - Normandale -Valley West - 98th - MOA",
@@ -12879,8 +12825,7 @@ NODES=
  5118,
  5113,
  68952,
- -5113,
- CIRCULAR=T
+ -5113
 
 LINE NAME="2_537-111_537_pk0",
  LONGNAME="Valley West - Normandale Col - France - Southdale",
@@ -12966,8 +12911,7 @@ NODES=
  26984,
  -150238,
  -94680,
- 94682,
- CIRCULAR=T
+ 94682
 
 LINE NAME="2_537-111_537_op0",
  LONGNAME="Valley West - Normandale Col - France - Southdale",
@@ -13053,8 +12997,7 @@ NODES=
  26984,
  -150238,
  -94680,
- 94682,
- CIRCULAR=T
+ 94682
 
 LINE NAME="2_537-111_537_pk1",
  LONGNAME="Valley West - Normandale Col - France - Southdale",
@@ -13425,8 +13368,7 @@ NODES=
  -3836,
  -3838,
  -3835,
- 3837,
- CIRCULAR=T
+ 3837
 
 LINE NAME="0_46-111_46_op1",
  LONGNAME="50St - 46St - 46St Sta - Highland Village",
@@ -13635,8 +13577,7 @@ NODES=
  -3836,
  -3838,
  -3835,
- 3837,
- CIRCULAR=T
+ 3837
 
 LINE NAME="0_46-111_46_pk0",
  LONGNAME="50St - 46St - 46St Sta - Highland Village",
@@ -13835,8 +13776,7 @@ NODES=
  -19694,
  -112008,
  57953,
- 57954,
- CIRCULAR=T
+ 57954
 
 LINE NAME="0_46-111_46_op0",
  LONGNAME="50St - 46St - 46St Sta - Highland Village",
@@ -14035,8 +13975,7 @@ NODES=
  -19694,
  -112008,
  57953,
- 57954,
- CIRCULAR=T
+ 57954
 
 LINE NAME="0_850-111_850_op0",
  LONGNAME="Express - Riverdale P&R - Foley P&R - Mpls",
@@ -14182,8 +14121,7 @@ NODES=
  -93397,
  -6779,
  -121127,
- 117641,
- CIRCULAR=T
+ 117641
 
 LINE NAME="4_780-111_780_pk1",
  LONGNAME="Maple Grove - Express - Shepherd of the Grove P&R",
@@ -14309,8 +14247,7 @@ NODES=
  -92593,
  -22491,
  -78762,
- 92594,
- CIRCULAR=T
+ 92594
 
 LINE NAME="0_21-111_21_op0",
  LONGNAME="Uptown - Lake St - Midway - Selby  Av",
@@ -14522,8 +14459,7 @@ NODES=
  -46663,
  -126316,
  -45984,
- 45983,
- CIRCULAR=T
+ 45983
 
 LINE NAME="0_21-111_21_pk0",
  LONGNAME="Uptown - Lake St - Midway - Selby  Av",
@@ -14735,8 +14671,7 @@ NODES=
  -46663,
  -126316,
  -45984,
- 45983,
- CIRCULAR=T
+ 45983
 
 LINE NAME="0_21-111_21_op1",
  LONGNAME="Uptown - Lake St - Midway - Selby  Av",
@@ -15563,8 +15498,7 @@ NODES=
  -93397,
  -6779,
  -121127,
- 117641,
- CIRCULAR=T
+ 117641
 
 LINE NAME="0_70-111_70_pk0",
  LONGNAME="St Clair Av - W 7th St - Burns Av - Sunray",
@@ -15759,8 +15693,7 @@ NODES=
  -37887,
  70141,
  -55702,
- 55703,
- CIRCULAR=T
+ 55703
 
 LINE NAME="0_70-111_70_pk1",
  LONGNAME="St Clair Av - W 7th St - Burns Av - Sunray",
@@ -15965,8 +15898,7 @@ NODES=
  4160,
  -4169,
  -4167,
- 4168,
- CIRCULAR=T
+ 4168
 
 LINE NAME="0_70-111_70_op1",
  LONGNAME="St Clair Av - W 7th St - Burns Av - Sunray",
@@ -16051,8 +15983,7 @@ NODES=
  -39425,
  62146,
  -41991,
- 70841,
- CIRCULAR=T
+ 70841
 
 LINE NAME="0_70-111_70_op0",
  LONGNAME="St Clair Av - W 7th St - Burns Av - Sunray",
@@ -16134,8 +16065,7 @@ NODES=
  -37887,
  70141,
  -55702,
- 55703,
- CIRCULAR=T
+ 55703
 
 LINE NAME="0_67-111_67_pk1",
  LONGNAME="W Minnehaha Av - Raymond Sta - Franklin Av",
@@ -16339,8 +16269,7 @@ NODES=
  -165805,
  -16058,
  -133766,
- 161374,
- CIRCULAR=T
+ 161374
 
 LINE NAME="0_67-111_67_op1",
  LONGNAME="W Minnehaha Av - Raymond Sta - Franklin Av",
@@ -16544,8 +16473,7 @@ NODES=
  -165805,
  -16058,
  -133766,
- 161374,
- CIRCULAR=T
+ 161374
 
 LINE NAME="0_67-111_67_pk0",
  LONGNAME="W Minnehaha Av - Raymond Sta - Franklin Av",
@@ -16712,8 +16640,7 @@ NODES=
  70841,
  70839,
  -70838,
- 45946,
- CIRCULAR=T
+ 45946
 
 LINE NAME="0_67-111_67_op0",
  LONGNAME="W Minnehaha Av - Raymond Sta - Franklin Av",
@@ -16880,8 +16807,7 @@ NODES=
  70841,
  70839,
  -70838,
- 45946,
- CIRCULAR=T
+ 45946
 
 LINE NAME="2_16-111_16_pk0",
  LONGNAME="University Av - Midway",
@@ -16971,8 +16897,7 @@ NODES=
  -39422,
  -45981,
  -45984,
- 45983,
- CIRCULAR=T
+ 45983
 
 LINE NAME="2_16-111_16_pk1",
  LONGNAME="University Av - Midway",
@@ -17138,8 +17063,7 @@ NODES=
  -39422,
  -45981,
  -45984,
- 45983,
- CIRCULAR=T
+ 45983
 
 LINE NAME="2_16-111_16_op1",
  LONGNAME="University Av - Midway",
@@ -17388,8 +17312,7 @@ NODES=
  141035,
  -93123,
  -109346,
- 6710,
- CIRCULAR=T
+ 6710
 
 LINE NAME="0_515-111_515_pk0",
  LONGNAME="Southdale - 66th St - Bloomington Av - VA - MOA",
@@ -17517,8 +17440,7 @@ NODES=
  -63357,
  -137756,
  -15243,
- 48115,
- CIRCULAR=T
+ 48115
 
 LINE NAME="0_515-111_515_op0",
  LONGNAME="Southdale - 66th St - Bloomington Av - VA - MOA",
@@ -17628,8 +17550,7 @@ NODES=
  -63357,
  -137756,
  -15243,
- 48115,
- CIRCULAR=T
+ 48115
 
 LINE NAME="0_515-111_515_pk1",
  LONGNAME="Southdale - 66th St - Bloomington Av - VA - MOA",
@@ -17762,8 +17683,7 @@ NODES=
  -114260,
  -94688,
  -163557,
- 94682,
- CIRCULAR=T
+ 94682
 
 LINE NAME="0_515-111_515_op1",
  LONGNAME="Southdale - 66th St - Bloomington Av - VA - MOA",
@@ -17880,8 +17800,7 @@ NODES=
  -114260,
  -94688,
  -163557,
- 94682,
- CIRCULAR=T
+ 94682
 
 LINE NAME="0_763-111_763_pk1",
  LONGNAME="Express - 85th Av - Brookdale Dr - Humboldt - Mpls",
@@ -18024,8 +17943,7 @@ NODES=
  -93397,
  -6779,
  -121127,
- 117641,
- CIRCULAR=T
+ 117641
 
 LINE NAME="0_865-111_865_pk1",
  LONGNAME="Express - Paul Pkwy P&R - Blaine - Mpls",
@@ -18125,8 +18043,7 @@ NODES=
  -92593,
  -22491,
  -78762,
- 92594,
- CIRCULAR=T
+ 92594
 
 LINE NAME="0_761-111_761_pk1",
  LONGNAME="Express - Brooklyn Park - Xerxes - 49th Av - Mpls",
@@ -18265,8 +18182,7 @@ NODES=
  -92593,
  -22491,
  -78762,
- 92594,
- CIRCULAR=T
+ 92594
 
 LINE NAME="0_23-111_23_op0",
  LONGNAME="Uptown - 38th St - Highland Village",
@@ -18520,8 +18436,7 @@ NODES=
  -19881,
  -15923,
  -147715,
- 33005,
- CIRCULAR=T
+ 33005
 
 LINE NAME="0_23-111_23_pk1",
  LONGNAME="Uptown - 38th St - Highland Village",
@@ -18657,8 +18572,7 @@ NODES=
  -19881,
  -15923,
  -147715,
- 33005,
- CIRCULAR=T
+ 33005
 
 LINE NAME="0_23-111_23_pk0",
  LONGNAME="Uptown - 38th St - Highland Village",
@@ -18863,8 +18777,7 @@ NODES=
  164142,
  -82176,
  64941,
- 164151,
- CIRCULAR=T
+ 164151
 
 LINE NAME="0_71-111_71_op1",
  LONGNAME="Little Canada - Edgerton - Concord - Inver Hills",
@@ -18954,8 +18867,7 @@ NODES=
  -75345,
  75344,
  -53131,
- 151640,
- CIRCULAR=T
+ 151640
 
 LINE NAME="0_71-111_71_pk0",
  LONGNAME="Little Canada - Edgerton - Concord - Inver Hills",
@@ -19213,8 +19125,7 @@ NODES=
  -72188,
  72190,
  -39996,
- 72612,
- CIRCULAR=T
+ 72612
 
 LINE NAME="0_71-111_71_pk1",
  LONGNAME="Little Canada - Edgerton - Concord - Inver Hills",
@@ -19440,8 +19351,7 @@ NODES=
  -17239,
  -63121,
  -12224,
- 12225,
- CIRCULAR=T
+ 12225
 
 LINE NAME="0_652-111_652_pk0",
  LONGNAME="Express - Plymouth Rd - Co Rd 73 P&R - U of M",
@@ -19566,8 +19476,7 @@ NODES=
  24230,
  20251,
  -14981,
- 5608,
- CIRCULAR=T
+ 5608
 
 LINE NAME="0_579-111_579_pk0",
  LONGNAME="Express - Southdale - U of M",
@@ -19765,8 +19674,7 @@ NODES=
  24230,
  20251,
  -14981,
- 5608,
- CIRCULAR=T
+ 5608
 
 LINE NAME="0_114-111_114_pk0",
  LONGNAME="Ltd Stop - Excelsior Blvd - Uptown - U of M",
@@ -21204,8 +21112,7 @@ NODES=
  -60831,
  -60834,
  -60844,
- 148789,
- CIRCULAR=T
+ 148789
 
 LINE NAME="2_801-111_801_op0",
  LONGNAME="Brooklyn Ctr - Columbia Heights - Rosedale",
@@ -21289,8 +21196,7 @@ NODES=
  -60831,
  -60834,
  -60844,
- 148789,
- CIRCULAR=T
+ 148789
 
 LINE NAME="0_672-111_672_pk0",
  LONGNAME="Express - Wayzata - Minnetonka - Mpls",
@@ -21445,8 +21351,7 @@ NODES=
  141035,
  -93123,
  -109346,
- 6710,
- CIRCULAR=T
+ 6710
 
 LINE NAME="0_672-111_672_pk1",
  LONGNAME="Express - Wayzata - Minnetonka - Mpls",
@@ -21645,8 +21550,7 @@ NODES=
  -113711,
  113708,
  -148362,
- 3640,
- CIRCULAR=T
+ 3640
 
 LINE NAME="2_542-111_542_op0",
  LONGNAME="84th St - 76th St - American Blvd - MOA",
@@ -21839,8 +21743,7 @@ NODES=
  -62675,
  -137746,
  -136490,
- 167812,
- CIRCULAR=T
+ 167812
 
 LINE NAME="2_542-111_542_pk0",
  LONGNAME="84th St - 76th St - American Blvd - MOA",
@@ -22009,8 +21912,7 @@ NODES=
  -63357,
  -137756,
  -15243,
- 48115,
- CIRCULAR=T
+ 48115
 
 LINE NAME="2_542-111_542_pk1",
  LONGNAME="84th St - 76th St - American Blvd - MOA",
@@ -22249,8 +22151,7 @@ NODES=
  -47706,
  5383,
  -7806,
- 158809,
- CIRCULAR=T
+ 158809
 
 LINE NAME="2_542-111_542_op1",
  LONGNAME="84th St - 76th St - American Blvd - MOA",
@@ -22463,8 +22364,7 @@ NODES=
  -7854,
  105529,
  -7857,
- 127536,
- CIRCULAR=T
+ 127536
 
 LINE NAME="2_540-111_540_pk0",
  LONGNAME="Edina - Richfield - 77th St - MOA",
@@ -22591,8 +22491,7 @@ NODES=
  -63357,
  -137756,
  -15243,
- 48115,
- CIRCULAR=T
+ 48115
 
 LINE NAME="2_540-111_540_op0",
  LONGNAME="Edina - Richfield - 77th St - MOA",
@@ -22719,8 +22618,7 @@ NODES=
  -63357,
  -137756,
  -15243,
- 48115,
- CIRCULAR=T
+ 48115
 
 LINE NAME="2_540-111_540_pk1",
  LONGNAME="Edina - Richfield - 77th St - MOA",
@@ -22878,8 +22776,7 @@ NODES=
  -158826,
  -105529,
  -7857,
- -127536,
- CIRCULAR=T
+ -127536
 
 LINE NAME="2_540-111_540_op1",
  LONGNAME="Edina - Richfield - 77th St - MOA",
@@ -23037,8 +22934,7 @@ NODES=
  -158826,
  -105529,
  -7857,
- -127536,
- CIRCULAR=T
+ -127536
 
 LINE NAME="0_860-111_860_pk1",
  LONGNAME="Express - Coon Rapids - Northtown - St Paul",
@@ -23362,8 +23258,7 @@ NODES=
  -92593,
  -22491,
  -78762,
- 92594,
- CIRCULAR=T
+ 92594
 
 LINE NAME="2_805-111_805_pk1",
  LONGNAME="Anoka Traveler - Anoka - Coon Rapids - Northtown",
@@ -23434,8 +23329,7 @@ NODES=
  -142632,
  -9694,
  -15164,
- 9713,
- CIRCULAR=T
+ 9713
 
 LINE NAME="2_805-111_805_pk0",
  LONGNAME="Anoka Traveler - Anoka - Coon Rapids - Northtown",
@@ -23591,8 +23485,7 @@ NODES=
  -73848,
  -73858,
  -15164,
- 9713,
- CIRCULAR=T
+ 9713
 
 LINE NAME="2_805-111_805_op0",
  LONGNAME="Anoka Traveler - Anoka - Coon Rapids - Northtown",
@@ -23748,8 +23641,7 @@ NODES=
  -73848,
  -73858,
  -15164,
- 9713,
- CIRCULAR=T
+ 9713
 
 LINE NAME="2_805-111_805_op1",
  LONGNAME="Anoka Traveler - Anoka - Coon Rapids - Northtown",
@@ -23820,8 +23712,7 @@ NODES=
  -142632,
  -9694,
  -15164,
- 9713,
- CIRCULAR=T
+ 9713
 
 LINE NAME="2_350-111_350_pk1",
  LONGNAME="Ltd Stop - Sunray - McKnight - St Paul",
@@ -23938,8 +23829,7 @@ NODES=
  -45685,
  7688,
  -45687,
- 100784,
- CIRCULAR=T
+ 100784
 
 LINE NAME="2_538-111_538_pk0",
  LONGNAME="Southdale - York Av - Southtown - 86th St - MOA",
@@ -24023,8 +23913,7 @@ NODES=
  -163431,
  -163433,
  -155301,
- -155291,
- CIRCULAR=T
+ -155291
 
 LINE NAME="2_538-111_538_op0",
  LONGNAME="Southdale - York Av - Southtown - 86th St - MOA",
@@ -24109,8 +23998,7 @@ NODES=
  -163431,
  -163433,
  -155301,
- 155291,
- CIRCULAR=T
+ 155291
 
 LINE NAME="2_538-111_538_pk1",
  LONGNAME="Southdale - York Av - Southtown - 86th St - MOA",
@@ -24615,8 +24503,7 @@ NODES=
  -162058,
  -4392,
  -4393,
- 162053,
- CIRCULAR=T
+ 162053
 
 LINE NAME="0_645-111_645_op1",
  LONGNAME="Ltd Stop - Mound - Wayzata - Ridgedale - Mpls",
@@ -24986,8 +24873,7 @@ NODES=
  5275,
  -107884,
  -140859,
- 140861,
- CIRCULAR=T
+ 140861
 
 LINE NAME="0_645-111_645_pk0",
  LONGNAME="Ltd Stop - Mound - Wayzata - Ridgedale - Mpls",
@@ -25269,8 +25155,7 @@ NODES=
  -123478,
  -157942,
  -141041,
- 141035,
- CIRCULAR=T
+ 141035
 
 LINE NAME="0_645-111_645_op0",
  LONGNAME="Ltd Stop - Mound - Wayzata - Ridgedale - Mpls",
@@ -25495,8 +25380,7 @@ NODES=
  -123478,
  -157942,
  -141041,
- 141035,
- CIRCULAR=T
+ 141035
 
 LINE NAME="0_264-111_264_pk1",
  LONGNAME="Express - Roseville - Co Rd C P & R - Mpls",
@@ -25915,8 +25799,7 @@ NODES=
  -92593,
  -22491,
  -78762,
- 92594,
- CIRCULAR=T
+ 92594
 
 LINE NAME="4_782-111_782_pk1",
  LONGNAME="Maple Grove - Express - Zachary and 96th Av P&R",
@@ -26103,8 +25986,7 @@ NODES=
  -92593,
  -22491,
  -78762,
- 92594,
- CIRCULAR=T
+ 92594
 
 LINE NAME="0_94-111_94_pk1",
  LONGNAME="Express - Mpls - St Paul",
@@ -26337,8 +26219,7 @@ NODES=
  -46663,
  -126316,
  -45984,
- 45983,
- CIRCULAR=T
+ 45983
 
 LINE NAME="0_94-111_94_op0",
  LONGNAME="Express - Mpls - St Paul",
@@ -26411,8 +26292,7 @@ NODES=
  -46663,
  -126316,
  -45984,
- 45983,
- CIRCULAR=T
+ 45983
 
 LINE NAME="2_30-111_30_pk0",
  LONGNAME="Broadway Crosstown - Westgate Sta",
@@ -27083,8 +26963,7 @@ NODES=
  85704,
  85646,
  -85588,
- 85590,
- CIRCULAR=T
+ 85590
 
 LINE NAME="0_17-111_17_pk1",
  LONGNAME="Minnetonka Blvd - Uptown - Washington St NE",
@@ -27278,8 +27157,7 @@ NODES=
  -80258,
  6314,
  162784,
- 80138,
- CIRCULAR=T
+ 80138
 
 LINE NAME="0_17-111_17_op0",
  LONGNAME="Minnetonka Blvd - Uptown - Washington St NE",
@@ -27514,8 +27392,7 @@ NODES=
  85704,
  85646,
  -85588,
- 85590,
- CIRCULAR=T
+ 85590
 
 LINE NAME="0_17-111_17_op1",
  LONGNAME="Minnetonka Blvd - Uptown - Washington St NE",
@@ -27636,8 +27513,7 @@ NODES=
  -53254,
  -111399,
  -111410,
- 3497,
- CIRCULAR=T
+ 3497
 
 LINE NAME="2_671-111_671_pk0",
  LONGNAME="Express - Excelsior - Deephaven - Mpls",
@@ -27881,8 +27757,7 @@ NODES=
  -123478,
  -157942,
  -141041,
- 141035,
- CIRCULAR=T
+ 141035
 
 LINE NAME="2_670-111_670_pk0",
  LONGNAME="Express - Excelsior - Mpls",
@@ -28096,8 +27971,7 @@ NODES=
  -123478,
  -157942,
  -141041,
- 141035,
- CIRCULAR=T
+ 141035
 
 LINE NAME="0_612-111_612_op1",
  LONGNAME="Uptown - Excelsior Blvd-Hopkins - Hopkins - Opus",
@@ -28233,8 +28107,7 @@ NODES=
  73622,
  -14535,
  14538,
- 52924,
- CIRCULAR=T
+ 52924
 
 LINE NAME="0_612-111_612_pk0",
  LONGNAME="Uptown - Excelsior Blvd-Hopkins - Hopkins - Opus",
@@ -28368,8 +28241,7 @@ NODES=
  -96989,
  -96988,
  -43377,
- 139930,
- CIRCULAR=T
+ 139930
 
 LINE NAME="0_612-111_612_op0",
  LONGNAME="Uptown - Excelsior Blvd-Hopkins - Hopkins - Opus",
@@ -28511,8 +28383,7 @@ NODES=
  -96989,
  -96988,
  -43377,
- 139930,
- CIRCULAR=T
+ 139930
 
 LINE NAME="0_365-111_365_pk0",
  LONGNAME="Express - Cottage Grove - Newport - Mpls",
@@ -28925,8 +28796,7 @@ NODES=
  84223,
  -61049,
  165393,
- 113017,
- CIRCULAR=T
+ 113017
 
 LINE NAME="2_705-111_705_pk0",
  LONGNAME="Starlite - Winnetka Av - Louisiana Av Transit Ctr",
@@ -29110,8 +28980,7 @@ NODES=
  103764,
  -119383,
  119385,
- 155768,
- CIRCULAR=T
+ 155768
 
 LINE NAME="2_705-111_705_op0",
  LONGNAME="Starlite - Winnetka Av - Louisiana Av Transit Ctr",
@@ -29295,8 +29164,7 @@ NODES=
  103764,
  -119383,
  119385,
- 155768,
- CIRCULAR=T
+ 155768
 
 LINE NAME="2_705-111_705_op1",
  LONGNAME="Starlite - Winnetka Av - Louisiana Av Transit Ctr",
@@ -29474,8 +29342,7 @@ NODES=
  -117223,
  -41482,
  -116984,
- 167856,
- CIRCULAR=T
+ 167856
 
 LINE NAME="2_705-111_705_pk1",
  LONGNAME="Starlite - Winnetka Av - Louisiana Av Transit Ctr",
@@ -29633,8 +29500,7 @@ NODES=
  -117223,
  -41482,
  -116984,
- 167856,
- CIRCULAR=T
+ 167856
 
 LINE NAME="2_87-111_87_pk0",
  LONGNAME="Rosedale - U of M St Paul - Cleveland - Highland",
@@ -30019,8 +29885,7 @@ NODES=
  -81433,
  -65627,
  -35213,
- 35214,
- CIRCULAR=T
+ 35214
 
 LINE NAME="0_65-111_65_pk1",
  LONGNAME="Dale St - Co Rd B - Rosedale",
@@ -30379,8 +30244,7 @@ NODES=
  -81433,
  -65627,
  -35213,
- 35214,
- CIRCULAR=T
+ 35214
 
 LINE NAME="0_265-111_265_pk1",
  LONGNAME="Express - White Bear Lake - Maplewood - St Paul",
@@ -30541,8 +30405,7 @@ NODES=
  -45688,
  -37609,
  19077,
- 38696,
- CIRCULAR=T
+ 38696
 
 LINE NAME="2_604-111_604_pk0",
  LONGNAME="Louisiana Av - Excelsior Blvd",
@@ -30681,8 +30544,7 @@ NODES=
  142139,
  62348,
  -126437,
- 126435,
- CIRCULAR=T
+ 126435
 
 LINE NAME="2_604-111_604_op0",
  LONGNAME="Louisiana Av - Excelsior Blvd",
@@ -30821,8 +30683,7 @@ NODES=
  142139,
  62348,
  -126437,
- 126435,
- CIRCULAR=T
+ 126435
 
 LINE NAME="0_765-111_765_pk0",
  LONGNAME="Express - Target - Hwy 252 and 73rd Av P&R - Mpls",
@@ -30903,8 +30764,7 @@ NODES=
  -11838,
  -170896,
  170661,
- 141051,
- CIRCULAR=T
+ 141051
 
 LINE NAME="0_767-111_767_pk1",
  LONGNAME="Express - 63rd Av P&R - 65th Av P&R - Mpls",
@@ -31026,8 +30886,7 @@ NODES=
  -92593,
  -22491,
  -78762,
- 92594,
- CIRCULAR=T
+ 92594
 
 LINE NAME="0_262-111_262_pk1",
  LONGNAME="Ltd Stop - 95Av P&R - Shoreview  Rice - St Paul",
@@ -31558,8 +31417,7 @@ NODES=
  84223,
  -61049,
  -165393,
- 113017,
- CIRCULAR=T
+ 113017
 
 LINE NAME="0_587-111_587_pk0",
  LONGNAME="Express - Edina - Valley View -Vernon - Mpls",
@@ -31725,8 +31583,7 @@ NODES=
  -123478,
  -157942,
  -141041,
- 141035,
- CIRCULAR=T
+ 141035
 
 LINE NAME="0_667-111_667_pk0",
  LONGNAME="Express - Minnetonka - St Louis Park - Mpls",
@@ -31847,8 +31704,7 @@ NODES=
  141035,
  -93123,
  -109346,
- 6710,
- CIRCULAR=T
+ 6710
 
 LINE NAME="0_375-111_375_pk1",
  LONGNAME="Express - Oakdale - Mpls",
@@ -32046,8 +31902,7 @@ NODES=
  9316,
  154074,
  -109942,
- 13786,
- CIRCULAR=T
+ 13786
 
 LINE NAME="0_722-111_722_op0",
  LONGNAME="Brooklyn Ctr - Humboldt - Shingle Creek",
@@ -32093,8 +31948,7 @@ NODES=
  9316,
  154074,
  -109942,
- 13786,
- CIRCULAR=T
+ 13786
 
 LINE NAME="0_722-111_722_pk1",
  LONGNAME="Brooklyn Ctr - Humboldt - Shingle Creek",
@@ -32141,8 +31995,7 @@ NODES=
  -4847,
  -151651,
  -151652,
- -16271,
- CIRCULAR=T
+ -16271
 
 LINE NAME="0_722-111_722_op1",
  LONGNAME="Brooklyn Ctr - Humboldt - Shingle Creek",
@@ -32189,8 +32042,7 @@ NODES=
  -4847,
  -151651,
  -151652,
- -16271,
- CIRCULAR=T
+ -16271
 
 LINE NAME="2_225-111_225_op1",
  LONGNAME="Deluxe - Roseville - Coventry - Rosedale",
@@ -32254,8 +32106,7 @@ NODES=
  -60831,
  -60834,
  -60844,
- 148789,
- CIRCULAR=T
+ 148789
 
 LINE NAME="2_225-111_225_pk1",
  LONGNAME="Deluxe - Roseville - Coventry - Rosedale",
@@ -32319,8 +32170,7 @@ NODES=
  -60831,
  -60834,
  -60844,
- 148789,
- CIRCULAR=T
+ 148789
 
 LINE NAME="0_75-111_75_op0",
  LONGNAME="Stryker - Robert - Mendota Hts - Lake Cove Apts",
@@ -32417,8 +32267,7 @@ NODES=
  -100811,
  100806,
  -66866,
- 51941,
- CIRCULAR=T
+ 51941
 
 LINE NAME="0_75-111_75_op1",
  LONGNAME="Stryker - Robert - Mendota Hts - Lake Cove Apts",
@@ -32520,8 +32369,7 @@ NODES=
  28522,
  25706,
  12438,
- -28522,
- CIRCULAR=T
+ -28522
 
 LINE NAME="0_75-111_75_pk0",
  LONGNAME="Stryker - Robert - Mendota Hts - Lake Cove Apts",
@@ -32618,8 +32466,7 @@ NODES=
  -100811,
  100806,
  -66866,
- 51941,
- CIRCULAR=T
+ 51941
 
 LINE NAME="0_75-111_75_pk1",
  LONGNAME="Stryker - Robert - Mendota Hts - Lake Cove Apts",
@@ -32715,8 +32562,7 @@ NODES=
  28522,
  25706,
  12438,
- -28522,
- CIRCULAR=T
+ -28522
 
 LINE NAME="0_62-111_62_pk0",
  LONGNAME="Shoreview - Little Canada - Rice St Signal Hills",
@@ -33170,8 +33016,7 @@ NODES=
  -92593,
  -22491,
  -78762,
- 92594,
- CIRCULAR=T
+ 92594
 
 LINE NAME="2_223-111_223_pk1",
  LONGNAME="Rosedale - Little Canada - Maplewood",
@@ -33304,8 +33149,7 @@ NODES=
  -81433,
  -65627,
  -35213,
- 35214,
- CIRCULAR=T
+ 35214
 
 LINE NAME="2_223-111_223_op1",
  LONGNAME="Rosedale - Little Canada - Maplewood",
@@ -33438,8 +33282,7 @@ NODES=
  -81433,
  -65627,
  -35213,
- 35214,
- CIRCULAR=T
+ 35214
 
 LINE NAME="0_674-111_674_pk0",
  LONGNAME="Express - Maple Plain -Orono - Wayzata - Mpls",
@@ -33851,8 +33694,7 @@ NODES=
  141035,
  -141032,
  141031,
- 125500,
- CIRCULAR=T
+ 125500
 
 LINE NAME="0_261-111_261_pk1",
  LONGNAME="Express - Shoreview - Roseville - Mpls",
@@ -34090,8 +33932,7 @@ NODES=
  -93397,
  -6779,
  -121127,
- 117641,
- CIRCULAR=T
+ 117641
 
 LINE NAME="0_756-111_756_pk1",
  LONGNAME="Express- Hwy 55 - Mendelssohn Rd - Boone  - Mpls",
@@ -34250,8 +34091,7 @@ NODES=
  141035,
  -141032,
  141031,
- 125500,
- CIRCULAR=T
+ 125500
 
 LINE NAME="2_717-111_717_op0",
  LONGNAME="Brooklyn Center - Robbinsdale - Plymouth",
@@ -34718,8 +34558,7 @@ NODES=
  -92593,
  -22491,
  -78762,
- 92594,
- CIRCULAR=T
+ 92594
 
 LINE NAME="0_272-111_272_pk1",
  LONGNAME="Express - Maplewood - Roseville - U of M",
@@ -34981,8 +34820,7 @@ NODES=
  141545,
  -98000,
  -141509,
- 170403,
- CIRCULAR=T
+ 170403
 
 LINE NAME="2_716-111_716_op1",
  LONGNAME="Zane Av - 63rd Av - Crystal - Robbinsdale",
@@ -35101,8 +34939,7 @@ NODES=
  141545,
  -98000,
  -141509,
- 170403,
- CIRCULAR=T
+ 170403
 
 LINE NAME="2_716-111_716_pk0",
  LONGNAME="Zane Av - 63rd Av - Crystal - Robbinsdale",
@@ -35202,8 +35039,7 @@ NODES=
  -50757,
  152270,
  -152271,
- 152273,
- CIRCULAR=T
+ 152273
 
 LINE NAME="2_716-111_716_op0",
  LONGNAME="Zane Av - 63rd Av - Crystal - Robbinsdale",
@@ -35303,8 +35139,7 @@ NODES=
  -50757,
  152270,
  -152271,
- 152273,
- CIRCULAR=T
+ 152273
 
 LINE NAME="0_53-111_53_pk0",
  LONGNAME="Ltd Stop - Uptown - Lake St - Marshall Av",
@@ -35734,8 +35569,7 @@ NODES=
  -160037,
  -103764,
  -23921,
- 160045,
- CIRCULAR=T
+ 160045
 
 LINE NAME="0_723-111_723_op0",
  LONGNAME="Starlite - N Henn Comm College - Brooklyn Ctr",
@@ -35844,8 +35678,7 @@ NODES=
  -160037,
  -103764,
  -23921,
- 160045,
- CIRCULAR=T
+ 160045
 
 LINE NAME="0_723-111_723_pk1",
  LONGNAME="Starlite - N Henn Comm College - Brooklyn Ctr",
@@ -35938,8 +35771,7 @@ NODES=
  -141973,
  -151648,
  61304,
- 16271,
- CIRCULAR=T
+ 16271
 
 LINE NAME="0_723-111_723_op1",
  LONGNAME="Starlite - N Henn Comm College - Brooklyn Ctr",
@@ -36032,8 +35864,7 @@ NODES=
  -141973,
  -151648,
  61304,
- 16271,
- CIRCULAR=T
+ 16271
 
 LINE NAME="2_831-111_831_pk0",
  LONGNAME="Anoka Traveler - 117th Av - Polk - Northtown",
@@ -36146,8 +35977,7 @@ NODES=
  -47367,
  47364,
  -48734,
- 52011,
- CIRCULAR=T
+ 52011
 
 LINE NAME="2_831-111_831_pk1",
  LONGNAME="Anoka Traveler - 117th Av - Polk - Northtown",
@@ -36258,8 +36088,7 @@ NODES=
  31615,
  -55679,
  -17851,
- 31606,
- CIRCULAR=T
+ 31606
 
 LINE NAME="2_831-111_831_op0",
  LONGNAME="Anoka Traveler - 117th Av - Polk - Northtown",
@@ -36372,8 +36201,7 @@ NODES=
  -47367,
  47364,
  -48734,
- 52011,
- CIRCULAR=T
+ 52011
 
 LINE NAME="2_831-111_831_op1",
  LONGNAME="Anoka Traveler - 117th Av - Polk - Northtown",
@@ -36484,8 +36312,7 @@ NODES=
  31615,
  -55679,
  -17851,
- 31606,
- CIRCULAR=T
+ 31606
 
 LINE NAME="0_129-111_129_pk1",
  LONGNAME="U of M - Huron Shuttle",
@@ -37056,8 +36883,7 @@ NODES=
  -126446,
  94606,
  -126444,
- 126435,
- CIRCULAR=T
+ 126435
 
 LINE NAME="2_615-111_615_op0",
  LONGNAME="Ridgedale - Co Rd 73 - St Louis Park",
@@ -37317,8 +37143,7 @@ NODES=
  -126446,
  94606,
  -126444,
- 126435,
- CIRCULAR=T
+ 126435
 
 LINE NAME="2_615-111_615_pk1",
  LONGNAME="Ridgedale - Co Rd 73 - St Louis Park",
@@ -37539,8 +37364,7 @@ NODES=
  -4823,
  -74972,
  -94236,
- 125115,
- CIRCULAR=T
+ 125115
 
 LINE NAME="2_615-111_615_op1",
  LONGNAME="Ridgedale - Co Rd 73 - St Louis Park",
@@ -37761,8 +37585,7 @@ NODES=
  -4823,
  -74972,
  -94236,
- 125115,
- CIRCULAR=T
+ 125115
 
 LINE NAME="2_219-111_219_pk1",
  LONGNAME="Maplewood - Century Av - Hadley Av - Sunray",
@@ -37969,8 +37792,7 @@ NODES=
  70144,
  70143,
  55702,
- 55703,
- CIRCULAR=T
+ 55703
 
 LINE NAME="2_219-111_219_pk0",
  LONGNAME="Maplewood - Century Av - Hadley Av - Sunray",
@@ -38192,8 +38014,7 @@ NODES=
  -42427,
  -42426,
  -42419,
- 48927,
- CIRCULAR=T
+ 48927
 
 LINE NAME="2_219-111_219_op0",
  LONGNAME="Maplewood - Century Av - Hadley Av - Sunray",
@@ -38415,8 +38236,7 @@ NODES=
  -42427,
  -42426,
  -42419,
- 48927,
- CIRCULAR=T
+ 48927
 
 LINE NAME="2_219-111_219_op1",
  LONGNAME="Maplewood - Century Av - Hadley Av - Sunray",
@@ -38623,8 +38443,7 @@ NODES=
  70144,
  70143,
  55702,
- 55703,
- CIRCULAR=T
+ 55703
 
 LINE NAME="0_415-111_415_pk0",
  LONGNAME="MOA - Mendota Heights - Eagan",
@@ -38692,8 +38511,7 @@ NODES=
  -16218,
  -16221,
  -28553,
- -81615,
- CIRCULAR=T
+ -81615
 
 LINE NAME="2_227-111_227_op1",
  LONGNAME="Target Shoreview - Victoria - Rosedale",
@@ -38788,8 +38606,7 @@ NODES=
  -73087,
  -81433,
  -65627,
- 35213,
- CIRCULAR=T
+ 35213
 
 LINE NAME="2_227-111_227_pk1",
  LONGNAME="Target Shoreview - Victoria - Rosedale",
@@ -38879,8 +38696,7 @@ NODES=
  -73087,
  -81433,
  -65627,
- 35213,
- CIRCULAR=T
+ 35213
 
 LINE NAME="0_758-111_758_pk1",
  LONGNAME="Express - Douglas - MnDot P&R - Noble - Mpls",
@@ -38977,8 +38793,7 @@ NODES=
  -90482,
  121375,
  -26086,
- 90502,
- CIRCULAR=T
+ 90502
 
 LINE NAME="2_80-111_80_pk0",
  LONGNAME="Maplewood - White Bear Av - Sunray",
@@ -39071,8 +38886,7 @@ NODES=
  -42441,
  -42438,
  -42425,
- 48925,
- CIRCULAR=T
+ 48925
 
 LINE NAME="2_80-111_80_pk1",
  LONGNAME="Maplewood - White Bear Av - Sunray",
@@ -39166,8 +38980,7 @@ NODES=
  -70144,
  -70143,
  55702,
- 55703,
- CIRCULAR=T
+ 55703
 
 LINE NAME="2_80-111_80_op1",
  LONGNAME="Maplewood - White Bear Av - Sunray",
@@ -39261,8 +39074,7 @@ NODES=
  -70144,
  -70143,
  55702,
- 55703,
- CIRCULAR=T
+ 55703
 
 LINE NAME="2_80-111_80_op0",
  LONGNAME="Maplewood - White Bear Av - Sunray",
@@ -39355,8 +39167,7 @@ NODES=
  -42441,
  -42438,
  -42425,
- 48925,
- CIRCULAR=T
+ 48925
 
 LINE NAME="0_133-111_133_pk0",
  LONGNAME="Ltd Stop - Bloomington Av - Chicago Av - Mpls",
@@ -39463,8 +39274,7 @@ NODES=
  -123478,
  -157942,
  -141041,
- 141035,
- CIRCULAR=T
+ 141035
 
 LINE NAME="0_578-111_578_pk0",
  LONGNAME="Express - Edina - Southdale - Mpls",
@@ -39573,8 +39383,7 @@ NODES=
  -141041,
  141035,
  -93123,
- 23792,
- CIRCULAR=T
+ 23792
 
 LINE NAME="0_578-111_578_pk1",
  LONGNAME="Express - Edina - Southdale - Mpls",
@@ -40061,8 +39870,7 @@ NODES=
  -123478,
  -157942,
  -141041,
- 141035,
- CIRCULAR=T
+ 141035
 
 LINE NAME="0_552-111_552_pk0",
  LONGNAME="Express - 12th Av - Bloomington Av - Mpls",
@@ -40381,8 +40189,7 @@ NODES=
  -93123,
  23792,
  -93128,
- 100520,
- CIRCULAR=T
+ 100520
 
 LINE NAME="0_535-111_535_pk0",
  LONGNAME="Ltd Stop - South Bloomington - Richfield - Mpls",
@@ -40531,8 +40338,7 @@ NODES=
  -93123,
  23792,
  -93128,
- 100520,
- CIRCULAR=T
+ 100520
 
 LINE NAME="0_535-111_535_pk1",
  LONGNAME="Ltd Stop - South Bloomington - Richfield - Mpls",
@@ -40765,8 +40571,7 @@ NODES=
  -10950,
  -35310,
  -35323,
- 117457,
- CIRCULAR=T
+ 117457
 
 LINE NAME="0_535-111_535_op1",
  LONGNAME="Ltd Stop - South Bloomington - Richfield - Mpls",
@@ -41269,8 +41074,7 @@ NODES=
  -41356,
  41352,
  -41351,
- 41350,
- CIRCULAR=T
+ 41350
 
 LINE NAME="2_84-111_84_op0",
  LONGNAME="Snelling - Highland Village - Sibley Plaza",
@@ -41426,8 +41230,7 @@ NODES=
  -41356,
  41352,
  -41351,
- 41350,
- CIRCULAR=T
+ 41350
 
 LINE NAME="2_84-111_84_pk1",
  LONGNAME="Snelling - Highland Village - Sibley Plaza",
@@ -41570,8 +41373,7 @@ NODES=
  55785,
  -55786,
  43503,
- 97269,
- CIRCULAR=T
+ 97269
 
 LINE NAME="2_84-111_84_op1",
  LONGNAME="Snelling - Highland Village - Sibley Plaza",
@@ -41714,8 +41516,7 @@ NODES=
  55785,
  -55786,
  43503,
- 97269,
- CIRCULAR=T
+ 97269
 
 LINE NAME="4_785-111_785_pk1",
  LONGNAME="Maple Grove - Express - Parkway Station",
@@ -41969,8 +41770,7 @@ NODES=
  -6710,
  -141041,
  -109346,
- 138743,
- CIRCULAR=T
+ 138743
 
 LINE NAME="0_12-111_12_pk1",
  LONGNAME="Uptown - Excelsior Blvd - Hopkins - Opus",
@@ -42221,8 +42021,7 @@ NODES=
  -54378,
  -69376,
  -54924,
- 54935,
- CIRCULAR=T
+ 54935
 
 LINE NAME="0_12-111_12_op0",
  LONGNAME="Uptown - Excelsior Blvd - Hopkins - Opus",
@@ -42422,8 +42221,7 @@ NODES=
  -6710,
  -141041,
  -109346,
- 138743,
- CIRCULAR=T
+ 138743
 
 LINE NAME="4_785-111_785_op0",
  LONGNAME="Maple Grove - Express - Parkway Station",
@@ -42626,8 +42424,7 @@ NODES=
  -123478,
  -157942,
  -141041,
- 141035,
- CIRCULAR=T
+ 141035
 
 LINE NAME="0_351-111_351_pk1",
  LONGNAME="Express - Woodbury - St Paul",
@@ -42805,8 +42602,7 @@ NODES=
  -163371,
  70731,
  -129658,
- 131123,
- CIRCULAR=T
+ 131123
 
 LINE NAME="0_18-111_18_op0",
  LONGNAME="Nicollet Av -Grand Av - South Bloomington",
@@ -43114,8 +42910,7 @@ NODES=
  -24118,
  -24120,
  -117082,
- 117347,
- CIRCULAR=T
+ 117347
 
 LINE NAME="0_18-111_18_op1",
  LONGNAME="Nicollet Av -Grand Av - South Bloomington",
@@ -43244,8 +43039,7 @@ NODES=
  -24118,
  -24120,
  -117082,
- 117347,
- CIRCULAR=T
+ 117347
 
 LINE NAME="0_361-111_361_pk0",
  LONGNAME="Express - Cottage Grove - St Paul",
@@ -43385,8 +43179,7 @@ NODES=
  -107051,
  -138118,
  -45026,
- 103585,
- CIRCULAR=T
+ 103585
 
 LINE NAME="0_643-111_643_pk1",
  LONGNAME="Ltd Stop - Golden Hills Dr - Cedar Lake Rd - Mpls",
@@ -43489,8 +43282,7 @@ NODES=
  101592,
  112082,
  -101592,
- 152618,
- CIRCULAR=T
+ 152618
 
 LINE NAME="0_59-111_59_pk1",
  LONGNAME="Ltd Stop - Blaine - Hwy 65 - Central Av - Mpls",
@@ -43600,8 +43392,7 @@ NODES=
  -85279,
  -155019,
  -78918,
- 127358,
- CIRCULAR=T
+ 127358
 
 LINE NAME="0_10-111_10_pk1",
  LONGNAME="Central Av - University Av - Northtown",
@@ -43793,8 +43584,7 @@ NODES=
  -85279,
  -155019,
  -78918,
- 127358,
- CIRCULAR=T
+ 127358
 
 LINE NAME="0_10-111_10_op0",
  LONGNAME="Central Av - University Av - Northtown",
@@ -44164,8 +43954,7 @@ NODES=
  -85279,
  -155019,
  -78918,
- 127358,
- CIRCULAR=T
+ 127358
 
 LINE NAME="0_10-111_10_pk0",
  LONGNAME="Central Av - University Av - Northtown",
@@ -44307,8 +44096,7 @@ NODES=
  -67920,
  -122221,
  -17851,
- 31606,
- CIRCULAR=T
+ 31606
 
 LINE NAME="0_25-111_25_op0",
  LONGNAME="Northtown - Silver Lake - Stinson - Lake of Isles",
@@ -44541,8 +44329,7 @@ NODES=
  31615,
  -55679,
  -17851,
- 31606,
- CIRCULAR=T
+ 31606
 
 LINE NAME="0_25-111_25_pk0",
  LONGNAME="Northtown - Silver Lake - Stinson - Lake of Isles",
@@ -44857,8 +44644,7 @@ NODES=
  31615,
  -55679,
  -17851,
- 31606,
- CIRCULAR=T
+ 31606
 
 LINE NAME="0_25-111_25_pk1",
  LONGNAME="Northtown - Silver Lake - Stinson - Lake of Isles",
@@ -45202,8 +44988,7 @@ NODES=
  -85279,
  -155019,
  -78918,
- 127358,
- CIRCULAR=T
+ 127358
 
 LINE NAME="0_663-111_663_pk0",
  LONGNAME="Express - Cedar Lake Rd - Mpls",
@@ -45309,8 +45094,7 @@ NODES=
  170044,
  -81234,
  61253,
- 88981,
- CIRCULAR=T
+ 88981
 
 LINE NAME="0_663-111_663_op1",
  LONGNAME="Express - Cedar Lake Rd - Mpls",
@@ -45414,8 +45198,7 @@ NODES=
  101592,
  112082,
  -101592,
- 152618,
- CIRCULAR=T
+ 152618
 
 LINE NAME="0_663-111_663_op0",
  LONGNAME="Express - Cedar Lake Rd - Mpls",
@@ -45521,8 +45304,7 @@ NODES=
  170044,
  -81234,
  61253,
- 88981,
- CIRCULAR=T
+ 88981
 
 LINE NAME="0_721-111_721_pk0",
  LONGNAME="Ltd Stop - Brooklyn Center - Target Campus - Mpls",
@@ -45640,8 +45422,7 @@ NODES=
  -25831,
  -25827,
  -136190,
- 136191,
- CIRCULAR=T
+ 136191
 
 LINE NAME="0_721-111_721_op0",
  LONGNAME="Ltd Stop - Brooklyn Center - Target Campus - Mpls",
@@ -45759,8 +45540,7 @@ NODES=
  -25831,
  -25827,
  -136190,
- 136191,
- CIRCULAR=T
+ 136191
 
 LINE NAME="0_721-111_721_pk1",
  LONGNAME="Ltd Stop - Brooklyn Center - Target Campus - Mpls",
@@ -45868,8 +45648,7 @@ NODES=
  -141973,
  -151648,
  61304,
- 151649,
- CIRCULAR=T
+ 151649
 
 LINE NAME="0_721-111_721_op1",
  LONGNAME="Ltd Stop - Brooklyn Center - Target Campus - Mpls",
@@ -45977,8 +45756,7 @@ NODES=
  -141973,
  -151648,
  61304,
- 151649,
- CIRCULAR=T
+ 151649
 
 LINE NAME="0_724-111_724_pk0",
  LONGNAME="Ltd Stop - Target Campus - Starlite - Brooklyn Ctr",
@@ -46163,8 +45941,7 @@ NODES=
  -160037,
  -103764,
  -23921,
- 160045,
- CIRCULAR=T
+ 160045
 
 LINE NAME="0_724-111_724_op0",
  LONGNAME="Ltd Stop - Target Campus - Starlite - Brooklyn Ctr",
@@ -46349,8 +46126,7 @@ NODES=
  -160037,
  -103764,
  -23921,
- 160045,
- CIRCULAR=T
+ 160045
 
 LINE NAME="0_724-111_724_pk1",
  LONGNAME="Ltd Stop - Target Campus - Starlite - Brooklyn Ctr",
@@ -46515,8 +46291,7 @@ NODES=
  170044,
  -81234,
  61253,
- 88981,
- CIRCULAR=T
+ 88981
 
 LINE NAME="0_724-111_724_op1",
  LONGNAME="Ltd Stop - Target Campus - Starlite - Brooklyn Ctr",
@@ -46681,8 +46456,7 @@ NODES=
  170044,
  -81234,
  61253,
- 88981,
- CIRCULAR=T
+ 88981
 
 LINE NAME="0_61-111_61_pk0",
  LONGNAME="E Hennepin Av - Larpenteur Av - Arcade St",
@@ -47407,8 +47181,7 @@ NODES=
  -78762,
  -92594,
  -6779,
- 121127,
- CIRCULAR=T
+ 121127
 
 LINE NAME="0_61-111_61_op1",
  LONGNAME="E Hennepin Av - Larpenteur Av - Arcade St",
@@ -47661,8 +47434,7 @@ NODES=
  -78762,
  -92594,
  -6779,
- 121127,
- CIRCULAR=T
+ 121127
 
 LINE NAME="0_19-111_19_pk0",
  LONGNAME="Olson Memorial Hwy - Penn Av N - Brooklyn Center",
@@ -47771,8 +47543,7 @@ NODES=
  151650,
  -151649,
  61304,
- 16271,
- CIRCULAR=T
+ 16271
 
 LINE NAME="0_19-111_19_op0",
  LONGNAME="Olson Memorial Hwy - Penn Av N - Brooklyn Center",
@@ -47881,8 +47652,7 @@ NODES=
  151650,
  -151649,
  61304,
- 16271,
- CIRCULAR=T
+ 16271
 
 LINE NAME="0_19-111_19_pk1",
  LONGNAME="Olson Memorial Hwy - Penn Av N - Brooklyn Center",
@@ -47996,8 +47766,7 @@ NODES=
  170044,
  -81234,
  -61253,
- 88981,
- CIRCULAR=T
+ 88981
 
 LINE NAME="0_6-111_6_pk0",
  LONGNAME="U of M - Hennepin - Xerxes - France - Southdale",
@@ -48205,8 +47974,7 @@ NODES=
  -128064,
  128998,
  -36258,
- 15828,
- CIRCULAR=T
+ 15828
 
 LINE NAME="0_6-111_6_op0",
  LONGNAME="U of M - Hennepin - Xerxes - France - Southdale",
@@ -48380,8 +48148,7 @@ NODES=
  -87507,
  -113231,
  -113110,
- 113017,
- CIRCULAR=T
+ 113017
 
 LINE NAME="0_6-111_6_pk1",
  LONGNAME="U of M - Hennepin - Xerxes - France - Southdale",
@@ -48549,8 +48316,7 @@ NODES=
  -66150,
  -109237,
  -4579,
- 4576,
- CIRCULAR=T
+ 4576
 
 LINE NAME="0_6-111_6_op1",
  LONGNAME="U of M - Hennepin - Xerxes - France - Southdale",
@@ -48718,8 +48484,7 @@ NODES=
  -66150,
  -109237,
  -4579,
- 4576,
- CIRCULAR=T
+ 4576
 
 LINE NAME="0_19-111_19_op1",
  LONGNAME="Olson Memorial Hwy - Penn Av N - Brooklyn Center",
@@ -48825,8 +48590,7 @@ NODES=
  170044,
  -81234,
  -61253,
- 88981,
- CIRCULAR=T
+ 88981
 
 LINE NAME="0_766-111_766_pk1",
  LONGNAME="Express - Anoka -  Champlin - W River Rd - Mpls",
@@ -49015,8 +48779,7 @@ NODES=
  -92593,
  -22491,
  -78762,
- 92594,
- CIRCULAR=T
+ 92594
 
 LINE NAME="0_766-111_766_op0",
  LONGNAME="Express - Anoka -  Champlin - W River Rd - Mpls",
@@ -49228,8 +48991,7 @@ NODES=
  -33764,
  33762,
  -33760,
- 55601,
- CIRCULAR=T
+ 55601
 
 LINE NAME="0_766-111_766_op1",
  LONGNAME="Express - Anoka -  Champlin - W River Rd - Mpls",
@@ -49430,8 +49192,7 @@ NODES=
  -92593,
  -22491,
  -78762,
- 92594,
- CIRCULAR=T
+ 92594
 
 LINE NAME="0_768-111_768_op0",
  LONGNAME="Express - Noble P&R - Mpls",
@@ -49499,8 +49260,7 @@ NODES=
  -124394,
  -77900,
  -77901,
- 97943,
- CIRCULAR=T
+ 97943
 
 LINE NAME="0_768-111_768_pk1",
  LONGNAME="Express - Noble P&R - Mpls",
@@ -49793,8 +49553,7 @@ NODES=
  -72105,
  -65445,
  -39565,
- 39628,
- CIRCULAR=T
+ 39628
 
 LINE NAME="0_11-111_11_pk1",
  LONGNAME="Columbia Heights - 2nd St NE - 4th Av S",
@@ -49966,8 +49725,7 @@ NODES=
  106150,
  -20810,
  -110867,
- 57882,
- CIRCULAR=T
+ 57882
 
 LINE NAME="0_11-111_11_op1",
  LONGNAME="Columbia Heights - 2nd St NE - 4th Av S",
@@ -50139,8 +49897,7 @@ NODES=
  106150,
  -20810,
  -110867,
- 57882,
- CIRCULAR=T
+ 57882
 
 LINE NAME="0_11-111_11_op0",
  LONGNAME="Columbia Heights - 2nd St NE - 4th Av S",
@@ -50266,8 +50023,7 @@ NODES=
  114105,
  113943,
  -7472,
- 170692,
- CIRCULAR=T
+ 170692
 
 LINE NAME="0_764-111_764_pk1",
  LONGNAME="Express - Winnetka Av - 42nd Av - Mpls",
@@ -50408,8 +50164,7 @@ NODES=
  -90482,
  121375,
  -26086,
- 90502,
- CIRCULAR=T
+ 90502
 
 LINE NAME="0_4-111_4_op0",
  LONGNAME="New Brighton - Johnson St - Bryant Av - Southtown",
@@ -51174,8 +50929,7 @@ NODES=
  -149340,
  -157407,
  -108921,
- 7639,
- CIRCULAR=T
+ 7639
 
 LINE NAME="0_141-111_141_pk1",
  LONGNAME="Ltd Stop - New Brighton - Johnson St - Mpls",
@@ -51348,8 +51102,7 @@ NODES=
  -165301,
  -118918,
  118395,
- 170517,
- CIRCULAR=T
+ 170517
 
 LINE NAME="0_9-111_9_pk0",
  LONGNAME="Glenwood - Wayzata Blvd - Cedar Lk Rd - 46 St Sta",
@@ -51574,8 +51327,7 @@ NODES=
  154640,
  154636,
  -154652,
- 23051,
- CIRCULAR=T
+ 23051
 
 LINE NAME="0_9-111_9_op0",
  LONGNAME="Glenwood - Wayzata Blvd - Cedar Lk Rd - 46 St Sta",
@@ -51817,8 +51569,7 @@ NODES=
  154640,
  154636,
  -154652,
- 23051,
- CIRCULAR=T
+ 23051
 
 LINE NAME="0_9-111_9_pk1",
  LONGNAME="Glenwood - Wayzata Blvd - Cedar Lk Rd - 46 St Sta",
@@ -52066,8 +51817,7 @@ NODES=
  -4847,
  -151651,
  -151652,
- 16271,
- CIRCULAR=T
+ 16271
 
 LINE NAME="0_923-111_C Line_op0",
  LONGNAME="C Line",
@@ -52173,8 +51923,7 @@ NODES=
  -4847,
  -151651,
  -151652,
- 16271,
- CIRCULAR=T
+ 16271
 
 LINE NAME="0_923-111_C Line_pk1",
  LONGNAME="C Line",
@@ -52281,8 +52030,7 @@ NODES=
  -81234,
  -61253,
  -88981,
- 88982,
- CIRCULAR=T
+ 88982
 
 LINE NAME="0_923-111_C Line_op1",
  LONGNAME="C Line",
@@ -52389,8 +52137,7 @@ NODES=
  -81234,
  -61253,
  -88981,
- 88982,
- CIRCULAR=T
+ 88982
 
 LINE NAME="0_852-111_852_pk0",
  LONGNAME="Express - Anoka - Coon Rapids - Northtown - Mpls",
@@ -52684,8 +52431,7 @@ NODES=
  67312,
  -63810,
  -6564,
- 12154,
- CIRCULAR=T
+ 12154
 
 LINE NAME="0_852-111_852_op0",
  LONGNAME="Express - Anoka - Coon Rapids - Northtown - Mpls",
@@ -52967,8 +52713,7 @@ NODES=
  -23649,
  -21143,
  6564,
- 12154,
- CIRCULAR=T
+ 12154
 
 LINE NAME="0_852-111_852_pk1",
  LONGNAME="Express - Anoka - Coon Rapids - Northtown - Mpls",
@@ -53170,8 +52915,7 @@ NODES=
  -93397,
  -6779,
  -121127,
- 117641,
- CIRCULAR=T
+ 117641
 
 LINE NAME="0_852-111_852_op1",
  LONGNAME="Express - Anoka - Coon Rapids - Northtown - Mpls",
@@ -53474,8 +53218,7 @@ NODES=
  -93397,
  -6779,
  -121127,
- 117641,
- CIRCULAR=T
+ 117641
 
 LINE NAME="15_887-111_887_pk0",
  LONGNAME="Northstar Link - St Cloud Link",
@@ -54748,8 +54491,7 @@ NODES=
  -88046,
  88056,
  -88064,
- 99847,
- CIRCULAR=T
+ 99847
 
 LINE NAME="5_776-111_776_pk0",
  LONGNAME="Plymouth - Express - Southwest Plymouth",
@@ -54921,8 +54663,7 @@ NODES=
  -123478,
  -157942,
  -141041,
- 141035,
- CIRCULAR=T
+ 141035
 
 LINE NAME="5_795-111_795_op1",
  LONGNAME="Plymouth - Express - Midday - Northeast Plymouth",
@@ -55085,8 +54826,7 @@ NODES=
  -83539,
  -83538,
  83542,
- 100488,
- CIRCULAR=T
+ 100488
 
 LINE NAME="5_774-111_774_pk0",
  LONGNAME="Plymouth - Express - Station 73",
@@ -55918,8 +55658,7 @@ NODES=
  -123478,
  -157942,
  -141041,
- 141035,
- CIRCULAR=T
+ 141035
 
 LINE NAME="5_747-111_747_pk1",
  LONGNAME="Plymouth - Express - Station 73 - Mpls",
@@ -56006,8 +55745,7 @@ NODES=
  124321,
  112986,
  46437,
- 12943,
- CIRCULAR=T
+ 12943
 
 LINE NAME="5_741-111_741_pk1",
  LONGNAME="Plymouth - Annapolis - Campus Dr - Station 73",
@@ -56133,8 +55871,7 @@ NODES=
  -135831,
  -113836,
  -102953,
- 101507,
- CIRCULAR=T
+ 101507
 
 LINE NAME="5_740-111_740_pk1",
  LONGNAME="Plymouth - Fernbrook Ln - Xenium Ln",
@@ -56287,8 +56024,7 @@ NODES=
  -123478,
  -157942,
  -141041,
- 141035,
- CIRCULAR=T
+ 141035
 
 LINE NAME="5_790-111_790_pk0",
  LONGNAME="Plymouth - Express - Cub Foods - Four Seasons",
@@ -56443,8 +56179,7 @@ NODES=
  -123478,
  -157942,
  -141041,
- 141035,
- CIRCULAR=T
+ 141035
 
 LINE NAME="5_791-111_791_pk0",
  LONGNAME="Plymouth - Shuttle - Larch Ln - Four Seasons",
@@ -57641,8 +57376,7 @@ NODES=
  -60037,
  51437,
  -130506,
- -59598,
- CIRCULAR=T
+ -59598
 
 LINE NAME="11_124-111_124_op0",
  LONGNAME="U of M - Saint Paul Circulator",
@@ -57689,8 +57423,7 @@ NODES=
  -60037,
  51437,
  -130506,
- -59598,
- CIRCULAR=T
+ -59598
 
 LINE NAME="11_122-111_122_pk0",
  LONGNAME="U of M - University Ave Circulator",
@@ -57741,8 +57474,7 @@ NODES=
  3626,
  -101607,
  -101596,
- -11022,
- CIRCULAR=T
+ -11022
 
 LINE NAME="11_122-111_122_op0",
  LONGNAME="U of M - University Ave Circulator",
@@ -57793,8 +57525,7 @@ NODES=
  3626,
  -101607,
  -101596,
- -11022,
- CIRCULAR=T
+ -11022
 
 LINE NAME="11_121-111_121_op0",
  LONGNAME="U of M - Campus Connector",
@@ -58094,8 +57825,7 @@ NODES=
  -128998,
  -128996,
  -5760,
- -112577,
- CIRCULAR=T
+ -112577
 
 LINE NAME="11_120-111_120_pk0",
  LONGNAME="U of M - Stadium Super Shuttle",
@@ -58127,8 +57857,7 @@ NODES=
  -128998,
  -128996,
  -5760,
- -112577,
- CIRCULAR=T
+ -112577
 
 LINE NAME="0_901-111_Blue_pk0",
  LONGNAME="METRO Blue Line",
@@ -59811,8 +59540,7 @@ NODES=
  -38652,
  -38654,
  -121784,
- 52562,
- CIRCULAR=T
+ 52562
 
 LINE NAME="1_479-71_479_pk1",
  LONGNAME="157th Street-Minneapolis",
@@ -60104,8 +59832,7 @@ NODES=
  -141041,
  141035,
  -93123,
- 23792,
- CIRCULAR=T
+ 23792
 
 LINE NAME="1_477-71_477_op0",
  LONGNAME="Lakeville/Apple Valley-Mpls",
@@ -61348,8 +61075,7 @@ NODES=
  -117998,
  -62584,
  -137756,
- 15243,
- CIRCULAR=T
+ 15243
 
 LINE NAME="1_421-71_421_op0",
  LONGNAME="Burnsville-Savage Flex",
@@ -61573,8 +61299,7 @@ NODES=
  -31719,
  -31721,
  -22446,
- 31672,
- CIRCULAR=T
+ 31672
 
 LINE NAME="1_426-71_426_pk1",
  LONGNAME="Burnsville Shuttle",
@@ -61773,8 +61498,7 @@ NODES=
  -40663,
  -28372,
  -95207,
- -40701,
- CIRCULAR=T
+ -40701
 
 LINE NAME="1_445-71_445_op1",
  LONGNAME="Eagan-Cedar Grove",
@@ -61875,8 +61599,7 @@ NODES=
  -40285,
  -4517,
  32555,
- 55624,
- CIRCULAR=T
+ 55624
 
 LINE NAME="1_440-71_440_pk0",
  LONGNAME="Apple Valley-Cedar Grove-VA Hospital",
@@ -62016,8 +61739,7 @@ NODES=
  -31719,
  -31721,
  -22446,
- 31672,
- CIRCULAR=T
+ 31672
 
 LINE NAME="1_444-71_444_pk0",
  LONGNAME="Savage-Burnsville-Mall of America",
@@ -62172,8 +61894,7 @@ NODES=
  -160499,
  -78328,
  -123819,
- 136426,
- CIRCULAR=T
+ 136426
 
 LINE NAME="1_420-71_420_op1",
  LONGNAME="Rosemount-Apple Valley Flex",
@@ -62383,8 +62104,7 @@ NODES=
  -117998,
  -62584,
  -137756,
- 15243,
- CIRCULAR=T
+ 15243
 
 LINE NAME="1_438-71_438_pk0",
  LONGNAME="Cliff Lake Flex",
@@ -62459,8 +62179,7 @@ NODES=
  -15770,
  31470,
  -18547,
- -40974,
- CIRCULAR=T
+ -40974
 
 LINE NAME="1_445-71_445_pk1",
  LONGNAME="Eagan-Cedar Grove",
@@ -62561,8 +62280,7 @@ NODES=
  -40285,
  -4517,
  32555,
- 55624,
- CIRCULAR=T
+ 55624
 
 LINE NAME="1_442-71_442_op1",
  LONGNAME="Burnsville Center-Apple Valley",
@@ -62674,8 +62392,7 @@ NODES=
  -40663,
  -28372,
  -95207,
- -40701,
- CIRCULAR=T
+ -40701
 
 LINE NAME="1_444-71_444_op0",
  LONGNAME="Savage-Burnsville-Mall of America",
@@ -62831,8 +62548,7 @@ NODES=
  -40663,
  -28372,
  -95207,
- 40701,
- CIRCULAR=T
+ 40701
 
 LINE NAME="1_438-71_438_op1",
  LONGNAME="Cliff Lake Flex",
@@ -62928,8 +62644,7 @@ NODES=
  -29624,
  165813,
  165838,
- 107105,
- CIRCULAR=T
+ 107105
 
 LINE NAME="1_446-71_446_pk1",
  LONGNAME="Eagan-46th Street LRT",
@@ -63683,8 +63398,7 @@ NODES=
  -29624,
  165813,
  165838,
- 107105,
- CIRCULAR=T
+ 107105
 
 LINE NAME="1_438-71_438_op0",
  LONGNAME="Cliff Lake Flex",
@@ -63759,8 +63473,7 @@ NODES=
  -15770,
  31470,
  -18547,
- -40974,
- CIRCULAR=T
+ -40974
 
 LINE NAME="1_436-71_436_pk0",
  LONGNAME="Eagan Hwy 55 Rev Comm",
@@ -63869,8 +63582,7 @@ NODES=
  -165830,
  -165663,
  -29624,
- 165813,
- CIRCULAR=T
+ 165813
 
 LINE NAME="1_446-71_446_op0",
  LONGNAME="Eagan-46th Street LRT",
@@ -64029,8 +63741,7 @@ NODES=
  -15865,
  -29939,
  -15838,
- -29928,
- CIRCULAR=T
+ -29928
 
 LINE NAME="1_440-71_440_op1",
  LONGNAME="Apple Valley-Cedar Grove-VA Hospital",
@@ -64168,8 +63879,7 @@ NODES=
  168088,
  58389,
  -7185,
- 55624,
- CIRCULAR=T
+ 55624
 
 LINE NAME="1_421-71_421_pk1",
  LONGNAME="Burnsville-Savage Flex",
@@ -64248,8 +63958,7 @@ NODES=
  133361,
  -123818,
  -123819,
- 136426,
- CIRCULAR=T
+ 136426
 
 LINE NAME="1_421-71_421_op1",
  LONGNAME="Burnsville-Savage Flex",
@@ -64328,8 +64037,7 @@ NODES=
  133361,
  -123818,
  -123819,
- 136426,
- CIRCULAR=T
+ 136426
 
 LINE NAME="1_442-71_442_pk0",
  LONGNAME="Burnsville Center-Apple Valley",
@@ -64521,8 +64229,7 @@ NODES=
  -26535,
  -26537,
  -4514,
- 12078,
- CIRCULAR=T
+ 12078
 
 LINE NAME="1_440-71_440_pk1",
  LONGNAME="Apple Valley-Cedar Grove-VA Hospital",
@@ -65738,8 +65445,7 @@ NODES=
  9187,
  -9618,
  -11340,
- 9223,
- CIRCULAR=T
+ 9223
 
 LINE NAME="1_499-71_499_op1",
  LONGNAME="Shakopee-Southbridge",
@@ -65797,8 +65503,7 @@ NODES=
  9187,
  -9618,
  -11340,
- 9223,
- CIRCULAR=T
+ 9223
 
 LINE NAME="1_499-71_499_pk0",
  LONGNAME="Shakopee-Southbridge",
@@ -65869,8 +65574,7 @@ NODES=
  -12802,
  -66198,
  -66197,
- 51192,
- CIRCULAR=T
+ 51192
 
 LINE NAME="1_499-71_499_op0",
  LONGNAME="Shakopee-Southbridge",
@@ -65930,8 +65634,7 @@ NODES=
  -63478,
  123571,
  -10921,
- 10927,
- CIRCULAR=T
+ 10927
 
 LINE NAME="1_495-71_495_pk0",
  LONGNAME="Shakopee-Burnsville-Mall of America",
