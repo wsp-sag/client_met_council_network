@@ -74,7 +74,7 @@ runtpp %SCRIPT_PATH%\make_bike_network_from_file.s
 runtpp %SCRIPT_PATH%\make_walk_network_from_file.s
 runtpp %SCRIPT_PATH%\FullMakeNetwork15.s
 
-:endComment
+::endComment
 
 ::HIGHWAY
 :: Set highway network
@@ -84,7 +84,7 @@ set LU_AlphaBeta=lookup_files/AlphaBetaLookup.txt
 set LU_capacity=lookup_files/SpeedLookup85.txt
 set LU_speed=lookup_files/CapacityLookup.txt
 
-%beginComment%
+::%beginComment%
 runtpp %SCRIPT_PATH%\BNNET00B.s
 runtpp %SCRIPT_PATH%\HNNET00B.s
 :: This script handles TOD assignment. Batch files require a single character
@@ -172,6 +172,7 @@ runtpp %SCRIPT_PATH%\TSNET00A.s
 runtpp %SCRIPT_PATH%\TSNET00B.s
 :endComment
 
+::%beginComment%
 for /L %%I IN (1, 1, 1) DO (
 
 	set TOD=%%I
@@ -190,13 +191,20 @@ for /L %%I IN (1, 1, 1) DO (
 	runtpp %SCRIPT_PATH%\TSPIL00C.s
 	runtpp %SCRIPT_PATH%\TSPTR00A.s
 	runtpp %SCRIPT_PATH%\TSPTR00C.s
+	runtpp %SCRIPT_PATH%\TSMAT00A.s
+	runtpp %SCRIPT_PATH%\TSMAT00C.s
+
 )
 
 %beginComment%
-runtpp %SCRIPT_PATH%\TSMAT00A.s
-runtpp %SCRIPT_PATH%\TSMAT00C.s
 
-runtpp %SCRIPT_PATH%\TSPIL00B.s
+:: Create exogenous variables
+runtpp %SCRIPT_PATH%\EVMAT00A.s
+runtpp %SCRIPT_PATH%\EVMAT00B.s
+runtpp %SCRIPT_PATH%\EVMAT00C.s
+runtpp %SCRIPT_PATH%\EVMAT00D.s
+runtpp %SCRIPT_PATH%\EVMAT00E.s
+runtpp %SCRIPT_PATH%\EVMAT00F.s
 
 runtpp %SCRIPT_PATH%\summary_outputs.s
 :endComment

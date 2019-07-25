@@ -1,8 +1,8 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=MATRIX MSG='@TPER@ Walk Skim - Step 2'
-FILEO MATO[1] = "{SCENARIO_DIR}\XIT_WK_SKIM_0_@TPER@.SKM",
+RUN PGM=MATRIX MSG='%TPER% Walk Skim - Step 2'
+FILEO MATO[1] = "%SCENARIO_DIR%\XIT_WK_SKIM_0_%TPER%.SKM",
  MO=1-11, NAME=TRNTIME,WLKACC,WLKXFER,WLKEGR,IWAIT,XWAIT,XFERS,FARE,FAREP,FARER,FARES
-FILEI MATI[1] = "{SCENARIO_DIR}\XIT_WK_SKIM_0_@TPER@.tmp"
+FILEI MATI[1] = "%SCENARIO_DIR%\XIT_WK_SKIM_0_%TPER%.tmp"
 
 
 MW[1]=MI.1.1 + MI.1.2 + MI.1.3 + MI.1.4 + MI.1.5 ; Bus, LB, Exp, LRT, CRT - IVT
@@ -18,7 +18,7 @@ MW[10]=(MI.1.10+MI.1.11+MI.1.12)*100*0.90; Senior Fare (Seniors pay full fare in
 MW[11]=(MI.1.10+MI.1.11+MI.1.12)*100*0.90*0.90; Student Fare
 JLOOP
   IF (MI.1.8>0)
-    MW[7]=MI.1.8-1    ; Transfers equals boards minus one  
+    MW[7]=MI.1.8-1    ; Transfers equals boards minus one
   ENDIF
   IF ((I>1312 & I<1342) & (J>1312 & J<1342)) ; Downtown Minneapolis Zone
     MW[8]=50 * MI.1.8 ;Full Fare is $0.50 * boards
