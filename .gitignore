@@ -23,7 +23,7 @@ model_files/Network*
 model_files/WSPHandoff_Jan2019/*
 *.bak
 *.PRN
-*.PRJ
+#*.PRJ
 *.VAR
 *.zip
 replacement_networks/comparisons/walk_comparison.csv
