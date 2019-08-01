@@ -32,6 +32,7 @@ if not exist \outputs mkdir \outputs
 set SCENARIO_DIR=outputs
 set COMPARISON_DIR=comparisons
 set LOOKUP_DIR=lookup_files
+set INPUT_DIR=inputs
 
 set LINK_PATH=%NETWORK_FOLDER%/all_link.dbf
 set NODE_PATH=%NETWORK_FOLDER%/all_node.dbf
@@ -65,16 +66,14 @@ set T_PRIORITY_PATH=%LOOKUP_DIR%/T_Priority.dbf
 set T_MANTIME_PATH=%LOOKUP_DIR%/T_MANTIME.dbf
 set T_DISTANCE_PATH=%LOOKUP_DIR%/Distances.dbf
 
-%beginComment%
-
 :: Make Networks
+%beginComment%
 runtpp %SCRIPT_PATH%\make_complete_network_from_file.s
 runtpp %SCRIPT_PATH%\make_highway_network_from_file.s
 runtpp %SCRIPT_PATH%\make_bike_network_from_file.s
 runtpp %SCRIPT_PATH%\make_walk_network_from_file.s
 runtpp %SCRIPT_PATH%\FullMakeNetwork15.s
-
-::endComment
+:endComment
 
 ::HIGHWAY
 :: Set highway network
@@ -84,7 +83,7 @@ set LU_AlphaBeta=lookup_files/AlphaBetaLookup.txt
 set LU_capacity=lookup_files/SpeedLookup85.txt
 set LU_speed=lookup_files/CapacityLookup.txt
 
-::%beginComment%
+%beginComment%
 runtpp %SCRIPT_PATH%\BNNET00B.s
 runtpp %SCRIPT_PATH%\HNNET00B.s
 :: This script handles TOD assignment. Batch files require a single character
@@ -172,7 +171,7 @@ runtpp %SCRIPT_PATH%\TSNET00A.s
 runtpp %SCRIPT_PATH%\TSNET00B.s
 :endComment
 
-::%beginComment%
+%beginComment%
 for /L %%I IN (1, 1, 1) DO (
 
 	set TOD=%%I
@@ -195,16 +194,20 @@ for /L %%I IN (1, 1, 1) DO (
 	runtpp %SCRIPT_PATH%\TSMAT00C.s
 
 )
+:endComment
 
-%beginComment%
 
 :: Create exogenous variables
-runtpp %SCRIPT_PATH%\EVMAT00A.s
-runtpp %SCRIPT_PATH%\EVMAT00B.s
-runtpp %SCRIPT_PATH%\EVMAT00C.s
-runtpp %SCRIPT_PATH%\EVMAT00D.s
-runtpp %SCRIPT_PATH%\EVMAT00E.s
-runtpp %SCRIPT_PATH%\EVMAT00F.s
 
+copy %INPUT_DIR%\zones_2010.dbf %SCENARIO_DIR%\zones_0.dbf
+::runtpp %SCRIPT_PATH%\EVMAT00A.s
+::runtpp %SCRIPT_PATH%\EVMAT00B.s
+::runtpp %SCRIPT_PATH%\EVMAT00C.s
+::runtpp %SCRIPT_PATH%\EVMAT00D.s
+::runtpp %SCRIPT_PATH%\EVMAT00E.s
+::runtpp %SCRIPT_PATH%\EVMAT00F.s
+
+
+%beginComment%
 runtpp %SCRIPT_PATH%\summary_outputs.s
 :endComment
