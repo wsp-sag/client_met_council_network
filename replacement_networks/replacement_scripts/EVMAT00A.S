@@ -10,7 +10,7 @@ FILEI MATI[1] = "%SCENARIO_DIR%\HWY_SKIM_%PREV_ITER%_AM.skm"
 ; Output - Highway accessibility measures (highway accessibility.csv)
 ; Moby Khan 11/2/16
 
-Zones = %zones%
+Zones = %int_zones%
 
 MW[100] = MI.1.daptime
 

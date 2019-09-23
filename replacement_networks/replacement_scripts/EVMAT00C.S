@@ -9,7 +9,7 @@ FILEI MATI[1] = "%SCENARIO_DIR%\HWY_SKIM_%PREV_ITER%_MD.skm"
 ; Output - Distance to closest external TAZ for each TAZ (distancetoexternal.csv)
 ; Moby Khan 11/2/16
 
-Zones = %zones%
+Zones = %int_zones%
 
 ; Use drive alone distance for distance measure
 MW[100] = MI.1.dapdist

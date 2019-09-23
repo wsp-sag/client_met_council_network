@@ -18,7 +18,7 @@ set "beginComment=goto :endComment"
 set TPP_PATH=C:\Program Files\Citilabs\CubeVoyager;C:\Program Files (x86)\Citilabs\CubeVoyager
 
 :: The location of python
-set PYTHON_PATH=C:\Python27
+set PYTHON_PATH=C:\Python27\ArcGIS10.6
 
 :: Add these variables to the PATH environment variable, moving the current path to the back
 set OLD_PATH=%PATH%
@@ -33,6 +33,7 @@ set SCENARIO_DIR=outputs
 set COMPARISON_DIR=comparisons
 set LOOKUP_DIR=lookup_files
 set INPUT_DIR=inputs
+set TOURCAST_DIR=TourCast
 
 set LINK_PATH=%NETWORK_FOLDER%/all_link.dbf
 set NODE_PATH=%NETWORK_FOLDER%/all_node.dbf
@@ -58,6 +59,8 @@ set hwy_assignIters=5
 set hwy_HOV2OCC=2
 set hwy_HOV3OCC=3.2
 set zones=3061
+set int_zones=3030
+set ext_zones=31
 set LU_will2pay=%LOOKUP_DIR%/Will2Pay_oneCurve.txt
 set hwy_TrkFac=2
 set hwy_TollSetting=1
@@ -165,26 +168,26 @@ runtpp %SCRIPT_PATH%\HAPIL00B.s
 runtpp %SCRIPT_PATH%\CANET00A.s
 runtpp %SCRIPT_PATH%\CANET00B.s
 runtpp %SCRIPT_PATH%\CAMAT00As.
-
-:: TRANSIT scripts
-runtpp %SCRIPT_PATH%\TSNET00A.s
-runtpp %SCRIPT_PATH%\TSNET00B.s
 :endComment
 
+:: TRANSIT scripts
 %beginComment%
-for /L %%I IN (1, 1, 1) DO (
+runtpp %SCRIPT_PATH%\TSNET00A.s
+runtpp %SCRIPT_PATH%\TSNET00B.s
+
+for /L %%I IN (1, 1, 2) DO (
 
 	set TOD=%%I
 
 	IF %%I EQU 1 (
 		set TPER=PK
-	)
+    )
 	IF %%I EQU 2 (
-	set TPER=OP
+        set TPER=OP
 	)
 
 	runtpp %SCRIPT_PATH%\TSNET00C.s
-	runtpp %SCRIPT_PATH%\TSPTR00D.s
+    runtpp %SCRIPT_PATH%\TSPTR00D.s
 	runtpp %SCRIPT_PATH%\TSPTR00F.s
 	runtpp %SCRIPT_PATH%\TSPTR00H.s
 	runtpp %SCRIPT_PATH%\TSPIL00C.s
@@ -192,22 +195,63 @@ for /L %%I IN (1, 1, 1) DO (
 	runtpp %SCRIPT_PATH%\TSPTR00C.s
 	runtpp %SCRIPT_PATH%\TSMAT00A.s
 	runtpp %SCRIPT_PATH%\TSMAT00C.s
-
 )
-:endComment
 
+:endComment
 
 :: Create exogenous variables
+%beginComment%
+copy %INPUT_DIR%\zones_0.dbf %SCENARIO_DIR%\zones_0.dbf
+runtpp %SCRIPT_PATH%\EVMAT00A.s
+runtpp %SCRIPT_PATH%\EVMAT00B.s
+runtpp %SCRIPT_PATH%\EVMAT00C.s
+runtpp %SCRIPT_PATH%\EVMAT00D.s
+runtpp %SCRIPT_PATH%\EVMAT00E.s
+runtpp %SCRIPT_PATH%\EVMAT00F.s
+:endComment
 
-copy %INPUT_DIR%\zones_2010.dbf %SCENARIO_DIR%\zones_0.dbf
-::runtpp %SCRIPT_PATH%\EVMAT00A.s
-::runtpp %SCRIPT_PATH%\EVMAT00B.s
-::runtpp %SCRIPT_PATH%\EVMAT00C.s
-::runtpp %SCRIPT_PATH%\EVMAT00D.s
-::runtpp %SCRIPT_PATH%\EVMAT00E.s
-::runtpp %SCRIPT_PATH%\EVMAT00F.s
+:: Run TourCast
+%beginComment%
+set TPER=PK
+copy %SCENARIO_DIR%\XIT_WKACC_NTL_0_%TPER%.tmp + %LOOKUP_DIR%\WalkOverrides.txt %SCENARIO_DIR%\XIT_WKACC_NTL_0_%TPER%.ntl
+copy %SCENARIO_DIR%\XIT_XFER_NTL_0_%TPER%.tmp + %LOOKUP_DIR%\TransferOverrides.txt %SCENARIO_DIR%\XIT_XFER_NTL_0_%TPER%.ntl
+:: The drive access NTL file was created earlier?
+::copy %SCENARIO_DIR%\XIT_DRACC_NTL_0_%TPER%.tmp + %LOOKUP_DIR%\DriveOverrides.txt %SCENARIO_DIR%\XIT_DRACC_NTL_0_%TPER%.ntl
 
+set TPER=OP
+copy %SCENARIO_DIR%\XIT_WKACC_NTL_0_%TPER%.tmp + %LOOKUP_DIR%\WalkOverrides.txt %SCENARIO_DIR%\XIT_WKACC_NTL_0_%TPER%.ntl
+copy %SCENARIO_DIR%\XIT_XFER_NTL_0_%TPER%.tmp + %LOOKUP_DIR%\TransferOverrides.txt %SCENARIO_DIR%\XIT_XFER_NTL_0_%TPER%.ntl
+:: The drive access NTL file was created earlier?
+copy %SCENARIO_DIR%\XIT_DRACC_NTL_0_%TPER%.tmp + %LOOKUP_DIR%\DriveOverrides.txt %SCENARIO_DIR%\XIT_DRACC_NTL_0_%TPER%.ntl
+:endComment
+
+set households=%INPUT_DIR%\Households2015.dbf
+set persons=%INPUT_DIR%\Persons2015.dbf
 
 %beginComment%
-runtpp %SCRIPT_PATH%\summary_outputs.s
+:: These python scripts replace TCMAT00A.s, TCMAT00B.s.
+python %SCRIPT_PATH%\make_tour_cast_input_file.py %TOURCAST_DIR% %SCENARIO_DIR% %ITER% %households% %persons%
+python %TOURCAST_DIR%\script\update_tourcast_json_inputs.py %TOURCAST_DIR%\script\
 :endComment
+
+::good
+set TC_vehavail=1
+set TC_schLocation=1
+set TC_workLocation=1
+set TC_pass=1
+set TC_DAP=1
+set TC_mandTourDest=1
+set TC_mandTourTOD=1
+set TC_schEscort=1
+set TC_FJ=1
+set TC_INM=1
+set TC_stopGen=1
+set TC_tourMC=1
+set TC_WB=1
+set TC_stopDestTOD=1
+set TC_tripMC=1
+
+:: This batch file replaces TCPIL00B.S
+::.\TourCastRun.bat
+
+runtpp %SCRIPT_PATH%\TCPIL00D.s

@@ -12,7 +12,7 @@ FILEI MATI[1] = "%SCENARIO_DIR%\HWY_SKIM_%PREV_ITER%_MD.skm"
 ; Output - List of 10 closest TAZs in order for three types of schools, for each TAZ in the model
 ; Moby Khan 11/2/16
 
-Zones = %zones%
+Zones = %int_zones%
 
 ; Use SR offpeak distance to identIFy closest schools
 MW[100] = MI.1.a2pdist

@@ -37,7 +37,7 @@ FILEI ZDATI[2] = "%SCENARIO_DIR%\highway_accessibility.csv",
   Z = #1, TEHWYACC10 = #5, REHWYACC10 = #11, NEHWYACC10 = #17, MEHWYACC10 = #23
 
 
-ZONES = %zones%
+ZONES = %int_zones%
 
 ; Update all variables
 RO.ZONE = ZI.1.ZONE[i]

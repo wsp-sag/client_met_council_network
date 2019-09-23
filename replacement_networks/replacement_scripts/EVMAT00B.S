@@ -10,7 +10,7 @@ FILEI MATI[1] = "%SCENARIO_DIR%\XIT_WK_SKIM_%PREV_ITER%_PK.SKM"
 ; Output - Transit accessibility measures (transit_accessibility.csv)
 ; Moby Khan 11/2/16
 
-Zones = %zones%
+Zones = %int_zones%
 
 ; Six different constants are used to calculate six different transit accessibility measures
 MW[100] = MI.1.TRNTIME

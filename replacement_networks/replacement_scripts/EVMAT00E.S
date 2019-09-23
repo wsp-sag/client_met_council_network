@@ -9,7 +9,7 @@ FILEO PRINTO[1] = "%SCENARIO_DIR%\universityenrollment.csv"
 ; Output - University Enrollment for each TAZ by distance buffers (universityenrollment.csv)
 ; Moby Khan 11/2/16
 
-Zones = %zones%
+Zones = %int_zones%
 
 ; Buffer is based on drive-alone distance
 MW[100]=MI.1.dapdist
