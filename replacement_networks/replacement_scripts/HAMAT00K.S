@@ -1,5 +1,5 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM = MATRIX MSG = 'Aggregate SPC Trip Tables for Interm Assignment'
+RUN PGM = MATRIX MSG = 'Aggregate SPC Trip Tables for Interim Assignment'
 FILEO MATO[3] = "%TRIP_DIR%\HWY_SPC_TRIP_%ITER%_NT.TRP",
                  MO = 201 - 203, DEC[1] = 3 * 2, 
                  NAME = DA, SR2, SR3

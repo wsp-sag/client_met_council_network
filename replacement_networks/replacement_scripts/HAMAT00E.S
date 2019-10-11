@@ -1,5 +1,5 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM = MATRIX MSG = 'Aggregate Trip Tables for Interm Assignment'
+RUN PGM = MATRIX MSG = 'Aggregate Trip Tables for Interim Assignment'
 DISTRIBUTEINTRASTEP ProcessID = 'Intrastep', ProcessList=1-%max_threads%
 FILEO MATO[3] = "%TRIP_DIR%\HWY_TRIP_%ITER%_NT.TRP",
                  MO = 201 - 232, DEC[1] = 32 * 2, 

@@ -1,5 +1,5 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=MATRIX MSG='Set Inputs and Intermediate File Names - Part 2'
+RUN PGM=MATRIX MSG='Set Inputs and Interimediate File Names - Part 2'
 FILEO PRINTO[1] = "{CATALOG_DIR}\TourCast\Script\MatrixKeyValues.py"
 
 ;The python configuration file has variable references like this:
