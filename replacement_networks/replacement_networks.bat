@@ -39,9 +39,6 @@ SET LOOKUP_DIR=lookup_files
 SET INPUT_DIR=inputs
 SET TOURCAST_DIR=TourCast
 
-SET LINK_PATH=%NETWORK_FOLDER%/all_link.dbf
-SET NODE_PATH=%NETWORK_FOLDER%/all_node.dbf
-
 :: Set zones
 SET zone_attribs=%INPUT_DIR%\Zones_2015.dbf
 COPY %zone_attribs% %SCENARIO_DIR%\zones.dbf
