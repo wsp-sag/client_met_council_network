@@ -1,16 +1,16 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=PUBLIC TRANSPORT MSG='Build @TPER@ Walk Access Connectors'
-FILEO NTLEGO = "{SCENARIO_DIR}\XIT_WKACC_NTL_@ITER@_@TPER@.TMP"
-FILEO REPORTO = "{SCENARIO_DIR}\XIT_WKACC_RPT_@ITER@_@TPER@.RPT"
-FILEO NETO = "{SCENARIO_DIR}\XIT_WKACC_NET_@ITER@_@TPER@.NET"
-FILEI SYSTEMI = "{XIT_SYSTEM}"
-FILEI FACTORI[1] = "{CATALOG_DIR}\INPUT\TRANSIT\@TPER@_WK_{xit_fac_year}.FAC"
-FILEI LINEI[1] = "{XIT_LINES}"
-FILEI NETI = "{SCENARIO_DIR}\XIT_NET_@ITER@_@TPER@.NET"
+RUN PGM=PUBLIC TRANSPORT MSG='Build %TPER% Walk Access Connectors'
+FILEO NTLEGO = "%SCENARIO_DIR%\XIT_WKACC_NTL_%ITER%_%TPER%.TMP"
+FILEO REPORTO = "%SCENARIO_DIR%\XIT_WKACC_RPT_%ITER%_%TPER%.RPT"
+FILEO NETO = "%SCENARIO_DIR%\XIT_WKACC_NET_%ITER%_%TPER%.NET"
+FILEI SYSTEMI = "%XIT_SYSTEM%"
+FILEI FACTORI[1] = "%LOOKUP_DIR%\%TPER%_WK_%xit_fac_year%.FAC"
+FILEI LINEI[1] = "%XIT_LINES%"
+FILEI NETI = "%SCENARIO_DIR%\XIT_NET_%ITER%_%TPER%.NET"
 
     REPORT Lines=T
     REREPORT Accesslegs=T, Egresslegs=T, Xferlegs=T, Lines=T, STOPNODES=T
-    HDWAYPERIOD=@TOD@
+    HDWAYPERIOD=%TOD%
 
     PHASE=LINKREAD
         _wlkspd = 2.5   ;mph
@@ -34,7 +34,7 @@ FILEI NETI = "{SCENARIO_DIR}\XIT_NET_@ITER@_@TPER@.NET"
         cost=li.Distance,
         extractcost=(Li.Distance*60/_wlkspd),
         excludelink=(li.RCI=1-5,13,14),   ;no walking on freeway, tollway,ramps and managed links
-        maxcost=4*0,5*2,                 ;set maximum walking distance to 2 Miles
+        maxcost=4*0,5*2,                  ;set maximum walking distance to 2 Miles
         maxntlegs=4*1,5*99,
         ntlegmode=1
     ENDPHASE

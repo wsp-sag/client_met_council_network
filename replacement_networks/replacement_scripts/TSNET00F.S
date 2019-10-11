@@ -1,11 +1,11 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=NETWORK MSG='Calculate Transit Speeds for @TPER@'
-FILEI NODEI[1] = "{SCENARIO_DIR}\node.dbf"
-FILEI LINKI[2] = "{SCENARIO_DIR}\ALL_NET.net"
-FILEO NETO = "{SCENARIO_DIR}\XIT_NET_@ITER@_@TPER@.NET"
-FILEI LOOKUPI[2] = "{CATALOG_DIR}\INPUT\TRANSIT\@TPER@EXPRESSDELAYS.TXT"
-FILEI LOOKUPI[1] = "{CATALOG_DIR}\INPUT\TRANSIT\@TPER@LOCALDELAYS.TXT"
-FILEI LINKI[1] = "{SCENARIO_DIR}\HWY_LDNET_@ITER@_@PER@.net"
+RUN PGM=NETWORK MSG='Calculate Transit Speeds for %TPER%'
+FILEI NODEI[1] = "%SCENARIO_DIR%\transit_node.dbf"
+FILEI LINKI[2] = "%SCENARIO_DIR%\HWY_ALL_NET.net"
+FILEO NETO = "%SCENARIO_DIR%\XIT_NET_%ITER%_%TPER%.NET"
+FILEI LOOKUPI[2] = "%LOOKUP_DIR%\%TPER%EXPRESSDELAYS.TXT"
+FILEI LOOKUPI[1] = "%LOOKUP_DIR%\%TPER%LOCALDELAYS.TXT"
+FILEI LINKI[1] = "%SCENARIO_DIR%\HWY_LDNET_%ITER%_%PER%.net"
 
     ;  transit time = congested time +  distance * link delay
     ;   Delays are calibrated by AREA and facility type and time period.

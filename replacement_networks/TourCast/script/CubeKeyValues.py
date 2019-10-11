@@ -1,8 +1,8 @@
 # Set Inputs and Intermediate File Names - Part 1
-cube___HOUSEHOLDS_FILE___ = r"C:\projects\met_council_git\replacement_networks\inputs\Households2015.dbf"
+cube___HOUSEHOLDS_FILE___ = r"C:\projects\met_council_git\replacement_networks\inputs\Households2015_custom.dbf"
 cube___WORK_BASED_TOUR_TIME_OF_DAY_CHOICE___ = r"C:\projects\met_council_git\replacement_networks\outputs\TC_OutputTODToursWorkBased_1.dbf"
 cube___ZONES_FILE___ = r"C:\projects\met_council_git\replacement_networks\outputs\zones_1.dbf"
-cube___PERSONS_FILE___ = r"C:\projects\met_council_git\replacement_networks\inputs\Persons2015.dbf"
+cube___PERSONS_FILE___ = r"C:\projects\met_council_git\replacement_networks\inputs\Persons2015_custom.dbf"
 cube___DAILY_ACTIVITY_PATTERNS___ = r"C:\projects\met_council_git\replacement_networks\outputs\TC_OutputDAP_1.dbf"
 cube___MODELED_HOUSEHOLDS_FILE___ = r"C:\projects\met_council_git\replacement_networks\outputs\TC_HouseholdModeledData_1.dbf"
 cube___PASS_MODEL___ = r"C:\projects\met_council_git\replacement_networks\outputs\TC_PassModel_1.dbf"
