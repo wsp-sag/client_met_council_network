@@ -43,6 +43,8 @@ SET TOURCAST_DIR=TourCast
 SET zone_attribs=%INPUT_DIR%\Zones_2015.dbf
 COPY %zone_attribs% %SCENARIO_DIR%\zones.dbf
 
+SET LINK_PATH=%NETWORK_FOLDER%/all_link.dbf
+SET NODE_PATH=%NETWORK_FOLDER%/all_node.dbf
 
 :: Set transit
 SET xit_lines=%NETWORK_FOLDER%/transit.lin
