@@ -8,6 +8,9 @@
 ::~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 @ECHO off
 SetLocal EnableDelayedExpansion
+
+SET "beginComment=goto :endComment"
+SET "returnToHead=goto :startMainLoop"
 :: ----------------------------------------------------------------------------
 ::
 :: Step 1:  Set the necessary path variables
@@ -50,7 +53,7 @@ SET xit_fac_year=2010
 SET max_threads=16
 
 
-SET hwy_assignIters=500
+SET hwy_assignIters=50
 SET hwy_HOV2OCC=2
 SET hwy_HOV3OCC=3.2
 SET zones=3061
@@ -78,10 +81,10 @@ runtpp %SCRIPT_PATH%\FullMakeNetwork15.s
 SET iHwyNet=%SCENARIO_DIR%/highway_2015.net
 
 SET LU_AlphaBeta=lookup_files/AlphaBetaLookup.txt
-SET LU_capacity=lookup_files/SpeedLookup85.txt
-SET LU_speed=lookup_files/CapacityLookup.txt
+SET LU_capacity=lookup_files/CapacityLookup.txt
+SET LU_speed=lookup_files/SpeedLookup85.txt
 
-%beginComment%
+::%beginComment%
 runtpp %SCRIPT_PATH%\BNNET00B.s
 runtpp %SCRIPT_PATH%\HNNET00B.s
 :: This script handles TOD assignment. Batch files require a single character
@@ -104,16 +107,20 @@ runtpp %SCRIPT_PATH%\FFHWY00A.s
 runtpp %SCRIPT_PATH%\FFPIL00A.s
 ::endComment
 
-::%beginComment%
-:: HIGHWAY
+SET ITER=4
+SET PREV_ITER=3
 
+%beginComment%
+:: HIGHWAY
 runtpp %SCRIPT_PATH%\HAPIL00D.s
 runtpp %SCRIPT_PATH%\HAMAT00E.s
 runtpp %SCRIPT_PATH%\HAMAT00G.s
 runtpp %SCRIPT_PATH%\HAMAT00I.s
 runtpp %SCRIPT_PATH%\HAMAT00K.s
+:endComment
 
-FOR /L %%I IN (1, 1, 4) DO (
+::%beginComment%
+FOR /L %%I IN (1, 1, 1) DO (
 
 	SET TOD=%%I
 
@@ -155,7 +162,7 @@ FOR /L %%I IN (1, 1, 4) DO (
 runtpp %SCRIPT_PATH%\HAPIL00B.s
 
 :: HWY Assignment Post-Processor
-runtpp %SCRIPT_PATH%\CANET00A.s
-runtpp %SCRIPT_PATH%\CANET00B.s
-runtpp %SCRIPT_PATH%\CAMAT00A.s
-:endComment
+::runtpp %SCRIPT_PATH%\CANET00A.s
+::runtpp %SCRIPT_PATH%\CANET00B.s
+::runtpp %SCRIPT_PATH%\CAMAT00A.s
+::endComment

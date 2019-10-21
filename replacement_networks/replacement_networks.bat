@@ -99,8 +99,8 @@ runtpp %SCRIPT_PATH%\NMMAT00A.s
 SET iHwyNet=%SCENARIO_DIR%/highway_2015.net
 
 SET LU_AlphaBeta=lookup_files/AlphaBetaLookup.txt
-SET LU_capacity=lookup_files/SpeedLookup85.txt
-SET LU_speed=lookup_files/CapacityLookup.txt
+SET LU_capacity=lookup_files/CapacityLookup.txt
+SET LU_speed=lookup_files/SpeedLookup85.txt
 
 ::%beginComment%
 runtpp %SCRIPT_PATH%\BNNET00B.s
