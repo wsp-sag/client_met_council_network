@@ -23,17 +23,23 @@ Only the relevant folders for running the model through the batch file are discu
 #### Running the model using batch files.
 Batch files provide users a straightforward, text-file-controlled method for running the travel model. This method improves on the Cube Application process by ensuring changes in scripts can be easily tracked within Github (as opposed to binary catalog files) and permitting debugging by disentangling loops from Cube's abstraction process. This subsection provides step by step instructions for running the model "out of the box".
 
+1) Download the *walk_bike_skims* branch of the *client_met_council_network* repo and navigate to the replacement_networks folder.
+2) Carefully examine *replacement_networks.bat* to ensure all supplied variable values are correct. In Cube, you managed these values through the Key values. But all of these values must be set manually now. (One future improvement would be to set the variables in an accompanying text file. But it's much easier to turn individual parameters off and on from within a single batch file for testing purposes.)
+3) Open a Windows Powershell window and navigate to the replacement_networks folder.
+  - E.g. *cd C:\Users\jhelsel\client_met_council_network\replacement_networks*
+4) Run the batch file
+  - *.\replacement_networks.bat*
+
 #### General batch commands
 Batch files are very flexible, but can also be maddeningly arcane and throw up odd errors. Below, I've listed issues that I have run into over the past few months that will likely come into play as users adapt the batch file for their own purposes. This is not intended to be an exhaustive list of issues or work arounds, but I hope it is helpful.
 
 Wikis and stackoverflow are invaluable resources since many users have asked and answered the problems that are likely to crop up in this project. But, I highly recommend https://en.wikibooks.org/wiki/Windows_Batch_Scripting and https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands as authoritative lists for finding all relevant commands and for useful documentation.
 
-- CAPITALIZATION:
-- FOR LOOPS: 
-- COMMENTS:
+- CAPITALIZATION: Cube supports generous interpretations of user inputs and is often insensitive to user capitalization. Batch file paths and variable names (but not command line commands) are sensitive to capitalization and it is important for the user to sanitize their inputs and ensure that capitalizations are respected.
+- REPLACING CUBE TOKENS: Cube uses "{}@" characters as tokens where variable names are swapped to a literal string or numeric. Batch file uses "%" or "!" for that purpose.
+- FOR LOOPS: By default, batch file evaluates variable names at the beginning of execution. This can cause problems in for loops that iterate over a series of values. To avoid this problem, ensure that the command "SetLocal EnableDelayedExpansion" is active at the top of the script and then use "!" instead of "%" to ensure that variable replacements are updated within the loop.
+- COMMENTS: Batch files recognize double colons as comments ("::"). These should be placed at the start of the line. To create block comments (either for large chunks of explanatory text or to disable scripts for partial runs), begin comments with the line "%beginComment%" and end comments with the line ":endComment".
 
-
-### Warnings: Cube uses lazy evaluations that may trip up batch
 ### Future improvements
 The current approach has focused on *replacing* Cube Application functionality, but not on *improving* the model or removing bugs.
 1) Move variables into a dedicated parameter file. This will hopefully improve readability and useability, as it will help users avoid having to hunt and search throughout the batch file to find all variables which may need to be updated.
