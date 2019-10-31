@@ -1,0 +1,40 @@
+# History files
+.Rhistory
+
+# Example code in package build process
+*-Ex.R
+
+# R data files from past sessions
+.Rdata
+
+# RStudio files
+.Rproj.user/
+
+# TextPad back ups
+.Rproj.user
+
+# IPython Notebook checkpoints
+.ipynb_checkpoints/
+
+# Cache
+*.bak
+*.PRN
+#*.PRJ
+*.VAR
+*.zip
+comparisons/
+outputs/*
+trip_files/*
+outputs/*
+.DS_Store
+inputs/Households2015.dbf
+inputs/Persons2015.dbf
+lookup_files/SchoolTAZs.csv
+inputs/zones_0.dbf
+TPPL.PRJ
+network_06242019/reexported_networks/*
+TourCast/bin/*
+TourCast/logs/*
+network_test_outputs/*
+network_06242019/*
+shapefile/*
