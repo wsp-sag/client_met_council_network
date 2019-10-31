@@ -1,3 +1,0 @@
-;Trip Distibution Time of Day Splits - Airport Trips										
-; 	AM1		    AM2	  	  AM3	    AM4	      MD	      PM1	      PM2	      PM3	      PM4	      EV	      ON
-1   0.056686  0.070858  0.07739 0.077399  0.352113  0.053547  0.046311  0.036904  0.028221  0.110978  0.089585 

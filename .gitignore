@@ -17,14 +17,9 @@
 # IPython Notebook checkpoints
 .ipynb_checkpoints/
 
-# Cache
-model_files/vpn*
-model_files/*.zip
-model_files/Network*
-model_files/WSPHandoff_Jan2019/ABM 2017/Base2010
-model_files/WSPHandoff_Jan2019/ABM 2017/Input
-model_files/WSPHandoff_Jan2019/ABM 2017/TourCast/script/logs
-*.bak
+# Exclude folders
+models/cube_catalog_abm/*
+data/*
 
 # OS system
 *.DS_store

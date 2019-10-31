@@ -1,0 +1,21 @@
+2019-10-29 13:52:41,476 [1] INFO  ModelEngine.ModelEngineMain [(null)] - Loaded ModelEngineMain
+2019-10-29 13:52:41,554 [1] DEBUG ModelComponent.RunnableComponentFactory [(null)] - fileSpec: TourTimeOfDayDAPSecondTours.py, pathToScripts: C:\projects\met_council_git\met_council_model\TourCast\script
+2019-10-29 13:52:41,570 [1] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager starting process:
+  FileName: C:\python27\ArcGIS10.6\python.exe
+  Working Directory: C:\projects\met_council_git\met_council_model\TourCast\script
+  Arguments: ScriptManager.py "TourTimeOfDayDAPSecondTours"
+2019-10-29 13:52:41,757 [4] INFO  ModelEngine.ProcessManager [(null)] - ProcessManager: process has exited with code 1:
+  FileName: C:\python27\ArcGIS10.6\python.exe
+  Working Directory: C:\projects\met_council_git\met_council_model\TourCast\script
+  Arguments: ScriptManager.py "TourTimeOfDayDAPSecondTours"
+2019-10-29 13:52:42,148 [1] ERROR ModelEngine.ModelEngineMain [(null)] - Main: exception Could not find file 'C:\projects\met_council_git\met_council_model\outputs\TC_OutputPreTODSecondTours_2.dbf'.
+2019-10-29 13:52:42,148 [1] ERROR ModelEngine.ModelEngineMain [(null)] -  Stack trace    at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at ModelFramework.DbfDataReference.PreRead() in E:\MetCouncilCodeVersion\src\ModelFramework\src\DbfDataReference.cs:line 615
+   at ModelFramework.DbfDataReference..ctor(Dictionary`2 dataReference) in E:\MetCouncilCodeVersion\src\ModelFramework\src\DbfDataReference.cs:line 193
+   at ModelFramework.DataReferenceFactory.CreateDataReference(Dictionary`2 dataReference) in E:\MetCouncilCodeVersion\src\ModelFramework\src\DataReferenceFactory.cs:line 70
+   at ModelComponent.ComponentBase.CreateDataReferences(DataReferenceFactory factory, Object parent) in E:\MetCouncilCodeVersion\src\ModelComponent\src\ComponentBase.cs:line 99
+   at ModelComponent.MultiModelComponentFactory.CreateMultiModelComponent(String jsonFile) in E:\MetCouncilCodeVersion\src\ModelComponent\src\MultiModelComponentFactory.cs:line 37
+   at ModelComponent.RunnableComponentFactory.CreateRunnableComponent(String pythonScriptFileSpec, String workingDirectory, Boolean createMatrixReferences) in E:\MetCouncilCodeVersion\src\ModelComponent\src\RunnableComponentFactory.cs:line 137
+   at ModelEngine.ModelEngineMain.Main(String[] args) in E:\MetCouncilCodeVersion\src\ModelEngine\src\ModelEngineMain.cs:line 76

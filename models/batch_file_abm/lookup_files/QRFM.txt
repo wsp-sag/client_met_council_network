@@ -1,0 +1,16 @@
+;		HHs		AMC		Manu	Retail	Office
+1		0.099	0.289	0.242	0.253	0.068 0 0 0 0 0 0; 6 Tire Truck Pa As
+2		0.038	0.174	0.104	0.065	0.009 0 0 0 0 0 0; Combo Truck Pa As
+;
+;Trip Distibution Time of Day Splits - for weighted skims
+;	 AM		  MD		PM		NT	
+3	 0.19	  0.41	0.19	0.21	0 0 0 0 0 0 0; Single Unit
+4	 0.15	  0.35	0.15	0.35	0 0 0 0 0 0 0; Multi Unit
+5	 0.2	  0.357	0.255	0.188	0 0 0 0 0 0 0; EE Auto
+6	 0.123	0.22	0.157	0.5	  0 0 0 0 0 0 0; EE Truck
+;Trip Distibution Time of Day Splits - for trip tables splits											
+; 	AM1	AM2	  AM3	  AM4	  MD	  PM1	  PM2	  PM3	  PM4	  EV	  ON
+7	0.052	0.065	0.071	0.071	0.365	0.074	0.064	0.051	0.039	0.083	0.067; Single Unit
+8	0.041	0.049	0.054	0.059	0.306	0.057	0.053	0.048	0.043	0.151	0.139; Multi Unit
+
+
