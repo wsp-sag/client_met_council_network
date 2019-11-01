@@ -1,42 +1,43 @@
 :: Set user parameters for Met Council Model
+SET MODEL_YEAR=2015
+
 :: FOLDER variables
-SET NETWORK_FOLDER=network_06242019
+SET DATA_PATH=..\..\data
+SET EXTERNAL_DATA_PATH=%DATA_PATH%\external
+SET NETWORK_FOLDER=%EXTERNAL_DATA_PATH%\wsp\network_06242019
 SET SCRIPT_PATH=cube_scripts
-SET TRIP_DIR=trip_files
-SET SCENARIO_DIR=outputs
-SET COMPARISON_DIR=comparisons
+SET SCENARIO_DIR=%DATA_PATH%\interim
 SET LOOKUP_DIR=lookup_files
-SET INPUT_DIR=inputs
+SET INPUT_DIR=%EXTERNAL_DATA_PATH%\met_council\population_data
 SET TOURCAST_DIR=TourCast
 
 :: INPUT FILE paths
 :: Set zones
-SET zone_attribs=%INPUT_DIR%/Zones_2015.dbf
+SET zone_attribs=%INPUT_DIR%\Zones_%MODEL_YEAR%.dbf
 :: Set link and node paths for complete network
-SET LINK_PATH=%NETWORK_FOLDER%/all_link.dbf
-SET NODE_PATH=%NETWORK_FOLDER%/all_node.dbf
+SET LINK_PATH=%NETWORK_FOLDER%\all_link.dbf
+SET NODE_PATH=%NETWORK_FOLDER%\all_node.dbf
 :: Set transit paths
-SET xit_lines=%NETWORK_FOLDER%/transit.lin
-SET xit_system=%LOOKUP_DIR%/PT_SYSTEM_2010.PTS
-SET xit_faremat=%LOOKUP_DIR%/FAREMAT_2010.txt
-SET xit_fare=%LOOKUP_DIR%/PT_FARE_2010.FAR
-SET xit_pnrnodes=%NETWORK_FOLDER%/GENERATE_PNR_ACCESS.s
-SET T_PRIORITY_PATH=%LOOKUP_DIR%/T_Priority.dbf
-SET T_MANTIME_PATH=%LOOKUP_DIR%/T_MANTIME.dbf
-SET T_DISTANCE_PATH=%LOOKUP_DIR%/Distances.dbf
+SET xit_lines=%NETWORK_FOLDER%\transit.lin
+SET xit_system=%LOOKUP_DIR%\PT_SYSTEM_2010.PTS
+SET xit_faremat=%LOOKUP_DIR%\FAREMAT_2010.txt
+SET xit_fare=%LOOKUP_DIR%\PT_FARE_2010.FAR
+SET xit_pnrnodes=%NETWORK_FOLDER%\GENERATE_PNR_ACCESS.s
+SET T_PRIORITY_PATH=%LOOKUP_DIR%\T_Priority.dbf
+SET T_MANTIME_PATH=%LOOKUP_DIR%\T_MANTIME.dbf
+SET T_DISTANCE_PATH=%LOOKUP_DIR%\Distances.dbf
 :: Set willingness to pay tolls
-SET LU_will2pay=%LOOKUP_DIR%/Will2Pay_oneCurve.txt
+SET LU_will2pay=%LOOKUP_DIR%\Will2Pay_oneCurve.txt
 :: Set highway network (perhaps scripts should be reworked to avoid this step?)
-SET iHwyNet=%SCENARIO_DIR%/highway_2015.net
+SET iHwyNet=%SCENARIO_DIR%\highway_2015.net
 :: Set highway network parameters
-SET LU_AlphaBeta=lookup_files/AlphaBetaLookup.txt
-SET LU_capacity=lookup_files/CapacityLookup.txt
-SET LU_speed=lookup_files/SpeedLookup85.txt
+SET LU_AlphaBeta=lookup_files\AlphaBetaLookup.txt
+SET LU_capacity=lookup_files\CapacityLookup.txt
+SET LU_speed=lookup_files\SpeedLookup85.txt
 :: Set truck and special generator files
 SET ext_sta=%LOOKUP_DIR%\ext_sta.dbf
 SET qrfm=%LOOKUP_DIR%\QRFM.txt
 SET qrfm_ff=%LOOKUP_DIR%\QRFM_FF.txt
-SET zone_attribs=%INPUT_DIR%\Zones_2015.dbf
 SET LU_external=%LOOKUP_DIR%\EI_IE_EE_Lookup.txt
 SET ee_auto_dist=%LOOKUP_DIR%\eeAutoJointDist.csv
 SET LU_spc_tod=%LOOKUP_DIR%\AirportTODParams.txt
@@ -130,5 +131,5 @@ SET PYTHON_PATH=C:\python27\ArcGIS10.6
 
 :: Add these variables to the PATH environment variable, moving the current path to the back
 SET OLD_PATH=%PATH%
-SET PATH=%RUNTIME%;%TPP_PATH%;%PYTHON_PATH%;%OLD_PATH%
+SET PATH=%TPP_PATH%;%PYTHON_PATH%;%OLD_PATH%
 
