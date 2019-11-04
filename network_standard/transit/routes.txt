@@ -182,6 +182,7 @@ route_id,agency_id,route_short_name,route_long_name,route_desc,route_type,route_
 902-111,0,Green,METRO Green Line,,0,http://www.metrotransit.org/route/902,00B100,FFFFFF
 921-111,0,A Line,A Line,,3,http://www.metrotransit.org/route/921,58595B,FFFFFF
 923-111,0,C Line,C Line,,3,http://www.metrotransit.org/route/923,58595B,FFFFFF
+411-71,15,ML,Mystic Lake Shuttle,Local Weekday-Saturday-Sunday,3,http://www.mysticlake.com/free-shuttle,800080,FFFFFF
 420-71,3,420,Rosemount-Apple Valley Flex,Flex Weekday-Only,3,http://www.mvta.com/bus_route_information_2.html?routeId=420,5C5D5F,FFFFFF
 421-71,3,421,Burnsville-Savage Flex,Flex Weekday-Only,3,http://www.mvta.com/bus_route_information_2.html?routeId=421,5C5D5F,FFFFFF
 426-71,3,426,Burnsville Shuttle,Local Peak-Only,3,http://www.mvta.com/bus_route_information_2.html?routeId=426,008641,FFFFFF
