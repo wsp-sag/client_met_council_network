@@ -3,9 +3,10 @@ import sys
 import os
 import re
 
+# Create an absolute file path to data
 directory_path = os.path.dirname(sys.argv[0])
 directory_path = os.path.abspath(directory_path)
-replacement_index = directory_path.rfind("\\")
+replacement_index = directory_path.rfind("\models")
 directory_path = directory_path[:replacement_index + 1]
 
 tourcast_dir = sys.argv[1]

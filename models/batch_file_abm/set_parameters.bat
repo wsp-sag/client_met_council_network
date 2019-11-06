@@ -44,8 +44,8 @@ SET LU_spc_tod=%LOOKUP_DIR%\AirportTODParams.txt
 SET ee_fratar=%LOOKUP_DIR%\EE_FRATAR.txt
 SET ee_trk_dist=%LOOKUP_DIR%\EE_SEED_TRK_4.mat
 :: Set household and person files
-SET households=%INPUT_DIR%\Households2015.dbf
-SET persons=%INPUT_DIR%\Persons2015.dbf
+SET households=data\external\met_council\population_data\Households2015.dbf
+SET persons=data\external\met_council\population_data\Persons2015.dbf
 
 :: CUBE model parameters
 :: Initialize the model run to an unconverged state
@@ -107,8 +107,6 @@ SET TC_pass=1
 SET TC_DAP=1
 SET TC_mandTourDest=1
 SET TC_mandTourTOD=1
-:: SCHOOL ESCORT IS BROKEN for iteration 2 (see school_escort_log.txt for error log details)
-:: Output files from iteration 1 have been copied for now.
 SET TC_schEscort=1
 SET TC_FJ=1
 SET TC_INM=1
@@ -132,4 +130,11 @@ SET PYTHON_PATH=C:\python27\ArcGIS10.6
 :: Add these variables to the PATH environment variable, moving the current path to the back
 SET OLD_PATH=%PATH%
 SET PATH=%TPP_PATH%;%PYTHON_PATH%;%OLD_PATH%
+
+:: Set shortcut keys
+SET "beginComment=goto :endComment"
+SET "returnToHead=goto :head"
+SET "exitRun=goto :endOfFile"
+SET "check_cube_errors=IF ERRORLEVEL 2 %exitRun%"
+SET "check_python_errors=IF ERRORLEVEL 1 %exitRun%"
 

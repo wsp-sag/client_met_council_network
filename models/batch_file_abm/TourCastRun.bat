@@ -7,12 +7,14 @@
     ModelEngine.exe VehicleAvailabilityModelPostProcessor.py  
 )
 IF ERRORLEVEL 1 %exitRun%
+ECHO .
 
 @IF %TC_schLocation% EQU 1 (
     echo School Location
     ModelEngine.exe SchoolLocationConstrChoice.py
 )
 IF ERRORLEVEL 1 %exitRun%
+ECHO .
 
 @IF %TC_workLocation% EQU 1 (
     echo Usual Work Location
@@ -20,12 +22,14 @@ IF ERRORLEVEL 1 %exitRun%
     ModelEngine.exe UsualWorkplaceLocationChoiceModel.py UsualWorkplaceLocationTourModeChoiceLogsumModel.py
 )
 IF ERRORLEVEL 1 %exitRun%
+ECHO .
 
 @IF %TC_pass% EQU 1 (
     echo Pass Models
     ModelEngine.exe PassModels.py
 )
 IF ERRORLEVEL 1 %exitRun%
+ECHO .
 
 @IF %TC_DAP% EQU 1 (
     echo DAP
@@ -33,6 +37,7 @@ IF ERRORLEVEL 1 %exitRun%
     ModelEngine.exe DailyActivityPatternModel.py
 )
 IF ERRORLEVEL 1 %exitRun%
+ECHO .
 
 @IF %TC_mandTourDest% EQU 1 (
     echo Mandatory Tour Destination Choice - Work and University
@@ -40,6 +45,7 @@ IF ERRORLEVEL 1 %exitRun%
     ModelEngine.exe TourDestinationChoiceWork.py TourModeChoiceLogsum_Work.py
 )
 IF ERRORLEVEL 1 %exitRun%
+ECHO .
 
 @IF %TC_mandTourTOD% EQU 1 (
     echo Mandatory Tour TOD
@@ -48,12 +54,14 @@ IF ERRORLEVEL 1 %exitRun%
     ModelEngine.exe TourTimeOfDayDAPSecondTours.py
 )
 IF ERRORLEVEL 1 %exitRun%
+ECHO .
 
 @IF %TC_schEscort% EQU 1 (
     echo School Escorting
     ModelEngine.exe SchoolEscortModel.py
 )
 IF ERRORLEVEL 1 %exitRun%
+ECHO .
 
 @IF %TC_FJ% EQU 1 (
     echo Fully Joint Tours
@@ -63,6 +71,7 @@ IF ERRORLEVEL 1 %exitRun%
     ModelEngine.exe FullyJointTourTimeOfDay.py
 )
 IF ERRORLEVEL 1 %exitRun%
+ECHO .
 
 @IF %TC_INM% EQU 1 (
     echo INM Tours
@@ -74,18 +83,21 @@ IF ERRORLEVEL 1 %exitRun%
     ModelEngine.exe TourTimeOfDayIndNonMandEscort.py
 )
 IF ERRORLEVEL 1 %exitRun%
+ECHO .
 
 @IF %TC_stopGen% EQU 1 (
     echo Stop Generation
     ModelEngine.exe StopGeneration.py
 )
 IF ERRORLEVEL 1 %exitRun%
+ECHO .
 
 @IF %TC_tourMC% EQU 1 (
     echo Home-Based Tour Mode Choice
     ModelEngine.exe TourModeChoiceHomeBased.py
 )
 IF ERRORLEVEL 1 %exitRun%
+ECHO .
 
 @IF %TC_WB% EQU 1 (
     echo Work-Based Tours
@@ -97,6 +109,7 @@ IF ERRORLEVEL 1 %exitRun%
     ModelEngine.exe WorkBasedTourModeChoice.py
 )
 IF ERRORLEVEL 1 %exitRun%
+ECHO .
 
 @IF %TC_stopDestTOD% EQU 1 (
     echo Stop-Level Models
@@ -104,11 +117,13 @@ IF ERRORLEVEL 1 %exitRun%
     ModelEngine.exe StopTimeOfDay.py
 )
 IF ERRORLEVEL 1 %exitRun%
+ECHO .
 
 @IF %TC_tripMC% EQU 1 (
     echo Trip Mode Choice
     ModelEngine.exe TripModeChoice.py
 )
 IF ERRORLEVEL 1 %exitRun%
+ECHO .
 
 @CD ../..

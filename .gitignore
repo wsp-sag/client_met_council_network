@@ -18,8 +18,13 @@
 .ipynb_checkpoints/
 
 # Exclude folders
-models/cube_catalog_abm/*
 data/*
+models/cube_catalog_abm/*
+models/batch_file_abm/TourCast/logs/*
+
+# Exclude file types
+*.PRN
+
 
 # OS system
 *.DS_store
