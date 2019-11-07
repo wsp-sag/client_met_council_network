@@ -22,8 +22,7 @@ discussed here. Folder and file descriptions accompany the hierarchy.
         link should be downloaded and placed into the *external* folder in the 
         same structure present on the OneDrive link. The folder names within 
         *external* show the user who was responsible for creating the data.
-        - *interim*: Outputs of the model created during model execution. (FUTURE
-        UPDATE - create scenario management folders?)
+        - *interim*: Outputs of the model created during model execution. 
         - *processed*: Finalized outputs from the model (not yet implemented).
     - *models*: Cube and TourCast script files as well as lookup files necessary 
     to run the MetCouncil ABM model.
@@ -48,13 +47,7 @@ or alter the folder structure of this data.
 3) In Windows File Explorer, navigate to *met_council_git/models/batch_file_abm*
 and open *set_parameters.bat* in a text editor. Ensure that all supplied 
 variables are correct. In Cube, you managed these values through the Key values. 
-All of these values must be set manually now. (FUTURE UPDATE - Split 
-*set_parameters.bat* into *set_basic_parameters.bat* and *set_run_parameters.bat*. 
-The first file would hold static values, e.g. the keys for creating comment 
-blocks and the second file would hold variables likely to change, e.g. the path 
-of the household file. MetCouncil staff shouold be consulted to understand how 
-often they change inputs, e.g. hwy_TrkFac, in order to put these values in the 
-best file.)
+All of these values must be set manually now.
 3) Open a Windows Powershell window and navigate to the *batch_file_abm* folder.
   - E.g. *cd C:\Users\jhelsel\client_met_council_network\models\batch_file_abm*
 4) Run the batch file
@@ -101,16 +94,3 @@ be placed at the start of the line. To create block comments (either for large
 chunks of explanatory text or to disable scripts for partial runs), begin comments 
 with the line "%beginComment%" and end comments with the line ":endComment".
 
-### Future improvements
-The current approach has focused on *replacing* Cube Application functionality, 
-but not on *improving* the model or removing bugs.
-1) Move variables into a dedicated parameter file. This will hopefully improve 
-readability and useability, as it will help users avoid having to hunt and 
-search throughout the batch file to find all variables which may need to be 
-updated.
-2) Most of the files are highly generalized and do not contain manual 
-interventions on a specific skim or zone. WSP (with guidance from Met Council 
-staff) should identify scripts where Cube procedures were adjusted in ways tied 
-to specific zones or links in order to ensure that those interventions are still 
-needed, applied to the correct place, and otherwise suitable. Where they are now 
-obsolete, they should be removed.
