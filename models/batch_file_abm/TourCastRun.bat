@@ -126,4 +126,5 @@ ECHO .
 IF ERRORLEVEL 1 %exitRun%
 ECHO .
 
+@ECHO OFF
 @CD ../..

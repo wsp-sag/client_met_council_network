@@ -18,13 +18,15 @@ CALL .\test_new_networks_parameters.bat
 
 :: Make Networks
 ::%beginComment%
+runtpp %SCRIPT_PATH%\make_shape_file_from_complete_network.s
+%beginComment%
 runtpp %SCRIPT_PATH%\make_complete_network_from_file.s
+
 runtpp %SCRIPT_PATH%\make_highway_network_from_file.s
 runtpp %SCRIPT_PATH%\make_bike_network_from_file.s
 runtpp %SCRIPT_PATH%\make_walk_network_from_file.s
 runtpp %SCRIPT_PATH%\FullMakeNetwork15.s
 ::endComment
-%beginComment%
 :: HIGHWAY
 ::%beginComment%
 runtpp %SCRIPT_PATH%\BNNET00B.s

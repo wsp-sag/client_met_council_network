@@ -17,7 +17,7 @@ SET TRIP_DIR=%DATA_PATH%\external\met_council\reference_abm_trip_tables
 SET zone_attribs=%INPUT_DIR%\Zones_%MODEL_YEAR%.dbf
 :: Set link and node paths for complete network
 SET LINK_PATH=%NETWORK_FOLDER%\all_link.dbf
-SET NODE_PATH=%NETWORK_FOLDER%\all_node_2.dbf
+SET NODE_PATH=%NETWORK_FOLDER%\all_node.dbf
 :: Set transit paths
 SET xit_lines=%NETWORK_FOLDER%\transit.lin
 SET xit_system=%LOOKUP_DIR%\PT_SYSTEM_2010.PTS
