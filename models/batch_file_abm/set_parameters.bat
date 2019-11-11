@@ -8,7 +8,7 @@ SET NETWORK_FOLDER=%EXTERNAL_DATA_PATH%\wsp\network_06242019
 SET SCRIPT_PATH=cube_scripts
 SET SCENARIO_DIR=%DATA_PATH%\interim
 :: Original cube scripts contained a separate trip directory. This could be revisited.
-SET TRIP_DIR=%SCENARIO_DIR
+SET TRIP_DIR=%SCENARIO_DIR%
 SET LOOKUP_DIR=lookup_files
 SET INPUT_DIR=%EXTERNAL_DATA_PATH%\met_council\population_data
 SET TOURCAST_DIR=TourCast

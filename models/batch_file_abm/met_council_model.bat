@@ -722,6 +722,7 @@ COPY *.prn %DATA_PATH%\abm_logs\*.prn
 DEL *.prn
 
 :endOfFile
+@ECHO OFF
 IF ERRORLEVEL EQU 0 (
     ECHO RUN SUCCEEDED
 )
