@@ -80,6 +80,12 @@ often insensitive to user capitalization. Batch file paths and variable names
 (but not command line commands) are sensitive to capitalization and it is 
 important for the user to sanitize their inputs and ensure that capitalizations 
 are respected.
+- TRAILING WHITESPACE CHARACTERS: Batch variables are strings that run to the end 
+of the line. If users are experiencing unexplained errors for files written by or 
+read into the model, they may be attributable to trailing space or tab characters 
+that are not easily visible to the analyst. Users should check file names for 
+extra spaces and ensure that looped variables (e.g. AM, PM, etc.) are properly 
+specified.
 - REPLACING CUBE TOKENS: Cube uses "{}@" characters as tokens where variable 
 names are swapped to a literal string or numeric. Batch file uses "%" or "!" for 
 that purpose.

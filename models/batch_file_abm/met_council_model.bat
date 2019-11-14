@@ -28,7 +28,7 @@ COPY "%zone_attribs%" "%SCENARIO_DIR%\zones.dbf"
 :: Make Networks
 :: Filter the all_link and all_node shape files to create separate 
 :: highway, bike, and walk networks.
-::%beginComment%
+%beginComment%
 runtpp %SCRIPT_PATH%\make_complete_network_from_file.s
 %check_cube_errors%
 runtpp %SCRIPT_PATH%\make_highway_network_from_file.s
@@ -165,7 +165,7 @@ runtpp %SCRIPT_PATH%\TSFRA00B.s
 :: Split freight into truck types
 runtpp %SCRIPT_PATH%\TSMAT00M.s
 %check_cube_errors%
-::endComment
+:endComment
 
 :: ----------------------------------------------------------------------------
 ::
@@ -304,7 +304,7 @@ for /L %%I IN (1, 1, 11) DO (
         SET TPER=PK
     )   
     IF %%I EQU 5 (
-        SET PER=MD 
+        SET PER=MD
         SET HPER=MD
         SET TPER=OP
     )
@@ -371,6 +371,7 @@ runtpp %SCRIPT_PATH%\HAMAT00I.s
 :: Aggregate SPC trip tables for interim assignment
 runtpp %SCRIPT_PATH%\HAMAT00K.s
 %check_cube_errors%
+
 
 :: Loop over time of day
 FOR /L %%I IN (1, 1, 4) DO (

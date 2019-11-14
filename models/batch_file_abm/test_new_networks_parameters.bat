@@ -5,6 +5,7 @@ SET MODEL_YEAR=2015
 SET DATA_PATH=..\..\data
 SET EXTERNAL_DATA_PATH=%DATA_PATH%\external
 SET NETWORK_FOLDER=%EXTERNAL_DATA_PATH%\wsp\network_11062019
+::network_11062019
 SET SCRIPT_PATH=cube_scripts
 SET SCENARIO_DIR=%DATA_PATH%\test_new_network_outputs
 SET LOOKUP_DIR=lookup_files
@@ -16,7 +17,7 @@ SET TRIP_DIR=%DATA_PATH%\external\met_council\reference_abm_trip_tables
 :: Set zones
 SET zone_attribs=%INPUT_DIR%\Zones_%MODEL_YEAR%.dbf
 :: Set link and node paths for complete network
-SET LINK_PATH=%NETWORK_FOLDER%\all_link.dbf
+SET LINK_PATH=%NETWORK_FOLDER%\drive_link.dbf
 SET NODE_PATH=%NETWORK_FOLDER%\all_node.dbf
 :: Set transit paths
 SET xit_lines=%NETWORK_FOLDER%\transit.lin
