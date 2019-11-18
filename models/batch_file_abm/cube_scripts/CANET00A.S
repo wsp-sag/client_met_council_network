@@ -83,12 +83,21 @@ FILEO NETO = "%SCENARIO_DIR%\HWY_LDNET_%ITER%_DAILY.NET",
  ENDIF 
  
  ; develop some stats for easier reports
- VMT  = (VOL_TOT_DAILY)*distance
- VHT  = (VOL_TOT_DAILY)*(distance/CSPD_DAILY)
- AVMT = (VOL_AUTO_DAILY)*distance
- AVHT = (VOL_AUTO_DAILY)*(distance/CSPD_DAILY)
- TVMT = (VOL_TRK_DAILY)*distance
- TVHT = (VOL_TRK_DAILY)*(distance/CSPD_DAILY)
+ IF (CSPD_DAILY > 0) 
+    VMT  = (VOL_TOT_DAILY)*distance
+    VHT  = (VOL_TOT_DAILY)*(distance/CSPD_DAILY)
+    AVMT = (VOL_AUTO_DAILY)*distance
+    AVHT = (VOL_AUTO_DAILY)*(distance/CSPD_DAILY)
+    TVMT = (VOL_TRK_DAILY)*distance
+    TVHT = (VOL_TRK_DAILY)*(distance/CSPD_DAILY)
+ ELSE
+    VMT = 0
+    VHT = 0
+    AVMT = VOL_AUTO_DAILY * distance
+    AVHT = 0
+    TVMT = VOL_TRK_DAILY * distance
+    TVHT = 0
+ ENDIF
  
  VMT_DIFF = (VOL_TOT_DAILY)*distance - COUNT*distance
  VMT_DIFFSQ = VMT_DIFF ^ 2
