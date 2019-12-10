@@ -4,8 +4,8 @@ SET MODEL_YEAR=2015
 :: FOLDER variables
 SET DATA_PATH=..\..\data
 SET EXTERNAL_DATA_PATH=%DATA_PATH%\external
-SET NETWORK_FOLDER=%EXTERNAL_DATA_PATH%\wsp\network_11062019
-::network_11062019
+SET NETWORK_FOLDER=%EXTERNAL_DATA_PATH%\wsp\all_link_and_node_120319
+
 SET SCRIPT_PATH=cube_scripts
 SET SCENARIO_DIR=%DATA_PATH%\test_new_network_outputs
 SET LOOKUP_DIR=lookup_files
@@ -17,8 +17,10 @@ SET TRIP_DIR=%DATA_PATH%\external\met_council\reference_abm_trip_tables
 :: Set zones
 SET zone_attribs=%INPUT_DIR%\Zones_%MODEL_YEAR%.dbf
 :: Set link and node paths for complete network
-SET LINK_PATH=%NETWORK_FOLDER%\drive_link.dbf
+SET LINK_PATH=%NETWORK_FOLDER%\all_link.dbf
 SET NODE_PATH=%NETWORK_FOLDER%\all_node.dbf
+SET LINK_DATA_PATH=%NETWORK_FOLDER%\all_link.txt
+SET NODE_DATA_PATH=%NETWORK_FOLDER%\all_node.txt
 :: Set transit paths
 SET xit_lines=%NETWORK_FOLDER%\transit.lin
 SET xit_system=%LOOKUP_DIR%\PT_SYSTEM_2010.PTS
@@ -100,23 +102,6 @@ SET FARE_WA=-0.134
 SET TCOEFF_DA=-0.0263
 SET FARECOST=-0.134 
 SET C_TR=-0.677
-
-:: TOURCAST modules
-SET TC_vehavail=1
-SET TC_schLocation=1
-SET TC_workLocation=1
-SET TC_pass=1
-SET TC_DAP=1
-SET TC_mandTourDest=1
-SET TC_mandTourTOD=1
-SET TC_schEscort=1
-SET TC_FJ=1
-SET TC_INM=1
-SET TC_stopGen=1
-SET TC_tourMC=1
-SET TC_WB=1
-SET TC_stopDestTOD=1
-SET TC_tripMC=1
 
 :: PATH variables
 :: !!WARNING!!
