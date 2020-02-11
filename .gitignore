@@ -32,3 +32,6 @@ replacement_networks/.hubstorinfo
 model_files/.hubstorinfo
 .hubstorinfo
 python_scripts/.hubstorinfo
+.DS_Store
+.DS_Store
+network_standard/node.geojson
