@@ -1,10 +1,7 @@
 RUN PGM = NETWORK MSG = "Read in Network from FILE"
-FILEI LINKI[1] = "%LINK_PATH%",
-  REV = 1
-ZONES = 3061
-FILEI NODEI[1] = "%NODE_PATH%"
+FILEI NETI[1] = "%SCENARIO_DIR%/complete_network.net"
 
-  IF (isWalkLink = 0) DELETE
+  IF (walk_access = 0) DELETE
   
   B1DIST = 0
   B2DIST = 0

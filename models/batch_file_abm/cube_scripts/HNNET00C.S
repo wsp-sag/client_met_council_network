@@ -10,7 +10,7 @@ FILEO NETO = "%SCENARIO_DIR%\HWY_NET_%TOD%.net"
   IF (RCI=98 | RCI=101) DELETE
 
   ;ENDIF
-
+/*
 ; Rachel editing below to reflect HOV/mnpass of increased revenue scenario. will also work for the current revenue scenario and the existing 2040 model.
   IF (HOV > 0)
   ;HOV Lane Configurations
@@ -87,5 +87,5 @@ FILEO NETO = "%SCENARIO_DIR%\HWY_NET_%TOD%.net"
   ENDIF
 
   ENDIF  ; HOV links
-
+*/
 ENDRUN
