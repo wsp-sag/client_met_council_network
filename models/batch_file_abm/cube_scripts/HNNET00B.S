@@ -25,7 +25,7 @@ FILEO NETO = "%SCENARIO_DIR%/HWY_ALL_NET.net"
 		LOOKUP[12]=1, RESULT=13,
 		LOOKUP[13]=1, RESULT=14,
 		LOOKUP[14]=1, RESULT=15
-    Speed = Spd(AREA,RCI)
+    Speed = Spd(AREA_TYPE,RCI)
 		if(speed > 0) time=60*(distance/speed)
 
   LOOKUP LOOKUPI=2, NAME=Cap,
@@ -44,7 +44,7 @@ FILEO NETO = "%SCENARIO_DIR%/HWY_ALL_NET.net"
 		LOOKUP[13]=1, RESULT=14,
 		LOOKUP[14]=1, RESULT=15,
 	  LOOKUP[15]=1, RESULT=16
-    Capacity = Cap(AREA,RCI) * lanes
+    Capacity = Cap(AREA_TYPE,RCI) * lanes
 
   LOOKUP LOOKUPI=3, NAME=AB,
     LOOKUP[1]=1, RESULT=2,

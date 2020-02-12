@@ -16,22 +16,31 @@ SetLocal EnableDelayedExpansion
 :: ----------------------------------------------------------------------------
 CALL .\test_new_networks_parameters.bat
 
-:: Make Networks
-::%beginComment%
-runtpp %SCRIPT_PATH%\make_complete_network_from_fixed_width_file.s
-%beginComment%
-runtpp %SCRIPT_PATH%\make_highway_network_from_file.s
+:: The network comes as a fixed width file. @Sijia Wang will update the field 
+:: widths and column names as necessary and will update that script when 
+:: releasing network updates. This step moves that script into the main script 
+:: folder so that it is executed in the correct place.
+echo %complete_network_script_input_path%
+echo %complete_network_script_output_path%
+COPY %complete_network_script_input_path% %complete_network_script_output_path%
 
+:: Make Networks
+runtpp %SCRIPT_PATH%\make_complete_network_from_fixed_width_file.s
+::%beginComment%
+
+runtpp %SCRIPT_PATH%\make_highway_network_from_file.s
 runtpp %SCRIPT_PATH%\make_bike_network_from_file.s
 runtpp %SCRIPT_PATH%\make_walk_network_from_file.s
+
 runtpp %SCRIPT_PATH%\FullMakeNetwork15.s
 ::endComment
 :: HIGHWAY
+%beginComment%
 runtpp %SCRIPT_PATH%\BNNET00B.s
 runtpp %SCRIPT_PATH%\HNNET00B.s
+::endComment
 :: This script handles TOD assignment. Batch files require a single character
 :: variable.
-
 for /L %%I IN (1, 1, 6) DO (
 	SET TOD=%%I
 
@@ -97,6 +106,8 @@ FOR /L %%I IN (1, 1, 1) DO (
 
 
 	runtpp %SCRIPT_PATH%\HAMAT00A.s
+    
+    :: Currently sets all HOV flags to 0 inside script. Waiting for @Sijia to update 
 	runtpp %SCRIPT_PATH%\HAHWY00A.s
 	)
 

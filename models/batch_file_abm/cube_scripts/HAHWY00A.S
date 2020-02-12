@@ -84,13 +84,16 @@ DISTRIBUTEINTRASTEP ProcessID = 'Intrastep', ProcessList = 1 - %max_threads%
         IF (LI.CAPACITY = 0)
             T0  = 99999
         ENDIF
-        LW.HOV  = LI.HOV
+        ;LW.HOV  = LI.HOV
         C       = LI.CAPACITY * %CAPFAC%
         Alpha   = LI.Alpha
         Beta    = LI.Beta
         LINKCLASS = LI.RCI
+        
+        ; Need to remove when Sijia updates input network.
+        LW.HOV = 0
 
-
+/*
 ; **********   Create Link Groups    ************
 ; Group 1: All HOV Lanes
         IF (LI.HOV>0 && LI.HOV<99) ADDTOGROUP=30  ;Used as exclusion group on path building
@@ -128,7 +131,7 @@ DISTRIBUTEINTRASTEP ProcessID = 'Intrastep', ProcessList = 1 - %max_threads%
         IF (LI.HOV=43)    ADDTOGROUP=31 ; 694 WB from 35W to 94 ; SKIPPING GROUP 30 because it is exclusion group above . ugh
         IF (LI.HOV=44,45)    ADDTOGROUP=32 ; 77 NB and SB because i cna't have 33 groups WHICH IS STUPID
 
-
+*/
 
 
         ; rachel adding toll groups 6 - 32

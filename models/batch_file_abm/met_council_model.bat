@@ -165,7 +165,7 @@ runtpp %SCRIPT_PATH%\TSFRA00B.s
 :: Split freight into truck types
 runtpp %SCRIPT_PATH%\TSMAT00M.s
 %check_cube_errors%
-:endComment
+::endComment
 
 :: ----------------------------------------------------------------------------
 ::
@@ -421,7 +421,7 @@ FOR /L %%I IN (1, 1, 4) DO (
 :: End cube cluster
 runtpp %SCRIPT_PATH%\HAPIL00B.s
 %check_cube_errors%
-
+:endComment
 :: HWY Assignment Post-Processor
 :: Combine convergence assignment networks
 runtpp %SCRIPT_PATH%\CANET00A.s

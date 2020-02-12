@@ -4,7 +4,7 @@ SET MODEL_YEAR=2015
 :: FOLDER variables
 SET DATA_PATH=..\..\data
 SET EXTERNAL_DATA_PATH=%DATA_PATH%\external
-SET NETWORK_FOLDER=%EXTERNAL_DATA_PATH%\wsp\all_link_and_node_120319
+SET NETWORK_FOLDER=%EXTERNAL_DATA_PATH%\wsp\all_link_and_node_fixedwidth_010320
 
 SET SCRIPT_PATH=cube_scripts
 SET SCENARIO_DIR=%DATA_PATH%\test_new_network_outputs
@@ -14,6 +14,9 @@ SET TOURCAST_DIR=TourCast
 SET TRIP_DIR=%DATA_PATH%\external\met_council\reference_abm_trip_tables
 
 :: INPUT FILE paths
+SET complete_network_script_input_path=%NETWORK_FOLDER%\make_complete_network_from_fixed_width_file.s
+SET complete_network_script_output_path=%SCRIPT_PATH%\make_complete_network_from_fixed_width_file.s
+
 :: Set zones
 SET zone_attribs=%INPUT_DIR%\Zones_%MODEL_YEAR%.dbf
 :: Set link and node paths for complete network
