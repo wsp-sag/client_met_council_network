@@ -1,0 +1,291 @@
+changes:
+- category: Roadway Deletion
+  links:
+    model_link_id: []
+- category: New Roadway
+  links: []
+- category: Roadway Attribute Change
+  facility:
+    link:
+      model_link_id:
+      - 419239
+      - 419238
+      - 403047
+  properties:
+  - existing: 1
+    property: lanes
+    timeofday:
+    - set: 0
+      time:
+      - '16:00'
+      - '19:00'
+    - set: 0
+      time:
+      - '19:00'
+      - '6:00'
+  - existing: 0
+    property: mpo
+    set: 1
+- category: Roadway Attribute Change
+  facility:
+    link:
+      model_link_id:
+      - 402702
+      - 402935
+  properties:
+  - existing: 1
+    property: lanes
+    timeofday:
+    - set: 0
+      time:
+      - '6:00'
+      - '9:00'
+    - set: 0
+      time:
+      - '9:00'
+      - '16:00'
+    - set: 0
+      time:
+      - '16:00'
+      - '19:00'
+    - set: 0
+      time:
+      - '19:00'
+      - '6:00'
+  - existing: 0
+    property: mpo
+    set: 1
+- category: Roadway Attribute Change
+  facility:
+    link:
+      model_link_id:
+      - 403289
+  properties:
+  - existing: 1
+    property: lanes
+    timeofday:
+    - set: 0
+      time:
+      - '6:00'
+      - '9:00'
+    - set: 0
+      time:
+      - '9:00'
+      - '16:00'
+    - set: 2
+      time:
+      - '16:00'
+      - '19:00'
+    - set: 2
+      time:
+      - '19:00'
+      - '6:00'
+  - existing: 0
+    property: mpo
+    set: 1
+  - existing: 47000
+    property: AADT
+    set: 0
+- category: Roadway Attribute Change
+  facility:
+    link:
+      model_link_id:
+      - 419090
+      - 410686
+      - 403007
+  properties:
+  - existing: 1
+    property: lanes
+    timeofday:
+    - set: 0
+      time:
+      - '6:00'
+      - '9:00'
+    - set: 0
+      time:
+      - '9:00'
+      - '16:00'
+  - existing: 0
+    property: mpo
+    set: 1
+- category: Roadway Attribute Change
+  facility:
+    link:
+      model_link_id:
+      - 402700
+      - 403008
+      - 416339
+  properties:
+  - existing: 1
+    property: lanes
+    timeofday:
+    - set: 2
+      time:
+      - '6:00'
+      - '9:00'
+    - set: 2
+      time:
+      - '9:00'
+      - '16:00'
+    - set: 0
+      time:
+      - '16:00'
+      - '19:00'
+    - set: 0
+      time:
+      - '19:00'
+      - '6:00'
+  - existing: 0
+    property: mpo
+    set: 1
+- category: Roadway Attribute Change
+  facility:
+    link:
+      model_link_id:
+      - 382273
+  properties:
+  - existing: 2
+    property: lanes
+    timeofday:
+    - set: 0
+      time:
+      - '16:00'
+      - '19:00'
+    - set: 0
+      time:
+      - '19:00'
+      - '6:00'
+  - existing: 0
+    property: mpo
+    set: 1
+- category: Roadway Attribute Change
+  facility:
+    link:
+      model_link_id:
+      - 403290
+  properties:
+  - existing: 2
+    property: lanes
+    timeofday:
+    - set: 0
+      time:
+      - '6:00'
+      - '9:00'
+    - set: 0
+      time:
+      - '9:00'
+      - '16:00'
+  - existing: 0
+    property: mpo
+    set: 1
+  - existing: 47000
+    property: AADT
+    set: 13700
+- category: Roadway Attribute Change
+  facility:
+    link:
+      model_link_id:
+      - 410682
+  properties:
+  - existing: 2
+    property: lanes
+    timeofday:
+    - set: 0
+      time:
+      - '6:00'
+      - '9:00'
+    - set: 0
+      time:
+      - '9:00'
+      - '16:00'
+  - existing: 0
+    property: mpo
+    set: 1
+  - existing: 8000
+    property: AADT
+    set: 0
+- category: Roadway Attribute Change
+  facility:
+    link:
+      model_link_id:
+      - 403006
+  properties:
+  - existing: 2
+    property: lanes
+    timeofday:
+    - set: 0
+      time:
+      - '6:00'
+      - '9:00'
+    - set: 0
+      time:
+      - '9:00'
+      - '16:00'
+  - existing: 0
+    property: mpo
+    set: 1
+  - existing: 0
+    property: HOV
+    set: 100
+- category: Roadway Attribute Change
+  facility:
+    link:
+      model_link_id:
+      - 402701
+  properties:
+  - existing: 2
+    property: lanes
+    timeofday:
+    - set: 0
+      time:
+      - '6:00'
+      - '9:00'
+    - set: 0
+      time:
+      - '9:00'
+      - '16:00'
+  - existing: 0
+    property: mpo
+    set: 1
+- category: Roadway Attribute Change
+  facility:
+    link:
+      model_link_id:
+      - 404192
+  properties:
+  - existing: 3
+    property: lanes
+    timeofday:
+    - set: 0
+      time:
+      - '16:00'
+      - '19:00'
+    - set: 0
+      time:
+      - '19:00'
+      - '6:00'
+  - existing: 0
+    property: mpo
+    set: 1
+- category: Roadway Attribute Change
+  facility:
+    link:
+      model_link_id:
+      - 416340
+  properties:
+  - existing: 3
+    property: lanes
+    timeofday:
+    - set: 0
+      time:
+      - '6:00'
+      - '9:00'
+    - set: 0
+      time:
+      - '9:00'
+      - '16:00'
+  - existing: 0
+    property: mpo
+    set: 1
+project: USER TO define
+valid: false
