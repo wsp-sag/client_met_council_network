@@ -1151,5 +1151,5 @@ changes:
   - existing: 6
     property: assign_group
     set: 15
-project: USER TO define
+project: Base
 valid: false

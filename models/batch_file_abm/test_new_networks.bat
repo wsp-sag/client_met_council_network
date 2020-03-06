@@ -32,6 +32,8 @@ runtpp %SCRIPT_PATH%\make_highway_network_from_file.s
 runtpp %SCRIPT_PATH%\make_bike_network_from_file.s
 runtpp %SCRIPT_PATH%\make_walk_network_from_file.s
 
+
+%exitRun%
 runtpp %SCRIPT_PATH%\FullMakeNetwork15.s
 ::endComment
 :: HIGHWAY
@@ -112,3 +114,4 @@ FOR /L %%I IN (1, 1, 1) DO (
 	)
 
 :endComment
+:endOfFile
