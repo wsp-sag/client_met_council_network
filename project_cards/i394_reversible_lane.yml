@@ -1,9 +1,4 @@
 changes:
-- category: Roadway Deletion
-  links:
-    model_link_id: []
-- category: New Roadway
-  links: []
 - category: Roadway Attribute Change
   facility:
     link:
@@ -287,5 +282,5 @@ changes:
   - existing: 0
     property: mpo
     set: 1
-project: Base
+project: I-394 Reversible Lanes
 valid: false
