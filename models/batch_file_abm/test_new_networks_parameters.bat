@@ -3,8 +3,8 @@ SET MODEL_YEAR=2015
 
 :: FOLDER variables
 SET DATA_PATH=..\..\data
-SET EXTERNAL_DATA_PATH=%DATA_PATH%\external
-SET NETWORK_FOLDER=%EXTERNAL_DATA_PATH%\wsp\all_link_and_node_fixedwidth_022820
+SET EXTERNAL_DATA_PATH=%DATA_PATH%\interim\networks
+SET NETWORK_FOLDER=%EXTERNAL_DATA_PATH%\all_link_and_node_fixedwidth_022820
 
 SET SCRIPT_PATH=cube_scripts
 SET SCENARIO_DIR=%DATA_PATH%\test_new_network_outputs

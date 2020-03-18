@@ -8,7 +8,7 @@ base_scenario:
 
 scenario:
     project_cards_filenames: []
-    card_directory: "project_cards/"
+    card_directory: "project_cards"
     glob_search: "*.yml"
     tags: []
 

@@ -1,0 +1,41 @@
+project: I394E Parallel Lanes
+tags: []
+dependencies:
+  prerequisites: []
+  corequisites: []
+  conflicts: []
+category: Parallel Managed lanes
+facility:
+  link:
+    - model_link_id:
+      - 416366
+      - 414813
+      - 381248
+      - 381223
+      - 417878
+      - 418556
+      - 418512
+      - 419032
+      - 419044
+      - 419040
+      - 419637
+      - 419634
+      - 417947
+      - 420448
+      - 420447
+      - 394057
+properties:
+  - property: ML_lanes
+    set: 0
+    timeofday:
+      - time: ['6:00', '9:00']
+        set: 1
+  - property: ML_access
+    set: 'all'
+  - property: ML_egress
+    set: 'all'
+  - property: ML_HOV
+    set: 5
+  - property: HOV
+    set: 5
+notes: Placeholder for notes
