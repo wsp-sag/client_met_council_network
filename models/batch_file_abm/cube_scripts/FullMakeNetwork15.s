@@ -171,48 +171,48 @@ assign_group = assign_group
  if (speed = 0) speed = 60
  time = 60*(distance/speed)
 /*
- ; HOV
+ ; HOV corridors denoted by SEGMENT_ID
  ;I-394
- if (HOV = 105)			AMCAP = capacity,		PMCAP = capacity+1950,	OFFCAP = capacity+1950
- if (HOV = 104)			AMCAP = capacity+1950,	PMCAP = capacity,		OFFCAP = capacity+1950
- if (HOV = 5||HOV = 6)	AMCAP = capacity,		PMCAP = 0,		OFFCAP = 0
- if (HOV = 3||HOV = 4)	AMCAP = 0,		PMCAP = capacity,		OFFCAP = 0
- if (HOV = 103||HOV = 106)	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = capacity
+ if (SEGMENT_ID = 105)			AMCAP = capacity,		PMCAP = capacity+1950,	OFFCAP = capacity+1950
+ if (SEGMENT_ID = 104)			AMCAP = capacity+1950,	PMCAP = capacity,		OFFCAP = capacity+1950
+ if (SEGMENT_ID = 5||SEGMENT_ID = 6)	AMCAP = capacity,		PMCAP = 0,		OFFCAP = 0
+ if (SEGMENT_ID = 3||SEGMENT_ID = 4)	AMCAP = 0,		PMCAP = capacity,		OFFCAP = 0
+ if (SEGMENT_ID = 103||SEGMENT_ID = 106)	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = capacity
 
 
  ;I-35W
- if (HOV = 1)	AMCAP = capacity,		PMCAP = 0,		OFFCAP = 0
- if (HOV = 2)	AMCAP = 0,		PMCAP = capacity,		OFFCAP = 0
- if (HOV = 7) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = 0
- if (HOV = 8) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = 0
- if (HOV = 9) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = 0
- if (HOV = 10)	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = 0
+ if (SEGMENT_ID = 1)	AMCAP = capacity,		PMCAP = 0,		OFFCAP = 0
+ if (SEGMENT_ID = 2)	AMCAP = 0,		PMCAP = capacity,		OFFCAP = 0
+ if (SEGMENT_ID = 7) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = 0
+ if (SEGMENT_ID = 8) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = 0
+ if (SEGMENT_ID = 9) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = 0
+ if (SEGMENT_ID = 10)	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = 0
 
- if (HOV = 101) 	AMCAP = capacity-1950,	PMCAP = capacity,		OFFCAP = capacity
- if (HOV = 102) 	AMCAP = capacity,		PMCAP = capacity-1950,	OFFCAP = capacity
- if (HOV = 107) 	AMCAP = capacity-1950,	PMCAP = capacity-1950,	OFFCAP = capacity
- if (HOV = 108) 	AMCAP = capacity-1950,	PMCAP = capacity-1950,	OFFCAP = capacity
- if (HOV = 109) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = capacity; PDSL
- if (HOV = 110) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = capacity; PDSL
+ if (SEGMENT_ID = 101) 	AMCAP = capacity-1950,	PMCAP = capacity,		OFFCAP = capacity
+ if (SEGMENT_ID = 102) 	AMCAP = capacity,		PMCAP = capacity-1950,	OFFCAP = capacity
+ if (SEGMENT_ID = 107) 	AMCAP = capacity-1950,	PMCAP = capacity-1950,	OFFCAP = capacity
+ if (SEGMENT_ID = 108) 	AMCAP = capacity-1950,	PMCAP = capacity-1950,	OFFCAP = capacity
+ if (SEGMENT_ID = 109) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = capacity; PDSL
+ if (SEGMENT_ID = 110) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = capacity; PDSL
 
 
 ;I-35E
- if (HOV = 11) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = 0
- if (HOV = 12) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = 0
- if (HOV = 111) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = capacity
- if (HOV = 112) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = capacity
+ if (SEGMENT_ID = 11) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = 0
+ if (SEGMENT_ID = 12) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = 0
+ if (SEGMENT_ID = 111) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = capacity
+ if (SEGMENT_ID = 112) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = capacity
 
 
 
  ;Everything Else
- if (HOV = 0) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = capacity
+ if (SEGMENT_ID = 0) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = capacity
 
 
  newvolAM = 0
  congAM = 0
   newvolMD  = 0
  congMD    = 0
- HOVy = HOV
+ SEGMENT_IDy = SEGMENT_ID
 
 */
  endrun

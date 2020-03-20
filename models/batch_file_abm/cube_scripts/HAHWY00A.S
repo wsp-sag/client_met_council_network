@@ -84,52 +84,52 @@ DISTRIBUTEINTRASTEP ProcessID = 'Intrastep', ProcessList = 1 - %max_threads%
         IF (LI.CAPACITY = 0)
             T0  = 99999
         ENDIF
-        ;LW.HOV  = LI.HOV
+        ;LW.SEGMENT_ID  = LI.SEGMENT_ID
         C       = LI.CAPACITY * %CAPFAC%
         Alpha   = LI.Alpha
         Beta    = LI.Beta
         LINKCLASS = LI.RCI
         
         ; Need to remove when Sijia updates input network.
-        LW.HOV = 0
+        LW.SEGMENT_ID = 0
 
 /*
 ; **********   Create Link Groups    ************
 ; Group 1: All HOV Lanes
-        IF (LI.HOV>0 && LI.HOV<99) ADDTOGROUP=30  ;Used as exclusion group on path building
+        IF (LI.SEGMENT_ID>0 && LI.SEGMENT_ID<99) ADDTOGROUP=30  ;Used as exclusion group on path building
 
 ; Group 2: HOV SECTIONS - Rachel Editing groups, adding more
-        IF (LI.HOV=1,7,9)    ADDTOGROUP=1  ;I-35W	NB	Dakota County to Downtown
-        IF (LI.HOV=2,8,17)   ADDTOGROUP=2  ;I-35W	SB	Downtown to Dakota County
-        IF (LI.HOV=6)        ADDTOGROUP=3  ;I-394	WB DT to 100
-        IF (LI.HOV=61)       ADDTOGROUP=4  ;I-394	EB 100 to DT
-        IF (LI.HOV=4)        ADDTOGROUP=5  ;I-394	WB	STH-100	I-494 Outbound
-        IF (LI.HOV=5)        ADDTOGROUP=6  ;I-394	EB	I-494	STH-100	Inbound
-        IF (LI.HOV=11,25)    ADDTOGROUP=7  ; 35E outbound, DT StP to CRJ
-        IF (LI.HOV=12,24)    ADDTOGROUP=8  ; 35w inbound, CRJ to DTstP
-        IF (LI.HOV=13)       ADDTOGROUP=9 ; 35W NB, Hwy 36 to Blaine
-        IF (LI.HOV=14)       ADDTOGROUP=10 ; 35W SB , Blaine to Hwy 36
-        IF (LI.HOV=15)       ADDTOGROUP=11 ; 94 between downtowns EB
-        IF (LI.HOV=16)       ADDTOGROUP=12 ; 94 between downtowns WB
-        IF (LI.HOV=18)       ADDTOGROUP=13 ; 252 SB
-        IF (LI.HOV=19)       ADDTOGROUP=14 ; 252 NB
-        IF (LI.HOV=23,21)    ADDTOGROUP=15 ; SB 94 from 694 to DT
-        IF (LI.HOV=20,22)    ADDTOGROUP=16  ; NB 94 from DT to 694
-        IF (LI.HOV=27,29)    ADDTOGROUP=17  ; NB 35w / Hwy 36
-        IF (LI.HOV=26,28)    ADDTOGROUP=18 ; SB hwy 36 / 35W
-        IF (LI.HOV=30)    ADDTOGROUP=19 ; 94 rogers to maplegrove
-        IF (LI.HOV=31)    ADDTOGROUP=20 ; 94 maplegrove to rogers
-        IF (LI.HOV=32)    ADDTOGROUP=21 ; 169 from 694 to 394
-        IF (LI.HOV=33)    ADDTOGROUP=22  ; 169 from 394 to 694
-        IF (LI.HOV=34)    ADDTOGROUP=23 ; 169 from shakopee to 394
-        IF (LI.HOV=35)    ADDTOGROUP=24 ; 169 from 394 to shakopee
-        IF (LI.HOV=36)    ADDTOGROUP=25 ; 494 EB from 212 to Minnesota River, congested both directions
-        IF (LI.HOV=37)    ADDTOGROUP=26 ; 494 WB from Minnesota River to 212, congested both directions
-        IF (LI.HOV=38,39)    ADDTOGROUP=27 ; 94/694 from maple grove to 94 south into DT, partial lane converstion
-        IF (LI.HOV=40,41)    ADDTOGROUP=28 ; 94/694 from 94 to maplegrove, partial lane converstion
-        IF (LI.HOV=42)    ADDTOGROUP=29 ; 694 EB from 94 to 35W
-        IF (LI.HOV=43)    ADDTOGROUP=31 ; 694 WB from 35W to 94 ; SKIPPING GROUP 30 because it is exclusion group above . ugh
-        IF (LI.HOV=44,45)    ADDTOGROUP=32 ; 77 NB and SB because i cna't have 33 groups WHICH IS STUPID
+        IF (LI.SEGMENT_ID=1,7,9)    ADDTOGROUP=1  ;I-35W	NB	Dakota County to Downtown
+        IF (LI.SEGMENT_ID=2,8,17)   ADDTOGROUP=2  ;I-35W	SB	Downtown to Dakota County
+        IF (LI.SEGMENT_ID=6)        ADDTOGROUP=3  ;I-394	WB DT to 100
+        IF (LI.SEGMENT_ID=61)       ADDTOGROUP=4  ;I-394	EB 100 to DT
+        IF (LI.SEGMENT_ID=4)        ADDTOGROUP=5  ;I-394	WB	STH-100	I-494 Outbound
+        IF (LI.SEGMENT_ID=5)        ADDTOGROUP=6  ;I-394	EB	I-494	STH-100	Inbound
+        IF (LI.SEGMENT_ID=11,25)    ADDTOGROUP=7  ; 35E outbound, DT StP to CRJ
+        IF (LI.SEGMENT_ID=12,24)    ADDTOGROUP=8  ; 35w inbound, CRJ to DTstP
+        IF (LI.SEGMENT_ID=13)       ADDTOGROUP=9 ; 35W NB, Hwy 36 to Blaine
+        IF (LI.SEGMENT_ID=14)       ADDTOGROUP=10 ; 35W SB , Blaine to Hwy 36
+        IF (LI.SEGMENT_ID=15)       ADDTOGROUP=11 ; 94 between downtowns EB
+        IF (LI.SEGMENT_ID=16)       ADDTOGROUP=12 ; 94 between downtowns WB
+        IF (LI.SEGMENT_ID=18)       ADDTOGROUP=13 ; 252 SB
+        IF (LI.SEGMENT_ID=19)       ADDTOGROUP=14 ; 252 NB
+        IF (LI.SEGMENT_ID=23,21)    ADDTOGROUP=15 ; SB 94 from 694 to DT
+        IF (LI.SEGMENT_ID=20,22)    ADDTOGROUP=16  ; NB 94 from DT to 694
+        IF (LI.SEGMENT_ID=27,29)    ADDTOGROUP=17  ; NB 35w / Hwy 36
+        IF (LI.SEGMENT_ID=26,28)    ADDTOGROUP=18 ; SB hwy 36 / 35W
+        IF (LI.SEGMENT_ID=30)    ADDTOGROUP=19 ; 94 rogers to maplegrove
+        IF (LI.SEGMENT_ID=31)    ADDTOGROUP=20 ; 94 maplegrove to rogers
+        IF (LI.SEGMENT_ID=32)    ADDTOGROUP=21 ; 169 from 694 to 394
+        IF (LI.SEGMENT_ID=33)    ADDTOGROUP=22  ; 169 from 394 to 694
+        IF (LI.SEGMENT_ID=34)    ADDTOGROUP=23 ; 169 from shakopee to 394
+        IF (LI.SEGMENT_ID=35)    ADDTOGROUP=24 ; 169 from 394 to shakopee
+        IF (LI.SEGMENT_ID=36)    ADDTOGROUP=25 ; 494 EB from 212 to Minnesota River, congested both directions
+        IF (LI.SEGMENT_ID=37)    ADDTOGROUP=26 ; 494 WB from Minnesota River to 212, congested both directions
+        IF (LI.SEGMENT_ID=38,39)    ADDTOGROUP=27 ; 94/694 from maple grove to 94 south into DT, partial lane converstion
+        IF (LI.SEGMENT_ID=40,41)    ADDTOGROUP=28 ; 94/694 from 94 to maplegrove, partial lane converstion
+        IF (LI.SEGMENT_ID=42)    ADDTOGROUP=29 ; 694 EB from 94 to 35W
+        IF (LI.SEGMENT_ID=43)    ADDTOGROUP=31 ; 694 WB from 35W to 94 ; SKIPPING GROUP 30 because it is exclusion group above . ugh
+        IF (LI.SEGMENT_ID=44,45)    ADDTOGROUP=32 ; 77 NB and SB because i cna't have 33 groups WHICH IS STUPID
 
 */
 
@@ -515,108 +515,108 @@ DISTRIBUTEINTRASTEP ProcessID = 'Intrastep', ProcessList = 1 - %max_threads%
 ; *** COMPUTE MAXIMUM V/C RATIO AND TOLL RATES FOR NEXT ITERATION ON TOLLED SEGMENTS ***
 ;HOT Lanes
 
-        IF (LW.HOV = 1, 7, 9 & C > 0)
+        IF (LW.SEGMENT_ID = 1, 7, 9 & C > 0)
           IF ((V / C) > _maxVC1) _maxVC1 = (V / C)
         ENDIF
-        IF (LW.HOV = 2, 8, 17 & C > 0)
+        IF (LW.SEGMENT_ID = 2, 8, 17 & C > 0)
           IF ((V / C) > _maxVC2) _maxVC2 = (V / C)
         ENDIF
-        IF (LW.HOV = 6 & C > 0)
+        IF (LW.SEGMENT_ID = 6 & C > 0)
           IF ((V / C) > _maxVC3) _maxVC3 = (V / C)
         ENDIF
-        IF (LW.HOV = 61 & C > 0)
+        IF (LW.SEGMENT_ID = 61 & C > 0)
           IF ((V / C) > _maxVC4) _maxVC4 = (V / C)
         ENDIF
-        IF (LW.HOV = 4 & C > 0)
+        IF (LW.SEGMENT_ID = 4 & C > 0)
           IF ((V / C) > _maxVC5) _maxVC5 = (V / C)
         ENDIF ; Rachel keep adding here too
 
-        IF (LW.HOV = 5 & C > 0)
+        IF (LW.SEGMENT_ID = 5 & C > 0)
           IF ((V / C) > _maxVC6) _maxVC6 = (V / C)
         ENDIF
-        IF (LW.HOV = 11, 25 & C > 0)
+        IF (LW.SEGMENT_ID = 11, 25 & C > 0)
           IF ((V / C) > _maxVC7) _maxVC7 = (V / C)
         ENDIF
-        IF (LW.HOV = 12, 24 & C > 0)
+        IF (LW.SEGMENT_ID = 12, 24 & C > 0)
           IF ((V / C) > _maxVC8) _maxVC8 = (V / C)
         ENDIF
-        IF (LW.HOV = 13 & C > 0)
+        IF (LW.SEGMENT_ID = 13 & C > 0)
           IF ((V / C) > _maxVC9) _maxVC9 = (V / C)
         ENDIF
-        IF (LW.HOV = 14 & C > 0)
+        IF (LW.SEGMENT_ID = 14 & C > 0)
           IF ((V / C) > _maxVC10) _maxVC10 = (V / C)
         ENDIF
 
-         IF (LW.HOV = 15 & C > 0)
+         IF (LW.SEGMENT_ID = 15 & C > 0)
           IF ((V / C) > _maxVC11) _maxVC11 = (V / C)
         ENDIF
-        IF (LW.HOV = 16 & C > 0)
+        IF (LW.SEGMENT_ID = 16 & C > 0)
           IF ((V / C) > _maxVC12) _maxVC12 = (V / C)
         ENDIF
-        IF (LW.HOV = 18 & C > 0)
+        IF (LW.SEGMENT_ID = 18 & C > 0)
           IF ((V / C) > _maxVC13) _maxVC13 = (V / C)
         ENDIF
-        IF (LW.HOV = 19 & C > 0)
+        IF (LW.SEGMENT_ID = 19 & C > 0)
           IF ((V / C) > _maxVC14) _maxVC14 = (V / C)
         ENDIF
-        IF (LW.HOV = 23, 21 & C > 0)
+        IF (LW.SEGMENT_ID = 23, 21 & C > 0)
           IF ((V / C) > _maxVC15) _maxVC15 = (V / C)
         ENDIF
 
-         IF (LW.HOV = 20, 22 & C > 0)
+         IF (LW.SEGMENT_ID = 20, 22 & C > 0)
           IF ((V / C) > _maxVC16) _maxVC16 = (V / C)
         ENDIF
-        IF (LW.HOV = 27, 29 & C > 0)
+        IF (LW.SEGMENT_ID = 27, 29 & C > 0)
           IF ((V / C) > _maxVC17) _maxVC17 = (V / C)
         ENDIF
-        IF (LW.HOV = 26, 28 & C > 0)
+        IF (LW.SEGMENT_ID = 26, 28 & C > 0)
           IF ((V / C) > _maxVC18) _maxVC18 = (V / C)
         ENDIF
-        IF (LW.HOV = 30 & C > 0)
+        IF (LW.SEGMENT_ID = 30 & C > 0)
           IF ((V / C) > _maxVC19) _maxVC19 = (V / C)
         ENDIF
-        IF (LW.HOV = 31 & C > 0)
+        IF (LW.SEGMENT_ID = 31 & C > 0)
           IF ((V / C) > _maxVC20) _maxVC20 = (V / C)
         ENDIF
 
-         IF (LW.HOV = 32 & C > 0)
+         IF (LW.SEGMENT_ID = 32 & C > 0)
           IF ((V / C) > _maxVC21) _maxVC21 = (V / C)
         ENDIF
-        IF (LW.HOV = 33 & C > 0)
+        IF (LW.SEGMENT_ID = 33 & C > 0)
           IF ((V / C) > _maxVC22) _maxVC22 = (V / C)
         ENDIF
-        IF (LW.HOV = 34 & C > 0)
+        IF (LW.SEGMENT_ID = 34 & C > 0)
           IF ((V / C) > _maxVC23) _maxVC23 = (V / C)
         ENDIF
-        IF (LW.HOV = 35 & C > 0)
+        IF (LW.SEGMENT_ID = 35 & C > 0)
           IF ((V / C) > _maxVC24) _maxVC24 = (V / C)
         ENDIF
 
-        IF (LW.HOV = 36 & C > 0)
+        IF (LW.SEGMENT_ID = 36 & C > 0)
             IF ((V / C) > _maxVC25) _maxVC25 = (V / C)
           ENDIF
 
-        IF (LW.HOV = 37 & C > 0)
+        IF (LW.SEGMENT_ID = 37 & C > 0)
           IF ((V / C) > _maxVC26) _maxVC26 = (V / C)
         ENDIF
 
-        IF (LW.HOV = 38, 39 & C > 0)
+        IF (LW.SEGMENT_ID = 38, 39 & C > 0)
           IF ((V / C) > _maxVC27) _maxVC27 = (V / C)
         ENDIF
 
-        IF (LW.HOV = 40, 41 & C > 0)
+        IF (LW.SEGMENT_ID = 40, 41 & C > 0)
           IF ((V / C) > _maxVC28) _maxVC28 = (V / C)
         ENDIF
 
-        IF (LW.HOV = 42 & C > 0)
+        IF (LW.SEGMENT_ID = 42 & C > 0)
           IF ((V / C) > _maxVC29) _maxVC29 = (V / C)
         ENDIF
 
-        IF (LW.HOV = 43 & C > 0)
+        IF (LW.SEGMENT_ID = 43 & C > 0)
           IF ((V / C) > _maxVC31) _maxVC31 = (V / C)
         ENDIF
 
-        IF (LW.HOV = 44, 45 & C > 0)
+        IF (LW.SEGMENT_ID = 44, 45 & C > 0)
           IF ((V / C) > _maxVC32) _maxVC32 = (V / C)
         ENDIF
 
@@ -660,8 +660,8 @@ DISTRIBUTEINTRASTEP ProcessID = 'Intrastep', ProcessList = 1 - %max_threads%
 
 
 
-        IF (LW.HOV > 0 & V > 0)
-          PRINT CSV = T LIST = iteration(2.0), A(6.0), B(6.0), LW.HOV(4.0), V(8.2), V/C(8.42), TIME(5.2), DISTANCE(5.2), V*TIME(15.2), V*DISTANCE(15.2), _toll1(5.2), _toll2(5.2), _toll3(5.2), _toll4(5.2), _toll5(5.2), _toll6(5.2), _toll7(5.2), _toll8(5.2), _toll9(5.2), _toll10(5.2), _toll11(5.2), _toll12(5.2), _toll13(5.2), _toll14(5.2), _toll15(5.2), _toll16(5.2), _toll17(5.2), _toll18(5.2), _toll19(5.2), _toll20(5.2), _toll21(5.2), _toll22(5.2), _toll23(5.2), _toll24(5.2), _toll25(5.2), _toll26(5.2), _toll27(5.2), _toll28(5.2), _toll29(5.2), _toll31(5.2), _toll32(5.2) PRINTO = 1
+        IF (LW.SEGMENT_ID > 0 & V > 0)
+          PRINT CSV = T LIST = iteration(2.0), A(6.0), B(6.0), LW.SEGMENT_ID(4.0), V(8.2), V/C(8.42), TIME(5.2), DISTANCE(5.2), V*TIME(15.2), V*DISTANCE(15.2), _toll1(5.2), _toll2(5.2), _toll3(5.2), _toll4(5.2), _toll5(5.2), _toll6(5.2), _toll7(5.2), _toll8(5.2), _toll9(5.2), _toll10(5.2), _toll11(5.2), _toll12(5.2), _toll13(5.2), _toll14(5.2), _toll15(5.2), _toll16(5.2), _toll17(5.2), _toll18(5.2), _toll19(5.2), _toll20(5.2), _toll21(5.2), _toll22(5.2), _toll23(5.2), _toll24(5.2), _toll25(5.2), _toll26(5.2), _toll27(5.2), _toll28(5.2), _toll29(5.2), _toll31(5.2), _toll32(5.2) PRINTO = 1
         ENDIF
     ENDPHASE
 
