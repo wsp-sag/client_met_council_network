@@ -170,7 +170,8 @@ assign_group = assign_group
 
  if (speed = 0) speed = 60
  time = 60*(distance/speed)
-/*
+
+ /*
  ; HOV corridors denoted by SEGMENT_ID
  ;I-394
  if (SEGMENT_ID = 105)			AMCAP = capacity,		PMCAP = capacity+1950,	OFFCAP = capacity+1950
@@ -203,9 +204,9 @@ assign_group = assign_group
  if (SEGMENT_ID = 112) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = capacity
 
 
-
- ;Everything Else
- if (SEGMENT_ID = 0) 	AMCAP = capacity,		PMCAP = capacity,		OFFCAP = capacity
+*/
+; All
+AMCAP = capacity,		PMCAP = capacity,		OFFCAP = capacity
 
 
  newvolAM = 0
@@ -214,5 +215,5 @@ assign_group = assign_group
  congMD    = 0
  SEGMENT_IDy = SEGMENT_ID
 
-*/
+
  endrun

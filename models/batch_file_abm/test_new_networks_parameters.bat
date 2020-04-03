@@ -3,15 +3,16 @@ SET MODEL_YEAR=2015
 
 :: FOLDER variables
 SET DATA_PATH=..\..\data
-SET EXTERNAL_DATA_PATH=%DATA_PATH%\interim\networks
-SET NETWORK_FOLDER=%EXTERNAL_DATA_PATH%\all_link_and_node_fixedwidth_022820
+SET EXTERNAL_DATA_PATH=%DATA_PATH%\external\met_council
+SET INTERIM_DATA_PATH=%DATA_PATH%\interim
+SET NETWORK_FOLDER=%INTERIM_DATA_PATH%\networks\fixed_width
 
 SET SCRIPT_PATH=cube_scripts
 SET SCENARIO_DIR=%DATA_PATH%\test_new_network_outputs
 SET LOOKUP_DIR=lookup_files
-SET INPUT_DIR=%EXTERNAL_DATA_PATH%\met_council\population_data
+SET INPUT_DIR=%EXTERNAL_DATA_PATH%\population_data
 SET TOURCAST_DIR=TourCast
-SET TRIP_DIR=%DATA_PATH%\external\met_council\reference_abm_trip_tables
+SET TRIP_DIR=%DATA_PATH%\reference_abm_trip_tables
 
 :: INPUT FILE paths
 SET complete_network_script_input_path=%NETWORK_FOLDER%\make_complete_network_from_fixed_width_file.s
@@ -20,10 +21,8 @@ SET complete_network_script_output_path=%SCRIPT_PATH%\make_complete_network_from
 :: Set zones
 SET zone_attribs=%INPUT_DIR%\Zones_%MODEL_YEAR%.dbf
 :: Set link and node paths for complete network
-SET LINK_PATH=%NETWORK_FOLDER%\all_link.dbf
-SET NODE_PATH=%NETWORK_FOLDER%\all_node.dbf
-SET LINK_DATA_PATH=%NETWORK_FOLDER%\all_link.txt
-SET NODE_DATA_PATH=%NETWORK_FOLDER%\all_node.txt
+SET LINK_DATA_PATH=%NETWORK_FOLDER%\link.txt
+SET NODE_DATA_PATH=%NETWORK_FOLDER%\node.txt
 :: Set transit paths
 SET xit_lines=%NETWORK_FOLDER%\transit.lin
 SET xit_system=%LOOKUP_DIR%\PT_SYSTEM_2010.PTS
@@ -51,8 +50,8 @@ SET LU_spc_tod=%LOOKUP_DIR%\AirportTODParams.txt
 SET ee_fratar=%LOOKUP_DIR%\EE_FRATAR.txt
 SET ee_trk_dist=%LOOKUP_DIR%\EE_SEED_TRK_4.mat
 :: Set household and person files
-SET households=data\external\met_council\population_data\Households2015.dbf
-SET persons=data\external\met_council\population_data\Persons2015.dbf
+SET households=%INPUT_DIR%\Households2015.dbf
+SET persons=%INPUT_DIR%\Persons2015.dbf
 
 :: CUBE model parameters
 :: Initialize the model run to an unconverged state
