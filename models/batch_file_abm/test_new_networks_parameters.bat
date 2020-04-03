@@ -12,7 +12,7 @@ SET SCENARIO_DIR=%DATA_PATH%\test_new_network_outputs
 SET LOOKUP_DIR=lookup_files
 SET INPUT_DIR=%EXTERNAL_DATA_PATH%\population_data
 SET TOURCAST_DIR=TourCast
-SET TRIP_DIR=%DATA_PATH%\reference_abm_trip_tables
+SET TRIP_DIR=%EXTERNAL_DATA_PATH%\reference_abm_trip_tables
 
 :: INPUT FILE paths
 SET complete_network_script_input_path=%NETWORK_FOLDER%\make_complete_network_from_fixed_width_file.s
@@ -67,7 +67,7 @@ SET max_threads=16
 :: Set max feedback loops
 SET max_feedback=5
 :: Set max iterations of highway assignment
-SET hwy_assignIters=100
+SET hwy_assignIters=20
 :: Set number of zones (total, internal, external)
 SET zones=3061
 SET int_zones=3030

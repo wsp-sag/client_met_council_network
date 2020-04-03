@@ -11,6 +11,9 @@ FILEI NETI = "%SCENARIO_DIR%\%HWY_NET%"
 FILEI LOOKUPI[1] = "%LU_will2pay%"
 FILEI MATI[1] = "%TRIP_DIR%\HWY_AUTO_TRIP_%ITER%_%PER%.TRP"
 
+FILEO MATO[2] = "%SCENARIO_DIR%\skim_difference.mat",
+    MO = 34, NAME = skim_difference
+
 DISTRIBUTEINTRASTEP ProcessID = 'Intrastep', ProcessList = 1 - %max_threads%
 
  ; **********   Define Assignment Parameters    ************
@@ -90,49 +93,42 @@ DISTRIBUTEINTRASTEP ProcessID = 'Intrastep', ProcessList = 1 - %max_threads%
         Beta    = LI.Beta
         LINKCLASS = LI.RCI
         
-        ; Need to remove when Sijia updates input network.
-        LW.SEGMENT_ID = 0
-
-/*
 ; **********   Create Link Groups    ************
 ; Group 1: All HOV Lanes
-        IF (LI.SEGMENT_ID>0 && LI.SEGMENT_ID<99) ADDTOGROUP=30  ;Used as exclusion group on path building
+        IF (LI.SEGMENT_ID>0 && LI.SEGMENT_ID<99 && MANAGED=1) ADDTOGROUP=30  ;Used as exclusion group on path building
 
 ; Group 2: HOV SECTIONS - Rachel Editing groups, adding more
-        IF (LI.SEGMENT_ID=1,7,9)    ADDTOGROUP=1  ;I-35W	NB	Dakota County to Downtown
-        IF (LI.SEGMENT_ID=2,8,17)   ADDTOGROUP=2  ;I-35W	SB	Downtown to Dakota County
-        IF (LI.SEGMENT_ID=6)        ADDTOGROUP=3  ;I-394	WB DT to 100
-        IF (LI.SEGMENT_ID=61)       ADDTOGROUP=4  ;I-394	EB 100 to DT
-        IF (LI.SEGMENT_ID=4)        ADDTOGROUP=5  ;I-394	WB	STH-100	I-494 Outbound
-        IF (LI.SEGMENT_ID=5)        ADDTOGROUP=6  ;I-394	EB	I-494	STH-100	Inbound
-        IF (LI.SEGMENT_ID=11,25)    ADDTOGROUP=7  ; 35E outbound, DT StP to CRJ
-        IF (LI.SEGMENT_ID=12,24)    ADDTOGROUP=8  ; 35w inbound, CRJ to DTstP
-        IF (LI.SEGMENT_ID=13)       ADDTOGROUP=9 ; 35W NB, Hwy 36 to Blaine
-        IF (LI.SEGMENT_ID=14)       ADDTOGROUP=10 ; 35W SB , Blaine to Hwy 36
-        IF (LI.SEGMENT_ID=15)       ADDTOGROUP=11 ; 94 between downtowns EB
-        IF (LI.SEGMENT_ID=16)       ADDTOGROUP=12 ; 94 between downtowns WB
-        IF (LI.SEGMENT_ID=18)       ADDTOGROUP=13 ; 252 SB
-        IF (LI.SEGMENT_ID=19)       ADDTOGROUP=14 ; 252 NB
-        IF (LI.SEGMENT_ID=23,21)    ADDTOGROUP=15 ; SB 94 from 694 to DT
-        IF (LI.SEGMENT_ID=20,22)    ADDTOGROUP=16  ; NB 94 from DT to 694
-        IF (LI.SEGMENT_ID=27,29)    ADDTOGROUP=17  ; NB 35w / Hwy 36
-        IF (LI.SEGMENT_ID=26,28)    ADDTOGROUP=18 ; SB hwy 36 / 35W
-        IF (LI.SEGMENT_ID=30)    ADDTOGROUP=19 ; 94 rogers to maplegrove
-        IF (LI.SEGMENT_ID=31)    ADDTOGROUP=20 ; 94 maplegrove to rogers
-        IF (LI.SEGMENT_ID=32)    ADDTOGROUP=21 ; 169 from 694 to 394
-        IF (LI.SEGMENT_ID=33)    ADDTOGROUP=22  ; 169 from 394 to 694
-        IF (LI.SEGMENT_ID=34)    ADDTOGROUP=23 ; 169 from shakopee to 394
-        IF (LI.SEGMENT_ID=35)    ADDTOGROUP=24 ; 169 from 394 to shakopee
-        IF (LI.SEGMENT_ID=36)    ADDTOGROUP=25 ; 494 EB from 212 to Minnesota River, congested both directions
-        IF (LI.SEGMENT_ID=37)    ADDTOGROUP=26 ; 494 WB from Minnesota River to 212, congested both directions
-        IF (LI.SEGMENT_ID=38,39)    ADDTOGROUP=27 ; 94/694 from maple grove to 94 south into DT, partial lane converstion
-        IF (LI.SEGMENT_ID=40,41)    ADDTOGROUP=28 ; 94/694 from 94 to maplegrove, partial lane converstion
-        IF (LI.SEGMENT_ID=42)    ADDTOGROUP=29 ; 694 EB from 94 to 35W
-        IF (LI.SEGMENT_ID=43)    ADDTOGROUP=31 ; 694 WB from 35W to 94 ; SKIPPING GROUP 30 because it is exclusion group above . ugh
-        IF (LI.SEGMENT_ID=44,45)    ADDTOGROUP=32 ; 77 NB and SB because i cna't have 33 groups WHICH IS STUPID
-
-*/
-
+        IF (LI.SEGMENT_ID=1,7,9 && MANAGED=1)    ADDTOGROUP=1  ;I-35W	NB	Dakota County to Downtown
+        IF (LI.SEGMENT_ID=2,8,17 && MANAGED=1)   ADDTOGROUP=2  ;I-35W	SB	Downtown to Dakota County
+        IF (LI.SEGMENT_ID=6 && MANAGED=1)        ADDTOGROUP=3  ;I-394	WB DT to 100
+        IF (LI.SEGMENT_ID=61 && MANAGED=1)       ADDTOGROUP=4  ;I-394	EB 100 to DT
+        IF (LI.SEGMENT_ID=4 && MANAGED=1)        ADDTOGROUP=5  ;I-394	WB	STH-100	I-494 Outbound
+        IF (LI.SEGMENT_ID=5 && MANAGED=1)        ADDTOGROUP=6  ;I-394	EB	I-494	STH-100	Inbound
+        IF (LI.SEGMENT_ID=11,25 && MANAGED=1)    ADDTOGROUP=7  ; 35E outbound, DT StP to CRJ
+        IF (LI.SEGMENT_ID=12,24 && MANAGED=1)    ADDTOGROUP=8  ; 35w inbound, CRJ to DTstP
+        IF (LI.SEGMENT_ID=13 && MANAGED=1)       ADDTOGROUP=9 ; 35W NB, Hwy 36 to Blaine
+        IF (LI.SEGMENT_ID=14 && MANAGED=1)       ADDTOGROUP=10 ; 35W SB , Blaine to Hwy 36
+        IF (LI.SEGMENT_ID=15 && MANAGED=1)       ADDTOGROUP=11 ; 94 between downtowns EB
+        IF (LI.SEGMENT_ID=16 && MANAGED=1)       ADDTOGROUP=12 ; 94 between downtowns WB
+        IF (LI.SEGMENT_ID=18 && MANAGED=1)       ADDTOGROUP=13 ; 252 SB
+        IF (LI.SEGMENT_ID=19 && MANAGED=1)       ADDTOGROUP=14 ; 252 NB
+        IF (LI.SEGMENT_ID=23,21 && MANAGED=1)    ADDTOGROUP=15 ; SB 94 from 694 to DT
+        IF (LI.SEGMENT_ID=20,22 && MANAGED=1)    ADDTOGROUP=16  ; NB 94 from DT to 694
+        IF (LI.SEGMENT_ID=27,29 && MANAGED=1)    ADDTOGROUP=17  ; NB 35w / Hwy 36
+        IF (LI.SEGMENT_ID=26,28 && MANAGED=1)    ADDTOGROUP=18 ; SB hwy 36 / 35W
+        IF (LI.SEGMENT_ID=30 && MANAGED=1)       ADDTOGROUP=19 ; 94 rogers to maplegrove
+        IF (LI.SEGMENT_ID=31 && MANAGED=1)       ADDTOGROUP=20 ; 94 maplegrove to rogers
+        IF (LI.SEGMENT_ID=32 && MANAGED=1)       ADDTOGROUP=21 ; 169 from 694 to 394
+        IF (LI.SEGMENT_ID=33 && MANAGED=1)       ADDTOGROUP=22  ; 169 from 394 to 694
+        IF (LI.SEGMENT_ID=34 && MANAGED=1)       ADDTOGROUP=23 ; 169 from shakopee to 394
+        IF (LI.SEGMENT_ID=35 && MANAGED=1)       ADDTOGROUP=24 ; 169 from 394 to shakopee
+        IF (LI.SEGMENT_ID=36 && MANAGED=1)       ADDTOGROUP=25 ; 494 EB from 212 to Minnesota River, congested both directions
+        IF (LI.SEGMENT_ID=37 && MANAGED=1)       ADDTOGROUP=26 ; 494 WB from Minnesota River to 212, congested both directions
+        IF (LI.SEGMENT_ID=38,39 && MANAGED=1)    ADDTOGROUP=27 ; 94/694 from maple grove to 94 south into DT, partial lane converstion
+        IF (LI.SEGMENT_ID=40,41 && MANAGED=1)    ADDTOGROUP=28 ; 94/694 from 94 to maplegrove, partial lane converstion
+        IF (LI.SEGMENT_ID=42 && MANAGED=1)       ADDTOGROUP=29 ; 694 EB from 94 to 35W
+        IF (LI.SEGMENT_ID=43 && MANAGED=1)       ADDTOGROUP=31 ; 694 WB from 35W to 94 ; SKIPPING GROUP 30 because it is exclusion group above . ugh
+        IF (LI.SEGMENT_ID=44,45 && MANAGED=1)    ADDTOGROUP=32 ; 77 NB and SB because i cna't have 33 groups WHICH IS STUPID
 
         ; rachel adding toll groups 6 - 32
         _toll1 = 25
@@ -166,9 +162,6 @@ DISTRIBUTEINTRASTEP ProcessID = 'Intrastep', ProcessList = 1 - %max_threads%
         _toll29 = 25
         _toll31 = 25
         _toll32 = 25
-
-
-
 
     ENDPHASE
 

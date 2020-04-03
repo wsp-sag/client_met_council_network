@@ -28,18 +28,19 @@ runtpp %SCRIPT_PATH%\make_complete_network_from_fixed_width_file.s
 runtpp %SCRIPT_PATH%\make_highway_network_from_file.s
 runtpp %SCRIPT_PATH%\make_bike_network_from_file.s
 runtpp %SCRIPT_PATH%\make_walk_network_from_file.s
-runtpp %SCRIPT_PATH%\FullMakeNetwork15.s
-::endComment
+runtpp %SCRIPT_PATH%\FullMakeNetwork15.s 
+::check with Dave.
 
 :: HIGHWAY
 ::%beginComment%
 runtpp %SCRIPT_PATH%\BNNET00B.s
 runtpp %SCRIPT_PATH%\HNNET00B.s
 ::endComment
+
+::endComment
 :: This script handles TOD assignment. Batch files require a single character
 :: variable.
 
-%exitRun%
 for /L %%I IN (1, 1, 6) DO (
 	SET TOD=%%I
 
@@ -109,6 +110,6 @@ FOR /L %%I IN (1, 1, 1) DO (
     :: Currently sets all HOV flags to 0 inside script. Waiting for @Sijia to update 
 	runtpp %SCRIPT_PATH%\HAHWY00A.s
 	)
-
+%exitRun%
 ::endComment
 :endOfFile
