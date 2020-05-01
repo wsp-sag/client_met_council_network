@@ -4,15 +4,12 @@ FILEI MATI[4] = "%TRIP_DIR%\HWY_SPC_AUTO_TRIP_%ITER%_%PER%.trp"
 FILEI MATI[3] = "%TRIP_DIR%\HWY_EXT_TRIP_%ITER%_%PER%.trp"
 FILEI MATI[2] = "%TRIP_DIR%\TRK_TRIP_%ITER%_%PER%.trp"
 FILEO PRINTO[1] = "%TRIP_DIR%\HWY_LDNET_PRN_%ITER%_%PER%.txt"
-FILEO MATO[1] = "%SCENARIO_DIR%\HWY_SKIM_%ITER%_%PER%.tmp",
-                 MO = 1 - 120, DEC[1] = 5 * 120, COMBINE = T
+FILEO MATO[1] = "%SCENARIO_DIR%\simple_assignment.tmp",
+                 MO = 1, DEC[1] = 5 * 120
 FILEO NETO = "%SCENARIO_DIR%\HWY_LDNET_%ITER%_%PER%.NET"
 FILEI NETI = "%SCENARIO_DIR%\%HWY_NET%"
 FILEI LOOKUPI[1] = "%LU_will2pay%"
 FILEI MATI[1] = "%TRIP_DIR%\HWY_AUTO_TRIP_%ITER%_%PER%.TRP"
-
-FILEO MATO[2] = "%SCENARIO_DIR%\skim_difference.mat",
-    MO = 34, NAME = skim_difference
 
 DISTRIBUTEINTRASTEP ProcessID = 'Intrastep', ProcessList = 1 - %max_threads%
 
@@ -36,51 +33,10 @@ DISTRIBUTEINTRASTEP ProcessID = 'Intrastep', ProcessList = 1 - %max_threads%
     FUNCTION TC[15] = T0 * (1 + ALPHA * (V / C) ^ (BETA))
     FUNCTION TC[99] = T0 * (1 + ALPHA * (V / C) ^ (BETA))
 
-    ; conical function with variable alpha/beta - 13% low on VMT
-    ;FUNCTION TC[99] = T0 * (2+SQRT((ALPHA^2)*(1-(V/C))^2 + BETA^2) - ALPHA * (1-(V/C)) - BETA)
-
-    ;FUNCTION TC[1] = T0 * (2+SQRT(16*(1-(V/C))^2 + 1.361) - 4*(1-(V/C)) - 1.167)
-    ;FUNCTION TC[2] = T0 * (2+SQRT(16*(1-(V/C))^2 + 1.361) - 4*(1-(V/C)) - 1.167)
-    ;FUNCTION TC[3] = T0 * (2+SQRT(16*(1-(V/C))^2 + 1.361) - 4*(1-(V/C)) - 1.167)
-    ;FUNCTION TC[4] = T0 * (2+SQRT(16*(1-(V/C))^2 + 1.361) - 4*(1-(V/C)) - 1.167)
-    ;FUNCTION TC[5] = T0 * (2+SQRT(16*(1-(V/C))^2 + 1.361) - 4*(1-(V/C)) - 1.167)
-    ;FUNCTION TC[6] = T0 * (2+SQRT(16*(1-(V/C))^2 + 1.361) - 4*(1-(V/C)) - 1.167)
-    ;FUNCTION TC[7] = T0 * (2+SQRT(16*(1-(V/C))^2 + 1.361) - 4*(1-(V/C)) - 1.167)
-    ;FUNCTION TC[8] = T0 * (2+SQRT(16*(1-(V/C))^2 + 1.361) - 4*(1-(V/C)) - 1.167)
-    ;FUNCTION TC[9] = T0 * (2+SQRT(16*(1-(V/C))^2 + 1.361) - 4*(1-(V/C)) - 1.167)
-    ;FUNCTION TC[10] = T0 * (2+SQRT(16*(1-(V/C))^2 + 1.361) - 4*(1-(V/C)) - 1.167)
-    ;FUNCTION TC[11] = T0 * (2+SQRT(16*(1-(V/C))^2 + 1.361) - 4*(1-(V/C)) - 1.167)
-    ;FUNCTION TC[12] = T0 * (2+SQRT(16*(1-(V/C))^2 + 1.361) - 4*(1-(V/C)) - 1.167)
-    ;FUNCTION TC[13] = T0 * (2+SQRT(16*(1-(V/C))^2 + 1.361) - 4*(1-(V/C)) - 1.167)
-    ;FUNCTION TC[14] = T0 * (2+SQRT(16*(1-(V/C))^2 + 1.361) - 4*(1-(V/C)) - 1.167)
-    ;FUNCTION TC[15] = T0 * (2+SQRT(16*(1-(V/C))^2 + 1.361) - 4*(1-(V/C)) - 1.167)
-    ;FUNCTION TC[99] = T0 * (2+SQRT(16*(1-(V/C))^2 + 1.361) - 4*(1-(V/C)) - 1.167)
-
+    
    FUNCTION V = VOL[1] + VOL[2] + VOL[3] + VOL[4] + VOL[5] + VOL[6] + VOL[7] + VOL[8] + VOL[9] + VOL[10] + VOL[11] + VOL[12] + VOL[13] * %hwy_TrkFac%
 
-    LOOKUP NAME = TOLL,
-           LOOKUP[1] = 1, RESULT = 2,
-           INTERPOLATE = Y,
-           FAIL = 25,800,
-           R = '0.00 25',                  ; LOS-Toll table reported by MnDOT
-               '0.35 50',
-               '0.54 150',
-               '0.77 250',
-               '0.93 350',
-               '1.00 600'
-    LOOKUP LOOKUPI = 1, INTERPOLATE = Y, FAIL = 5, 100,
-    NAME = DIVERT,
-           LOOKUP[1] = 1, RESULT = 2,
-           LOOKUP[2] = 1, RESULT = 3,
-           LOOKUP[3] = 1, RESULT = 4,
-           LOOKUP[4] = 1, RESULT = 5,
-           LOOKUP[5] = 1, RESULT = 6,
-           LOOKUP[6] = 1, RESULT = 7,
-           LOOKUP[7] = 1, RESULT = 8,
-           LOOKUP[8] = 1, RESULT = 9,
-           LOOKUP[9] = 1, RESULT = 10,
-           LOOKUP[10] = 1,RESULT = 11
-
+    
     PHASE = LINKREAD
 
         T0      = LI.TIME
@@ -93,75 +49,6 @@ DISTRIBUTEINTRASTEP ProcessID = 'Intrastep', ProcessList = 1 - %max_threads%
         Beta    = LI.Beta
         LINKCLASS = LI.RCI
         
-; **********   Create Link Groups    ************
-; Group 1: All HOV Lanes
-        IF (LI.SEGMENT_ID>0 && LI.SEGMENT_ID<99 && LI.MANAGED=1) ADDTOGROUP=30  ;Used as exclusion group on path building
-
-; Group 2: HOV SECTIONS - Rachel Editing groups, adding more
-        IF (LI.SEGMENT_ID=1,7,9 && LI.MANAGED=1)    ADDTOGROUP=1  ;I-35W	NB	Dakota County to Downtown
-        IF (LI.SEGMENT_ID=2,8,17 && LI.MANAGED=1)   ADDTOGROUP=2  ;I-35W	SB	Downtown to Dakota County
-        IF (LI.SEGMENT_ID=6 && LI.MANAGED=1)        ADDTOGROUP=3  ;I-394	WB DT to 100
-        IF (LI.SEGMENT_ID=61 && LI.MANAGED=1)       ADDTOGROUP=4  ;I-394	EB 100 to DT
-        IF (LI.SEGMENT_ID=4 && LI.MANAGED=1)        ADDTOGROUP=5  ;I-394	WB	STH-100	I-494 Outbound
-        IF (LI.SEGMENT_ID=5 && LI.MANAGED=1)        ADDTOGROUP=6  ;I-394	EB	I-494	STH-100	Inbound
-        IF (LI.SEGMENT_ID=11,25 && LI.MANAGED=1)    ADDTOGROUP=7  ; 35E outbound, DT StP to CRJ
-        IF (LI.SEGMENT_ID=12,24 && LI.MANAGED=1)    ADDTOGROUP=8  ; 35w inbound, CRJ to DTstP
-        IF (LI.SEGMENT_ID=13 && LI.MANAGED=1)       ADDTOGROUP=9 ; 35W NB, Hwy 36 to Blaine
-        IF (LI.SEGMENT_ID=14 && LI.MANAGED=1)       ADDTOGROUP=10 ; 35W SB , Blaine to Hwy 36
-        IF (LI.SEGMENT_ID=15 && LI.MANAGED=1)       ADDTOGROUP=11 ; 94 between downtowns EB
-        IF (LI.SEGMENT_ID=16 && LI.MANAGED=1)       ADDTOGROUP=12 ; 94 between downtowns WB
-        IF (LI.SEGMENT_ID=18 && LI.MANAGED=1)       ADDTOGROUP=13 ; 252 SB
-        IF (LI.SEGMENT_ID=19 && LI.MANAGED=1)       ADDTOGROUP=14 ; 252 NB
-        IF (LI.SEGMENT_ID=23,21 && LI.MANAGED=1)    ADDTOGROUP=15 ; SB 94 from 694 to DT
-        IF (LI.SEGMENT_ID=20,22 && LI.MANAGED=1)    ADDTOGROUP=16  ; NB 94 from DT to 694
-        IF (LI.SEGMENT_ID=27,29 && LI.MANAGED=1)    ADDTOGROUP=17  ; NB 35w / Hwy 36
-        IF (LI.SEGMENT_ID=26,28 && LI.MANAGED=1)    ADDTOGROUP=18 ; SB hwy 36 / 35W
-        IF (LI.SEGMENT_ID=30 && LI.MANAGED=1)       ADDTOGROUP=19 ; 94 rogers to maplegrove
-        IF (LI.SEGMENT_ID=31 && LI.MANAGED=1)       ADDTOGROUP=20 ; 94 maplegrove to rogers
-        IF (LI.SEGMENT_ID=32 && LI.MANAGED=1)       ADDTOGROUP=21 ; 169 from 694 to 394
-        IF (LI.SEGMENT_ID=33 && LI.MANAGED=1)       ADDTOGROUP=22  ; 169 from 394 to 694
-        IF (LI.SEGMENT_ID=34 && LI.MANAGED=1)       ADDTOGROUP=23 ; 169 from shakopee to 394
-        IF (LI.SEGMENT_ID=35 && LI.MANAGED=1)       ADDTOGROUP=24 ; 169 from 394 to shakopee
-        IF (LI.SEGMENT_ID=36 && LI.MANAGED=1)       ADDTOGROUP=25 ; 494 EB from 212 to Minnesota River, congested both directions
-        IF (LI.SEGMENT_ID=37 && LI.MANAGED=1)       ADDTOGROUP=26 ; 494 WB from Minnesota River to 212, congested both directions
-        IF (LI.SEGMENT_ID=38,39 && LI.MANAGED=1)    ADDTOGROUP=27 ; 94/694 from maple grove to 94 south into DT, partial lane converstion
-        IF (LI.SEGMENT_ID=40,41 && LI.MANAGED=1)    ADDTOGROUP=28 ; 94/694 from 94 to maplegrove, partial lane converstion
-        IF (LI.SEGMENT_ID=42 && LI.MANAGED=1)       ADDTOGROUP=29 ; 694 EB from 94 to 35W
-        IF (LI.SEGMENT_ID=43 && LI.MANAGED=1)       ADDTOGROUP=31 ; 694 WB from 35W to 94 ; SKIPPING GROUP 30 because it is exclusion group above . ugh
-        IF (LI.SEGMENT_ID=44,45 && LI.MANAGED=1)    ADDTOGROUP=32 ; 77 NB and SB because i cna't have 33 groups WHICH IS STUPID
-
-        ; rachel adding toll groups 6 - 32
-        _toll1 = 25
-        _toll2 = 25
-        _toll3 = 25
-        _toll4 = 25
-        _toll5 = 25
-        _toll6 = 25
-        _toll7 = 25
-        _toll8 = 25
-        _toll9 = 25
-        _toll10 = 25
-        _toll11 = 25
-        _toll12 = 25
-        _toll13 = 25
-        _toll14 = 25
-        _toll15 = 25
-        _toll16 = 25
-        _toll17 = 25
-        _toll18 = 25
-        _toll19 = 25
-        _toll20 = 25
-        _toll21 = 25
-        _toll22 = 25
-        _toll23 = 25
-        _toll24 = 25
-        _toll25 = 25
-        _toll26 = 25
-        _toll27 = 25
-        _toll28 = 25
-        _toll29 = 25
-        _toll31 = 25
-        _toll32 = 25
 
     ENDPHASE
 

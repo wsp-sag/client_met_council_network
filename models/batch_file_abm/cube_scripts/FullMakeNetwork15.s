@@ -6,7 +6,8 @@ NETO = "%SCENARIO_DIR%/highway_2015.net"
 ;if (area_type = 10) area_type = 1
 
 rci = 0 ; initilize variable
-; DISTANCE = SHAPE_length*0.000621371 ; calculates distance in miles from shapelength (meters)
+; Assume 0.5 mile distance for all centroid connectors.
+;IF (assign_group = 9) DISTANCE = 0.5
 
 ;below sets up RCI as a function of assign_group and roadway_class.
 if (assign_group = 0) delete
@@ -50,6 +51,9 @@ LOOP _TIME_PERIOD=1,4,1
     IF (_TIME_PERIOD = 2) LANES = LANES_MD
     IF (_TIME_PERIOD = 3) LANES = LANES_PM
     IF (_TIME_PERIOD = 4) LANES = LANES_NT
+    
+;    IF (RCI = 99) LANES = 5
+;    IF (AREA_TYPE = 10) AREA_TYPE = 1
               
     Linkclass = RCI
     assign_group = assign_group
