@@ -30,6 +30,8 @@ properties:
     timeofday:
       - time: ['6:00', '9:00']
         set: 1
+  - property: ML_segment_id
+    set: 5
   - property: segment_id
     set: 5
   - property: ML_HOV
