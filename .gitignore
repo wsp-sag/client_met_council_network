@@ -33,9 +33,16 @@ model_files/.hubstorinfo
 .hubstorinfo
 python_scripts/.hubstorinfo
 
-data/*
+data/external/*
 !data/external/met_council/*.gitignore
+data/interim/networks/*
+!data/interim/networks/base_network/*.gitignore
+!data/interim/networks/fixed_width/*.gitignore
+data/processed/*
+!data/processed/*/*.gitignore
+data/test_new_network_outputs/*
+
 models/cube_catalog_abm/*
 models/batch_file_abm/TourCast/logs/*
-
+model_files/*
 *.PRN

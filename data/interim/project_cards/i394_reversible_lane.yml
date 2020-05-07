@@ -1,4 +1,9 @@
 changes:
+- category: Roadway Deletion
+  links:
+    model_link_id: []
+- category: New Roadway
+  links: []
 - category: Roadway Attribute Change
   facility:
     link:
@@ -18,9 +23,6 @@ changes:
       time:
       - '19:00'
       - '6:00'
-  - existing: 0
-    property: mpo
-    set: 1
 - category: Roadway Attribute Change
   facility:
     link:
@@ -47,9 +49,6 @@ changes:
       time:
       - '19:00'
       - '6:00'
-  - existing: 0
-    property: mpo
-    set: 1
 - category: Roadway Attribute Change
   facility:
     link:
@@ -75,11 +74,23 @@ changes:
       time:
       - '19:00'
       - '6:00'
-  - existing: 0
-    property: mpo
-    set: 1
   - existing: 47000
     property: AADT
+    set: 0
+  - existing: 11750
+    property: count_AM
+    set: 0
+  - existing: 11750
+    property: count_MD
+    set: 0
+  - existing: 11750
+    property: count_PM
+    set: 0
+  - existing: 11750
+    property: count_NT
+    set: 0
+  - existing: 47000
+    property: count_daily
     set: 0
 - category: Roadway Attribute Change
   facility:
@@ -100,9 +111,6 @@ changes:
       time:
       - '9:00'
       - '16:00'
-  - existing: 0
-    property: mpo
-    set: 1
 - category: Roadway Attribute Change
   facility:
     link:
@@ -130,9 +138,6 @@ changes:
       time:
       - '19:00'
       - '6:00'
-  - existing: 0
-    property: mpo
-    set: 1
 - category: Roadway Attribute Change
   facility:
     link:
@@ -150,9 +155,6 @@ changes:
       time:
       - '19:00'
       - '6:00'
-  - existing: 0
-    property: mpo
-    set: 1
 - category: Roadway Attribute Change
   facility:
     link:
@@ -170,11 +172,23 @@ changes:
       time:
       - '9:00'
       - '16:00'
-  - existing: 0
-    property: mpo
-    set: 1
   - existing: 47000
     property: AADT
+    set: 13700
+  - existing: 11750
+    property: count_AM
+    set: 3425
+  - existing: 11750
+    property: count_MD
+    set: 3425
+  - existing: 11750
+    property: count_PM
+    set: 3425
+  - existing: 11750
+    property: count_NT
+    set: 3425
+  - existing: 47000
+    property: count_daily
     set: 13700
 - category: Roadway Attribute Change
   facility:
@@ -193,16 +207,29 @@ changes:
       time:
       - '9:00'
       - '16:00'
-  - existing: 0
-    property: mpo
-    set: 1
   - existing: 8000
     property: AADT
+    set: 0
+  - existing: 2000
+    property: count_AM
+    set: 0
+  - existing: 2000
+    property: count_MD
+    set: 0
+  - existing: 2000
+    property: count_PM
+    set: 0
+  - existing: 2000
+    property: count_NT
+    set: 0
+  - existing: 8000
+    property: count_daily
     set: 0
 - category: Roadway Attribute Change
   facility:
     link:
       model_link_id:
+      - 402701
       - 403006
   properties:
   - existing: 2
@@ -216,32 +243,6 @@ changes:
       time:
       - '9:00'
       - '16:00'
-  - existing: 0
-    property: mpo
-    set: 1
-  - existing: 0
-    property: HOV
-    set: 100
-- category: Roadway Attribute Change
-  facility:
-    link:
-      model_link_id:
-      - 402701
-  properties:
-  - existing: 2
-    property: lanes
-    timeofday:
-    - set: 0
-      time:
-      - '6:00'
-      - '9:00'
-    - set: 0
-      time:
-      - '9:00'
-      - '16:00'
-  - existing: 0
-    property: mpo
-    set: 1
 - category: Roadway Attribute Change
   facility:
     link:
@@ -259,9 +260,6 @@ changes:
       time:
       - '19:00'
       - '6:00'
-  - existing: 0
-    property: mpo
-    set: 1
 - category: Roadway Attribute Change
   facility:
     link:
@@ -279,8 +277,5 @@ changes:
       time:
       - '9:00'
       - '16:00'
-  - existing: 0
-    property: mpo
-    set: 1
-project: I-394 Reversible Lanes
+project: I394 Reversible Lane
 valid: false

@@ -1,7 +1,7 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM = MATRIX MSG = 'Aggregate Trip Tables for Interim Assignment'
 DISTRIBUTEINTRASTEP ProcessID = 'Intrastep', ProcessList=1-%max_threads%
-FILEO MATO[3] = "%TRIP_DIR%\HWY_TRIP_%ITER%_NT.TRP",
+FILEO MATO[3] = "%SCENARIO_DIR%\HWY_TRIP_%ITER%_NT.TRP",
                  MO = 201 - 232, DEC[1] = 32 * 2, 
                  NAME = SOVW1, SOVW2, SOVW3, SOVW4, SOVW5,  
                  HOV2W1, HOV2W2, HOV2W3, HOV2W4, HOV2W5,  
@@ -10,7 +10,7 @@ FILEO MATO[3] = "%TRIP_DIR%\HWY_TRIP_%ITER%_NT.TRP",
                  HOV2NW1, HOV2NW2, HOV2NW3, HOV2NW4, HOV2NW5,  
                  HOV3NW1, HOV3NW2, HOV3NW3, HOV3NW4, HOV3NW5, 
                  SOVNO1, SOVNO25
-FILEO MATO[2] = "%TRIP_DIR%\HWY_TRIP_%ITER%_PM.TRP",
+FILEO MATO[2] = "%SCENARIO_DIR%\HWY_TRIP_%ITER%_PM.TRP",
                  MO = 101 - 132, DEC[1] = 32 * 2, 
                  NAME = SOVW1, SOVW2, SOVW3, SOVW4, SOVW5,  
                  HOV2W1, HOV2W2, HOV2W3, HOV2W4, HOV2W5,  
@@ -25,7 +25,7 @@ FILEI MATI[8] = "%TRIP_DIR%\HWY_TRIP_%ITER%_PM4.TRP"
 FILEI MATI[7] = "%TRIP_DIR%\HWY_TRIP_%ITER%_PM3.TRP"
 FILEI MATI[6] = "%TRIP_DIR%\HWY_TRIP_%ITER%_PM2.TRP"
 FILEI MATI[5] = "%TRIP_DIR%\HWY_TRIP_%ITER%_PM1.TRP"
-FILEO MATO[1] = "%TRIP_DIR%\HWY_TRIP_%ITER%_AM.TRP",
+FILEO MATO[1] = "%SCENARIO_DIR%\HWY_TRIP_%ITER%_AM.TRP",
                  MO = 1 - 32, DEC[1] = 32 * 2, 
                  NAME = SOVW1, SOVW2, SOVW3, SOVW4, SOVW5,  
                  HOV2W1, HOV2W2, HOV2W3, HOV2W4, HOV2W5,  

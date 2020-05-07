@@ -1,9 +1,9 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM = MATRIX MSG = 'Aggregate SPC Trip Tables for Interim Assignment'
-FILEO MATO[3] = "%TRIP_DIR%\HWY_SPC_TRIP_%ITER%_NT.TRP",
+FILEO MATO[3] = "%SCENARIO_DIR%\HWY_SPC_TRIP_%ITER%_NT.TRP",
                  MO = 201 - 203, DEC[1] = 3 * 2, 
                  NAME = DA, SR2, SR3
-FILEO MATO[2] = "%TRIP_DIR%\HWY_SPC_TRIP_%ITER%_PM.TRP",
+FILEO MATO[2] = "%SCENARIO_DIR%\HWY_SPC_TRIP_%ITER%_PM.TRP",
                  MO = 101 - 103, DEC[1] = 3 * 2, 
                  NAME = DA, SR2, SR3
 FILEI MATI[10] = "%TRIP_DIR%\HWY_SPC_TRIP_%ITER%_ON.TRP"
@@ -12,7 +12,7 @@ FILEI MATI[8] = "%TRIP_DIR%\HWY_SPC_TRIP_%ITER%_PM4.TRP"
 FILEI MATI[7] = "%TRIP_DIR%\HWY_SPC_TRIP_%ITER%_PM3.TRP"
 FILEI MATI[6] = "%TRIP_DIR%\HWY_SPC_TRIP_%ITER%_PM2.TRP"
 FILEI MATI[5] = "%TRIP_DIR%\HWY_SPC_TRIP_%ITER%_PM1.TRP"
-FILEO MATO[1] = "%TRIP_DIR%\HWY_SPC_TRIP_%ITER%_AM.TRP",
+FILEO MATO[1] = "%SCENARIO_DIR%\HWY_SPC_TRIP_%ITER%_AM.TRP",
                  MO = 1 - 3, DEC[1] = 3 * 2, 
                  NAME = DA, SR2, SR3
 FILEI MATI[4] = "%TRIP_DIR%\HWY_SPC_TRIP_%ITER%_AM4.TRP"
