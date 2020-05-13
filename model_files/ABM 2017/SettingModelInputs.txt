@@ -1,0 +1,23 @@
+Running Scenario 
+
+First screen : 
+Select correct HH, Pop, and zone file based on year
+
+Catolog Run parameters are set, we have had best luck with 6 cluster sessions 
+
+leave skims as is 
+
+Second Screen: 
+
+normally do not change any of these settings 
+
+Third Screen:
+Select Correct Highway network (first line) 
+
+Fourth Screen:
+Select .lin file , leave all others unchanged 
+
+Fifth screen:
+external station file changes for 2015 vs 2040 , leave rest unchanged 
+
+Select Run 
