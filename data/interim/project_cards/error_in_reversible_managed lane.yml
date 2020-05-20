@@ -1,0 +1,30 @@
+changes:
+- category: Roadway Attribute Change
+  facility:
+    link:
+      model_link_id:
+      - 382272
+  properties:
+  - existing: 0
+    property: managed
+    set: 1
+  - existing: 0
+    property: segment_id
+    set: 5
+  - existing: 2
+    property: lanes
+    timeofday:
+    - set: 0
+      time:
+      - '9:00'
+      - '16:00'
+    - set: 0
+      time:
+      - '16:00'
+      - '19:00'
+    - set: 0
+      time:
+      - '19:00'
+      - '6:00'
+project: I394 reversible lane
+valid: false
