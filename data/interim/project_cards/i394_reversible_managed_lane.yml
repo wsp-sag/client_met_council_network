@@ -11,6 +11,9 @@ changes:
       - 382272
   properties:
   - existing: 0
+    property: managed
+    set: 1
+  - existing: 0
     property: segment_id
     set: 5
   - existing: 2
@@ -32,38 +35,11 @@ changes:
   facility:
     link:
       model_link_id:
-      - 382266
-  properties:
-  - existing: 0
-    property: segment_id
-    set: 5
-  - existing: 10
-    property: roadway_class
-    set: 30
-  - existing: 0
-    property: AADT
-    set: 22700
-  - existing: 0
-    property: count_AM
-    set: 5675
-  - existing: 0
-    property: count_MD
-    set: 5675
-  - existing: 0
-    property: count_PM
-    set: 5675
-  - existing: 0
-    property: count_NT
-    set: 5675
-  - existing: 0
-    property: count_daily
-    set: 22700
-- category: Roadway Attribute Change
-  facility:
-    link:
-      model_link_id:
       - 403289
   properties:
+  - existing: 0
+    property: managed
+    set: 1
   - existing: 0
     property: segment_id
     set: 5
@@ -114,6 +90,9 @@ changes:
       - 403290
   properties:
   - existing: 0
+    property: managed
+    set: 1
+  - existing: 0
     property: segment_id
     set: 5
   - existing: 10
@@ -159,6 +138,9 @@ changes:
       - 403008
   properties:
   - existing: 0
+    property: managed
+    set: 1
+  - existing: 0
     property: segment_id
     set: 5
   - existing: 10
@@ -183,20 +165,6 @@ changes:
       time:
       - '19:00'
       - '6:00'
-- category: Roadway Attribute Change
-  facility:
-    link:
-      model_link_id:
-      - 408115
-      - 382826
-      - 394063
-  properties:
-  - existing: 0
-    property: segment_id
-    set: 5
-  - existing: 10
-    property: roadway_class
-    set: 30
 - category: Roadway Attribute Change
   facility:
     link:
@@ -204,6 +172,9 @@ changes:
       - 416339
   properties:
   - existing: 0
+    property: managed
+    set: 1
+  - existing: 0
     property: segment_id
     set: 5
   - existing: 10
@@ -232,21 +203,11 @@ changes:
   facility:
     link:
       model_link_id:
-      - 394089
-      - 404193
-  properties:
-  - existing: 0
-    property: segment_id
-    set: 5
-  - existing: 10
-    property: roadway_class
-    set: 40
-- category: Roadway Attribute Change
-  facility:
-    link:
-      model_link_id:
       - 402700
   properties:
+  - existing: 0
+    property: managed
+    set: 1
   - existing: 0
     property: segment_id
     set: 5
@@ -279,6 +240,9 @@ changes:
       - 402701
   properties:
   - existing: 0
+    property: managed
+    set: 1
+  - existing: 0
     property: segment_id
     set: 5
   - existing: 10
@@ -303,20 +267,11 @@ changes:
   facility:
     link:
       model_link_id:
-      - 394060
-  properties:
-  - existing: 0
-    property: segment_id
-    set: 5
-  - existing: 10
-    property: roadway_class
-    set: 60
-- category: Roadway Attribute Change
-  facility:
-    link:
-      model_link_id:
       - 419238
   properties:
+  - existing: 0
+    property: managed
+    set: 1
   - existing: 0
     property: segment_id
     set: 5
@@ -348,6 +303,9 @@ changes:
       model_link_id:
       - 404192
   properties:
+  - existing: 0
+    property: managed
+    set: 1
   - existing: 0
     property: segment_id
     set: 5
@@ -398,6 +356,9 @@ changes:
       - 403006
   properties:
   - existing: 0
+    property: managed
+    set: 1
+  - existing: 0
     property: segment_id
     set: 5
   - existing: 60
@@ -443,6 +404,9 @@ changes:
       - 419239
   properties:
   - existing: 0
+    property: managed
+    set: 1
+  - existing: 0
     property: segment_id
     set: 5
   - existing: 60
@@ -474,6 +438,9 @@ changes:
       - 382273
   properties:
   - existing: 0
+    property: managed
+    set: 1
+  - existing: 0
     property: segment_id
     set: 5
   - existing: 60
@@ -494,6 +461,75 @@ changes:
       time:
       - '19:00'
       - '6:00'
+- category: Roadway Attribute Change
+  facility:
+    link:
+      model_link_id:
+      - 382266
+  properties:
+  - existing: 0
+    property: segment_id
+    set: 5
+  - existing: 10
+    property: roadway_class
+    set: 30
+  - existing: 0
+    property: AADT
+    set: 22700
+  - existing: 0
+    property: count_AM
+    set: 5675
+  - existing: 0
+    property: count_MD
+    set: 5675
+  - existing: 0
+    property: count_PM
+    set: 5675
+  - existing: 0
+    property: count_NT
+    set: 5675
+  - existing: 0
+    property: count_daily
+    set: 22700
+- category: Roadway Attribute Change
+  facility:
+    link:
+      model_link_id:
+      - 408115
+      - 382826
+      - 394063
+  properties:
+  - existing: 0
+    property: segment_id
+    set: 5
+  - existing: 10
+    property: roadway_class
+    set: 30
+- category: Roadway Attribute Change
+  facility:
+    link:
+      model_link_id:
+      - 394089
+      - 404193
+  properties:
+  - existing: 0
+    property: segment_id
+    set: 5
+  - existing: 10
+    property: roadway_class
+    set: 40
+- category: Roadway Attribute Change
+  facility:
+    link:
+      model_link_id:
+      - 394060
+  properties:
+  - existing: 0
+    property: segment_id
+    set: 5
+  - existing: 10
+    property: roadway_class
+    set: 60
 - category: Roadway Attribute Change
   facility:
     link:
