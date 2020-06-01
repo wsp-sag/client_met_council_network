@@ -7,7 +7,8 @@ base_scenario:
     validate_network: False
 
 scenario:
-    project_cards_filenames: ["C:/projects/met_council_git/data/interim/project_cards/i394E_parallel_managed_lane.yml",
+    project_cards_filenames: ["C:/projects/met_council_git/data/interim/project_cards/hov_ramp_managed_lane.yml",
+    "C:/projects/met_council_git/data/interim/project_cards/i394E_parallel_managed_lane.yml",
     "C:/projects/met_council_git/data/interim/project_cards/i394E_reversible_managed_lane.yml",
     "C:/projects/met_council_git/data/interim/project_cards/t_all_link_updated_assgngp.yml",
     "C:/projects/met_council_git/data/interim/project_cards/t_update_met_council_network_manual_edits_010920.yml",

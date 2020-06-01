@@ -1,0 +1,47 @@
+project: HOV ramp refactor
+tags: ['managed lanes']
+dependencies:
+  prerequisites: []
+  corequisites: []
+  conflicts: []
+category: Parallel Managed lanes
+facility:
+  link:
+    - model_link_id:
+      - 392864
+      - 384757
+      - 384163
+      - 401837
+      - 415655
+      - 398222
+      - 418190
+      - 413528
+      - 387620
+      - 398187
+      - 401393
+      - 382393
+      - 401284
+      - 409974
+      - 411302
+      - 419089
+      - 391566
+      - 398604
+properties:
+  - property: lanes
+    set: 0
+  - property: ML_lanes
+    set: 0
+    timeofday:
+      - time: ['6:00', '9:00']
+        set: 1
+  - property: segment_id
+    set: 1
+  - property: ML_HOV
+    set: 1
+  - property: HOV
+    set: 1
+  - property: ML_access
+    set: 'all'
+  - property: ML_egress
+    set: 'all'
+notes: Network wrangler cannot handle managed lanes that are not parallel
