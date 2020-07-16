@@ -1,0 +1,17 @@
+project: Correct Year 2018 Assignment Group and Roadway Class
+valid: false
+tags:
+  - 'year_2018_corrections'
+changes:
+- category: Roadway Attribute Change
+  facility:
+    link:
+      model_link_id:
+      - 400170
+  properties:
+  - existing: 6
+    property: assign_group
+    set: 2
+  - existing: 30
+    property: roadway_class
+    set: 10
