@@ -7,6 +7,9 @@ FILEI LOOKUPI[2] = "%LOOKUP_DIR%\%TPER%EXPRESSDELAYS.TXT"
 FILEI LOOKUPI[1] = "%LOOKUP_DIR%\%TPER%LOCALDELAYS.TXT"
 FILEI LINKI[1] = "%SCENARIO_DIR%\HWY_LDNET_%ITER%_%PER%.net"
 
+    ; Set period name
+    _per='%TPER%'
+    
     ;  transit time = congested time +  distance * link delay
     ;   Delays are calibrated by AREA and facility type and time period.
     LOOKUP NAME=locdelay, LOOKUP[1]=1, RESULT=2,
@@ -34,8 +37,7 @@ FILEI LINKI[1] = "%SCENARIO_DIR%\HWY_LDNET_%ITER%_%PER%.net"
                             LOOKUP[10]=1, RESULT=2,         ; 1 and 10 are rural area types
                             FAIL=0,0,0, INTERPOLATE=N,
                             LOOKUPI=2, LIST=Y
-
-
+/*
     ; TODO: Move this into the GeoDB
     PHASE=NODEMERGE FILEI=NI.1 
       IF (N=17502)
@@ -57,17 +59,21 @@ FILEI LINKI[1] = "%SCENARIO_DIR%\HWY_LDNET_%ITER%_%PER%.net"
         FAREZONE=6
       ENDIF
       
-    ENDPROCESS                            
-                            
+    ENDPHASE 
+*/                            
 ;;--------------------------------------------------------------------------
-
+    
     ; Set transit speeds - same for PK/OP
-    IF(LI.1.CSPD_1=0)
-      SPEED=0.1
-    ELSE
-      SPEED = LI.1.CSPD_1
+    IF (LI.2.SPEED > 0)
+        SPEED = LI.2.SPEED
+    ELSE 
+        SPEED = 0.1
     ENDIF
     
+    IF (LI.1.CSPD_1 > 0)
+        SPEED = LI.1.CSPD_1
+    ENDIF
+  
 ;;--------------------------------------------------------------------------
 
     ; Code free flow speed for all links
@@ -76,19 +82,31 @@ FILEI LINKI[1] = "%SCENARIO_DIR%\HWY_LDNET_%ITER%_%PER%.net"
     
 ;;--------------------------------------------------------------------------    
 
+    IF (_per = 'PK')
+        _ttime_assert = LI.2.TTIME_ASSERT_AM
+    ELSE 
+        _ttime_assert = LI.2.TTIME_ASSERT_MD
+    ENDIF
+    
     ; Override manually coded speed for transit only links
-    IF (LI.2.T_MANTIME>0)
-        LOCTIME = T_MANTIME
-        EXPTIME = T_MANTIME
-        LRTTIME = T_MANTIME
+    IF (_ttime_assert > 0)
+        LOCTIME = _ttime_assert
+        EXPTIME = _ttime_assert
+        LRTTIME = _ttime_assert
     ENDIF    
 
 ;;--------------------------------------------------------------------------
 
+    IF (_per = 'PK')
+        _trn_priority = LI.2.TRN_PRIORITY_AM
+    ELSE
+        _trn_priority = LI.2.TRN_PRIORITY_MD
+    ENDIF
+    
     ;Calculate Local Bus Transit Travel Time
     IF (LOCTIME=0)
-         _DELAY = locdelay(LI.1.AREA,LI.1.RCI)
-         IF (T_Priority=2)
+         _DELAY = locdelay(LI.1.AREA_TYPE,LI.1.RCI)
+         IF (_trn_priority=2)
             IF ((SPEED+15)<50)
                 _tspeed = MIN(SPEED+15,35)
             ELSE
@@ -107,8 +125,8 @@ FILEI LINKI[1] = "%SCENARIO_DIR%\HWY_LDNET_%ITER%_%PER%.net"
     
     ;Calculate Express Bus Transit Travel Time
     IF (EXPTIME=0)
-        _DELAY = expdelay(LI.1.AREA,LI.1.RCI)
-         IF (T_Priority=2)
+        _DELAY = expdelay(LI.1.AREA_TYPE,LI.1.RCI)
+         IF (_trn_priority=2)
             IF ((SPEED+15)<50)
                 _tspeed = MIN(SPEED+15,35)
             ELSE
@@ -123,5 +141,5 @@ FILEI LINKI[1] = "%SCENARIO_DIR%\HWY_LDNET_%ITER%_%PER%.net"
             PRINT LIST='EXPRESS BUS TIME IS ZERO FOR - ', A(6), B(6)
         ENDIF
     ENDIF       
-
+    
 ENDRUN

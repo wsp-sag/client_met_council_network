@@ -4,14 +4,13 @@ RUN PGM=NETWORK MSG='TEMP: set rail zone node field'
 ;FILEI LINKI[3] = "%T_MANTIME_PATH%"
 ;FILEI LINKI[2] = "%T_DISTANCE_PATH%"
 FILEO NETO = "%SCENARIO_DIR%\TransitBase.NET"
-FILEI NODEI[1] = "%SCENARIO_DIR%\transit_node.dbf"
-FILEI LINKI[1] = "%SCENARIO_DIR%\transit_link.dbf"
+FILEI NETI[1] = "%SCENARIO_DIR%\HWY_ALL_NET.net"
 
     ZONES=%zones%
 
     ; TODO: Move this into the GeoDB
-    PHASE = NODEMERGE FILEI = NI.1 
-      IF (N = 170600)
+    PHASE = NODEMERGE 
+    IF (N = 170600)
         FAREZONE = 1
       ENDIF
       IF (N = 170601)

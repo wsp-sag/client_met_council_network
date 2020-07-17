@@ -15,6 +15,7 @@ SetLocal EnableDelayedExpansion
 ::
 :: ----------------------------------------------------------------------------
 CALL .\test_new_networks_parameters.bat
+
 ::%beginComment%
 :: The network comes as a fixed width file. @Sijia Wang will update the field 
 :: widths and column names as necessary and will update that script when 
@@ -23,14 +24,13 @@ CALL .\test_new_networks_parameters.bat
 COPY %complete_network_script_input_path% %complete_network_script_output_path%
 
 :: Make Networks
-
+::%beginComment%
 runtpp %SCRIPT_PATH%\make_complete_network_from_fixed_width_file.s
+runtpp %SCRIPT_PATH%\set_farezone_values.s
 runtpp %SCRIPT_PATH%\make_highway_network_from_file.s
 runtpp %SCRIPT_PATH%\make_bike_network_from_file.s
 runtpp %SCRIPT_PATH%\make_walk_network_from_file.s
-::endComment
 runtpp %SCRIPT_PATH%\FullMakeNetwork15.s 
-
 
 :: HIGHWAY
 ::%beginComment%
@@ -57,6 +57,35 @@ for /L %%I IN (1, 1, 6) DO (
 
 runtpp %SCRIPT_PATH%\FFHWY00A.s
 runtpp %SCRIPT_PATH%\FFPIL00A.s
+
+runtpp %SCRIPT_PATH%\TSNET00B.s
+::endComment
+
+:: Calculate transit speeds for each period
+:: Build walk access, transfer access, and drive access connectors for each period
+:: Skim walk transit and drive transit
+FOR /L %%I IN (1, 1, 1) DO (
+
+	SET TOD=%%I
+
+	IF %%I EQU 1 (
+        SET TPER=PK
+        )
+	IF %%I EQU 2 (
+        SET TPER=OP
+        )
+
+	runtpp %SCRIPT_PATH%\TSNET00C.s
+    runtpp %SCRIPT_PATH%\TSPTR00D.s
+    runtpp %SCRIPT_PATH%\TSPTR00F.s
+    runtpp %SCRIPT_PATH%\TSPTR00H.s
+    runtpp %SCRIPT_PATH%\TSPIL00C.s
+    runtpp %SCRIPT_PATH%\TSPTR00A.s
+    runtpp %SCRIPT_PATH%\TSPTR00C.s
+    runtpp %SCRIPT_PATH%\TSMAT00A.s
+    runtpp %SCRIPT_PATH%\TSMAT00C.s
+)
+
 ::endComment
 
 SET ITER=4
@@ -107,9 +136,56 @@ FOR /L %%I IN (1, 4, 1) DO (
 
 
 	runtpp %SCRIPT_PATH%\HAMAT00A.s
+    runtpp %SCRIPT_PATH%\HAHWY00A.s
+    runtpp %SCRIPT_PATH%\HAMAT00C.s
+)
+
+runtpp %SCRIPT_PATH%\HAPIL00B.s
+
+::endComment
+:: TRANSIT skimming
+::%beginComment%
+:: Loop over peak/off-peak
+FOR /L %%I IN (1,1,1) DO (
+    SET TOD=%%I
+    IF %%I EQU 1 (
+        SET TPER=PK
+        SET ASSIGNNAME=Peak Period
+        SET PER=AM
+    )
+    IF %%I EQU 2 (
+        SET TPER=OP
+        SET ASSIGNNAME=OffPeak Period
+        SET PER=MD
+    )
     
-	runtpp %SCRIPT_PATH%\HAHWY00A.s
-	)
+    :: Calculate transit speeds for period
+    runtpp %SCRIPT_PATH%\TSNET00F.s
+    :: Build period walk access connectors
+::    runtpp %SCRIPT_PATH%\TSPTR00N.s
+::    :: Build period transfer access connectors
+::    runtpp %SCRIPT_PATH%\TSPTR00S.s
+::    :: Build period drive access connectors
+::    runtpp %SCRIPT_PATH%\TSPTR00U.s
+::        
+::    :: Copy temp files to non-transit leg files
+::    COPY %SCENARIO_DIR%\XIT_WKACC_NTL_%ITER%_!TPER!.tmp+%LOOKUP_DIR%\WalkOverrides.txt %SCENARIO_DIR%\XIT_WKACC_NTL_%ITER%_!TPER!.ntl
+::    COPY %SCENARIO_DIR%\XIT_XFER_NTL_%ITER%_!TPER!.tmp + %LOOKUP_DIR%\TransferOverrides.txt %SCENARIO_DIR%\XIT_XFER_NTL_%ITER%_!TPER!.ntl
+::    COPY %SCENARIO_DIR%\XIT_DRACC_NTL_%ITER%_!TPER!.tmp + %LOOKUP_DIR%\DriveOverrides.txt %SCENARIO_DIR%\XIT_DRACC_NTL_%ITER%_!TPER!.ntl
+::
+::    :: Walk transit skim step 1
+::    runtpp %SCRIPT_PATH%\TSPTR00J.s
+::    :: Drive transit skim step 1
+::    runtpp %SCRIPT_PATH%\TSPTR00L.s
+::    :: Walk transit skim step 2
+::    runtpp %SCRIPT_PATH%\TSMAT00E.s
+::    :: Drive transit skim step 2
+::    runtpp %SCRIPT_PATH%\TSMAT00G.s
+    
+)
+::endComment
+    
 %exitRun%
+
 ::endComment
 :endOfFile

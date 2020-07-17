@@ -6,6 +6,7 @@ FILEO NETO = "%SCENARIO_DIR%\HWY_NET_%TOD%.net"
 
 
   IF (RCI=100) DELETE ; Remove Rail
+  IF (BUS_ONLY = 1) DELETE ; Remove transit only links
 
   IF (RCI=98 | RCI=101) DELETE
 
