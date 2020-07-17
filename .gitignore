@@ -48,3 +48,5 @@ model_files/*
 
 # OS system
 *.DS_store
+*.VAR
+*.PRJ
