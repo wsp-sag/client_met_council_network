@@ -1125,8 +1125,7 @@ changes:
       - 421169
       - 421181
   properties:
-  - existing: 6
-    property: assign_group
+  - property: assign_group
     set: 15
 - category: Roadway Attribute Change
   facility:
@@ -1147,8 +1146,7 @@ changes:
       - 419938
       - 419947
   properties:
-  - existing: 4
-    property: assign_group
+  - property: assign_group
     set: 15
 - category: Roadway Attribute Change
   facility:
@@ -1187,8 +1185,7 @@ changes:
       - 419237
       - 420109
   properties:
-  - existing: 6
-    property: assign_group
+  - property: assign_group
     set: 2
 - category: Roadway Attribute Change
   facility:
@@ -1207,8 +1204,7 @@ changes:
       - 397945
       - 397951
   properties:
-  - existing: 6
-    property: assign_group
+  - property: assign_group
     set: 1
 - category: Roadway Attribute Change
   facility:
@@ -1238,8 +1234,7 @@ changes:
       - 401142
       - 410797
   properties:
-  - existing: 1
-    property: assign_group
+  - property: assign_group
     set: 2
 - category: Roadway Attribute Change
   facility:
@@ -1606,8 +1601,7 @@ changes:
       - 421031
       - 421185
   properties:
-  - existing: 1
-    property: assign_group
+  - property: assign_group
     set: 3
 - category: Roadway Attribute Change
   facility:
@@ -1628,8 +1622,7 @@ changes:
       - 418524
       - 418530
   properties:
-  - existing: 1
-    property: assign_group
+  - property: assign_group
     set: 7
 - category: Roadway Attribute Change
   facility:
@@ -1638,8 +1631,7 @@ changes:
       - 383080
       - 407478
   properties:
-  - existing: 2
-    property: assign_group
+  - property: assign_group
     set: 1
 - category: Roadway Attribute Change
   facility:
@@ -1836,8 +1828,7 @@ changes:
       - 419248
       - 420500
   properties:
-  - existing: 2
-    property: assign_group
+  - property: assign_group
     set: 3
 - category: Roadway Attribute Change
   facility:
@@ -1848,8 +1839,7 @@ changes:
       - 405818
       - 405822
   properties:
-  - existing: 2
-    property: assign_group
+  - property: assign_group
     set: 4
 - category: Roadway Attribute Change
   facility:
@@ -2010,8 +2000,7 @@ changes:
       - 420519
       - 420704
   properties:
-  - existing: 2
-    property: assign_group
+  - property: assign_group
     set: 7
 - category: Roadway Attribute Change
   facility:
@@ -7789,8 +7778,7 @@ changes:
       - 421106
       - 421132
   properties:
-  - existing: 3
-    property: assign_group
+  - property: assign_group
     set: 7
 - category: Roadway Attribute Change
   facility:
@@ -7950,8 +7938,7 @@ changes:
       - 421056
       - 421176
   properties:
-  - existing: 4
-    property: assign_group
+  - property: assign_group
     set: 1
 - category: Roadway Attribute Change
   facility:
@@ -8073,8 +8060,7 @@ changes:
       - 419500
       - 420122
   properties:
-  - existing: 4
-    property: assign_group
+  - property: assign_group
     set: 2
 - category: Roadway Attribute Change
   facility:
@@ -8085,8 +8071,7 @@ changes:
       - 390982
       - 400198
   properties:
-  - existing: 4
-    property: assign_group
+  - property: assign_group
     set: 3
 - category: Roadway Attribute Change
   facility:
@@ -8521,6 +8506,5 @@ changes:
       - 420937
       - 421174
   properties:
-  - existing: 4
-    property: assign_group
+  - property: assign_group
     set: 7

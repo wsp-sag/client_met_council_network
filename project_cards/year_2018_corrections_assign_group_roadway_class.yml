@@ -9,9 +9,7 @@ changes:
       model_link_id:
       - 400170
   properties:
-  - existing: 6
-    property: assign_group
+  - property: assign_group
     set: 2
-  - existing: 30
-    property: roadway_class
+  - property: roadway_class
     set: 10
