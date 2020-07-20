@@ -26,7 +26,7 @@ COPY %complete_network_script_input_path% %complete_network_script_output_path%
 :: Make Networks
 ::%beginComment%
 runtpp %SCRIPT_PATH%\make_complete_network_from_fixed_width_file.s
-runtpp %SCRIPT_PATH%\set_farezone_values.s
+::runtpp %SCRIPT_PATH%\set_farezone_values.s
 runtpp %SCRIPT_PATH%\make_highway_network_from_file.s
 runtpp %SCRIPT_PATH%\make_bike_network_from_file.s
 runtpp %SCRIPT_PATH%\make_walk_network_from_file.s
