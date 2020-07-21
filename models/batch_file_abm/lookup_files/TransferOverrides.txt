@@ -1,2 +1,0 @@
-;  manual transfer access overrides (if any)
-; Remove transfer overrides until inserted by Metcouncil -JWH
