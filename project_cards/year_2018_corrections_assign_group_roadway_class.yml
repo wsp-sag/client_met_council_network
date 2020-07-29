@@ -3,10 +3,10 @@ valid: false
 tags:
   - 'year_2018_corrections'
 changes:
-- category: Roadway Attribute Change
+- category: Roadway Property Change
   facility:
     link:
-      model_link_id:
+    - model_link_id:
       - 400170
   properties:
   - property: assign_group

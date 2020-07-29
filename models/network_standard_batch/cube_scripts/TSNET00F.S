@@ -37,30 +37,7 @@ FILEI LINKI[1] = "%SCENARIO_DIR%\HWY_LDNET_%ITER%_%PER%.net"
                             LOOKUP[10]=1, RESULT=2,         ; 1 and 10 are rural area types
                             FAIL=0,0,0, INTERPOLATE=N,
                             LOOKUPI=2, LIST=Y
-/*
-    ; TODO: Move this into the GeoDB
-    PHASE=NODEMERGE FILEI=NI.1 
-      IF (N=17502)
-        FAREZONE=1
-      ENDIF
-      IF (N=19759)
-        FAREZONE=2
-      ENDIF
-      IF (N=19761)
-        FAREZONE=3
-      ENDIF
-      IF (N=19762)
-        FAREZONE=4
-      ENDIF
-      IF (N=19763)
-        FAREZONE=5
-      ENDIF
-      IF (N=19764)
-        FAREZONE=6
-      ENDIF
-      
-    ENDPHASE 
-*/                            
+            
 ;;--------------------------------------------------------------------------
     
     ; Set transit speeds - same for PK/OP

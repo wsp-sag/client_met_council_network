@@ -16,7 +16,7 @@ SetLocal EnableDelayedExpansion
 :: ----------------------------------------------------------------------------
 CALL .\test_new_networks_parameters.bat
 
-::%beginComment%
+%beginComment%
 :: The network comes as a fixed width file. @Sijia Wang will update the field 
 :: widths and column names as necessary and will update that script when 
 :: releasing network updates. This step moves that script into the main script 
@@ -26,8 +26,8 @@ COPY %complete_network_script_input_path% %complete_network_script_output_path%
 :: Make Networks
 ::%beginComment%
 runtpp %SCRIPT_PATH%\make_complete_network_from_fixed_width_file.s
-::runtpp %SCRIPT_PATH%\set_farezone_values.s
 runtpp %SCRIPT_PATH%\make_highway_network_from_file.s
+::%exitRun%
 runtpp %SCRIPT_PATH%\make_bike_network_from_file.s
 runtpp %SCRIPT_PATH%\make_walk_network_from_file.s
 runtpp %SCRIPT_PATH%\FullMakeNetwork15.s 
@@ -58,6 +58,7 @@ for /L %%I IN (1, 1, 6) DO (
 runtpp %SCRIPT_PATH%\FFHWY00A.s
 runtpp %SCRIPT_PATH%\FFPIL00A.s
 
+runtpp %SCRIPT_PATH%\TSNET00A.s
 runtpp %SCRIPT_PATH%\TSNET00B.s
 ::endComment
 
@@ -86,12 +87,12 @@ FOR /L %%I IN (1, 1, 1) DO (
     runtpp %SCRIPT_PATH%\TSMAT00C.s
 )
 
-::endComment
+:endComment
 
 SET ITER=4
 SET PREV_ITER=3
 
-::%beginComment%
+%beginComment%
 :: HIGHWAY
 runtpp %SCRIPT_PATH%\HAPIL00D.s
 runtpp %SCRIPT_PATH%\HAMAT00E.s
@@ -142,7 +143,7 @@ FOR /L %%I IN (1, 4, 1) DO (
 
 runtpp %SCRIPT_PATH%\HAPIL00B.s
 
-::endComment
+:endComment
 :: TRANSIT skimming
 ::%beginComment%
 :: Loop over peak/off-peak
@@ -162,7 +163,13 @@ FOR /L %%I IN (1,1,1) DO (
     :: Calculate transit speeds for period
     runtpp %SCRIPT_PATH%\TSNET00F.s
     :: Build period walk access connectors
-::    runtpp %SCRIPT_PATH%\TSPTR00N.s
+    runtpp %SCRIPT_PATH%\TSPTR00N.s
+    
+)
+::endComment
+    
+%exitRun%
+
 ::    :: Build period transfer access connectors
 ::    runtpp %SCRIPT_PATH%\TSPTR00S.s
 ::    :: Build period drive access connectors
@@ -181,11 +188,5 @@ FOR /L %%I IN (1,1,1) DO (
 ::    runtpp %SCRIPT_PATH%\TSMAT00E.s
 ::    :: Drive transit skim step 2
 ::    runtpp %SCRIPT_PATH%\TSMAT00G.s
-    
-)
-::endComment
-    
-%exitRun%
-
 ::endComment
 :endOfFile
