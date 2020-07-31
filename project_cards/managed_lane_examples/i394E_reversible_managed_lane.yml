@@ -7,16 +7,16 @@ dependencies:
 category: Parallel Managed lanes
 facility:
   link:
-    - model_link_id:
-      - 394063
-      - 404192
-      - 403006
-      - 402701
-      - 402700
-      - 403289
-      - 382272
-      - 419239
-      - 419238
+  - model_link_id:
+    - 394063
+    - 404192
+    - 403006
+    - 402701
+    - 402700
+    - 403289
+    - 382272
+    - 419239
+    - 419238
 properties:
   - property: lanes
     set: 0

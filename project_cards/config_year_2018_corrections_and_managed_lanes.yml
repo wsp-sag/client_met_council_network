@@ -5,13 +5,14 @@ base_scenario:
     node_file_name: "node.geojson"
     transit_directory: ""
     validate_network: False
+    lasso_base_dir: "D:/lasso"
 
 scenario:
     project_cards_filenames: ["C:/projects/met_council_git/project_cards/managed_lane_examples/hov_ramp_managed_lane.yml",
     "C:/projects/met_council_git/project_cards/managed_lane_examples/i394E_parallel_managed_lane.yml",
     "C:/projects/met_council_git/project_cards/managed_lane_examples/i394E_reversible_managed_lane.yml",
-    "C:/projects/met_council_git/project_cards/year_2018_corrections_assign_group_roadway_class.yml",
-    "C:/projects/met_council_git/project_cards/year_2018_corrections_assign_group.yml"]
+    "C:/projects/met_council_git/project_cards/year_2018_corrections_assign_group.yml",
+    "C:/projects/met_council_git/project_cards/year_2018_corrections_assign_group_roadway_class.yml"]
     card_directory: []
     glob_search: []
     tags: []
