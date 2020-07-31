@@ -1,0 +1,22 @@
+;**********************************************
+; MODE CHOICE MODELS
+;**********************************************
+ TTIME_AUTO=10.0
+ TTIME_SR=7.5
+ AUTOCOST  = 0.20            ; auto operating cost 20 cents per mile
+ C_DA = 0.0
+ DA_COST=-0.134
+ C_SR2 = -1.35          
+ SR2_COST=-0.134 
+ C_SR3 = -2.72
+ SR3_COST=-0.134 
+ HWTCOEFF=-0.0263
+ 
+ ; ********** TRANSIT
+ TCOEFF_WA=-0.0263
+ FARE_WA=-0.134
+ TCOEFF_DA=-0.0263
+ FARECOST=-0.134 
+ C_TR=-0.677
+         
+
