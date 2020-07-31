@@ -1,0 +1,125 @@
+ 
+# Overhead
+```{r overhead, include = FALSE}
+packages_vector <- c("tidyverse")
+
+need_to_install <- packages_vector[!(packages_vector %in% installed.packages()[,"Package"])]
+
+if (length(need_to_install)) install.packages(need_to_install)
+
+for (package in packages_vector){
+  library(package, character.only = TRUE)
+}
+
+
+```
+
+# Parameters
+```{r parameters}
+FIXED_WIDTH = 20
+```
+
+
+# Remote I/O
+```{r remote-io}
+data_dir <- "../../data/external/wsp/all_link_and_node_120319/"
+
+input_link_path <- paste0(data_dir, "all_link.csv")
+
+input_node_path <- paste0(data_dir, "all_node.csv")
+
+output_link_path <- paste0(data_dir, "all_link.txt")
+
+output_node_path <- paste0(data_dir, "all_node.txt")
+```
+
+# Data Reads
+```{r data-reads}
+input_link_df <- read_csv(input_link_path)
+
+input_node_df <- read_csv(input_node_path)
+
+```
+
+# Functions
+```{r functions}
+Convert_Vector_to_Fixed_Width <- function(input_vector) {
+  # input_vector <- input_link_df %>%
+    # head(1000) %>%
+  # .$assignment_group
+  # .$A
+  # .$B
+
+  working_df <- data.frame(original_value = input_vector) %>%
+    mutate_all(as.character) %>%
+    mutate(value_length = nchar(original_value)) %>%
+    rowwise() %>%
+    mutate(pad = paste0(rep(" ", FIXED_WIDTH - value_length), collapse = "")) %>%
+    mutate(return_value = paste0(pad, original_value, collapse = ""))
+
+  return_vector <- working_df$return_value
+  
+  return(return_vector)
+}
+
+Convert_Dataframe_to_Fixed_Width <- function(input_df) {
+  # input_df <- input_link_df %>%
+  #   head(1000) %>%
+  #   select(A, B, assignment_group)
+  
+  working_df <- input_df
+  working_column_names <- colnames(input_df)
+  
+  for (i in working_column_names) {
+    
+    working_df <- working_df %>%
+      mutate(!!i := Convert_Vector_to_Fixed_Width(eval(as.name(i))))
+  }
+  return_df <- working_df
+  
+  return(return_df)
+  
+}
+
+```
+
+# Create test output
+```{r test-fixed-width}
+test_link_df <- input_link_df %>%
+  head(1000) %>%
+  select(A, B, assignment_group) %>%
+  mutate_all(as.character)
+
+test_link_df <- test_link_df %>%
+  mutate(A_length = nchar(A)) %>%
+  rowwise() %>%
+  mutate(A_add = paste0(rep(" ", FIXED_WIDTH - A_length), collapse = "")) %>%
+  mutate(A_new = paste0(A_add, A, collapse = "")) 
+
+```
+
+# Create fixed width dataframes
+```{r write-fixed-width}
+output_link_df <- input_link_df %>%
+  select(A, B, assignment_group) 
+
+output_link_df <- Convert_Dataframe_to_Fixed_Width(output_link_df)
+
+output_node_df <- input_node_df %>%
+  select(model_node_id, X, Y, drive_node)
+
+output_node_df <- Convert_Dataframe_to_Fixed_Width(output_node_df)
+```
+
+
+# Write out files
+```{r}
+write.table(output_link_df, output_link_path, 
+            quote = FALSE, sep = "", 
+            col.names = FALSE, row.names = FALSE)
+
+write.table(output_node_df, output_node_path, 
+            quote = FALSE, sep = "", 
+            col.names = FALSE, row.names = FALSE)
+```
+

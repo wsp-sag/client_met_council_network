@@ -25,6 +25,7 @@ model_files/WSPHandoff_Jan2019/ABM 2017/Base2010
 model_files/WSPHandoff_Jan2019/ABM 2017/Input
 model_files/WSPHandoff_Jan2019/ABM 2017/TourCast/script/logs
 *.bak
+
 skeleton_builder/.hubstorinfo
 references/.hubstorinfo
 cube_transit_input/.hubstorinfo
@@ -32,8 +33,21 @@ replacement_networks/.hubstorinfo
 model_files/.hubstorinfo
 .hubstorinfo
 python_scripts/.hubstorinfo
-network_standard/.DS_Store
-network_standard/node.geojson
-.DS_Store
-.DS_Store
-.DS_Store
+
+data/external/*
+!data/external/met_council/*.gitignore
+data/interim/networks/*
+!data/interim/networks/base_network/*.gitignore
+!data/interim/networks/fixed_width/*.gitignore
+data/test_new_network_outputs/*
+
+models/cube_catalog_abm/*
+models/batch_file_abm/TourCast/logs/*
+model_files/*
+*.PRN
+
+# OS system
+*.DS_store
+*.VAR
+*.PRJ
+

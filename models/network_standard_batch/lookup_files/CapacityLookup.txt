@@ -1,0 +1,43 @@
+;Capacity LOOKUP
+;	Rural	Develop	Developed	Res. Core	Business Core	Outlying Bus.
+;AT - Area Types							
+;1 = Rural
+;2 = Developing
+;3 = Developed
+;4 = Residential Core
+;5 = Business Core
+;6 = Outlying Business Core
+;
+;RT - Roadway Types
+;1	1 - Interstate - Metered
+;2	1 - Interstate - UnMetered
+;3	2 - Trunk Highway - Expressway
+;4	2 - Trunk Highway - Divided Arterial
+;5	2 - Trunk Highway - Arterial
+;6	3 - Primary Road - Divided Arterial
+;7 	3 - Primary Road - Arterial
+;8	4 - Major Road - Divided Arterial
+;9	4 - Major Road - Arterial
+;10	4 - Major Road - Collector 
+;11	5 - Residential - Arterial
+;12	5 - Residential - Collector
+;13	6 - Ramp - UnMetered
+;14	6 - Ramp - Metered
+;15	7 - Gravel - Collector
+;
+1	1950	1950	1950	1950	1950	1950	 2.50 	 4.75 	 3.00 	 5.75 
+2	1750	1750	1750	1750	1750	1750	 2.50 	 4.75 	 3.00 	 5.75 
+3	1100	1100	1100	1100	1100	1100	 2.50 	 4.75 	 3.00 	 5.75 
+4	1000	950	    850	    750	    700	    700	     2.50 	 4.75 	 3.00 	 5.75 
+5	900	    850	    750	    650	    600	    600	     2.50 	 4.75 	 3.00 	 5.75 
+6	1000	950	    850	    750	    700	    700	     2.50 	 4.75 	 3.00 	 5.75 
+7	900	    850	    750	    650	    600	    600	     2.50 	 4.75 	 3.00 	 5.75 
+8	1000	950	    850	    750	    700	    700	     2.50 	 4.75 	 3.00 	 5.75 
+9	900	    850	    750	    650	    600	    600	     2.50 	 4.75 	 3.00 	 5.75 
+10	600 	550	    500 	450	    400	    400	     2.50 	 4.75 	 3.00 	 5.75 
+11	900	    850	    750	    650	    600	    600	     2.50 	 4.75 	 3.00 	 5.75 
+12	600 	550	    500 	450	    400 	400 	 2.50 	 4.75 	 3.00 	 5.75 
+13	1500	1400	1350	1250	1200	1200	 2.50 	 4.75 	 3.00 	 5.75 
+14	750	    725	    675	    625 	600 	600 	 2.50 	 4.75 	 3.00 	 5.75 
+15	600 	550 	500 	450 	400 	400 	 2.50 	 4.75 	 3.00 	 5.75 
+99	99999	99999	99999	99999	99999	99999	 2.50 	 4.75 	 3.00 	 5.75 
