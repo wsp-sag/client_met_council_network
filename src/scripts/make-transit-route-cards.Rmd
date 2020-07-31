@@ -1,0 +1,82 @@
+---
+title: "Make Transit Route Cards"
+output: html_notebook
+---
+
+# Overhead
+```{r overhead, include = FALSE}
+packages_vector <- c("tidyverse",
+                     "sf",
+                     "lubridate")
+
+need_to_install <- packages_vector[!(packages_vector %in% installed.packages()[,"Package"])]
+
+if (length(need_to_install)) install.packages(need_to_install)
+
+for (package in packages_vector) {
+  library(package, character.only = TRUE)
+}
+
+```
+
+# Remote I/O
+```{r remote-io}
+transit_dir <- "../../network_standard/transit/"
+road_dir <- "../../network_standard/"
+output_file_name <- "../../data/interim/transit_for_tableau.csv"
+```
+
+# Data Reads
+```{r read}
+routes_df <- read_csv(paste0(transit_dir, "routes.txt"), col_types = "ciccciccc")
+freq_df <- read_csv(paste0(transit_dir, "frequencies.txt"), col_types = "citt")
+trips_df <- read_csv(paste0(transit_dir, "trips.txt"), col_types = cols(.default = col_character(),
+                                                                        direction_id = col_integer(),
+                                                                        block_id = col_integer(),
+                                                                        shape_id = col_integer()))
+stops_df <- read_csv(paste0(transit_dir, "stops.txt"), col_types  = cols(.default = col_character(),
+                                                                         stop_lat = col_double(),
+                                                                         stop_lon = col_double()))
+shapes_df <- read_csv(paste0(transit_dir, "shapes.txt"), col_types = "iddicc")
+stop_times_df <- read_csv(paste0(transit_dir, "stop_times.txt"), col_types = cols(.default = col_integer(),
+                                                                                  stop_id = col_character(),
+                                                                                  trip_id = col_character(),
+                                                                                  arrival_time = col_time(),
+                                                                                  departure_time = col_time(),
+                                                                                  stop_distance = col_double(),
+                                                                                  timepoint = col_character(),
+                                                                                  stop_is_skipped = col_character()))
+
+nodes_sf <- st_read(paste0(road_dir, "node.geojson"), stringsAsFactors = FALSE)
+```
+
+# Reductions
+```{r reductions}
+nodes_df <- bind_cols(tibble(model_node_id = nodes_sf$model_node_id), as_tibble(st_coordinates(nodes_sf))) %>%
+  mutate(model_node_id = paste0(model_node_id)) %>%
+  rename(lng = X, lat = Y)
+  
+output_stops_df <- select(routes_df, route_id, agency_id, route_short_name, route_long_name) %>%
+  left_join(select(trips_df, route_id, service_id, trip_id, trip_headsign, direction_id, shape_id),
+            ., by = c("route_id")) %>%
+  left_join(., freq_df, by = c("trip_id")) %>%
+  left_join(select(stop_times_df, trip_id, stop_id, stop_sequence), ., by = c("trip_id")) %>%
+  left_join(., select(stops_df, stop_id, stop_name, stop_lat, stop_lon), by = c("stop_id")) %>%
+  mutate(summary = "stops")
+
+output_shapes_df <- select(routes_df, route_id, agency_id, route_short_name, route_long_name) %>%
+  left_join(select(trips_df, route_id, service_id, trip_id, trip_headsign, direction_id, shape_id),
+            ., by = c("route_id")) %>%
+  left_join(., freq_df, by = c("trip_id")) %>%
+  left_join(., select(shapes_df, shape_id, shape_pt_sequence, shape_model_node_id), by = c("shape_id")) %>%
+  left_join(., nodes_df, by = c("shape_model_node_id" = "model_node_id")) %>%
+  mutate(summary = "shapes")
+
+output_df <- bind_rows(output_stops_df, output_shapes_df)
+
+```
+
+# Write
+```{r write}
+write_csv(output_df, path = output_file_name)
+```
