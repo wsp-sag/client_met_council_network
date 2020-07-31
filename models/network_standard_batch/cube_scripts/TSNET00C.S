@@ -3,7 +3,7 @@ RUN PGM = NETWORK MSG = 'Calculate Transit Speeds for %TPER%'
 FILEO NETO = "%SCENARIO_DIR%\XIT_NET_0_%TPER%.net"
 FILEI LOOKUPI[2] = "%LOOKUP_DIR%\%TPER%ExpressDelays.txt"
 FILEI LOOKUPI[1] = "%LOOKUP_DIR%\%TPER%LocalDelays.txt"
-FILEI LINKI[1] = "%SCENARIO_DIR%\TransitBase.NET"
+FILEI LINKI[1] = "%SCENARIO_DIR%\warmstart_complete_transit_network.NET"
 
     ; Set period name
     _per='%TPER%'

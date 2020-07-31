@@ -26,7 +26,7 @@ SET NODE_DATA_PATH=%NETWORK_FOLDER%\node.txt
 :: Set transit paths
 SET xit_lines=%NETWORK_FOLDER%\transit.lin
 SET xit_system=%LOOKUP_DIR%\PT_SYSTEM_2010.PTS
-SET xit_faremat=%LOOKUP_DIR%\FAREMAT_2010.txt
+SET xit_faremat=%LOOKUP_DIR%\FAREMAT_2010_updated.txt
 SET xit_fare=%LOOKUP_DIR%\PT_FARE_2010.FAR
 SET xit_pnrnodes=%SCRIPT_PATH%\GENERATE_PNR_ACCESS.s
 SET T_PRIORITY_PATH=%LOOKUP_DIR%\T_Priority.dbf

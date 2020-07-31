@@ -8,27 +8,28 @@ FILEI NETI[1] = "%SCENARIO_DIR%\HWY_ALL_NET.net"
 
     ZONES=%zones%
 
-    ; TODO: Move this into the GeoDB
-    PHASE = NODEMERGE 
-    IF (N = 170600)
-        FAREZONE = 1
+    PHASE=NODEMERGE FILEI=NI.1 
+      IF (N=171203)
+        FAREZONE=1
       ENDIF
-      IF (N = 170601)
-        FAREZONE = 2
+      IF (N=171202)
+        FAREZONE=2
       ENDIF
-      IF (N = 45138)
-        FAREZONE = 3
+      IF (N=171201)
+        FAREZONE=3
       ENDIF
-      IF (N = 170608)
-        FAREZONE = 4
+      IF (N=171200)
+        FAREZONE=4
       ENDIF
-      IF (N = 170607)
-        FAREZONE = 5
+      IF (N=171199)
+        FAREZONE=5
       ENDIF
-      IF (N = 170632)
-        FAREZONE = 6
+      IF (N=171198)
+        FAREZONE=6
+      ENDIF
+      IF (N=17197)
+        FAREZONE=7
       ENDIF
       
-    ENDPROCESS
-
+    ENDPHASE 
 ENDRUN
