@@ -51,3 +51,8 @@ model_files/*
 *.VAR
 *.PRJ
 
+.DS_Store
+network_standard/link.json
+network_standard/node.geojson
+network_standard/pickles/roadway_network.pickle
+network_standard/shape.geojson
