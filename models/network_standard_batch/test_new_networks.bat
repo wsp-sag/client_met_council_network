@@ -16,31 +16,36 @@ SetLocal EnableDelayedExpansion
 :: ----------------------------------------------------------------------------
 CALL .\test_new_networks_parameters.bat
 
-%beginComment%
-:: The network comes as a fixed width file. @Sijia Wang will update the field 
-:: widths and column names as necessary and will update that script when 
-:: releasing network updates. This step moves that script into the main script 
-:: folder so that it is executed in the correct place.
+goto trnskims
+
 COPY %complete_network_script_input_path% %complete_network_script_output_path%
 
 :: Make Networks
-::%beginComment%
+:nets
 runtpp %SCRIPT_PATH%\make_complete_network_from_fixed_width_file.s
+if ERRORLEVEL 2 goto done
+
 runtpp %SCRIPT_PATH%\make_highway_network_from_file.s
+if ERRORLEVEL 2 goto done
+
 runtpp %SCRIPT_PATH%\make_bike_network_from_file.s
+if ERRORLEVEL 2 goto done
+
 runtpp %SCRIPT_PATH%\make_walk_network_from_file.s
+if ERRORLEVEL 2 goto done
+
 runtpp %SCRIPT_PATH%\FullMakeNetwork15.s 
+if ERRORLEVEL 2 goto done
 
-:: HIGHWAY
-::%beginComment%
+:: Roadway Skims
+:road_skims
 runtpp %SCRIPT_PATH%\BNNET00B.s
-runtpp %SCRIPT_PATH%\HNNET00B.s
-::endComment
+if ERRORLEVEL 2 goto done
 
-::endComment
-:: This script handles TOD assignment. Batch files require a single character
-:: variable.
-::%exitRun%
+runtpp %SCRIPT_PATH%\HNNET00B.s
+if ERRORLEVEL 2 goto done
+
+
 for /L %%I IN (1, 1, 6) DO (
 	SET TOD=%%I
 
@@ -52,18 +57,26 @@ for /L %%I IN (1, 1, 6) DO (
 	IF %%I EQU 6 (SET NETNAME=PM Peak Period 3:00 PM to 7:00 PM)
 
 	runtpp %SCRIPT_PATH%\HNNET00C.s
+	if ERRORLEVEL 2 goto done
 )
 
 runtpp %SCRIPT_PATH%\FFHWY00A.s
-runtpp %SCRIPT_PATH%\FFPIL00A.s
-runtpp %SCRIPT_PATH%\TSNET00A.s
-runtpp %SCRIPT_PATH%\TSNET00B.s
-runtpp %SCRIPT_PATH%\warmstart_transit_walk_links.s
-::endComment
+if ERRORLEVEL 2 goto done
 
-:: Calculate transit speeds for each period
-:: Build walk access, transfer access, and drive access connectors for each period
-:: Skim walk transit and drive transit
+runtpp %SCRIPT_PATH%\FFPIL00A.s
+if ERRORLEVEL 2 goto done
+
+runtpp %SCRIPT_PATH%\TSNET00A.s
+if ERRORLEVEL 2 goto done
+
+runtpp %SCRIPT_PATH%\TSNET00B.s
+if ERRORLEVEL 2 goto done
+
+runtpp %SCRIPT_PATH%\warmstart_transit_walk_links.s
+if ERRORLEVEL 2 goto done
+
+:: Transit Skims
+:trnskims
 FOR /L %%I IN (1, 1, 1) DO (
 
 	SET TOD=%%I
@@ -76,31 +89,53 @@ FOR /L %%I IN (1, 1, 1) DO (
         )
 
 	runtpp %SCRIPT_PATH%\TSNET00C.s
+	if ERRORLEVEL 2 goto done
+	
     runtpp %SCRIPT_PATH%\TSPTR00D.s
+	if ERRORLEVEL 2 goto done
+	
     runtpp %SCRIPT_PATH%\TSPTR00F.s
+	if ERRORLEVEL 2 goto done
+	
     runtpp %SCRIPT_PATH%\TSPTR00H.s
+	if ERRORLEVEL 2 goto done
+	
     runtpp %SCRIPT_PATH%\TSPIL00C.s
+	if ERRORLEVEL 2 goto done
+	
     runtpp %SCRIPT_PATH%\TSPTR00A.s
+	if ERRORLEVEL 2 goto done
+	
     runtpp %SCRIPT_PATH%\TSPTR00C.s
+	if ERRORLEVEL 2 goto done
+	
     runtpp %SCRIPT_PATH%\TSMAT00A.s
+	if ERRORLEVEL 2 goto done
+	
     runtpp %SCRIPT_PATH%\TSMAT00C.s
+	if ERRORLEVEL 2 goto done
 )
 
-::endComment
-%exitRun%
 SET ITER=4
 SET PREV_ITER=3
 
-%beginComment%
 :: HIGHWAY
+:highway
 runtpp %SCRIPT_PATH%\HAPIL00D.s
-runtpp %SCRIPT_PATH%\HAMAT00E.s
-runtpp %SCRIPT_PATH%\HAMAT00G.s
-runtpp %SCRIPT_PATH%\HAMAT00I.s
-runtpp %SCRIPT_PATH%\HAMAT00K.s
-::endComment
+if ERRORLEVEL 2 goto done
 
-::%beginComment%
+runtpp %SCRIPT_PATH%\HAMAT00E.s
+if ERRORLEVEL 2 goto done
+
+runtpp %SCRIPT_PATH%\HAMAT00G.s
+if ERRORLEVEL 2 goto done
+
+runtpp %SCRIPT_PATH%\HAMAT00I.s
+if ERRORLEVEL 2 goto done
+
+runtpp %SCRIPT_PATH%\HAMAT00K.s
+if ERRORLEVEL 2 goto done
+
 FOR /L %%I IN (1, 4, 1) DO (
 
 	SET TOD=%%I
@@ -136,16 +171,23 @@ FOR /L %%I IN (1, 4, 1) DO (
 
 
 	runtpp %SCRIPT_PATH%\HAMAT00A.s
+	if ERRORLEVEL 2 goto done
+	
     runtpp %SCRIPT_PATH%\HAHWY00A.s
+	if ERRORLEVEL 2 goto done
+	
     runtpp %SCRIPT_PATH%\HAMAT00C.s
+	if ERRORLEVEL 2 goto done
 )
 
 runtpp %SCRIPT_PATH%\HAPIL00B.s
+if ERRORLEVEL 2 goto done
 
 :: Rebuild transit network with walk links
 runtpp %SCRIPT_PATH%\transit_walk_links.s
+if ERRORLEVEL 2 goto done
+
 :: TRANSIT skimming
-::%beginComment%
 :: Loop over peak/off-peak
 FOR /L %%I IN (1,1,1) DO (
     SET TOD=%%I
@@ -162,13 +204,15 @@ FOR /L %%I IN (1,1,1) DO (
     
     :: Calculate transit speeds for period
     runtpp %SCRIPT_PATH%\TSNET00F.s
+	if ERRORLEVEL 2 goto done
+	
     :: Build period walk access connectors
     runtpp %SCRIPT_PATH%\TSPTR00N.s
+	if ERRORLEVEL 2 goto done
     
 )
-::endComment
-    
-%exitRun%
+
+goto done
 
 ::    :: Build period transfer access connectors
 ::    runtpp %SCRIPT_PATH%\TSPTR00S.s
@@ -189,4 +233,4 @@ FOR /L %%I IN (1,1,1) DO (
 ::    :: Drive transit skim step 2
 ::    runtpp %SCRIPT_PATH%\TSMAT00G.s
 ::endComment
-:endOfFile
+:done

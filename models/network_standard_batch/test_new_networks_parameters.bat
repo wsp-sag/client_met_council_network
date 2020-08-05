@@ -120,10 +120,4 @@ SET PYTHON_PATH=C:\python27\ArcGIS10.6
 SET OLD_PATH=%PATH%
 SET PATH=%TPP_PATH%;%PYTHON_PATH%;%OLD_PATH%
 
-:: Set shortcut keys
-SET "beginComment=goto :endComment"
-SET "returnToHead=goto :head"
-SET "exitRun=goto :endOfFile"
-SET "check_cube_errors=IF ERRORLEVEL 2 %exitRun%"
-SET "check_python_errors=IF ERRORLEVEL 1 %exitRun%"
 
