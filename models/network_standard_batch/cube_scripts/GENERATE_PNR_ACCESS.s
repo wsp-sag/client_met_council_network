@@ -112,7 +112,7 @@ ACCESSLINK=
 26717-59496,0.05,0.05,
 direction=1,	;accessdirectiononly
 oneway=T,	;followtheroadwaydirection
-excludelink=(li.T_MANTIME>0),;nodriveaccessontransitonlylinks
+excludelink=(li.DRIVE_ACCESS == 0),;nodriveaccessontransitonlylinks
 cost=(lw.roadtime),	;skimoncongestedtime
 maxcost=7*10,30,30,
 maxntlegs=9*20,
