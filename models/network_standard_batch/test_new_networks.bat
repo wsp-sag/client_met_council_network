@@ -16,7 +16,7 @@ SetLocal EnableDelayedExpansion
 :: ----------------------------------------------------------------------------
 CALL .\test_new_networks_parameters.bat
 
-goto trnskims
+goto hwyskim
 
 COPY %complete_network_script_input_path% %complete_network_script_output_path%
 
@@ -120,7 +120,7 @@ SET ITER=4
 SET PREV_ITER=3
 
 :: HIGHWAY
-:highway
+:hwyskim
 runtpp %SCRIPT_PATH%\HAPIL00D.s
 if ERRORLEVEL 2 goto done
 

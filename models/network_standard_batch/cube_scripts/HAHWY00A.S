@@ -128,7 +128,7 @@ DISTRIBUTEINTRASTEP ProcessID = 'Intrastep', ProcessList = 1 - %max_threads%
         IF (LI.SEGMENT_ID=40,41 && LI.MANAGED=1)    ADDTOGROUP=28 ; 94/694 from 94 to maplegrove, partial lane converstion
         IF (LI.SEGMENT_ID=42 && LI.MANAGED=1)       ADDTOGROUP=29 ; 694 EB from 94 to 35W
         IF (LI.SEGMENT_ID=43 && LI.MANAGED=1)       ADDTOGROUP=31 ; 694 WB from 35W to 94 ; SKIPPING GROUP 30 because it is exclusion group above . ugh
-        IF (LI.SEGMENT_ID=44,45 && LI.MANAGED=1)    ADDTOGROUP=32 ; 77 NB and SB because i cna't have 33 groups WHICH IS STUPID
+        IF (LI.SEGMENT_ID=44,45 && LI.MANAGED=1)    ADDTOGROUP=32 ; 77 NB and SB because i cnat have 33 groups WHICH IS STUPID
 
         ; rachel adding toll groups 6 - 32
         _toll1 = 25
