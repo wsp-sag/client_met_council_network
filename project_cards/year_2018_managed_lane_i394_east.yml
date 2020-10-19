@@ -1,0 +1,65 @@
+project: I-394 East Managed Lane
+tags:
+  - 'year_2018_corrections'
+  - 'managed_lane'
+dependencies:
+  prerequisites: []
+  corequisites: []
+  conflicts: []
+category: Parallel Managed lanes
+facility:
+  link:
+  - model_link_id:
+    - 416366
+    - 414813
+    - 381248
+    - 381223
+    - 417878
+    - 418556
+    - 418512
+    - 419032
+    - 419044
+    - 419040
+    - 419637
+    - 419634
+    - 417947
+    - 420448
+    - 420447
+    - 394057
+properties:
+  - property: lanes
+    set: 4
+    timeofday:
+      - time: ['6:00', '9:00']
+        set: 3
+      - time: ['16:00', '19:00']
+        set: 3
+  - property: ML_lanes
+    set: 0
+    timeofday:
+      - time: ['6:00', '9:00']
+        set: 1
+      - time: ['16:00', '19:00']
+        set: 1
+  - property: ML_price
+    set: 0
+    group:
+      - category: ['sov']
+        timeofday:
+          - time: ['6:00', '9:00']
+            set: 1.5
+          - time: ['16:00', '19:00']
+            set: 2.5
+      - category: ['hov2']
+        timeofday:
+          - time: ['6:00', '9:00']
+            set: 1.0
+          - time: ['16:00', '19:00']
+            set: 2.0
+  - property: segment_id
+    set: 5
+  - property: ML_access
+    set: 'all'
+  - property: ML_egress
+    set: 'all'
+notes:
