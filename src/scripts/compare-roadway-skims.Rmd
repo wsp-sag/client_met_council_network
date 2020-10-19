@@ -1,0 +1,87 @@
+---
+title: "Compare Roadway Skims"
+output: html_notebook
+---
+
+# Overhead
+```{r overhead, include = FALSE}
+packages_vector <- c("tidyverse")
+
+need_to_install <- packages_vector[!(packages_vector %in% installed.packages()[,"Package"])]
+
+if (length(need_to_install)) install.packages(need_to_install)
+
+for (package in packages_vector) {
+  library(package, character.only = TRUE)
+}
+
+```
+
+# Remote I/O
+```{r remote-io}
+legacy_dir <- "c:/projects/met_council/model_files/outputs2015/outputs/"
+rebuild_dir <- "../../data/test_new_network_outputs/"
+
+output_file_name <- "../../data/interim/roadway-skims-tableau"
+```
+
+# Data Reads
+```{r read}
+time_periods_vector <- c("AM", "MD", "PM", "NT")
+
+for (time_period in time_periods_vector) {
+  
+  legacy_file_name <- paste0(legacy_dir, "highway_skims_", time_period, ".csv")
+  df <- read_csv(legacy_file_name, col_types = "iidd")
+  
+  if (time_period == time_periods_vector[1]){
+    legacy_df <- mutate(df, time_period = time_period)
+  } else {
+    legacy_df <- bind_rows(legacy_df, mutate(df, time_period = time_period))
+  }
+  
+  rebuild_file_name <- paste0(rebuild_dir, "highway_skims_", time_period, ".csv")
+  df <- read_csv(rebuild_file_name, col_types = "iidd")
+  
+  if (time_period == time_periods_vector[1]){
+    rebuild_df <- mutate(df, time_period = time_period)
+  } else {
+    rebuild_df <- bind_rows(rebuild_df, mutate(df, time_period = time_period))
+  }
+  
+}
+```
+
+# Reductions
+```{r reductions}
+joined_df <- left_join(
+  rename(legacy_df, legacy_daptime = daptime, legacy_dapdist = dapdist),
+  rename(rebuild_df, rebuild_daptime = daptime, rebuild_dapdist = dapdist),
+  by = c("orig", "dest", "time_period"))
+
+stats_df <- output_df %>%
+  mutate(time_error = abs(rebuild_daptime - legacy_daptime)) %>%
+  mutate(time_error_sqd = time_error * time_error) %>%
+  mutate(dist_error = abs(rebuild_dapdist - legacy_dapdist)) %>%
+  mutate(dist_error_sqd = dist_error * dist_error) %>%
+  mutate(rebuild_faster = if_else(rebuild_daptime < legacy_daptime, 1L, 0L)) %>%
+  group_by() %>%
+  summarise(mean_time_error = mean(time_error),
+            mean_time_error_sqd = mean(time_error_sqd),
+            mean_rebuild_time = mean(rebuild_daptime),
+            mean_legacy_time = mean(legacy_daptime),
+            share_rebuild_faster = mean(rebuild_faster),
+            max_error = max(time_error)) %>%
+  ungroup() %>%
+  mutate(rmse_time = sqrt(mean_time_error_sqd),
+         pct_rmse_time = rmse_time / mean_legacy_time)
+
+output_df <- joined_df %>%
+  filter(time_period == time_periods_vector[2])
+
+```
+
+# Write
+```{r write}
+write_csv(output_df, file = paste0(output_file_name, ".csv"))
+```
