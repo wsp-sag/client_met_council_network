@@ -1,0 +1,56 @@
+project: 35W south managed lane
+tags:
+  - 'year_2018_corrections'
+  - 'managed_lane'
+dependencies:
+  prerequisites: []
+  corequisites: []
+  conflicts: []
+category: Parallel Managed lanes
+facility:
+  link:
+    - model_link_id:
+      - 398399
+      - 381583
+      - 398392
+      - 397184
+      - 385502
+      - 382034
+      - 395192
+properties:
+  - property: lanes
+    set: 4
+    timeofday:
+      - time: ['6:00', '9:00']
+        set: 3
+      - time: ['16:00', '19:00']
+        set: 3
+  - property: ML_lanes
+    set: 0
+    timeofday:
+      - time: ['6:00', '9:00']
+        set: 1
+      - time: ['16:00', '19:00']
+        set: 1
+  - property: ML_price
+    set: 0
+    group:
+      - category: ['sov']
+        timeofday:
+          - time: ['6:00', '9:00']
+            set: 1.5
+          - time: ['16:00', '19:00']
+            set: 2.5
+      - category: ['hov2']
+        timeofday:
+          - time: ['6:00', '9:00']
+            set: 1.0
+          - time: ['16:00', '19:00']
+            set: 2.0
+  - property: segment_id
+    set: 5
+  - property: ML_access
+    set: 'all'
+  - property: ML_egress
+    set: 'all'
+notes:
