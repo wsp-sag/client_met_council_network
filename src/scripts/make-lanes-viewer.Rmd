@@ -1,0 +1,76 @@
+---
+title: "Make Facility Type Viewer"
+output: html_notebook
+---
+
+
+# Overhead
+```{r overhead, include = FALSE}
+packages_vector <- c("tidyverse",
+                     "arrow",
+                     "sf")
+
+need_to_install <- packages_vector[!(packages_vector %in% installed.packages()[,"Package"])]
+
+if (length(need_to_install)) install.packages(need_to_install)
+
+for (package in packages_vector) {
+  library(package, character.only = TRUE)
+}
+
+```
+
+# Remote I/O
+```{r remote-io}
+network_dir <- "../../network_standard/"
+lanes_dir <- "../../../Lasso/metcouncil_data/lookups/"
+interim_dir <- "../../data/interim/" 
+
+links_file_name <- paste0(network_dir, "link.feather")
+shape_file_name <- paste0(network_dir, "shape.geojson")
+conflation_file_name <- paste0(lanes_dir, "lanes.csv")
+
+output_file_name <- paste0(interim_dir, "lanes-viewer.geojson")
+```
+
+# Parameters
+```{r parameters}
+
+```
+
+
+# Data Reads
+```{r read}
+links_df <- read_feather(file = links_file_name)
+shapes_sf <- st_read(shape_file_name)
+conflation_df <- read_csv(conflation_file_name, col_types = cols(.default = col_integer()))
+```
+
+# Reductions 
+```{r reductions}
+output_sf <- links_df %>%
+  filter(drive_access == 1) %>%
+  filter(centroidconnect == 0) %>%
+  filter(A > 3100 & B > 3100) %>%
+  select(model_link_id, shape_id, lanes, roadway, name) %>%
+  left_join(., 
+            select(shapes_sf, shape_id, geometry),
+            by = c("shape_id")) %>%
+  left_join(., conflation_df, by = c("model_link_id")) %>%
+  mutate(county_lanes = pmax(anoka,
+                             hennepin,
+                             carver,
+                             dakota,
+                             washington)) %>%
+  mutate(dot_lanes = pmax(mndot, widot)) %>%
+  select(model_link_id, shape_id, lanes, roadway, name, legacy_osm_lanes,
+         dot_lanes, county_lanes, naive, osm_min, osm_max, osm_mode, geometry)
+  
+```
+
+# Write
+```{r write}
+st_write(output_sf, output_file_name, delete_dsn = TRUE)
+```
+
+
