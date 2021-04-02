@@ -1,0 +1,196 @@
+---
+project: Manual Changes to Assignment Group and Roadway Class
+tags:
+  - 'year_2018_corrections'
+dependencies:
+  prerequisites: []
+  corequisites: []
+  conflicts: []
+category: Calculated Roadway
+---
+
+from network_wrangler import RoadwayNetwork
+from lasso import Parameters
+
+lasso_dir = os.path.join('/Users', 'wsp', 'Documents', 'GitHub', 'lasso')
+
+parameters = Parameters(lasso_base_dir = lasso_dir)
+
+# Calculate area type
+area_type_shape = parameters.area_type_shape
+area_type_shape_variable = parameters.area_type_variable_shp
+area_type_codes_dict = parameters.area_type_code_dict
+downtown_area_type_shape = parameters.downtown_area_type_shape
+downtown_area_type = parameters.downtown_area_type
+
+centroids_gdf = self.links_df.copy()
+centroids_gdf["geometry"] = centroids_gdf["geometry"].centroid
+
+area_type_gdf = gpd.read_file(area_type_shape)
+area_type_gdf = area_type_gdf.to_crs(epsg=RoadwayNetwork.CRS)
+
+downtown_gdf = gpd.read_file(downtown_area_type_shape)
+downtown_gdf = downtown_gdf.to_crs(epsg=RoadwayNetwork.CRS)
+
+joined_gdf = gpd.sjoin(centroids_gdf, area_type_gdf, how="left", op="intersects")
+joined_gdf[area_type_shape_variable] = (
+  joined_gdf[area_type_shape_variable]
+  .map(area_type_codes_dict)
+  .fillna(1)
+  .astype(int)
+)
+
+d_joined_gdf = gpd.sjoin(centroids_gdf, downtown_gdf, how="left", op="intersects")
+
+d_joined_gdf['downtown_area_type'] = d_joined_gdf['Id'].fillna(-99).astype(int)
+
+joined_gdf.loc[d_joined_gdf['downtown_area_type'] == 0, area_type_shape_variable] = downtown_area_type
+
+self.links_df['area_type'] = joined_gdf[area_type_shape_variable]
+
+# Calculate county
+county_shape = parameters.county_shape
+county_shape_variable = parameters.county_variable_shp
+county_codes_dict = parameters.county_code_dict
+
+centroids_gdf = self.links_df.copy()
+centroids_gdf["geometry"] = centroids_gdf["geometry"].centroid
+
+county_gdf = gpd.read_file(county_shape)
+county_gdf = county_gdf.to_crs(epsg=RoadwayNetwork.CRS)
+joined_gdf = gpd.sjoin(centroids_gdf, county_gdf, how="left", op="intersects")
+
+joined_gdf[county_shape_variable] = (
+  joined_gdf[county_shape_variable]
+  .map(county_codes_dict)
+  .fillna(10)
+  .astype(int)
+)
+
+self.links_df['county'] = joined_gdf[county_shape_variable]
+
+# Change 00: Re-apply OSM crosswalk for links which are improperly tagged as residential assigngrp =50
+osm_asgngrp_crosswalk_df = pd.read_csv(parameters.osm_assgngrp_dict)
+
+join_df = pd.merge(
+    self.links_df,
+    osm_asgngrp_crosswalk_df.rename(
+        columns={
+            "assign_group": "assignment_group_osm",
+            "roadway_class": "roadway_class_osm"
+        }
+    ),
+    how="left",
+    on="roadway",
+)
+
+def func(ag, rdwy, osm_val, cur_val):
+    if ag == 50:
+        if rdwy != 'residential':
+            return osm_val
+        return cur_val
+    return cur_val
+
+join_df['update_assign_group'] = np.vectorize(func)(
+    join_df.assign_group,
+    join_df.roadway,
+    join_df.assignment_group_osm,
+    join_df.assign_group,
+)
+
+join_df['roadway_class'] = np.vectorize(func)(
+    join_df.assign_group,
+    join_df.roadway,
+    join_df.roadway_class_osm,
+    join_df.roadway_class,
+)
+
+self.links_df['assign_group'] = join_df['update_assign_group']
+self.links_df['roadway_class'] = join_df['roadway_class']
+
+# Change 01: ROADWAY=motorway in Areatypes 2, 3, 4, 5 - assign_group= 1 (metered freeway) In other areatype - assign_group = 2 (unmetered freeway)
+self.links_df.loc[(self.links_df['roadway'] == 'motorway') & (self.links_df['area_type'].isin([2,3,4,5])), 'assign_group'] = 1
+self.links_df.loc[(self.links_df['roadway'] == 'motorway') & (~self.links_df['area_type'].isin([2,3,4,5])), 'assign_group'] = 2
+
+# Change 02: ROADWAY = trunk Asgngrp=15 (expressway), overwriting any mrcc conflation
+self.links_df.loc[self.links_df['roadway'] == 'trunk', 'assign_group'] = 15
+
+# Change 03: Ramps - ROADWAY_CLASS=60 is supposed to equal Ramp, but finding some issues
+#   - ROADWAY_CLASS= 60 & ROADWAY='motorway'
+#   - in Areatypes 2 3 4 5 - asgngrp 3 (metered ramp)
+#   - In other area types - asgngrp =4 (unmetered ramp)
+self.links_df.loc[(self.links_df['roadway_class'] == 60) & (self.links_df['roadway'] == 'motorway') & (self.links_df['area_type'].isin([2,3,4,5])), 'assign_group'] = 3
+self.links_df.loc[(self.links_df['roadway_class'] == 60) & (self.links_df['roadway'] == 'motorway') & (~self.links_df['area_type'].isin([2,3,4,5])), 'assign_group'] = 4
+
+# Change 04: ROADWAY_CLASS= 60 & ROADWAY='trunk' Appears to be slip ramps and acceleration lanes on expressways. Set as assign_group=4 (might need to revisit)
+self.links_df.loc[(self.links_df['roadway_class'] == 60) & (self.links_df['roadway'] == 'trunk'), 'assign_group'] = 4
+
+# Change 05: changing collectors outside metro in MN to arterials for increased speed and volume
+self.links_df.loc[(self.links_df['county'].isin([11,12,13,14,15,18,19,20,22])) & (self.links_df['assign_group'] == 7), 'assign_group'] = 6
+
+# Change 06: Check for any links that are coded as assign_group = 3, 4 , 13 , 14 that don't attach to asgngrp= 1, 2, or 15 – ie ramps that
+#   don’t connect to freeway or expressway These should be flagged for review
+join_df = pd.merge(
+    self.links_df.loc[self.links_df['assign_group'].isin([3, 4, 13, 14])][['A', 'B', 'assign_group']],
+    self.links_df[['A', 'B', 'assign_group']].rename(columns = {'assign_group': 'next_assign_group'}),
+    how = 'left',
+    left_on = 'B',
+    right_on = 'A',
+).drop(columns = ['A_y', 'B_y']).rename(columns = {'A_x': 'A', 'B_x': 'B'}).dropna().astype(int)
+
+join_df = pd.merge(
+    join_df,
+    self.links_df[['A', 'B', 'assign_group']].rename(columns = {'assign_group': 'prev_assign_group'}),
+    how = 'left',
+    left_on = 'A',
+    right_on = 'B',
+).drop(columns = ['A_y', 'B_y']).rename(columns = {'A_x': 'A', 'B_x': 'B'}).dropna().astype(int)
+
+def func(n, p):
+    if np.in1d(n, [1, 2, 15]):
+        return int(1)
+    elif np.in1d(p, [1, 2, 15]):
+        return int (1)
+    return int(0)
+
+join_df['ramp_flag'] = np.vectorize(func)(
+    join_df.next_assign_group.astype(int),
+    join_df.prev_assign_group.astype(int)
+)
+
+join_back_df = join_df.groupby(['A','B'])['ramp_flag'].sum().reset_index()
+join_back_df['ramp_flag'] = np.where(join_back_df['ramp_flag'] > 0, 'Connected', 'Need to Examine')
+
+self.links_df = pd.merge(
+    self.links_df,
+    join_back_df,
+    how = 'left',
+    on = ['A', 'B'])
+
+# Change 07: Arterials – we have most of the major roads tagged as Assign_Group=6 (undivided artertial)
+#   - Assign_group = 6 and there is no reverse value (no B-A) then set Assign_group = 5 (divided arterial) If assign_group = 6 and Assign_group.R=6, then keep assign_group=6 (undivided arterial)
+reverse_df = self.links_df[['A', 'B', 'drive_access']].rename(columns = {'B': 'A', 'A': 'B'})
+reverse_df['reverse'] = 1
+reverse_df = reverse_df[reverse_df['drive_access'] == 1].drop(columns = ['drive_access'])
+
+join_df = pd.merge(
+    self.links_df.loc[self.links_df['assign_group'] == 6][['A', 'B', 'assign_group']],
+    reverse_df,
+    how = 'left',
+    on = ['A', 'B'],
+)
+
+join_df['update_assign_group'] = np.where(join_df['reverse'] == 1.0, 6, 5)
+
+self.links_df = pd.merge(
+     self.links_df,
+     join_df.drop(columns = ['reverse', 'assign_group']),
+     how = 'left',
+     on = ['A', 'B'],
+)
+
+self.links_df.loc[(self.links_df['assign_group'] == 6) & (self.links_df['update_assign_group'] == 5), 'assign_group'] = 5
+self.links_df = self.links_df.drop(columns = ['update_assign_group'])
+
+# Change 08: lane change #1 - set all residential back to 1 lane
+self.links_df.loc[(self.links_df['assign_group'] == 50) & (self.links_df['area_type'] != 5), 'lanes'] = 1
