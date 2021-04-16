@@ -18,6 +18,8 @@ CALL .\test_new_networks_parameters.bat
 
 COPY %complete_network_script_input_path% %complete_network_script_output_path%
 
+goto tnet
+
 :: ----------------------------------------------------------------------------
 ::
 :: Step 2:  Make Roadway Networks
@@ -56,12 +58,11 @@ if ERRORLEVEL 2 goto done
 
 :: ----------------------------------------------------------------------------
 ::
-:: Step 4:  Transit Assignment
+:: Step 4:  Transit Skims
 ::
 :: ----------------------------------------------------------------------------
 
-SET ITER=4
-
+:trnskims
 FOR /L %%I IN (1, 2, 1) DO (
 
 	SET TOD=%%I
@@ -73,17 +74,34 @@ FOR /L %%I IN (1, 2, 1) DO (
         SET TPER=OP
         )
 
-	runtpp %SCRIPT_PATH%\PAMAT00C.s
+	runtpp %SCRIPT_PATH%\TSNET00C.s
 	if ERRORLEVEL 2 goto done
 	
-	:: replaces PAMAT00A.s
-	runtpp %SCRIPT_PATH%\prepare_transit_demand.s
-	if ERRORLEVEL 2 goto done
-
-	runtpp %SCRIPT_PATH%\PAPTR00B.s
+    runtpp %SCRIPT_PATH%\TSPTR00D.s
 	if ERRORLEVEL 2 goto done
 	
-	runtpp %SCRIPT_PATH%\PAPTR00D.s
+    runtpp %SCRIPT_PATH%\TSPTR00F.s
+	if ERRORLEVEL 2 goto done
+	
+    runtpp %SCRIPT_PATH%\TSPTR00H.s
+	if ERRORLEVEL 2 goto done
+	
+    runtpp %SCRIPT_PATH%\TSPIL00C.s
+	if ERRORLEVEL 2 goto done
+	
+    runtpp %SCRIPT_PATH%\TSPTR00A.s
+	if ERRORLEVEL 2 goto done
+	
+    runtpp %SCRIPT_PATH%\TSPTR00C.s
+	if ERRORLEVEL 2 goto done
+	
+    runtpp %SCRIPT_PATH%\TSMAT00A.s
+	if ERRORLEVEL 2 goto done
+	
+    runtpp %SCRIPT_PATH%\TSMAT00C.s
+	if ERRORLEVEL 2 goto done
+	
+	runtpp %SCRIPT_PATH%\skims_to_omx.s
 	if ERRORLEVEL 2 goto done
 )
 :done

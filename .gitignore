@@ -18,6 +18,7 @@
 .ipynb_checkpoints/
 
 # Cache
+model_files/ABM 2017/*
 model_files/vpn*
 model_files/*.zip
 model_files/Network*
@@ -58,3 +59,4 @@ network_standard/pickles/roadway_network.pickle
 network_standard/shape.geojson
 data/interim/roadway-skims-tableau.csv
 data/interim/lanes-viewer.geojson
+model_files/ABM 2017/Cube/ASSIGN00.APP
