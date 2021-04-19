@@ -60,3 +60,4 @@ network_standard/shape.geojson
 data/interim/roadway-skims-tableau.csv
 data/interim/lanes-viewer.geojson
 model_files/ABM 2017/Cube/ASSIGN00.APP
+.DS_Store
