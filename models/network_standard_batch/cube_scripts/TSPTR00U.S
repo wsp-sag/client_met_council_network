@@ -14,10 +14,14 @@ FILEI NETI = "%SCENARIO_DIR%\XIT_NET_%ITER%_%TPER%.NET"
 
     PHASE=LINKREAD
         _wlkspd = 2.5;mph
-        if (li.CSPD_1=0) 
+		if (li.WALK_ACCESS==1 && li.DRIVE_ACCESS==0)
+		    lw.roadtime=(li.distance/_wlkspd)*60
+        elseif (li.CSPD_1=0 && li.SPEED>0) 
             lw.roadtime=(li.distance/li.SPEED)*60
-        else
+        elseif (li.CSPD_1>0)
             lw.roadtime=(li.distance/li.CSPD_1)*60
+		else
+		    lw.roadtime=(li.distance/0.1)*60
         ENDIF
     ENDPHASE
 

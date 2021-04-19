@@ -76,8 +76,7 @@ FOR /L %%I IN (1, 2, 1) DO (
 	runtpp %SCRIPT_PATH%\PAMAT00C.s
 	if ERRORLEVEL 2 goto done
 	
-	:: replaces PAMAT00A.s
-	runtpp %SCRIPT_PATH%\prepare_transit_demand.s
+	runtpp %SCRIPT_PATH%\PAMAT00A.s
 	if ERRORLEVEL 2 goto done
 
 	runtpp %SCRIPT_PATH%\PAPTR00B.s

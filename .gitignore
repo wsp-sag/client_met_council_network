@@ -18,7 +18,7 @@
 .ipynb_checkpoints/
 
 # Cache
-model_files/ABM 2017/*
+model_files/*
 model_files/vpn*
 model_files/*.zip
 model_files/Network*

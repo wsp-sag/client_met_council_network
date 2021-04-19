@@ -37,6 +37,33 @@ FILEI LINKI[1] = "%SCENARIO_DIR%\complete_transit_network.net"
                             LOOKUP[10]=1, RESULT=2,         ; 1 and 10 are rural area types
                             FAIL=0,0,0, INTERPOLATE=N,
                             LOOKUPI=2, LIST=Y
+							
+							
+	PHASE=NODEMERGE FILEI=NI.1 
+      IF (N=171197)
+        FAREZONE=1
+      ENDIF
+      IF (N=171198)
+        FAREZONE=2
+      ENDIF
+      IF (N=171199)
+        FAREZONE=3
+      ENDIF
+      IF (N=171200)
+        FAREZONE=4
+      ENDIF
+      IF (N=171201)
+        FAREZONE=5
+      ENDIF
+      IF (N=171202)
+        FAREZONE=6
+      ENDIF
+	  IF (N=171203)
+        FAREZONE=7
+      ENDIF
+	  
+	ENDPROCESS
+	  
             
 ;;--------------------------------------------------------------------------
     
