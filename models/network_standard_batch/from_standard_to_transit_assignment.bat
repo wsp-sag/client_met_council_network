@@ -18,6 +18,8 @@ CALL .\test_new_networks_parameters.bat
 
 COPY %complete_network_script_input_path% %complete_network_script_output_path%
 
+goto assign
+
 :: ----------------------------------------------------------------------------
 ::
 :: Step 2:  Make Roadway Networks
@@ -60,9 +62,10 @@ if ERRORLEVEL 2 goto done
 ::
 :: ----------------------------------------------------------------------------
 
+:assign
 SET ITER=4
 
-FOR /L %%I IN (1, 2, 1) DO (
+FOR /L %%I IN (1, 1, 2) DO (
 
 	SET TOD=%%I
 

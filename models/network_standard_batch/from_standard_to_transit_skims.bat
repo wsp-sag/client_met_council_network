@@ -18,7 +18,7 @@ CALL .\test_new_networks_parameters.bat
 
 COPY %complete_network_script_input_path% %complete_network_script_output_path%
 
-goto tnet
+goto wskim
 
 :: ----------------------------------------------------------------------------
 ::
@@ -62,8 +62,8 @@ if ERRORLEVEL 2 goto done
 ::
 :: ----------------------------------------------------------------------------
 
-:trnskims
-FOR /L %%I IN (1, 2, 1) DO (
+:wskim
+FOR /L %%I IN (1, 1, 2) DO (
 
 	SET TOD=%%I
 
@@ -107,6 +107,7 @@ FOR /L %%I IN (1, 2, 1) DO (
 :: Step 5: Transit Skims
 ::
 :: ----------------------------------------------------------------------------
+:tskim
 SET ITER=4
 
 FOR /L %%I IN (1, 4, 1) DO (
@@ -136,7 +137,8 @@ FOR /L %%I IN (1, 4, 1) DO (
 	)
 
 :: Loop over peak/off-peak
-FOR /L %%I IN (1,2,1) DO (
+FOR /L %%I IN (1,1,2) DO (
+
     SET TOD=%%I
     IF %%I EQU 1 (
         SET TPER=PK
