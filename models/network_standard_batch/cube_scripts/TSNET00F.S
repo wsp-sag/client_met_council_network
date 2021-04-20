@@ -6,6 +6,7 @@ FILEO NETO = "%SCENARIO_DIR%\XIT_NET_%ITER%_%TPER%.NET"
 FILEI LOOKUPI[2] = "%LOOKUP_DIR%\%TPER%EXPRESSDELAYS.TXT"
 FILEI LOOKUPI[1] = "%LOOKUP_DIR%\%TPER%LOCALDELAYS.TXT"
 FILEI LINKI[1] = "%SCENARIO_DIR%\complete_transit_network.net"
+FILEI NODEI[3] = "%LOOKUP_DIR%\fare_stations.txt", VAR=N, BEG=1, LEN=6, VAR=FAREZONE, BEG=8, LEN=2
 
     ; Set period name
     _per='%TPER%'
@@ -37,32 +38,6 @@ FILEI LINKI[1] = "%SCENARIO_DIR%\complete_transit_network.net"
                             LOOKUP[10]=1, RESULT=2,         ; 1 and 10 are rural area types
                             FAIL=0,0,0, INTERPOLATE=N,
                             LOOKUPI=2, LIST=Y
-							
-							
-	PHASE=NODEMERGE FILEI=NI.1 
-      IF (N=171197)
-        FAREZONE=1
-      ENDIF
-      IF (N=171198)
-        FAREZONE=2
-      ENDIF
-      IF (N=171199)
-        FAREZONE=3
-      ENDIF
-      IF (N=171200)
-        FAREZONE=4
-      ENDIF
-      IF (N=171201)
-        FAREZONE=5
-      ENDIF
-      IF (N=171202)
-        FAREZONE=6
-      ENDIF
-	  IF (N=171203)
-        FAREZONE=7
-      ENDIF
-	  
-	ENDPROCESS
 	  
             
 ;;--------------------------------------------------------------------------
@@ -123,8 +98,12 @@ FILEI LINKI[1] = "%SCENARIO_DIR%\complete_transit_network.net"
     
         IF (LOCTIME=0) 
             PRINT LIST='LOCAL BUS TIME IS ZERO FOR - ', A(6), B(6)
-        ENDIF        
+        ENDIF
+       
     ENDIF
+	
+	PRINT LIST = "A,B,SPEED,DISTANCE,_tspeed,LOCTIME", FILE = "DEBUG.CSV"
+	PRINT LIST = A(6), ",", B(6),",", SPEED(8.2),",", DISTANCE(8.2),",", _tspeed(8.2),",", LOCTIME(8.2), FILE = "DEBUG.CSV"
 ;;--------------------------------------------------------------------------
     
     ;Calculate Express Bus Transit Travel Time

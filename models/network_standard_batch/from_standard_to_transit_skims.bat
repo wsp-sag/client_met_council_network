@@ -18,6 +18,8 @@ CALL .\test_new_networks_parameters.bat
 
 COPY %complete_network_script_input_path% %complete_network_script_output_path%
 
+goto tnet
+
 :: ----------------------------------------------------------------------------
 ::
 :: Step 2:  Make Roadway Networks
@@ -133,7 +135,6 @@ FOR /L %%I IN (1, 4, 1) DO (
 		)
 	)
 
-:here
 :: Loop over peak/off-peak
 FOR /L %%I IN (1,2,1) DO (
     SET TOD=%%I
