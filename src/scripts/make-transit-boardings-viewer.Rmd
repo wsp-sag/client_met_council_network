@@ -56,7 +56,7 @@ stop_times_df <- read_csv(paste0(transit_dir, "stop_times.txt"), col_types = col
 nodes_sf <- st_read(paste0(road_dir, "node.geojson"), stringsAsFactors = FALSE)
 
 loaded_df <- tibble()
-for (period in c("PK")) {
+for (period in c("PK", "OP")) {
   for (access in c("WK", "DR")){
     
     filename <- paste0(loaded_file_prefix, access, "_LD_4_", period, ".DBF")
