@@ -189,4 +189,9 @@ newvolMD  = 0
 congMD    = 0
 SEGMENT_IDy = SEGMENT_ID
 
+; remove once these are added to the new network
+MNPASS_CODE = 0
+MNPASS_PAY = 0
+HOV_NO_MNPASS = 0
+
 endrun

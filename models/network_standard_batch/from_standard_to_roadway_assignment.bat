@@ -18,6 +18,8 @@ CALL .\test_new_networks_parameters.bat
 
 COPY %complete_network_script_input_path% %complete_network_script_output_path%
 
+SET ITER=4
+
 goto temp
 
 :: ----------------------------------------------------------------------------
@@ -47,11 +49,13 @@ if ERRORLEVEL 2 goto done
 ::
 :: ----------------------------------------------------------------------------
 :road
-SET ITER=4
 runtpp %SCRIPT_PATH%\BNNET00B.s
 if ERRORLEVEL 2 goto done
 
 runtpp %SCRIPT_PATH%\HNNET00B.s
+if ERRORLEVEL 2 goto done
+
+runtpp %SCRIPT_PATH%\make_assignable.s
 if ERRORLEVEL 2 goto done
 
 

@@ -1,7 +1,7 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=NETWORK MSG='Set Managed Lanes for: %NETNAME%'
 
-FILEI LINKI[1] = "%SCENARIO_DIR%\HWY_ALL_NET.net"
+FILEI LINKI[1] = "%SCENARIO_DIR%\HWY_ALL_NET_ASSIGN.net"
 FILEO NETO = "%SCENARIO_DIR%\HWY_NET_%TOD%.net"
 
 

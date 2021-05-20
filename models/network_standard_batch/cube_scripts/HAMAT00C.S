@@ -10,18 +10,18 @@ FILEI MATI[1] = "%SCENARIO_DIR%\HWY_SKIM_%ITER%_%PER%.tmp"
 DISTRIBUTEINTRASTEP ProcessID = 'Intrastep', ProcessList = 1 - %max_threads%
   zones = %zones%
 
-    ; calculate weighted skims - initial skims do not factor in here
+     ; calculate weighted skims - initial skims do not factor in here
 
     ; Drive alone
-    mw[1] = MI.1.33 * (1 / (%ITER%)) + MI.2.1 * ((%ITER% - 1) / (%ITER%))
-    mw[2] = MI.1.35 * (1 / (%ITER%)) + MI.2.2 * ((%ITER% - 1) / (%ITER%))
-    mw[3] = MI.1.31 * (1 / (%ITER%)) + MI.2.3 * ((%ITER% - 1) / (%ITER%))
+    mw[1] = MI.1.1 * (1/(%ITER%)) + MI.2.1 * ((%ITER%-1)/(%ITER%))
+    mw[2] = MI.1.2 * (1/(%ITER%)) + MI.2.2 * ((%ITER%-1)/(%ITER%))
+    mw[3] = MI.1.4 * (1/(%ITER%)) + MI.2.3 * ((%ITER%-1)/(%ITER%))
     mw[4] = 0
-    mw[5] = MI.1.40 * (1 / (%ITER%)) + MI.2.5 * ((%ITER% - 1) / (%ITER%))
+    mw[5] = MI.1.3 * (1/(%ITER%)) + MI.2.5 * ((%ITER%-1)/(%ITER%))
 
-    mw[1][I] = LOWEST(1, 1, 0.1, 999, I)/2
-    mw[3][I] = LOWEST(3, 1, 0.1, 999, I)/2
-    mw[5][I] = LOWEST(5, 1, 0.1, 999, I)/2
+    mw[1][I] = LOWEST(1,1,0.1,999,I)/2
+    mw[3][I] = LOWEST(3,1,0.1,999,I)/2
+    mw[5][I] = LOWEST(5,1,0.1,999,I)/2
 
     ; TODO: add switch here to set toll values if HOVPay
 

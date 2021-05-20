@@ -1,0 +1,79 @@
+---
+title: "Make Roadway Assignment Viewer"
+output: html_notebook
+---
+
+
+# Overhead
+```{r overhead, include = FALSE}
+packages_vector <- c("tidyverse",
+                     "arrow",
+                     "sf")
+
+need_to_install <- packages_vector[!(packages_vector %in% installed.packages()[,"Package"])]
+
+if (length(need_to_install)) install.packages(need_to_install)
+
+for (package in packages_vector) {
+  library(package, character.only = TRUE)
+}
+
+```
+
+# Remote I/O
+```{r remote-io}
+interim_dir <- "../../data/interim/"
+network_dir <- "../../network_standard/"
+model_out_dir <- "../../data/test_new_network_outputs/" 
+
+am_file_name <- paste0(model_out_dir, "HWY_LDNET_1_AM.shp")
+shape_file_name <- paste0(interim_dir, "simple_shape.RDS")
+
+output_file_name <- paste0(interim_dir, "roadway-assignment-viewer.geojson")
+```
+
+# Parameters
+```{r parameters}
+NETWORK_CRS <- 26915
+LAT_LNG_CRS <- 4326
+```
+
+
+# Data Reads
+```{r read}
+shapes_sf <- readRDS(shape_file_name)
+am_sf <- st_read(am_file_name, crs = NETWORK_CRS)
+
+```
+
+# Reductions 
+```{r reductions}
+loaded_df <- tibble(A = am_sf$A,
+                    B = am_sf$B,
+                    shape_id = am_sf$SHAPE_ID,
+                    shst_geom_id = am_sf$SHSTGEOMETR,
+                    model_link_id = am_sf$MODEL_LINK_,
+                    assignable = am_sf$ASSIGN,
+                    drive_access = am_sf$DRIVE_ACCES,
+                    distance = am_sf$DISTANCE,
+                    centroid = am_sf$CENTROIDCON,
+                    assign_group = am_sf$ASSIGN_GROU,
+                    segment_id = am_sf$SEGMENT_ID,
+                    lanes = am_sf$LANES,
+                    RCI = am_sf$RCI,
+                    volume_am = am_sf$V_1,
+                    vc_ratio_am = am_sf$VC_1,
+                    speed_am = am_sf$CSPD_1)
+
+output_sf <- loaded_df %>%
+  left_join(., shapes_sf, by = c("shape_id")) %>%
+  st_as_sf(.) %>%
+  filter(centroid == 0)
+
+```
+
+# Write
+```{r write}
+st_write(output_sf, output_file_name, delete_dsn = TRUE)
+```
+
