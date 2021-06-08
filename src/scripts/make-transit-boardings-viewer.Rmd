@@ -22,11 +22,10 @@ for (package in packages_vector) {
 
 # Remote I/O
 ```{r remote-io}
-transit_dir <- "../../network_standard/"
-road_dir <- "../../network_standard/"
+model_out_dir <- "../../data/test_new_network_outputs/"
 interim_dir <- "../../data/interim/"
 
-loaded_file_prefix <- paste0(interim_dir, "XIT_")
+loaded_file_prefix <- paste0(model_out_dir, "XIT_")
 
 output_file_name <- paste0(interim_dir, "simulated-transit-boardings-for-tableau.csv")
 ```
@@ -107,4 +106,5 @@ sum(output_df$boardings)
 ```{r write}
 write_csv(output_df, file = output_file_name)
 ```
+
 
