@@ -20,7 +20,7 @@ COPY %complete_network_script_input_path% %complete_network_script_output_path%
 
 SET ITER=4
 
-goto temp
+goto road
 
 :: ----------------------------------------------------------------------------
 ::
@@ -129,5 +129,7 @@ FOR /L %%I IN (1, 1, 4) DO (
     runtpp %SCRIPT_PATH%\HAMAT00C.s
 	if ERRORLEVEL 2 goto done
 )
+
+Write-Output "Complete at $(Get-Date)"
 
 :done

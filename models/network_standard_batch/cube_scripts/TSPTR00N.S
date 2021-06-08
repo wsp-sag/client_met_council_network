@@ -28,7 +28,7 @@ FILEI NETI = "%SCENARIO_DIR%\XIT_NET_%ITER%_%TPER%.NET"
 
         generate,
         fromnode=1-3061,
-        tonode=3100-99999,
+        tonode=3100-999999,
         direction=3,
         oneway=F,
         cost=li.Distance,

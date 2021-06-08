@@ -31,8 +31,8 @@ FILEI NETI = "%SCENARIO_DIR%\XIT_NET_%ITER%_%TPER%.NET"
         ;*************************************
         ;generate the transfer legs based on transfer links
         generate,
-        fromnode=3100-99999,
-        tonode=3100-99999,
+        fromnode=3100-999999,
+        tonode=3100-999999,
         direction=3,
         oneway=F,
         excludelink=(li.RCI=1-5,13,14),   ;no walking on freeway, tollway, and managed links
