@@ -20,8 +20,6 @@ COPY %complete_network_script_input_path% %complete_network_script_output_path%
 
 SET ITER=4
 
-goto road
-
 :: ----------------------------------------------------------------------------
 ::
 :: Step 2:  Make Roadway Networks

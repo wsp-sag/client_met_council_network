@@ -1,6 +1,5 @@
 project: 35W south managed lane
 tags:
-  - 'year_2018_corrections'
   - 'managed_lane'
 dependencies:
   prerequisites: []

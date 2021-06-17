@@ -1,6 +1,5 @@
 project: I-394 East Managed Lane
 tags:
-  - 'year_2018_corrections'
   - 'managed_lane'
 dependencies:
   prerequisites: []

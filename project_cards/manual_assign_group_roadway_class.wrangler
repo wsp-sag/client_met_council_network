@@ -12,7 +12,7 @@ category: Calculated Roadway
 from network_wrangler import RoadwayNetwork
 from lasso import Parameters
 
-lasso_dir = os.path.join('/Users', 'wsp', 'Documents', 'GitHub', 'lasso')
+lasso_dir = os.path.join('C:\\', 'Users', 'david.ory', 'Documents', 'GitHub', 'lasso')
 
 parameters = Parameters(lasso_base_dir = lasso_dir)
 
