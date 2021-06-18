@@ -128,6 +128,4 @@ FOR /L %%I IN (1, 1, 4) DO (
 	if ERRORLEVEL 2 goto done
 )
 
-Write-Output "Complete at $(Get-Date)"
-
 :done

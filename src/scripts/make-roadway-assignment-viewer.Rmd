@@ -29,7 +29,7 @@ model_out_dir <- "../../data/test_new_network_outputs/"
 am_file_name <- paste0(model_out_dir, "HWY_LDNET_4_AM.shp")
 shape_file_name <- paste0(interim_dir, "simple_shape.RDS")
 
-output_file_name <- paste0(interim_dir, "roadway-assignment-viewer.geojson")
+output_file_name <- paste0(interim_dir, "roadway-assignment-viewer")
 ```
 
 # Parameters
@@ -68,12 +68,16 @@ loaded_df <- tibble(A = am_sf$A,
 output_sf <- loaded_df %>%
   left_join(., shapes_sf, by = c("shape_id")) %>%
   st_as_sf(.) %>%
-  filter(centroid == 0)
+  filter(centroid == 0) %>%
+  filter(!is.na(shape_id))
+
 
 ```
 
+
 # Write
 ```{r write}
-st_write(output_sf, output_file_name, delete_dsn = TRUE)
+st_write(output_sf, paste0(output_file_name, ".geojson"), delete_dsn = TRUE)
+st_write(output_sf, paste0(output_file_name, ".shp"), delete_dsn = TRUE)
 ```
 
