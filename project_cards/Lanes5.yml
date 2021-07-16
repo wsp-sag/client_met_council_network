@@ -1,0 +1,43 @@
+project: Network Cleanup 1 Lanes 5
+tags:
+  - 'Network Cleanup Lanes'
+  - 'Roadway Property Change'
+dependencies: ''
+changes:
+- category: Roadway Property Change
+  facility:
+    link:
+    - model_link_id:
+      - 381119
+      - 381215
+      - 381583
+      - 381623
+      - 383623
+      - 386923
+      - 388725
+      - 388876
+      - 388978
+      - 389491
+      - 394869
+      - 396488
+      - 397184
+      - 398399
+      - 402776
+      - 406975
+      - 407742
+      - 411022
+      - 411031
+      - 413400
+      - 417022
+      - 417432
+      - 417656
+      - 417751
+      - 418512
+      - 418758
+      - 419291
+      - 383575
+      - 383997
+      - 384754
+  properties:
+  - property: lanes
+    set: 5
