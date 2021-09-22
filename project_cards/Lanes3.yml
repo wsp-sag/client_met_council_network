@@ -697,6 +697,6 @@ changes:
       - 1030766
       - 1085019
       - 1094780
-properties:
+  properties:
   - property: lanes
     set: 3

@@ -52,6 +52,6 @@ changes:
       - 418512
       - 418758
       - 419291
-properties:
+  properties:
   - property: lanes
     set: 5

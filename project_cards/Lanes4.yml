@@ -156,6 +156,6 @@ changes:
       - 421022
       - 421056
       - 421064
-properties:
+  properties:
   - property: lanes
     set: 4
