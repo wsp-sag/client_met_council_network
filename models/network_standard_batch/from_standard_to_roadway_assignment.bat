@@ -1,5 +1,5 @@
 ::~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-:: from_standard_to_transit_assignment.bat
+:: from_standard_to_roadway_assignment.bat
 ::
 :: MS-DOS batch file to go from the output from Network Wrangler to transit
 :: transit assignment.
@@ -26,8 +26,13 @@ SET ITER=4
 ::
 :: ----------------------------------------------------------------------------
 :rnet
-runtpp %SCRIPT_PATH%\make_complete_network_from_fixed_width_file.s
-if ERRORLEVEL 2 goto done
+
+rem This is a comment that is printed to the screen when the batch file runs
+:: This is a comment that is not printed to the screen
+
+:: Met Council: delete the next two lines if Rachel has created the network outside this process
+:: runtpp %SCRIPT_PATH%\make_complete_network_from_fixed_width_file.s
+:: if ERRORLEVEL 2 goto done
 
 runtpp %SCRIPT_PATH%\make_highway_network_from_file.s
 if ERRORLEVEL 2 goto done
