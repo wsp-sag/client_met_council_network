@@ -1,13 +1,13 @@
 project: Correct Year 2018 Assignment Group and Roadway Class
-valid: false
 tags:
-  - 'year_2018_corrections'
+- year_2018_corrections
+dependencies: ''
 changes:
 - category: Roadway Property Change
   facility:
     link:
     - model_link_id:
-      - 400170
+      - 45259
   properties:
   - property: assign_group
     set: 2

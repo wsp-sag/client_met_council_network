@@ -12,7 +12,9 @@ category: Calculated Roadway
 from network_wrangler import RoadwayNetwork
 from lasso import Parameters
 
-lasso_dir = os.path.join('C:\\', 'Users', 'david.ory', 'Documents', 'GitHub', 'lasso')
+from pyproj import CRS
+
+lasso_dir = os.path.join('Z:/Data/Users/Sijia/Met_Council/github/client_met_council_wrangler_utilities')
 
 parameters = Parameters(lasso_base_dir = lasso_dir)
 
@@ -32,7 +34,7 @@ area_type_gdf = area_type_gdf.to_crs(epsg=RoadwayNetwork.CRS)
 downtown_gdf = gpd.read_file(downtown_area_type_shape)
 downtown_gdf = downtown_gdf.to_crs(epsg=RoadwayNetwork.CRS)
 
-joined_gdf = gpd.sjoin(centroids_gdf, area_type_gdf, how="left", op="intersects")
+joined_gdf = gpd.sjoin(centroids_gdf, area_type_gdf, how="left", predicate="intersects")
 joined_gdf[area_type_shape_variable] = (
   joined_gdf[area_type_shape_variable]
   .map(area_type_codes_dict)
@@ -40,7 +42,7 @@ joined_gdf[area_type_shape_variable] = (
   .astype(int)
 )
 
-d_joined_gdf = gpd.sjoin(centroids_gdf, downtown_gdf, how="left", op="intersects")
+d_joined_gdf = gpd.sjoin(centroids_gdf, downtown_gdf, how="left", predicate="intersects")
 
 d_joined_gdf['downtown_area_type'] = d_joined_gdf['Id'].fillna(-99).astype(int)
 
@@ -57,8 +59,8 @@ centroids_gdf = self.links_df.copy()
 centroids_gdf["geometry"] = centroids_gdf["geometry"].centroid
 
 county_gdf = gpd.read_file(county_shape)
-county_gdf = county_gdf.to_crs(epsg=RoadwayNetwork.CRS)
-joined_gdf = gpd.sjoin(centroids_gdf, county_gdf, how="left", op="intersects")
+county_gdf = county_gdf.to_crs(CRS("epsg:4269"))
+joined_gdf = gpd.sjoin(centroids_gdf, county_gdf, how="left", predicate="intersects")
 
 joined_gdf[county_shape_variable] = (
   joined_gdf[county_shape_variable]
