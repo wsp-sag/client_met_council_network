@@ -1,0 +1,12 @@
+agency_id,agency_name,agency_url,agency_timezone,agency_lang,agency_raw_name,agency_phone
+0,Metro Transit,http://www.metrotransit.org,America/Chicago,EN,MT2019,
+2,Metro Transit,http://www.metrotransit.org,America/Chicago,EN,MT2019,
+4,Maple Grove,http://www.ci.maple-grove.mn.us,America/Chicago,EN,MT2019,
+5,Plymouth,http://www2.ci.plymouth.mn.us,America/Chicago,EN,MT2019,
+6,SouthWest Transit,http://www.swtransit.org,America/Chicago,EN,MT2019,
+10,Airport (MAC),http://www.mspairport.com/MAC,America/Chicago,EN,MT2019,
+11,University of Minnesota,http://www.umn.edu,America/Chicago,EN,MT2019,
+15,Other,http://www.metrotransit.org,America/Chicago,EN,MT2019,
+1,MVTA,http://www.mvta.com,America/Chicago,en,MV2019,952/882-7500
+2,Metro,http://www.metrotransit.org,America/Chicago,en,MV2019,612/349-7000
+3,Mystic,http://www.mysticlake.com/,America/Chicago,en,MV2019,952/445-9000
