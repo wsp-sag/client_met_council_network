@@ -61,3 +61,10 @@ data/interim/roadway-skims-tableau.csv
 data/interim/lanes-viewer.geojson
 model_files/ABM 2017/Cube/ASSIGN00.APP
 .DS_Store
+.DS_Store
+data/interim/roadway-assignment-viewer.geojson
+data/interim/compare-transit.csv
+data/interim/roadway-skims-tableau.hyper
+data/interim/roadway-assignment-viewer.zip
+data/interim/roadway-skims-tableau.zip
+.DS_Store
